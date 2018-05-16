@@ -1,0 +1,13 @@
+!!!!!!!!!!!!!!!!!!!!!
+! XClock parameters !
+! mjturt            !
+!!!!!!!!!!!!!!!!!!!!!
+
+XClock*width:                      540
+XClock*height:                     540
+XClock*update:                     1
+XClock*hourColor:                  cyan
+XClock*minuteColor:                cyan
+XClock*secondColor:                red
+XClock*majorColor:                 red
+XClock*minorColor:                 cyan
