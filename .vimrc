@@ -90,7 +90,6 @@ set encoding=utf-8
 "set cursorline
 "set cursorcolumn
 set ruler
-set number relativenumber
 set showmatch
 set nowrap
 set hlsearch
@@ -98,6 +97,10 @@ set noshowmode
 set list listchars=tab:∙\ ,extends:▶,precedes:◀
 set hidden
 set shortmess=atI
+
+set number relativenumber
+autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 
 set ttyfast
 set mouse=a
