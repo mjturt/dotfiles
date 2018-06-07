@@ -506,6 +506,6 @@ elif ! isFunction "$1"; then
    exit 1
 else
    mkdir $BACKUP
-   #$1 $2
+   $1 $2
    exit 0
 fi
