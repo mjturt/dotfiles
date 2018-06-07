@@ -1,0 +1,17 @@
+! ~/.config/rofi/config (R5)
+! --------------------------
+! mjturt
+
+! Basics
+rofi.color-enabled: true
+rofi.case-sensitive: false
+rofi.show-icons: true
+
+! Separator style (none, dash, solid)
+rofi.separator-style: solid
+
+! Font
+rofi.font: ShureTechMono Nerd Font Mono 10
+
+! Color theme
+#include "/home/mjt/.config/rofi/themes//dracula.theme"

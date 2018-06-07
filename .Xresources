@@ -1,0 +1,151 @@
+! ~/.Xresources 
+! -------------
+!  mjturt       
+! -------------
+! Host-specific configurations in ~/.Xresources.d/Xresources.host
+
+!-----------------
+! Basic settings |
+!-----------------
+
+Xft*dpi:                           96
+Xft*autohint:                      true
+Xft*hintstyle:                     hintslight
+Xft*lcdfilter:                     lcddefault
+Xft*embolden:                      false
+Xft*render:                        true
+Xft*hinting:                       true
+Xft*antialias:                     true
+Xft*rgba:                          rgb
+
+*Font:                             xft:ShureTechMono Nerd Font Mono:size=11
+
+Xmessage*defaultButton:            okay
+Xmessage*form.message.Scroll:      WhenNeeded
+
+*transparent:                      false
+*lineSpace:                        0
+! *letterSpace:                      -1
+! *fading:                           30
+*cursorBlink:                      true
+*cursorUnderline:                  true
+*saveLines:                        4096
+*shading:                          75
+*mouseWheelScrollPage:             false
+*pointerBlank:                     true
+*imLocale:                         en_US.utf8
+*imFont:                           xft:ShureTechMono Nerd Font Mono:size=11
+*utf8Title:                        true
+
+!---------
+! Colors |
+!---------
+
+*colorUL:                          #268bd2
+*underlineColor:                   #129b33
+*cursorColor:                      #c8ff00
+*cursorColor2:                     #004049
+!*highlightColor:                  #FF0000
+!*colorBD:                         #FF0000
+!*pointerColor:                    #656565
+!*foreground:                      #93a1a1
+!*background:                      #002b36
+
+!-------------------
+! URxvt parameters |
+!-------------------
+
+URxvt*font:                        xft:ShureTechMono Nerd Font Mono:size=11
+URxvt*boldFont:                    xft:ShureTechMono Nerd Font Mono:Bold:size=11
+URxvt*italicFont:                  xft:ShureTechMono Nerd Font Mono:Italic:size=11
+URxvt*boldItalicFont:              xft:ShureTechMono Nerd Font Mono:Bold:Italic:size=11
+URxvt*scrollBar:                   false
+URxvt*borderLess:                  false
+URxvt*internalBorder:              5
+URxvt*depth:                       32
+URxvt.letterSpace:                 -1 
+URxvt*skipBuiltinGlyphs:           true
+URxvt*perl-lib:                    /usr/lib/urxvt/perl/
+URxvt.perl-ext-common:             default,matcher,font-size,keyboard-select-mod,clipboard,selection-to-clipboard,vtwheel
+URxvt*iso14755:                    false
+URxvt*iso14755_52:                 false
+URxvt*cutchars:                    BACKSLASH '"'&()*,;<=>?@[]^{|}
+URxvt*urgentOnBell:                true
+
+URxvt.keysym.Shift-Up:             command:\033]720;1\007
+URxvt.keysym.Shift-Down:           command:\033]721;1\007
+URxvt.keysym.Meta-l:               command:\033]720;8\007
+URxvt.keysym.Meta-k:               command:\033]721;8\007
+URxvt*keysym.Control-Shift-C:      perl:clipboard:copy
+URxvt*keysym.Control-Shift-V:      perl:clipboard:paste
+URxvt.keysym.Control-Escape:       perl:keyboard-select:activate
+URxvt*keysym.Control-Return:       perl:matcher:last
+URxvt*keysym.Control-BackSpace:    perl:matcher:list
+URxvt.keysym.Control-Shift-Up:     perl:font-size:increase
+URxvt.keysym.Control-Shift-Down:   perl:font-size:decrease
+
+URxvt*matcher.pattern.0:           (?:https?:\\/\\/|ftp:\\/\\/|rsync:\\/\\/|news:\\/\\/|mailto:|file:\\/\\/|\\bwww\\.)\n\[a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\n\(\n\\\([a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\\)| # Allow a pair of matched parentheses\n\[a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_+*~]  # exclude some trailing characters (heuristic)\n\)+
+URxvt*matcher.button:              1
+URxvt*url-launcher:                /usr/bin/xdg-open
+URxvt*underlineURLs:               true
+URxvt.clipboard.autocopy:          true
+URxvt.keyboard-select.clipboard:   true
+
+URxvt*tabbed.new-button:           no
+URxvt*tabbed.tabbar-fg:            12
+URxvt*tabbed.tabbar-bg:            8
+URxvt*tabbed.tab-fg:               8
+URxvt*tabbed.tab-bg:               12
+URxvt*tabbed.title-fg:             12
+URxvt*tabbed.title-bg:             8
+URxvt*tabbed.autohide:             true
+URxvt*tabbed.reopen-on-close:      yes
+
+!-----------------
+! Other programs |
+!-----------------
+
+! XTerm/UXTerm
+
+*xterm*termName:                   xterm-256color
+*xterm*locale:                     true
+*xterm*utf8:                       2
+*xterm*metaSendsEscape:            true
+*xterm*renderFont:                 true
+*xterm*faceName:                   xft:ShureTechMono Nerd Font Mono:size=11
+*xterm*bellIsUrgent:               true
+*xterm*scaleHeight:                1.01
+*xterm*borderWidth:                0
+*xterm*selectToClipboard:          true
+*xterm*allowSendEvents:            false
+*xterm*sessionMgt:                 false
+*xterm*VT100*colorULMode:          on
+*xterm*VT100*colorBDMode:          off
+*xterm*VT100.titeInhibit:          off
+*xterm*VT100.translations:         #override \n Shift <Key>Home: scroll-back(4096) \n Shift <Key>End: scroll-forw(4096)
+*xterm*VT100.geometry:             80x32
+*xterm*SimpleMenu*background:      #353535
+*xterm*SimpleMenu*foreground:      #AAA
+*xterm*dynamicColors:              true
+*xterm*eightBitInput:              true
+*xterm*eightBitControl:            false
+*xterm*eightBitOutput:             true
+*xterm*trimSelection:              true
+*xterm*charClass:                  33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
+
+! XClock
+
+XClock*width:                      350
+XClock*height:                     350
+XClock*update:                     1
+XClock*hourColor:                  cyan
+XClock*minuteColor:                cyan
+XClock*secondColor:                red
+XClock*majorColor:                 red
+XClock*minorColor:                 cyan
+
+!------------------------------
+! Host-specific configuration |
+!------------------------------
+
+#include ".Xresources.d/Xresources.host

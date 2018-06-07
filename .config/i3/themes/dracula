@@ -1,0 +1,22 @@
+# Dracula colorscheme ported for i3 by mjturt
+
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused          #bd93f9 #bd93f9 #000000 #282a36
+client.focused_inactive #44475a #44475a #888888 #282a36
+client.unfocused        #282a36 #282a36 #999999 #282a36
+client.urgent           #ff79c6 #ff79c6 #f8f8f2 #ff5555
+
+# $i3-theme-bar
+colors {
+    # <bar>
+   separator  #44475a
+   background #282a36
+   statusline #f8f8f2
+
+    # <workclass>      <border> <bg> <text>
+   focused_workspace   #bd93f9 #bd93f9 #000000
+   active_workspace    #282a36 #282a36 #f8f8f2
+   inactive_workspace  #282a36 #282a36 #888888
+   urgent_workspace    #ff5555 #ff5555 #f8f8f2
+}

@@ -1,0 +1,23 @@
+#!/bin/sh
+# Lock script
+
+if [[ $1 == "r5" ]]; then
+   xidlehook \
+      --time 10 \
+      --timer 'xrandr --output HDMI-0 --brightness 1 && xrandr --output DVI-I-1 --brightness 1; i3lock -c 463c65' \
+      --notify 10 \
+      --notifier  'xrandr --output HDMI-0 --brightness .2 && xrandr --output DVI-I-1 --brightness .2' \
+      --canceller 'xrandr --output HDMI-0 --brightness 1 && xrandr --output DVI-I-1 --brightness 1' \
+      --not-when-fullscreen 
+elif [[ $1 == "thinkpad" ]]; then
+   xidlehook \
+      --time 5 \
+      --timer 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness 1; i3lock-fancy -f DS\-Terminal' \
+      --notify 10 \
+      --notifier  'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness .1' \
+      --canceller 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness 1' \
+      --not-when-fullscreen 
+else
+   echo "Must specify host!"
+fi
+

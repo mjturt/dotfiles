@@ -1,0 +1,76 @@
+# ~/.xbindkeysrc (R5)
+# -------------------
+# mjturt
+
+### Keyboard (DZ60)
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+XF86AudioPrev
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+XF86AudioNext
+
+#"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+#XF86AudioPlay
+
+"mutespotify"
+XF86AudioPlay
+
+"ponymix increase 5"
+XF86AudioRaiseVolume
+
+"ponymix decrease 5"
+XF86AudioLowerVolume
+
+"ponymix increase 5"
+Control+Up
+
+"ponymix decrease 5"
+Control+Down
+
+"ponymix toggle"
+XF86AudioMute
+
+"xrdb ~/.Xresources && pkill xbindkeys && xbindkeys"
+Control+Alt+r
+
+"scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'"
+Print
+
+"setxkbmap fi"
+Control+Alt+f
+
+"rofi -show drun"
+Alt+space
+
+### Mouse (Logitech MX Master) 
+
+# Thumb button
+"sleep 0.1 && xte 'XF86AudioMute'"                                
+   m:0xc + c:23
+
+# Thumb back key       
+"xte 'key XF86AudioLowerVolume'"                
+   b:8                                   
+                                        
+# Thumb forward key
+"xte 'key XF86AudioRaiseVolume'"        
+   b:9
+
+## Alternative mouse configuration with thumb wheel controls volume
+
+# Vertical scroll up
+#"xte 'key XF86AudioRaiseVolume'"
+#   b:6
+
+# Vertical scroll down
+#"xte 'key XF86AudioLowerVolume'"
+#   b:7
+                                        
+# Thumb back key       
+#"xte 'key XF86AudioPrev'"                
+#   b:8                                   
+                                        
+# Thumb forward key
+#"xte 'key XF86AudioNext'"                
+#   b:9

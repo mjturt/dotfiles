@@ -1,0 +1,12 @@
+! ~/.Xresources.d/Xresources.host (Thinkpad)
+! ------------------------------------------
+! mjturt
+
+! Host-specifis configurations
+
+Xcursor.theme:                     Numix
+Xcursor.size:                      22
+
+#include ".Xresources.d/colors/atelierforest"
+
+URxvt.background:                  [95]#002b36

@@ -1,0 +1,73 @@
+# ~/.xbindkeysrc (Thinkpad)
+# -------------------------
+# mjturt
+
+### Keyboard (Thinkpad)
+
+"i3lock-fancy -f Ancient-Geek"
+XF86Display
+
+"amixer -D pulse sset Master toggle"
+XF86AudioMute
+
+"ponymix increase 5"
+XF86AudioRaiseVolume
+
+"ponymix decrease 5"
+XF86AudioLowerVolume
+
+"amixer -D pulse sset Capture toggle"
+XF86AudioMicMute
+
+"xbacklight -inc 10"
+XF86MonBrightnessUp
+
+"xbacklight -dec 10"
+XF86MonBrightnessDown
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+XF86LaunchA
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+XF86Explorer
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+XF86Tools
+
+"touchpadtoggle.sh"
+Control+Alt + t
+
+"catfish"
+Control+Alt + s
+
+"scrot ~/cloud/images/screenshots/%Y-%m-%d-%T-screenshot.png"
+Print
+
+# For external keyboard
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+XF86AudioPrev
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+XF86AudioNext
+
+### External mouse (MX Master)
+
+# thumb wheel up => increase volume
+#"xte 'key XF86AudioRaiseVolume'"
+#   b:6
+
+# thumb wheel down => lower volume
+#"xte 'key XF86AudioLowerVolume'"
+#   b:7
+
+# backward button => previous song       
+#"xte 'key XF86AudioPrev'"                
+#   b:8                                   
+                                        
+# forward button => next song            
+#"xte 'key XF86AudioNext'"                
+#   b:9
+
+#"sleep 0.1 && xte 'key XF86AudioMute'"                                        
+#   m:0xc + c:64

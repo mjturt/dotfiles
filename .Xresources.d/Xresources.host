@@ -1,0 +1,12 @@
+! ~/.Xresources.d/Xresources.host (R5)
+! ------------------------------------
+! mjturt
+
+! Host-specifis configurations
+
+Xcursor.theme:                     BMZ
+Xcursor.size:                      22
+
+#include ".Xresources.d/colors/dracula"
+
+URxvt.background:                  [98]#282a36
