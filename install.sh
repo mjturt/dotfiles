@@ -1,39 +1,40 @@
-#!/bin/sh
+#!/bin/bash
 # Install script for mjturt's dotfiles
 
 ### Annoying starting animation
 
-function animate {
-   echo -$2e "     $1\033[0K\r"
-   sleep 0.1
+animate () {
+   echo -ne "     $1\033[0K\r"
+   sleep $2
 }
 
 echo
-echo -e "       \e[1;32m▛▀▖▞▀▖▀▛▘\e[0;34m▛▀▘▜▘▌  ▛▀▘▞▀"
-echo -e "       \e[1;32m▌ ▌▌ ▌ ▌\e[0;34m ▙▄ ▐ ▌  ▙▄ ▚▄"
-echo -e "       \e[1;32m▌ ▌▌ ▌ ▌\e[0;34m ▌  ▐ ▌  ▌  ▖ ▌"
-echo -e "       \e[1;32m▀▀ ▝▀  ▘\e[0;34m ▘  ▀▘▀▀▘▀▀▘▝▀"
+echo -e "       \e[1;35m▛▀\e[1;31m▖▞\e[1;33m▀▖\e[1;32m▀▛\e[1;36m▘▛\e[0;34m▀▘\e[0;35m▜▘\e[0;31m▌ \e[0;33m ▛\e[0;32m▀▘\e[0;36m▞▀"
+echo -e "       \e[1;31m▌ \e[0;34m▌▌ \e[0;32m▌ \e[0;36m▌\e[0;34m ▙\e[0;35m▄ \e[0;31m▐ \e[0;33m▌ \e[0;32m ▙\e[0;36m▄ \e[0;34m▚▄"
+echo -e "       \e[1;33m▌ \e[0;32m▌▌ \e[0;36m▌ \e[0;34m▌\e[0;35m ▌  \e[0;33m▐ \e[0;32m▌ \e[0;36m ▌ \e[0;35m ▖ \e[0;31m▌"
+echo -e "       \e[1;32m▀▀ \e[0;34m▝▀  \e[0;35m▘\e[0;31m ▘ \e[0;32m ▀▘\e[0;36m▀▀\e[0;34m▘▀\e[0;35m▀▘\e[0;31m▝▀"
 sleep 0.1
-echo -e "\e[1;30m     --------------------------"
-animate "\e[1;31mＩ\e[0m" n
-animate "\e[1;31mＩＮ\e[0m" n
-animate "\e[1;31mＩＮＳ\e[0m" n
-animate "\e[1;31mＩＮＳＴ\e[0m" n
-animate "\e[1;31mＩＮＳＴＡ\e[0m" n
-animate "\e[1;31mＩＮＳＴＡＬ\e[0m" n
-animate "\e[1;31mＩＮＳＴＡＬＬ\e[0m" n
-animate "\e[1;31mＩＮＳＴＡＬＬ\e[1;33mＳ\e[0m" n
-animate "\e[1;31mＩＮＳＴＡＬＬ\e[1;33mＳＣ\e[0m" n
-animate "\e[1;31mＩＮＳＴＡＬＬ\e[1;33mＳＣＲ\e[0m" n
-animate "\e[1;31mＩＮＳＴＡＬＬ\e[1;33mＳＣＲＩ\e[0m" n
-animate "\e[1;31mＩＮＳＴＡＬＬ\e[1;33mＳＣＲＩＰ\e[0m" n
-animate "\e[1;31mＩＮＳＴＡＬＬ\e[1;33mＳＣＲＩＰＴ\e[0m" n
+echo -e "\e[1;30m     ──────────────────────────"
+animate "\e[1;34mＩ\e[0m" 0.1
+animate "\e[1;34mＩＮ\e[0m" 0.1
+animate "\e[1;34mＩＮＳ\e[0m" 0.1
+animate "\e[1;34mＩＮＳＴ\e[0m" 0.1
+animate "\e[1;34mＩＮＳＴＡ\e[0m" 0.1
+animate "\e[1;34mＩＮＳＴＡＬ\e[0m" 0.1
+animate "\e[1;34mＩＮＳＴＡＬＬ\e[0m" 0.1
+animate "\e[1;34mＩＮＳＴＡＬＬ\e[1;35mＳ\e[0m" 0.1
+animate "\e[1;34mＩＮＳＴＡＬＬ\e[1;35mＳＣ\e[0m" 0.1
+animate "\e[1;34mＩＮＳＴＡＬＬ\e[1;35mＳＣＲ\e[0m" 0.1
+animate "\e[1;34mＩＮＳＴＡＬＬ\e[1;35mＳＣＲＩ\e[0m" 0.1
+animate "\e[1;34mＩＮＳＴＡＬＬ\e[1;35mＳＣＲＩＰ\e[0m" 0.1
+animate "\e[1;34mＩＮＳＴＡＬＬ\e[1;35mＳＣＲＩＰＴ\e[0m" 0.1
 echo
 echo
 
-# Variables and testing function
+### Variables and testing function
 
 BACKUP=~/dotfiles-backup-$(date +%H%M%S)
+LOGS=${BACKUP}/dotfiles-logs-$(date +%H%M%S).log
 DOT=$(pwd)
 isFunction() { [[ "$(declare -Ff "$1")" ]]; }
 
@@ -84,7 +85,7 @@ host_r5 () {
 }
 
 # Only host-specific files (server)
-hostserver () {
+host_server () {
    df_zsh server
    df_ranger server
 }
@@ -110,108 +111,145 @@ host_thinkpad () {
 # ViM (commons)
 df_vim () {
    if [[ -e ~/.vim ]]; then
-      mv ~/.vim $BACKUP
+      mv -v ~/.vim $BACKUP >> $LOGS
+   elif [[ -L ~/.vim ]]; then
+      rm -v ~/.vim >> $LOGS
    fi
    if [[ -e ~/.vimrc ]]; then
-      mv ~/.vimrc $BACKUP
+      mv -v ~/.vimrc $BACKUP >> $LOGS
+   elif [[ -L ~/.vimrc ]]; then
+      rm -v ~/.vimrc >> $LOGS
    fi
    if [[ -e ~/.gvimrc ]]; then
-      mv ~/.gvimrc $BACKUP
+      mv -v ~/.gvimrc $BACKUP >> $LOGS
+   elif [[ -L ~/.gvimrc ]]; then
+      rm -v ~/.gvimrc >> $LOGS
    fi
-   mkdir ~/.vim
-   ln -s ${DOT}/.vimrc ~/.vimrc
-   ln -s ${DOT}/.vim/indent ~/.vim/indent
-   ln -s ${DOT}/.vim/projects.vim ~/.vim/projects.vim
-   ln -s ${DOT}/.gvimrc ~/.gvimrc
+   mkdir -v ~/.vim >> $LOGS
+   mkdir -v ~/.vim/temp >> $LOGS
+   mkdir -v ~/.vim/temp/backup >> $LOGS
+   mkdir -v ~/.vim/temp/swap >> $LOGS
+   mkdir -v ~/.vim/temp/undo >> $LOGS
+   ln -v -s ${DOT}/.vimrc ~/.vimrc >> $LOGS
+   ln -v -s ${DOT}/.vim/indent ~/.vim/indent >> $LOGS
+   ln -v -s ${DOT}/.vim/projects.vim ~/.vim/projects.vim >> $LOGS
+   ln -v -s ${DOT}/.gvimrc ~/.gvimrc >> $LOGS
 }
 
 # Tmux (commons)
 df_tmux () {
    if [[ -e ~/.tmux.conf ]]; then
-      mv ~/.tmux.conf $BACKUP
+      mv -v ~/.tmux.conf $BACKUP >> $LOGS
+   elif [[ -L ~/.tmux.conf ]]; then
+      rm -v ~/.tmux.conf >> $LOGS
    fi
-   ln -s ${DOT}/.tmux.conf ~/.tmux.conf
+   ln -v -s ${DOT}/.tmux.conf ~/.tmux.conf >> $LOGS
 }
 
 # ZSH (commons, r5, server, thinkpad)
 df_zsh () {
-   if [[ $1 -eq 0 ]]; then
+   if [[ -z "$1" ]]; then
       if [[ -e ~/.zsh ]]; then
-         mv ~/.zsh $BACKUP
+         mv -v ~/.zsh $BACKUP >> $LOGS
+      elif [[ -L ~/.zsh ]]; then
+         rm -v ~/.zsh >> $LOGS
       fi
-      mkdir ~/.zsh
-      ln -s ${DOT}/.zsh/completion ~/.zsh/completion
-      ln -s ${DOT}/.zsh/themes ~/.zsh/themes
-      ln -s ${DOT}/.zsh/aliases.zsh ~/.zsh/aliases.zsh
-      ln -s ${DOT}/.zsh/evars.zsh ~/.zsh/evars.zsh
-      ln -s ${DOT}/.zsh/functions.zsh ~/.zsh/functions.zsh
-      ln -s ${DOT}/.zsh/keybindings.zsh ~/.zsh/keybindings.zsh
-      ln -s ${DOT}/.zsh/private.zsh ~/.zsh/private.zsh
+      mkdir -v ~/.zsh >> $LOGS
+      ln -v -s ${DOT}/.zsh/completion ~/.zsh/completion >> $LOGS
+      ln -v -s ${DOT}/.zsh/themes ~/.zsh/themes >> $LOGS
+      ln -v -s ${DOT}/.zsh/aliases.zsh ~/.zsh/aliases.zsh >> $LOGS
+      ln -v -s ${DOT}/.zsh/evars.zsh ~/.zsh/evars.zsh >> $LOGS
+      ln -v -s ${DOT}/.zsh/functions.zsh ~/.zsh/functions.zsh >> $LOGS
+      ln -v -s ${DOT}/.zsh/keybindings.zsh ~/.zsh/keybindings.zsh >> $LOGS
+      ln -v -s ${DOT}/.zsh/private.zsh ~/.zsh/private.zsh >> $LOGS
    elif [[ $1 == "r5" ]]; then
       if [[ -e ~/.zshrc ]]; then
-         mv ~/.zshrc $BACKUP
+         mv -v ~/.zshrc $BACKUP >> $LOGS
+      elif [[ -L ~/.zshrc ]]; then
+         rm -v ~/.zshrc >> $LOGS
       fi
       if [[ -e ~/.zsh/plugins ]]; then
-         mv ~/.zsh/plugins $BACKUP
+         mv -v ~/.zsh/plugins $BACKUP >> $LOGS
+      elif [[ -L ~/.zsh/plugins ]]; then
+         rm -v ~/.zsh/plugins >> $LOGS
       fi
       if [[ -e ~/.zprofile ]]; then
-         mv ~/.zprofile $BACKUP
+         mv -v ~/.zprofile $BACKUP >> $LOGS
+      elif [[ -L ~/.zprofile ]]; then
+         rm -v ~/.zprofile >> $LOGS
       fi
-      ln -s ${DOT}/.zshrc ~/.zshrc
-      ln -s ${DOT}/.zsh/plugins ~/.zsh/plugins
-      ln -s ${DOT}/.zprofile ~/.zprofile
+      ln -v -s ${DOT}/.zshrc ~/.zshrc >> $LOGS
+      ln -v -s ${DOT}/.zsh/plugins ~/.zsh/plugins >> $LOGS
+      ln -v -s ${DOT}/.zprofile ~/.zprofile >> $LOGS
    elif [[ $1 == "server" ]]; then
       if [[ -e ~/.zshrc ]]; then
-         mv ~/.zshrc $BACKUP
+         mv -v ~/.zshrc $BACKUP >> $LOGS
+      elif [[ -L ~/.zshrc ]]; then
+         rm -v ~/.zshrc >> $LOGS
       fi
       if [[ -e ~/.zprofile ]]; then
-         mv ~/.zprofile $BACKUP
+         mv -v ~/.zprofile $BACKUP >> $LOGS
+      elif [[ -L ~/.zprofile ]]; then
+         rm -v ~/.zprofile >> $LOGS
       fi
-      ln -s ${DOT}/server/.zshrc ~/.zshrc
-      ln -s ${DOT}/server/.zprofile ~/.zprofile
+      ln -v -s ${DOT}/server/.zshrc ~/.zshrc >> $LOGS
+      ln -v -s ${DOT}/server/.zprofile ~/.zprofile >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.zshrc ]]; then
-         mv ~/.zshrc $BACKUP
+         mv -v ~/.zshrc $BACKUP >> $LOGS
+      elif [[ -L ~/.zshrc ]]; then
+         rm -v ~/.zshrc >> $LOGS
       fi
       if [[ -e ~/.zprofile ]]; then
-         mv ~/.zprofile $BACKUP
+         mv -v ~/.zprofile $BACKUP >> $LOGS
+      elif [[ -L ~/.zprofile ]]; then
+         rm -v ~/.zprofile >> $LOGS
       fi
-      ln -s ${DOT}/thinkpad/.zshrc ~/.zshrc
-      ln -s ${DOT}/thinkpad/.zprofile ~/.zprofile
+      ln -v -s ${DOT}/thinkpad/.zshrc ~/.zshrc >> $LOGS
+      ln -v -s ${DOT}/thinkpad/.zprofile ~/.zprofile >> $LOGS
    fi
 }
 
 # Ranger (commons, r5, server, thinkpad)
 df_ranger () {
-   if [[ $1 -eq 0 ]]; then
+   if [[ -z "$1" ]]; then
       if [[ -e ~/.config/ranger ]]; then
-         mv ~/.config/ranger $BACKUP
+         mv -v ~/.config/ranger $BACKUP >> $LOGS
+      elif [[ -L ~/.config/ranger ]]; then
+         rm -v ~/.config/ranger >> $LOGS
       fi
-      mkdir ~/.config/ranger
-      mkdir ~/.config/ranger/colorschemes
-      mkdir ~/.config/ranger/plugins
-      ln -s ${DOT}/.config/ranger/rc.conf ~/.config/ranger/rc.conf
-      ln -s ${DOT}/.config/ranger/rifle.conf ~/.config/ranger/rifle.conf
-      ln -s ${DOT}/.config/ranger/scope.conf ~/.config/ranger/scope.conf
-      ln -s ${DOT}/.config/ranger/commands.py ~/.config/ranger/commands.py
-      ln -s ${DOT}/.config/ranger/devicons.py ~/.config/ranger/devicons.py
-      ln -s ${DOT}/.config/ranger/colorschemes/*.py ~/.config/ranger/colorschemes
-      ln -s ${DOT}/.config/ranger/plugins/*.py ~/.config/ranger/plugins
+      mkdir -v ~/.config/ranger >> $LOGS
+      mkdir -v ~/.config/ranger/colorschemes >> $LOGS
+      mkdir -v ~/.config/ranger/plugins >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/rc.conf ~/.config/ranger/rc.conf >> $LOGS >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/rifle.conf ~/.config/ranger/rifle.conf >> $LOGS >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/scope.sh ~/.config/ranger/scope.sh >> $LOGS >> $LOGS
+      chmod -v +x ~/.config/ranger/scope.sh >> $LOGS >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/commands.py ~/.config/ranger/commands.py >> $LOGS >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/devicons.py ~/.config/ranger/devicons.py >> $LOGS >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/colorschemes/*.py ~/.config/ranger/colorschemes >> $LOGS >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/plugins/*.py ~/.config/ranger/plugins >> $LOGS >> $LOGS
    elif [[ $1 == "r5" ]]; then
       if [[ -e ~/.config/ranger/bookmarks ]]; then
-         mv ~/.config/ranger/bookmarks $BACKUP
+         mv -v ~/.config/ranger/bookmarks $BACKUP >> $LOGS
+      elif [[ -L ~/.config/ranger/bookmarks ]]; then
+         rm -v ~/.config/ranger/bookmarks >> $LOGS
       fi
-      ln -s ${DOT}/.config/ranger/bookmarks ~/.config/ranger/bookmarks
+      ln -v -s ${DOT}/.config/ranger/bookmarks ~/.config/ranger/bookmarks >> $LOGS
    elif [[ $1 == "server" ]]; then
       if [[ -e ~/.config/ranger/bookmarks ]]; then
-         mv ~/.config/ranger/bookmarks $BACKUP
+         mv -v ~/.config/ranger/bookmarks $BACKUP >> $LOGS
+      elif [[ -L ~/.config/ranger/bookmarks ]]; then
+         rm -v ~/.config/ranger/bookmarks >> $LOGS
       fi
-      ln -s ${DOT}/server/.config/ranger/bookmarks ~/.config/ranger/bookmarks
+      ln -v -s ${DOT}/server/.config/ranger/bookmarks ~/.config/ranger/bookmarks >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.config/ranger/bookmarks ]]; then
-         mv ~/.config/ranger/bookmarks $BACKUP
+         mv -v ~/.config/ranger/bookmarks $BACKUP >> $LOGS
+      elif [[ -L ~/.config/ranger/bookmarks ]]; then
+         rm -v ~/.config/ranger/bookmarks >> $LOGS
       fi
-      ln -s ${DOT}/thinkpad/.config/ranger/bookmarks ~/.config/ranger/bookmarks
+      ln -v -s ${DOT}/thinkpad/.config/ranger/bookmarks ~/.config/ranger/bookmarks >> $LOGS
    fi
 
 }
@@ -219,144 +257,186 @@ df_ranger () {
 # GNU Screen (commons)
 df_screen () {
    if [[ -e ~/.screenrc ]]; then
-      mv ~/.screenrc $BACKUP
+      mv -v ~/.screenrc $BACKUP >> $LOGS
+   elif [[ -L ~/.screenrc ]]; then
+      rm -v ~/.screenrc >> $LOGS
    fi
-   ln -s ${DOT}/.screenrc ~/.screenrc
+   ln -v -s ${DOT}/.screenrc ~/.screenrc >> $LOGS
 }
 
 # GNU Less (commons)
 df_less () {
    if [[ -e ~/.lesskey ]]; then
-      mv ~/.lesskey $BACKUP
+      mv -v ~/.lesskey $BACKUP >> $LOGS
+   elif [[ -L ~/.lesskey ]]; then
+      rm -v ~/.lesskey >> $LOGS
    fi
    if [[ -e ~/.lessfilter ]]; then
-      mv ~/.lessfilter $BACKUP
+      mv -v ~/.lessfilter $BACKUP >> $LOGS
+   elif [[ -L ~/.lessfilter ]]; then
+      rm -v ~/.lessfilter >> $LOGS
    fi
-   ln -s ${DOT}/.lesskey ~/.lesskey
-   ln -s ${DOT}/.lessfilter ~/.lessfilter
+   ln -v -s ${DOT}/.lesskey ~/.lesskey >> $LOGS
+   ln -v -s ${DOT}/.lessfilter ~/.lessfilter >> $LOGS
    lesskey ~/.lesskey
+   chmod -v +x ~/.lessfilter >> $LOGS >> $LOGS
 }
 
 # Scripts (commons)
 df_scripts () {
    if [[ -e ~/bin ]]; then
-      mv ~/bin $BACKUP
+      mv -v ~/bin $BACKUP >> $LOGS
+   elif [[ -L ~/bin ]]; then
+      rm -v ~/bin >> $LOGS
    fi
    if [[ -e ~/.statusscripts ]]; then
-      mv ~/.statusscripts $BACKUP
+      mv -v ~/.statusscripts $BACKUP >> $LOGS
+   elif [[ -L ~/.statusscripts ]]; then
+      rm -v ~/.statusscripts >> $LOGS
    fi
-   ln -s ${DOT}/scripts/bin ~/bin
-   ln -s ${DOT}/scripts/bin ~/cloud/bin
-   ln -s ${DOT}/scripts/statusscripts ~/.statusscripts
+   ln -v -s ${DOT}/scripts/bin ~/bin >> $LOGS
+   ln -v -s ${DOT}/scripts/statusscripts ~/.statusscripts >> $LOGS
+   chmod -v -R +x ~/bin/* >> $LOGS
+   chmod -v -R +x ~/.statusscripts/* >> $LOGS
 }
 
 # Xresources (common, r5, thinkpad)
 df_xresources () {
-   if [[ $1 -eq 0 ]]; then
+   if [[ -z "$1" ]]; then
       if [[ -e ~/.Xresources.d ]]; then
-         mv ~/.Xresources.d $BACKUP
+         mv -v ~/.Xresources.d $BACKUP >> $LOGS
+      elif [[ -L ~/.Xresources.d ]]; then
+         rm -v ~/.Xresources.d >> $LOGS
       fi
       if [[ -e ~/.Xresources ]]; then
-         mv ~/.Xresources $BACKUP
+         mv -v ~/.Xresources $BACKUP >> $LOGS
+      elif [[ -L ~/.Xresources ]]; then
+         rm -v ~/.Xresources >> $LOGS
       fi
-      mkdir ~/.Xresources.d
-      ln -s ${DOT}/.Xresources ~/.Xresources
-      ln -s ${DOT}/.Xresources.d/colors ~/.Xresources.d/colors
+      mkdir -v ~/.Xresources.d >> $LOGS
+      ln -v -s ${DOT}/.Xresources ~/.Xresources >> $LOGS
+      ln -v -s ${DOT}/.Xresources.d/colors ~/.Xresources.d/colors >> $LOGS
    elif [[ $1 == "r5" ]]; then
       if [[ -e ~/.Xresources.d/Xresources.host ]]; then
-         mv ~/.Xresources.d/Xresources.host $BACKUP
+         mv -v ~/.Xresources.d/Xresources.host $BACKUP >> $LOGS
+      elif [[ -L ~/.Xresources.d/Xresources.host ]]; then
+         rm -v ~/.Xresources.d/Xresources.host >> $LOGS
       fi
-      ln -s ${DOT}/.Xresources.d/Xresources.host ~/.Xresources.d/Xresources.host
+      ln -v -s ${DOT}/.Xresources.d/Xresources.host ~/.Xresources.d/Xresources.host >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.Xresources.d/Xresources.host ]]; then
-         mv ~/.Xresources.d/Xresources.host $BACKUP
+         mv -v ~/.Xresources.d/Xresources.host $BACKUP >> $LOGS
+      elif [[ -L ~/.Xresources.d/Xresources.host ]]; then
+         rm -v ~/.Xresources.d/Xresources.host >> $LOGS
       fi
-      ln -s ${DOT}/thinkpad/.Xresources.d/Xresources.host ~/.Xresources.d/Xresources.host
+      ln -v -s ${DOT}/thinkpad/.Xresources.d/Xresources.host ~/.Xresources.d/Xresources.host >> $LOGS
    fi
 }
 
 # Rofi (commons, r5, thinkpad)
 df_rofi () {
-   if [[ $1 -eq 0 ]]; then
+   if [[ -z "$1" ]]; then
       if [[ -e ~/.config/rofi ]]; then
-         mv ~/.config/rofi $BACKUP
+         mv -v ~/.config/rofi $BACKUP >> $LOGS
+      elif [[ -L ~/.config/rofi ]]; then
+         rm -v ~/.config/rofi >> $LOGS
       fi
-      mkdir ~/.config/rofi
-      ln -s ${DOT}/.config/rofi/themes ~/.config/rofi/themes
-      ln -s ${DOT}/.config/rofi/scripts ~/.config/rofi/scripts
+      mkdir -v ~/.config/rofi >> $LOGS
+      ln -v -s ${DOT}/.config/rofi/themes ~/.config/rofi/themes >> $LOGS
+      ln -v -s ${DOT}/.config/rofi/scripts ~/.config/rofi/scripts >> $LOGS
    elif [[ $1 == "r5" ]]; then
       if [[ -e ~/.config/rofi/config ]]; then
-         mv ~/.config/rofi/config $BACKUP
+         mv -v ~/.config/rofi/config $BACKUP >> $LOGS
+      elif [[ -L ~/.config/rofi/config ]]; then
+         rm -v ~/.config/rofi/config >> $LOGS
       fi
-      ln -s ${DOT}/.config/rofi/config ~/.config/rofi/config
+      ln -v -s ${DOT}/.config/rofi/config ~/.config/rofi/config >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.config/rofi/config ]]; then
-         mv ~/.config/rofi/config $BACKUP
+         mv -v ~/.config/rofi/config $BACKUP >> $LOGS
+      elif [[ -L ~/.config/rofi/config ]]; then
+         rm -v ~/.config/rofi/config >> $LOGS
       fi
-      ln -s ${DOT}/thinkpad/.config/rofi/config ~/.config/rofi/config
+      ln -v -s ${DOT}/thinkpad/.config/rofi/config ~/.config/rofi/config >> $LOGS
    fi
 }
 
 # Feh (commons)
 df_feh () {
-   if [[ ~/.config/feh ]]; then
-      mv ~/.config/feh $BACKUP
+   if [[ -e ~/.config/feh ]]; then
+      mv -v ~/.config/feh $BACKUP >> $LOGS
+   elif [[ -L ~/.config/feh ]]; then
+      rm -v ~/.config/feh >> $LOGS
    fi
-   ln -s ${DOT}/.config/feh ~/.config/feh
+   ln -v -s ${DOT}/.config/feh ~/.config/feh >> $LOGS
 }
 
 # Zathura (commons)
 df_zathura () {
    if [[ -e ~/.config/zathura ]]; then
-      mv ~/.config/zathura $BACKUP
+      mv -v ~/.config/zathura $BACKUP >> $LOGS
+   elif [[ -L ~/.config/zathura ]]; then
+      rm -v ~/.config/zathura >> $LOGS
    fi
-   ln -s ${DOT}/.config/zathura ~/.config/zathura
+   ln -v -s ${DOT}/.config/zathura ~/.config/zathura >> $LOGS
 }
 
 # Compton (commons)
 df_compton () {
    if [[ -e ~/.config/compton.conf ]]; then
-      mv ~/.config/compton.conf $BACKUP
+      mv -v ~/.config/compton.conf $BACKUP >> $LOGS
+   elif [[ -L ~/.config/compton.conf ]]; then
+      rm -v ~/.config/compton.conf >> $LOGS
    fi
-   ln -s ${DOT}/.config/compton.conf ~/.config/compton.conf
+   ln -v -s ${DOT}/.config/compton.conf ~/.config/compton.conf >> $LOGS
 }
 
 # Vimb (commons)
 df_vimb () {
    if [[ -e ~/.config/vimb ]]; then
-      mv ~/.config/vimb $BACKUP
+      mv -v ~/.config/vimb $BACKUP >> $LOGS
+   elif [[ -L ~/.config/vimb ]]; then
+      rm -v ~/.config/vimb >> $LOGS
    fi
-   mkdir ~/.config/vimb
-   ln -s ${DOT}/.config/vimb/config ~/.config/vimb/config
-   ln -s ${DOT}/.config/vimb/style.css ~/.config/vimb/style.css
+   mkdir -v ~/.config/vimb >> $LOGS
+   ln -v -s ${DOT}/.config/vimb/config ~/.config/vimb/config >> $LOGS
+   ln -v -s ${DOT}/.config/vimb/style.css ~/.config/vimb/style.css >> $LOGS
 }
 
 # Git (commons)
 df_git () {
    if [[ -e ~/.gitconfig ]]; then
-      mv ~/.gitconfig $BACKUP
+      mv -v ~/.gitconfig $BACKUP >> $LOGS
+   elif [[ -L ~/.gitconfig ]]; then
+      rm -v ~/.gitconfig >> $LOGS
    fi
-   ln -s ${DOT}/.gitconfig ~/.gitconfig
+   ln -v -s ${DOT}/.gitconfig ~/.gitconfig >> $LOGS
 }
 
 # i3 (commons, r5, thinkpad)
 df_i3 () {
-   if [[ $1 -eq 0 ]]; then
+   if [[ -z "$1" ]]; then
       if [[ -e ~/.config/i3 ]]; then
-         mv ~/.config/i3 $BACKUP
+         mv -v ~/.config/i3 $BACKUP >> $LOGS
+      elif [[ -L ~/.config/i3 ]]; then
+         rm -v ~/.config/i3 >> $LOGS
       fi
-      mkdir ~/.config/i3
-      ln -s ${DOT}/.config/i3/themes ~/.config/i3/themes
+      mkdir -v ~/.config/i3 >> $LOGS
+      ln -v -s ${DOT}/.config/i3/themes ~/.config/i3/themes >> $LOGS
    elif [[ $1 == "r5" ]]; then
       if [[ -e ~/.config/i3/config ]]; then
-         mv ~/.config/i3/config $BACKUP
+         mv -v ~/.config/i3/config $BACKUP >> $LOGS
+      elif [[ -L ~/.config/i3/config ]]; then
+         rm -v ~/.config/i3/config >> $LOGS
       fi
-      ln -s ${DOT}/.config/i3/config ~/.config/i3/config
+      ln -v -s ${DOT}/.config/i3/config ~/.config/i3/config >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.config/i3/config ]]; then
-         mv ~/.config/i3/config $BACKUP
+         mv -v ~/.config/i3/config $BACKUP >> $LOGS
+      elif [[ -L ~/.config/i3/config ]]; then
+         rm -v ~/.config/i3/config >> $LOGS
       fi
-      ln -s ${DOT}/thinkpad/.config/i3/config ~/.config/i3/config
+      ln -v -s ${DOT}/thinkpad/.config/i3/config ~/.config/i3/config >> $LOGS
    fi
 }
 
@@ -364,14 +444,18 @@ df_i3 () {
 df_i3blocks () {
    if [[ $1 == "r5" ]]; then
       if [[ -e ~/.i3blocks.conf ]]; then
-         mv ~/.i3blocks.conf $BACKUP
+         mv -v ~/.i3blocks.conf $BACKUP >> $LOGS
+      elif [[ -L ~/.i3blocks.conf ]]; then
+         rm -v ~/.i3blocks.conf >> $LOGS
       fi
-      ln -s ${DOT}/.i3blocks.conf ~/.i3blocks.conf
+      ln -v -s ${DOT}/.i3blocks.conf ~/.i3blocks.conf >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.i3blocks.conf ]]; then
-         mv ~/.i3blocks.conf $BACKUP
+         mv -v ~/.i3blocks.conf $BACKUP >> $LOGS
+      elif [[ -L ~/.i3blocks.conf ]]; then
+         rm -v ~/.i3blocks.conf >> $LOGS
       fi
-      ln -s ${DOT}/thinkpad/.i3blocks.conf ~/.i3blocks.conf
+      ln -v -s ${DOT}/thinkpad/.i3blocks.conf ~/.i3blocks.conf >> $LOGS
    fi
 }
 
@@ -379,16 +463,20 @@ df_i3blocks () {
 df_dunst () {
    if [[ $1 == "r5" ]]; then
       if [[ -e ~/.config/dunst ]]; then
-         mv ~/.config/dunst $BACKUP
+         mv -v ~/.config/dunst $BACKUP >> $LOGS
+      elif [[ -L ~/.config/dunst ]]; then
+         rm -v ~/.config/dunst >> $LOGS
       fi
-      mkdir ~/.config/dunst
-      ln -s ${DOT}/.config/dunst/dunstrc ~/.config/dunst/dunstrc
+      mkdir -v ~/.config/dunst >> $LOGS
+      ln -v -s ${DOT}/.config/dunst/dunstrc ~/.config/dunst/dunstrc >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.config/dunst ]]; then
-         mv ~/.config/dunst $BACKUP
+         mv -v ~/.config/dunst $BACKUP >> $LOGS
+      elif [[ -L ~/.config/dunst ]]; then
+         rm -v ~/.config/dunst >> $LOGS
       fi
-      mkdir ~/.config/dunst
-      ln -s ${DOT}/thinkpad/.config/dunst/dunstrc ~/.config/dunst/dunstrc
+      mkdir -v ~/.config/dunst >> $LOGS
+      ln -v -s ${DOT}/thinkpad/.config/dunst/dunstrc ~/.config/dunst/dunstrc >> $LOGS
    fi
 }
 
@@ -396,14 +484,18 @@ df_dunst () {
 df_xinit () {
    if [[ $1 == "r5" ]]; then
       if [[ -e ~/.xinitrc ]]; then
-         mv ~/.xinitrc $BACKUP
+         mv -v ~/.xinitrc $BACKUP >> $LOGS
+      elif [[ -L ~/.xinitrc ]]; then
+         rm -v ~/.xinitrc >> $LOGS
       fi
-      ln -s ${DOT}/.xinitrc ~/.xinitrc
+      ln -v -s ${DOT}/.xinitrc ~/.xinitrc >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.xinitrc ]]; then
-         mv ~/.xinitrc $BACKUP
+         mv -v ~/.xinitrc $BACKUP >> $LOGS
+      elif [[ -L ~/.xinitrc ]]; then
+         rm -v ~/.xinitrc >> $LOGS
       fi
-      ln -s ${DOT}/thinkpad/.xinitrc ~/.xinitrc
+      ln -v -s ${DOT}/thinkpad/.xinitrc ~/.xinitrc >> $LOGS
    fi
 }
 
@@ -411,14 +503,18 @@ df_xinit () {
 df_xbindkeys () {
    if [[ $1 == "r5" ]]; then
       if [[ -e ~/.xbindkeysrc ]]; then
-         mv ~/.xbindkeysrc $BACKUP
+         mv -v ~/.xbindkeysrc $BACKUP >> $LOGS
+      elif [[ -L ~/.xbindkeysrc ]]; then
+         rm -v ~/.xbindkeysrc >> $LOGS
       fi
-      ln -s ${DOT}/.xbindkeysrc ~/.xbindkeysrc
+      ln -v -s ${DOT}/.xbindkeysrc ~/.xbindkeysrc >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.xbindkeysrc ]]; then
-         mv ~/.xbindkeysrc $BACKUP
+         mv -v ~/.xbindkeysrc $BACKUP >> $LOGS
+      elif [[ -L ~/.xbindkeysrc ]]; then
+         rm -v ~/.xbindkeysrc >> $LOGS
       fi
-      ln -s ${DOT}/thinkpad/.xbindkeysrc ~/.xbindkeysrc
+      ln -v -s ${DOT}/thinkpad/.xbindkeysrc ~/.xbindkeysrc >> $LOGS
    fi
 }
 
@@ -426,16 +522,20 @@ df_xbindkeys () {
 df_gtk3 () {
    if [[ $1 == "r5" ]]; then
       if [[ -e ~/.config/gtk-3.0 ]]; then
-         mv ~/.config/gtk-3.0 $BACKUP
+         mv -v ~/.config/gtk-3.0 $BACKUP >> $LOGS
+      elif [[ -L ~/.config/gtk-3.0 ]]; then
+         rm -v ~/.config/gtk-3.0 >> $LOGS
       fi
-      mkdir ~/.config/gtk-3.0
-      ln -s ${DOT}/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+      mkdir -v ~/.config/gtk-3.0 >> $LOGS
+      ln -v -s ${DOT}/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.config/gtk-3.0 ]]; then
-         mv ~/.config/gtk-3.0 $BACKUP
+         mv -v ~/.config/gtk-3.0 $BACKUP >> $LOGS
+      elif [[ -L ~/.config/gtk-3.0 ]]; then
+         rm -v ~/.config/gtk-3.0 >> $LOGS
       fi
-      mkdir ~/.config/gtk-3.0
-      ln -s ${DOT}/thinkpad/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+      mkdir -v ~/.config/gtk-3.0 >> $LOGS
+      ln -v -s ${DOT}/thinkpad/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini >> $LOGS
    fi
 }
 
@@ -443,14 +543,18 @@ df_gtk3 () {
 df_gtk2 () {
    if [[ $1 == "r5" ]]; then
       if [[ -e ~/.gtkrc-2.0 ]]; then
-         mv ~/.gtkrc-2.0 $BACKUP
+         mv -v ~/.gtkrc-2.0 $BACKUP >> $LOGS
+      elif [[ -L ~/.gtkrc-2.0 ]]; then
+         rm -v ~/.gtkrc-2.0 >> $LOGS
       fi
-      ln -s ${DOT}/.gtkrc-2.0 ~/.gtkrc-2.0
+      ln -v -s ${DOT}/.gtkrc-2.0 ~/.gtkrc-2.0 >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.gtkrc-2.0 ]]; then
-         mv ~/.gtkrc-2.0 $BACKUP
+         mv -v ~/.gtkrc-2.0 $BACKUP >> $LOGS
+      elif [[ -L ~/.gtkrc-2.0 ]]; then
+         rm -v ~/.gtkrc-2.0 >> $LOGS
       fi
-      ln -s ${DOT}/thinkpad/.gtkrc-2.0 ~/.gtkrc-2.0
+      ln -v -s ${DOT}/thinkpad/.gtkrc-2.0 ~/.gtkrc-2.0 >> $LOGS
    fi
 }
 
@@ -458,9 +562,11 @@ df_gtk2 () {
 df_xmodmap () {
    if [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.Xmodmap ]]; then
-         mv ~/.Xmodmap $BACKUP
+         mv -v ~/.Xmodmap $BACKUP >> $LOGS
+      elif [[ -L ~/.Xmodmap ]]; then
+         rm -v ~/.Xmodmap >> $LOGS
       fi
-      ln -s ${DOT}/thinkpad/.Xmodmap ~/.Xmodmap
+      ln -v -s ${DOT}/thinkpad/.Xmodmap ~/.Xmodmap >> $LOGS
    fi
 }
 
@@ -475,14 +581,14 @@ helps () {
    echo
    echo -e "<what-to-install> is either group or single program. Some of single programs can take a"
    echo -e "host-parameter. If host-parameter is not set, installs only common dotfiles of program."
-   echo -e "Script must be in dotfiles root directory."
-   echo -e "\e[1;36mAllways install common files first! One group/program at a time!"
+   echo -e "Host-groups installs ONLY host-specific files. Script must be in dotfiles root directory."
+   echo -e "\e[1;36mAlways install common files first! One group/program at a time!"
    echo
    echo -e "\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\e[0m" 
    echo -e "\e[1;35mGroups:\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
-   echo -e "df_less, df_zathura, df_vimb, df_compton, df_scripts"
+   echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_scripts"
    echo
    echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_rofi,"
    echo -e "df_ranger"
@@ -493,19 +599,54 @@ helps () {
    echo -e "\e[1;35mHosts(2nd parameter):\e[0m r5, server, thinkpad"
 }
 
+### Error
+
+errors () {
+   echo -e "\e[1;31m         ┳━┓┳━┓┳━┓┏━┓┳━┓\e[0m"
+   echo -e "\e[1;31m         ┣━ ┃┳┛┃┳┛┃ ┃┃┳┛\e[0m"
+   echo -e "\e[1;31m         ┻━┛┇┗┛┇┗┛┛━┛┇┗┛\e[0m"
+}
+
 ### Start
 
-if [[ $# -eq 0 ]] || [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
+if [[ $# -eq 0 ]] || [[ $1 == "-h" ]] || [[ $1 == "--help" ]] || [[ $1 == "help" ]]; then
    helps
    exit 0
 elif ! isFunction "$1"; then
-   echo -e "\e[1;91m         ┏━╸┏━┓┏━┓┏━┓┏━┓\e[0m"
-   echo -e "\e[1;91m         ┣╸ ┣┳┛┣┳┛┃ ┃┣┳┛\e[0m"
-   echo -e "\e[1;91m         ┗━╸╹┗╸╹┗╸┗━┛╹┗╸\e[0m"
-   echo -e "Invalid parameter. Use -h for help."
+   errors
+   echo -e "Invalid parameter \e[1;35m$1\e[0m. Use \e[1;35m-h\e[0m for help."
    exit 1
 else
+      [[ ! -z "$2" ]] && INSTALLED="$1 for $2" || INSTALLED="$1"
+      read -n 1 -p "Are you sure you want to install ${INSTALLED} (y/n) " SURE
+      case $SURE in
+      [yY]) echo ;; 
+   *) exit 0 ;;
+   esac
+   for value in {1..4}
+   do
+      animate '             \e[1;33m\ ' 0.1
+      animate '             \e[1;33m| ' 0.1
+      animate '             \e[1;33m/ ' 0.1
+      animate '             \e[1;33m- ' 0.1
+   done
+   animate '\e[1;31m' 0.1
    mkdir $BACKUP
-   $1 $2
-   exit 0
+   if $1 $2; then
+      echo -e "\e[1;32m            ┳━┓┏━┓┏┓┓┳━┓\e[0m"
+      echo -e "\e[1;32m            ┃ ┃┃ ┃┃┃┃┣━\e[0m"
+      echo -e "\e[1;32m            ┇━┛┛━┛┇┗┛┻━┛\e[0m"
+      echo -e "Succesfully installed \e[1;35m${INSTALLED}\e[0m"
+      echo -e "Backup of old files can be found at \e[1;35m${BACKUP}\e[0m"
+      echo -e "Logs can be found at \e[1;35m${LOGS}\e[0m"
+      read -n 1 -p "Want to see logs now? (y/n) " LOGANS
+      case $LOGANS in
+      [yY]) less $LOGS ;; 
+   *) exit 0 ;;
+   esac
+else
+   errors
+   echo -e "Something went wrong."
+   exit 1
+fi
 fi

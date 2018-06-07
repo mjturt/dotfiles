@@ -7,6 +7,6 @@
 Xcursor.theme:                     Numix
 Xcursor.size:                      22
 
-#include ".Xresources.d/colors/atelierforest"
+#include "colors/atelierforest"
 
 URxvt.background:                  [95]#002b36

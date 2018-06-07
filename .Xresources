@@ -148,4 +148,4 @@ XClock*minorColor:                 cyan
 ! Host-specific configuration |
 !------------------------------
 
-#include ".Xresources.d/Xresources.host
+#include ".Xresources.d/Xresources.host"
