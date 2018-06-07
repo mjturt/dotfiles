@@ -276,7 +276,6 @@ map <C-k> :bprevious<CR>
 map <C-l> :bnext<CR>
 vmap <C-c> y
 nmap <leader>/ :nohl<CR>
-nnoremap <leader>n :set number! relativenumber!<cr>
 nnoremap <silent> <Leader><Up> :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader><Down> :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader><Right> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
@@ -294,6 +293,7 @@ map <leader>X :!chmod +x %<CR><CR>
 map <leader>W :%s/ \{2,}/ /g<CR>
 map <C-a> <Nop>
 map <leader>l :set cursorline!<CR>:set cursorcolumn!<CR>
+noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 
 map <F5> :call CompileRunGcc()<CR>
 vnoremap <F9> "ry:call Func2X11()<cr>
