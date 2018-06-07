@@ -76,6 +76,7 @@ screenshot() {
    scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'
 }
 
+# C-y
 backward-delete-to-slash () {
   local WORDCHARS=${WORDCHARS//\//}
   zle .backward-delete-word
@@ -95,7 +96,25 @@ buf () {
         firstpart=`echo $oldname | cut -d "." -f 1`;
         newname=`echo $oldname | sed s/$firstpart/$firstpart.$datepart/`;
         cp -R ${oldname} ${newname};
+        tar cvjf $newname.tar.bz2 $newname
+        rm -rf $newname
+        if [[ -e /mnt/storage ]]; then
+            mv $newname.tar.bz2 /mnt/storage/backup/buf
+        elif [[ -e /storage ]]; then
+            mv $newname.tar.bz2 /storage/backup/buf
+        fi
     fi
 }
 
+buftemp () {
+    oldname=$1;
+    if [ "$oldname" != "" ]; then
+        datepart=$(date +%Y-%m-%d);
+        firstpart=`echo $oldname | cut -d "." -f 1`;
+        newname=`echo $oldname | sed s/$firstpart/$firstpart.$datepart/`;
+        cp -R ${oldname} ${newname};
+    fi
+}
+
+# C-x-s
 run-with-sudo() { LBUFFER="sudo $LBUFFER" }
