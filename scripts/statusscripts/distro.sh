@@ -7,32 +7,32 @@ case $(uname) in
       echo -n " "
       if [ $(cat /etc/*-release | grep Gentoo | wc -l) -gt "0" ]
       then
-         echo ""
+         echo ""
       elif [ $(cat /etc/*-release | grep Arch | wc -l) -gt "0" ]
       then
-         echo ""
+         echo ""
       elif [ $(cat /etc/*-release | grep Debian | wc -l) -gt "0" ]
       then
-         echo ""
+         echo ""
       elif [ $(cat /etc/*-release | grep Slackware | wc -l) -gt "0" ]
       then
-         echo ""
+         echo ""
       elif [ $(cat /etc/*-release | grep Ubuntu | wc -l) -gt "0" ]
       then
-         echo ""
+         echo ""
       elif [ $(cat /etc/*-release | grep Mint | wc -l) -gt "0" ]
       then
-         echo ""
+         echo ""
       elif [ $(cat /etc/*-release | grep suse | wc -l) -gt "0" ]
       then
-         echo ""
+         echo ""
       elif [ $(cat /etc/*-release | grep RHEL | wc -l) -gt "0" ]
       then
-         echo ""
+         echo ""
       fi
    ;;
    "FreeBSD")
-      echo ""
+      echo ""
    ;;
    "Darwin")
       echo ""

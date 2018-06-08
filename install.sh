@@ -221,14 +221,14 @@ df_ranger () {
       mkdir -v ~/.config/ranger >> $LOGS
       mkdir -v ~/.config/ranger/colorschemes >> $LOGS
       mkdir -v ~/.config/ranger/plugins >> $LOGS
-      ln -v -s ${DOT}/.config/ranger/rc.conf ~/.config/ranger/rc.conf >> $LOGS >> $LOGS
-      ln -v -s ${DOT}/.config/ranger/rifle.conf ~/.config/ranger/rifle.conf >> $LOGS >> $LOGS
-      ln -v -s ${DOT}/.config/ranger/scope.sh ~/.config/ranger/scope.sh >> $LOGS >> $LOGS
-      chmod -v +x ~/.config/ranger/scope.sh >> $LOGS >> $LOGS
-      ln -v -s ${DOT}/.config/ranger/commands.py ~/.config/ranger/commands.py >> $LOGS >> $LOGS
-      ln -v -s ${DOT}/.config/ranger/devicons.py ~/.config/ranger/devicons.py >> $LOGS >> $LOGS
-      ln -v -s ${DOT}/.config/ranger/colorschemes/*.py ~/.config/ranger/colorschemes >> $LOGS >> $LOGS
-      ln -v -s ${DOT}/.config/ranger/plugins/*.py ~/.config/ranger/plugins >> $LOGS >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/rc.conf ~/.config/ranger/rc.conf >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/rifle.conf ~/.config/ranger/rifle.conf >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/scope.sh ~/.config/ranger/scope.sh >> $LOGS
+      chmod -v +x ~/.config/ranger/scope.sh >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/commands.py ~/.config/ranger/commands.py >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/devicons.py ~/.config/ranger/devicons.py >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/colorschemes/*.py ~/.config/ranger/colorschemes >> $LOGS
+      ln -v -s ${DOT}/.config/ranger/plugins/*.py ~/.config/ranger/plugins >> $LOGS
    elif [[ $1 == "r5" ]]; then
       if [[ -e ~/.config/ranger/bookmarks ]]; then
          mv -v ~/.config/ranger/bookmarks $BACKUP >> $LOGS

@@ -18,10 +18,10 @@ garu_theme_privilege_symbol() {
     local stat_owner=${stat_ret[3]}
 
     if [[ $(( $stat_perm[-1] & 2 )) != 0 ]]; then
-      echo -n "%B%F{141}"
+      echo -n "%B%F{141}"
     elif [[ $stat_owner == $USER ]] ; then
-      #echo -n "%K{61}%F{212}  %F{61}%k%F{84}%k"
-      echo -n "%B%F{212}"
+      #echo -n "%K{61}%F{212}  %F{61}%k%F{84}%k"
+      echo -n "%B%F{212}"
     else
       echo -n "%B%F{203}"
     fi
