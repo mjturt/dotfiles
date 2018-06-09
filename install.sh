@@ -67,6 +67,8 @@ commons_x11 () {
    df_compton
    df_vimb
    df_i3
+   df_mpv
+   df_cmus
 }
 
 # Only host-specific files (R5)
@@ -568,6 +570,29 @@ df_xmodmap () {
       fi
       ln -v -s ${DOT}/thinkpad/.Xmodmap ~/.Xmodmap >> $LOGS
    fi
+}
+
+# Cmus (commons)
+df_cmus () {
+   if [[ -e ~/.config/cmus ]]; then
+      mv -v ~/.config/cmus $BACKUP >> $LOGS
+   elif [[ -L ~/.config/cmus ]]; then
+      rm -v ~/.config/cmus >> $LOGS
+   fi
+   mkdir -v ~/.config/cmus >> $LOGS
+   ln -s -v ${DOT}/.config/cmus/rc ~/.config/cmus/rc >> $LOGS
+}
+
+# MPV (commons)
+df_mpv () {
+   if [[ -e ~/.config/mpv ]]; then
+      mv -v ~/.config/mpv $BACKUP >> $LOGS
+   elif [[ -L ~/.config/mpv ]]; then
+      rm -v ~/.config/mpv >> $LOGS
+   fi
+   mkdir -v ~/.config/mpv >> $LOGS
+   ln -s -v ${DOT}/.config/mpv/mpv.conf ~/.config/mpv/mpv.conf >> $LOGS
+   ln -s -v ${DOT}/.config/mpv/input.conf ~/.config/mpv/input.conf >> $LOGS
 }
 
 ### Help

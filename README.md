@@ -17,6 +17,8 @@ This repository is attempt to bring my dotfiles under version controlling. Mainl
 + PDF viewer:           **Zathura**
 + Compositor:           **Compton**
 + VCS:                  **GIT**
++ Video player:         **mpv**
++ Music player:         **cmus**
 
 There also config files for GNU Less, GNU Screen, Xbindkeys, Xinit, GTK
 
