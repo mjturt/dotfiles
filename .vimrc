@@ -310,6 +310,7 @@ nmap <F11> :RandomColorScheme<CR>
 nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 nmap s <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
+nmap <leader>s ys$"
 
 "------------
 " Functions |

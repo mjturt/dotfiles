@@ -4,16 +4,13 @@
 
 ### Keyboard (DZ60)
 
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+"cmus-remote -r"
 XF86AudioPrev
 
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+"cmus-remote -n"
 XF86AudioNext
 
-#"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-#XF86AudioPlay
-
-"mutespotify"
+"cmus-remote -u"
 XF86AudioPlay
 
 "ponymix increase 5"
@@ -42,6 +39,20 @@ Control+Alt+f
 
 "rofi -show drun"
 Alt+space
+
+# Spotify
+
+#"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+#XF86AudioPrev
+
+#"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+#XF86AudioNext
+
+#"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+#XF86AudioPlay
+
+#"mutespotify"
+#XF86AudioPlay
 
 ### Mouse (Logitech MX Master) 
 
