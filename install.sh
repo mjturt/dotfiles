@@ -90,6 +90,7 @@ host_r5 () {
 host_server () {
    df_zsh server
    df_ranger server
+   df_rtorrent
 }
 
 # Only host-specific files (Thinkpad)
@@ -595,6 +596,16 @@ df_mpv () {
    ln -s -v ${DOT}/.config/mpv/input.conf ~/.config/mpv/input.conf >> $LOGS
 }
 
+# Rtorrent (commons)
+df_rtorrent () {
+   if [[ -e ~/.rtorrent.rc ]]; then
+      mv -v ~/.rtorrent.rc $BACKUP >> $LOGS
+   elif [[ -L ~/.rtorrent.rc ]]; then
+      rm -v ~/.rtorrent.rc >> $LOGS
+   fi
+   ln -s -v ${DOT}/.rtorrent.rc ~/.rtorrent.rc >> $LOGS
+}
+
 ### Help
 
 helps () {
@@ -613,7 +624,7 @@ helps () {
    echo -e "\e[1;35mGroups:\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
-   echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_scripts"
+   echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts"
    echo
    echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_rofi,"
    echo -e "df_ranger"
