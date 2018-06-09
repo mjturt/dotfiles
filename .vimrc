@@ -208,6 +208,7 @@ let g:NERDTreeDirArrowCollapsible = ''
 "let g:NERDTreeDirArrowExpandable = ''
 "let g:NERDTreeDirArrowCollapsible = ''
 let g:nerdtree_tabs_open_on_gui_startup=2
+let g:NERDTreeWinPos = "right"
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
@@ -294,6 +295,7 @@ map <leader>W :%s/ \{2,}/ /g<CR>
 map <C-a> <Nop>
 map <leader>l :set cursorline!<CR>:set cursorcolumn!<CR>
 noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
+noremap <leader>p "0p
 
 map <F5> :call CompileRunGcc()<CR>
 vnoremap <F9> "ry:call Func2X11()<cr>
