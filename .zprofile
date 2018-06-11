@@ -5,10 +5,10 @@
 export PATH="$PATH:$HOME/bin/:$HOME/.cargo/bin/"
 
 if [[ -z $DISPLAY && ! -e /tmp/.X11-unix/X0 ]]; then
-   exec startx
+   #exec startx
 fi
 
-# Fbterm colors and autostart in console
+# Console colors and fbterm autostart
 
 if [ "$TERM" = "linux" ]; then
    echo -en "\e]P0222222" #black
@@ -27,5 +27,5 @@ if [ "$TERM" = "linux" ]; then
    echo -en "\e]PEa1cdcd" #cyan
    echo -en "\e]P7ffffff" #lightgrey
    echo -en "\e]PFdedede" #white
-   fbterm-bg-font
+   fbterm-bg
 fi
