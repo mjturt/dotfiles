@@ -170,8 +170,8 @@ mode "$mode_launcher" {
 set $mode_system (l)ock or (e)xit
 bindsym $mod+Shift+x mode "$mode_system"
 mode "$mode_system" {
-      bindsym l exec --no-startup-id i3exit lock, mode "default"
-      bindsym e exec --no-startup-id i3exit exit, mode "default"
+      bindsym l exec --no-startup-id i3exit lock r5, mode "default"
+      bindsym e exec --no-startup-id i3exit exit r5, mode "default"
 
       bindsym Return mode "default"
       bindsym Escape mode "default"
@@ -181,7 +181,7 @@ mode "$mode_system" {
 
 exec setxkbmap fi
 exec xbindkeys
-exec locktimer
+exec locktimer r5
 exec dunst
 exec compton -b
 exec nextcloud
