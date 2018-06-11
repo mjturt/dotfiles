@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo -ne "\e[?25l" # hide cursor
+
+fbvis /home/mjt/cloud/images/wallpapers/linux/fbterm0.png << EOF
+q
+EOF
+
+shift
+export FBTERM_BACKGROUND_IMAGE=1
+exec fbterm --font-names="ShureTechMono Nerd Font Mono" --font-size=13  "$@"
+#exec fbterm --font-names="ShureTechMono Nerd Font Mono" --font-size=14
