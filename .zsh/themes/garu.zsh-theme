@@ -18,10 +18,18 @@ garu_theme_privilege_symbol() {
     local stat_owner=${stat_ret[3]}
 
     if [[ $(( $stat_perm[-1] & 2 )) != 0 ]]; then
-      echo -n "%B%F{141}"
+       if [[ $(uname) == "Linux" ]]; then
+         echo -n "%B%F{141}"
+       elif [[ $(uname) == "Darwin" ]]; then
+         echo -n "%B%F{243}"
+       fi
     elif [[ $stat_owner == $USER ]] ; then
       #echo -n "%K{61}%F{212}  %F{61}%k%F{84}%k"
-      echo -n "%B%F{212}"
+       if [[ $(uname) == "Linux" ]]; then
+         echo -n "%B%F{212}"
+       elif [[ $(uname) == "Darwin" ]]; then
+         echo -n "%B%F{250}"
+       fi
     else
       echo -n "%B%F{203}"
     fi

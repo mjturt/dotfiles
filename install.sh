@@ -183,7 +183,11 @@ df_zsh () {
       fi
       ln -v -s ${DOT}/.zshrc ~/.zshrc >> $LOGS
       ln -v -s ${DOT}/.zsh/plugins ~/.zsh/plugins >> $LOGS
-      ln -v -s ${DOT}/.zprofile ~/.zprofile >> $LOGS
+      if [[ $(id -u) -eq 0 ]]; then
+         ln -v -s ${DOT}/.zprofile-root ~/.zprofile >> $LOGS
+      else
+         ln -v -s ${DOT}/.zprofile ~/.zprofile >> $LOGS
+      fi
    elif [[ $1 == "server" ]]; then
       if [[ -e ~/.zshrc ]]; then
          mv -v ~/.zshrc $BACKUP >> $LOGS
@@ -654,7 +658,7 @@ elif ! isFunction "$1"; then
    exit 1
 else
       [[ ! -z "$2" ]] && INSTALLED="$1 for $2" || INSTALLED="$1"
-      read -n 1 -p "Are you sure you want to install ${INSTALLED} (y/n) " SURE
+      printf "Are you sure you want to install \e[1;35m${INSTALLED}\e[0m (y/n) "; read SURE
       case $SURE in
       [yY]) echo ;; 
    *) exit 0 ;;
@@ -675,7 +679,7 @@ else
       echo -e "Succesfully installed \e[1;35m${INSTALLED}\e[0m"
       echo -e "Backup of old files can be found at \e[1;35m${BACKUP}\e[0m"
       echo -e "Logs can be found at \e[1;35m${LOGS}\e[0m"
-      read -n 1 -p "Want to see logs now? (y/n) " LOGANS
+      printf "Want to see logs now? (y/n) "; read LOGANS
       case $LOGANS in
       [yY]) less $LOGS ;; 
    *) exit 0 ;;
