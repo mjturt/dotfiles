@@ -20,7 +20,7 @@ This repository is attempt to bring my dotfiles under version controlling. Mainl
 + Video player:         **mpv**
 + Music player:         **cmus**
 
-There also config files for GNU Less, GNU Screen, Xbindkeys, Xinit, GTK
+There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m
 
 ### Keybindings
 
@@ -34,7 +34,7 @@ Font that I use is ShureTechMono and patched version with icons can be found fro
 
 ### Scripts
 
-Collection of scripts can be found in [scripts directory](scripts). Status scripts are used with programs that for example have a statusline where show information. If I did not write a script, it should be mentioned.
+Collection of scripts can be found in [scripts directory](scripts). Status scripts are used with statuslines, conky, etc. Scripts that works only with specific program are in their own directories and universal in statusscripts-root. If I did not write a script, it should be mentioned.
 
 ### install.sh
 

@@ -55,6 +55,7 @@ commons_cli () {
    df_screen
    df_less
    df_git
+   df_w3m
    df_scripts
 }
 
@@ -600,7 +601,7 @@ df_mpv () {
    ln -s -v ${DOT}/.config/mpv/input.conf ~/.config/mpv/input.conf >> $LOGS
 }
 
-# Rtorrent (commons)
+# rtorrent (commons)
 df_rtorrent () {
    if [[ -e ~/.rtorrent.rc ]]; then
       mv -v ~/.rtorrent.rc $BACKUP >> $LOGS
@@ -608,6 +609,17 @@ df_rtorrent () {
       rm -v ~/.rtorrent.rc >> $LOGS
    fi
    ln -s -v ${DOT}/.rtorrent.rc ~/.rtorrent.rc >> $LOGS
+}
+
+# w3m (commons)
+df_w3m () {
+   if [[ -e ~/.w3m ]]; then
+      mv -v ~/.w3m $BACKUP >> $LOGS
+   elif [[ -L ~/w3m ]]; then
+      rm -v ~/w3m >> $LOGS
+   fi
+   mkdir -v ~/.w3m >> $LOGS
+   ln -s -v ${DOT}/.w3m/keymap ~/.w3m/keymap >> $LOGS
 }
 
 ### Help
@@ -628,7 +640,8 @@ helps () {
    echo -e "\e[1;35mGroups:\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
-   echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts"
+   echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
+   echo -e "df_w3m"
    echo
    echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_rofi,"
    echo -e "df_ranger"

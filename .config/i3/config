@@ -2,25 +2,37 @@
 # ------------------------
 # mjturt
 
-# Basic settings
+### Variables
 
 set $mod Mod4
+
+set $ws1 "1 "
+set $ws2 "2 "
+set $ws3 "3 "
+set $ws4 "4 "
+set $ws5 "5 "
+set $ws6 "6 "
+set $ws7 "7 "
+set $ws8 "8 "
+set $ws9 "9"
+set $ws10 "10"
+
+### Basic settings
 
 font pango:Monofur Nerd Font Mono 10
 
 floating_modifier $mod
 
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 2
-new_float pixel 2
+# <normal|1pixel|pixel xx|none|pixel>
+default_border pixel 2
+default_floating_border none
+hide_edge_borders both
 
-hide_edge_borders none
+default_orientation vertical
 
-# Terminal
+### Keymappings
 
 bindsym $mod+Return exec urxvt 
-
-# Launcher / window-switcher
 
 bindsym $mod+d exec rofi -show drun
 #bindsym $mod+d exec dmenu_run -nb '#242C33' -nf '#bbbbbb' -sf '#8badf9' -sb '#242C33' -fn 'Hack-9' -p ''
@@ -28,9 +40,7 @@ bindsym $mod+d exec rofi -show drun
 
 bindsym $mod+Tab exec rofi -show window
 
-# Keymappings
-
-bindsym $mod+Shift+c kill
+bindsym $mod+q kill
 
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+t restart
@@ -55,6 +65,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+Control+j resize shrink width 5 px or 5 ppt
+bindsym $mod+Control+k resize grow height 5 px or 5 ppt
+bindsym $mod+Control+l resize shrink height 5 px or 5 ppt
+bindsym $mod+Control+odiaeresis resize grow width 5 px or 5 ppt
+
 bindsym $mod+h split h
 bindsym $mod+v split v
 
@@ -70,18 +85,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
-# Workspaces
-
-set $ws1 "1 "
-set $ws2 "2 "
-set $ws3 "3 "
-set $ws4 "4 "
-set $ws5 "5 "
-set $ws6 "6 "
-set $ws7 "7 "
-set $ws8 "8 "
-set $ws9 "9"
-set $ws10 "10"
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -108,28 +113,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# Resize
-
-mode "resize" {
-
-      bindsym j resize shrink width 5 px or 5 ppt
-      bindsym k resize grow height 5 px or 5 ppt
-      bindsym l resize shrink height 5 px or 5 ppt
-      bindsym odiaeresis resize grow width 5 px or 5 ppt
-
-      bindsym Left resize shrink width 5 px or 5 ppt
-      bindsym Down resize grow height 5 px or 5 ppt
-      bindsym Up resize shrink height 5 px or 5 ppt
-      bindsym Right resize grow width 5 px or 5 ppt
-
-      bindsym Return mode "default"
-      bindsym Escape mode "default"
-      bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-# i3bar
+### i3bar
 
 bar {
       status_command i3blocks
@@ -149,7 +133,7 @@ colors {
    }
 }
 
-# Quicklauncher
+### Quicklauncher
 
 set $mode_launcher Launch: [f]irefox, [c]hromium, [e]ncryptr, [s]pacefm, [g]vim
 bindsym $mod+o mode "$mode_launcher"
@@ -165,7 +149,7 @@ mode "$mode_launcher" {
       bindsym Return mode "default"
 }
 
-# Lock and exit
+### Lock and exit
 
 set $mode_system (l)ock or (e)xit
 bindsym $mod+Shift+x mode "$mode_system"
@@ -177,7 +161,7 @@ mode "$mode_system" {
       bindsym Escape mode "default"
 }
 
-# Autostart
+### Autostart
 
 exec setxkbmap fi
 exec xbindkeys
@@ -191,23 +175,20 @@ exec steam
 exec nitrogen --restore
 #exec spotify
 #exec wpa_gui
-#exec blueman-applet
-#exec volumeicon
-#exec tilda
-#exec nm-applet
-#exec ~/.eclipse/org.eclipse.platform_4.7.2_155965261_linux_gtk_x86_64/eclimd
 
-# Assigning clients to workspaces
+### Assigning clients to workspaces
 
 assign [class="Rambox"] $ws2
 assign [class="Spotify"] $ws8
 assign [class="Steam"] $ws7
 
-# Assigning workspaces to screens
+### Assigning workspaces to screens
 
-workspace 2 output DVI-I-1
-workspace 3 output HDMI-0
-workspace 8 output DVI-I-1
+workspace $ws2 output DVI-I-1
+workspace $ws3 output HDMI-0
+workspace $ws8 output DVI-I-1
+
+### Floating windows
 
 for_window [class="Nitrogen"] floating enable
 for_window [class="Catfish"] floating enable
@@ -217,10 +198,10 @@ for_window [class="Yad"] floating enable
 for_window [class="Turku Infected"] floating enable
 for_window [class="Godot"] floating enable
 
-# Colors (Dracula)
+### Colors (Dracula)
 
 # class                 border  backgr. text    indicator
 client.focused          #bd93f9 #bd93f9 #000000 #282a36
-client.focused_inactive #44475a #44475a #888888 #282a36
-client.unfocused        #282a36 #282a36 #999999 #282a36
+client.focused_inactive #535769 #535769 #AAAAAA #282a36
+client.unfocused        #323440 #323440 #999999 #282a36
 client.urgent           #ff79c6 #ff79c6 #f8f8f2 #ff5555
