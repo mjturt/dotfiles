@@ -28,8 +28,6 @@ default_border pixel 2
 default_floating_border none
 hide_edge_borders both
 
-default_orientation vertical
-
 ### Keymappings
 
 bindsym $mod+Return exec urxvt 
