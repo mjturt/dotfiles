@@ -19,7 +19,7 @@ set $ws10 "10"
 
 ### Basic settings
 
-font pango:Monofur Nerd Font Mono 10
+font pango:Hurmit NF 8
 
 floating_modifier $mod
 
@@ -115,7 +115,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 bar {
       status_command i3blocks
-      font pango:Monofur Nerd Font, Icons 11
+      font pango:Hurmit NF 9
       tray_output HDMI-0
       separator_symbol ""
       
@@ -125,15 +125,16 @@ colors {
       statusline #f8f8f2
 
       focused_workspace   #bd93f9 #bd93f9 #000000
+
       active_workspace    #282a36 #282a36 #f8f8f2
       inactive_workspace  #282a36 #282a36 #888888
-      urgent_workspace    #ff5555 #ff5555 #f8f8f2
+      urgent_workspace    #ff5555 #ff5555 #000000
    }
 }
 
 ### Quicklauncher
 
-set $mode_launcher Launch: [f]irefox, [c]hromium, [e]ncryptr, [s]pacefm, [g]vim
+set $mode_launcher Start: [F]  [C]  [E]  [V] 
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -149,7 +150,7 @@ mode "$mode_launcher" {
 
 ### Lock and exit
 
-set $mode_system (l)ock or (e)xit
+set $mode_system Exit: [L]  [E] ﰸ
 bindsym $mod+Shift+x mode "$mode_system"
 mode "$mode_system" {
       bindsym l exec --no-startup-id i3exit lock r5, mode "default"

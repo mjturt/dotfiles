@@ -42,3 +42,5 @@ alias tlk="tmux list-keys"
 alias tlkc="tmux list-keys -T copy-mode-vi"
 
 alias fbvar="export TERM=fbterm"
+alias pyg="pygmentize -O style=monokai -f console256 -g"
+alias notes"vim ~/cloud/notes"

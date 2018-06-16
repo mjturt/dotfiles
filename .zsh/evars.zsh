@@ -2,7 +2,7 @@
 # mjturt
 
 export EDITOR="vim"
-export RANGER_LOAD_DEFAULT_RC=FALSE
+export RANGER_LOAD_DEFAULT_RC=TRUE
 export PAGER="less"
 export LESS="-R"
 export LESSOPEN="|~/.lessfilter %s"

@@ -11,7 +11,7 @@ rofi.show-icons: true
 rofi.separator-style: solid
 
 ! Font
-rofi.font: ShureTechMono Nerd Font Mono 10
+rofi.font: Hurmit NF 10
 
 ! Color theme
 #include "/home/mjt/.config/rofi/themes//dracula.theme"

@@ -31,7 +31,8 @@ XF86AudioMute
 "xrdb ~/.Xresources && pkill xbindkeys && xbindkeys"
 Control+Alt+r
 
-"scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'"
+#"scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'"
+"teiler"
 Print
 
 "setxkbmap fi"
@@ -39,6 +40,9 @@ Control+Alt+f
 
 "rofi -show drun"
 Alt+space
+
+"rofi_notes"
+Mod4+n
 
 # Spotify
 
