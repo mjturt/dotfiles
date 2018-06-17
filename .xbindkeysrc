@@ -41,8 +41,11 @@ Control+Alt+f
 "rofi -show drun"
 Alt+space
 
-"rofi_notes"
+"rofi-notes"
 Mod4+n
+
+"rofi-power"
+Alt+x
 
 # Spotify
 

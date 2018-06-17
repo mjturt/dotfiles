@@ -354,6 +354,8 @@ df_rofi () {
       mkdir -v ~/.config/rofi >> $LOGS
       ln -v -s ${DOT}/.config/rofi/themes ~/.config/rofi/themes >> $LOGS
       ln -v -s ${DOT}/.config/rofi/scripts ~/.config/rofi/scripts >> $LOGS
+      ln -v -s ${DOT}/.config/rofi/scripts/rofi-notes.sh ${DOT}/scripts/bin/rofi-notes >> $LOGS
+      ln -v -s ${DOT}/.config/rofi/scripts/rofi-power.sh ${DOT}/scripts/bin/rofi-power >> $LOGS
    elif [[ $1 == "r5" ]]; then
       if [[ -e ~/.config/rofi/config ]]; then
          mv -v ~/.config/rofi/config $BACKUP >> $LOGS

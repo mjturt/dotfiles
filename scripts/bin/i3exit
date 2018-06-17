@@ -1,7 +1,7 @@
 #!/bin/sh
 
 lock_r5() {
-   i3lock -c 463c65
+   i3lock -c 282a36
 }
 
 lock_thinkpad() {
