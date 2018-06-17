@@ -96,6 +96,7 @@ handle_image() {
 
         # Image
         image/*)
+            #img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
             local orientation
             orientation="$( identify -format '%[EXIF:Orientation]\n' -- "${FILE_PATH}" )"
             # If orientation data is present and the image actually
@@ -150,7 +151,7 @@ handle_mime() {
         # Image
         image/*)
             # Preview as text conversion
-            # img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
+            #img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
             #exiftool "${FILE_PATH}" && exit 5
             /usr/libexec/w3m/w3mimgdisplay <<<$'0;1;100;100;100;100;;;;;"${FILE_PATH}"\n4;\n3;'
             exit 1;;

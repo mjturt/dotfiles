@@ -4,18 +4,17 @@
 
 # Host specific settings in this file and common settings sourced from ~/.zsh-directory
 
-# Antibody
+### Plugins
 
 source ~/.zsh/plugins.sh
 
-# Completion
+### Completion
 
 autoload -Uz compinit
 compinit
 zstyle :compinstall filename '/home/mjt/.zshrc'
 zstyle ':completion:*' menu select=3
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-eval $(dircolors)
 zstyle ':completion:*:correct:*' insert-unambiguous true
 zstyle ':completion:*:corrections' format $'%{\e[0;31m%}%d (errors: %e)%{\e[0m%}'
 zstyle ':completion:*:correct:*' original true
@@ -60,17 +59,17 @@ setopt always_to_end
 
 fpath=(~/.zsh/completion $fpath)
 
-# Environment variables
+### Local environment variables
 
-export BROWSER="firefox"
+export BROWSER="qutebrowser"
 
-# Prompt
+### Prompt
 
 #autoload -Uz promptinit && promptinit
 #prompt gentoo
 source ~/.zsh/themes/garu.zsh-theme
 
-# History
+### History
 
 HISTFILE=~/.zsh/history
 HISTSIZE=1000
@@ -78,7 +77,7 @@ SAVEHIST=1000
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 
-# Basic settings
+### Basic settings
 
 autoload colors
 colors
@@ -106,15 +105,19 @@ if [[ "$TERM" == (screen*|xterm*|rxvt*) ]]; then
    add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
-# Aliases
+### Local aliases
 
 alias plugins="antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh"
 alias upgrade="sudo emerge -uDU --keep-going --with-bdeps=y @world"
 
-# Sourcing common settings
+### Sourcing common settings
 
 source $HOME/.zsh/evars.zsh
 source $HOME/.zsh/functions.zsh
 source $HOME/.zsh/aliases.zsh
 source $HOME/.zsh/private.zsh
 source $HOME/.zsh/keybindings.zsh
+
+### Dircolors
+
+eval `dircolors ~/.zsh/dircolors/solarized.dircolors`

@@ -70,6 +70,7 @@ commons_x11 () {
    df_i3
    df_mpv
    df_cmus
+   df_qutebrowser
 }
 
 # Only host-specific files (R5)
@@ -165,6 +166,7 @@ df_zsh () {
       ln -v -s ${DOT}/.zsh/evars.zsh ~/.zsh/evars.zsh >> $LOGS
       ln -v -s ${DOT}/.zsh/functions.zsh ~/.zsh/functions.zsh >> $LOGS
       ln -v -s ${DOT}/.zsh/keybindings.zsh ~/.zsh/keybindings.zsh >> $LOGS
+      ln -v -s ${DOT}/.zsh/dircolors ~/.zsh/dircolors >> $LOGS
       ln -v -s ${DOT}/.zsh/private.zsh ~/.zsh/private.zsh >> $LOGS
    elif [[ $1 == "r5" ]]; then
       if [[ -e ~/.zshrc ]]; then
@@ -615,11 +617,26 @@ df_rtorrent () {
 df_w3m () {
    if [[ -e ~/.w3m ]]; then
       mv -v ~/.w3m $BACKUP >> $LOGS
-   elif [[ -L ~/w3m ]]; then
-      rm -v ~/w3m >> $LOGS
+   elif [[ -L ~/.w3m ]]; then
+      rm -v ~/.w3m >> $LOGS
    fi
    mkdir -v ~/.w3m >> $LOGS
    ln -s -v ${DOT}/.w3m/keymap ~/.w3m/keymap >> $LOGS
+}
+
+# qutebrowser (commons)
+df_qutebrowser () {
+   if [[ -e ~/.config/qutebrowser ]]; then
+      mv -v ~/.config/qutebrowser $BACKUP >> $LOGS
+   elif [[ -L ~/.config/qutebrowser ]]; then
+      rm -v ~/.config/qutebrowser >> $LOGS
+   fi
+   mkdir -v ~/.config/qutebrowser >> $LOGS
+   ln -s -v ${DOT}/.config/qutebrowser/config.py ~/.config/qutebrowser/config.py >> $LOGS
+   ln -s -v ${DOT}/.config/qutebrowser/bookmarks ~/.config/qutebrowser/bookmarks >> $LOGS
+   ln -s -v ${DOT}/.config/qutebrowser/quickmarks ~/.config/qutebrowser/quickmarks >> $LOGS
+   ln -s -v ${DOT}/.config/qutebrowser/style.css ~/.config/qutebrowser/style.css >> $LOGS
+   ln -s -v ${DOT}/.config/qutebrowser/themes ~/.config/qutebrowser/themes >> $LOGS
 }
 
 ### Help
@@ -641,7 +658,7 @@ helps () {
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
-   echo -e "df_w3m"
+   echo -e "df_w3m, df_qutebrowser"
    echo
    echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_rofi,"
    echo -e "df_ranger"

@@ -8,7 +8,7 @@ if [[ -z $DISPLAY && ! -e /tmp/.X11-unix/X0 ]]; then
    #exec startx
 fi
 
-# Console colors and fbterm autostart
+# Console colors
 
 if [ "$TERM" = "linux" ]; then
    echo -en "\e]P0222222" #black
@@ -27,5 +27,5 @@ if [ "$TERM" = "linux" ]; then
    echo -en "\e]PEa1cdcd" #cyan
    echo -en "\e]P7ffffff" #lightgrey
    echo -en "\e]PFdedede" #white
-   fbterm-bg
+   #fbterm-bg
 fi
