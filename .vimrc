@@ -277,10 +277,10 @@ map <C-k> :bprevious<CR>
 map <C-l> :bnext<CR>
 vmap <C-c> y
 nmap <leader>/ :nohl<CR>
-nnoremap <silent> <Leader><Up> :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader><Down> :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Leader><Right> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
-nnoremap <silent> <Leader><Left> :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <silent> <Leader>l :exe "resize +5"<CR>
+nnoremap <silent> <Leader>k :exe "resize -5"<CR>
+nnoremap <silent> <Leader>ö :exe "vertical resize +5"<CR>
+nnoremap <silent> <Leader>j :exe "vertical resize -5"<CR>
 nnoremap <leader>ev :tabnew ~/.vimrc<CR>
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 noremap <Leader>gg gg=G
@@ -293,7 +293,7 @@ map + $
 map <leader>X :!chmod +x %<CR><CR>
 map <leader>W :%s/ \{2,}/ /g<CR>
 map <C-a> <Nop>
-map <leader>l :set cursorline!<CR>:set cursorcolumn!<CR>
+map <leader>c :set cursorline!<CR>:set cursorcolumn!<CR>
 noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>p "0p
 

@@ -9,7 +9,7 @@ set $mod Mod4
 set $ws1 "1 "
 set $ws2 "2 "
 set $ws3 "3 "
-set $ws4 "4 "
+set $ws4 "4 爵"
 set $ws5 "5 "
 set $ws6 "6 "
 set $ws7 "7 "
@@ -134,11 +134,11 @@ colors {
 
 ### Quicklauncher
 
-set $mode_launcher Start: [F]  [C]  [E]  [V] 
+set $mode_launcher Start: [Q] 爵 [C]  [E]  [V] 
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
-      bindsym f exec firefox, mode "default"
+      bindsym f exec qutebrowser, mode "default"
       bindsym c exec chromium, mode "default"
       bindsym e exec encryptr, mode "default"
       bindsym s exec spacefm, mode "default"
@@ -184,6 +184,7 @@ assign [class="Steam"] $ws7
 ### Assigning workspaces to screens
 
 workspace $ws2 output DVI-I-1
+workspace $ws1 output HDMI-0
 workspace $ws3 output HDMI-0
 workspace $ws8 output DVI-I-1
 

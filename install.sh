@@ -639,6 +639,7 @@ df_qutebrowser () {
    ln -s -v ${DOT}/.config/qutebrowser/quickmarks ~/.config/qutebrowser/quickmarks >> $LOGS
    ln -s -v ${DOT}/.config/qutebrowser/style.css ~/.config/qutebrowser/style.css >> $LOGS
    ln -s -v ${DOT}/.config/qutebrowser/themes ~/.config/qutebrowser/themes >> $LOGS
+   ln -s -v ${DOT}/.config/qutebrowser/userscripts ~/.config/qutebrowser/userscripts >> $LOGS
 }
 
 ### Help
@@ -713,12 +714,18 @@ else
       echo -e "Logs can be found at \e[1;35m${LOGS}\e[0m"
       printf "Want to see logs now? (y/n) "; read LOGANS
       case $LOGANS in
-      [yY]) less $LOGS ;; 
-   *) exit 0 ;;
-   esac
+         [yY]) less $LOGS ;; 
+         *) exit 0 ;;
+      esac
 else
    errors
-   echo -e "Something went wrong."
-   exit 1
+   echo -e "Something went wrong during installation."
+   echo -e "Backup of old files can be found at \e[1;35m${BACKUP}\e[0m"
+   echo -e "Logs can be found at \e[1;35m${LOGS}\e[0m"
+   printf "Want to see logs now? (y/n) "; read LOGANS
+   case $LOGANS in
+      [yY]) less $LOGS ;; 
+      *) exit 1 ;;
+   esac
 fi
 fi

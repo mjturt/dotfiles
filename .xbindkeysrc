@@ -2,7 +2,11 @@
 # -------------------
 # mjturt
 
-### Keyboard (DZ60)
+#-----------------#
+# Keyboard (DZ60) #
+#-----------------#
+
+### Media keys
 
 "cmus-remote -r"
 XF86AudioPrev
@@ -31,12 +35,12 @@ XF86AudioMute
 "xrdb ~/.Xresources && pkill xbindkeys && xbindkeys"
 Control+Alt+r
 
+"setxkbmap fi"
+Control+Alt+f
+
 #"scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'"
 "teiler"
 Print
-
-"setxkbmap fi"
-Control+Alt+f
 
 "rofi -show drun"
 Alt+space
@@ -46,6 +50,16 @@ Mod4+n
 
 "rofi-power"
 Alt+x
+
+# Adds primary selection to bookmarks
+"bukuadd"
+Control+Alt+b
+
+"buku_run"
+Mod4+b
+
+"rofi-pass"
+Mod4+p
 
 # Spotify
 

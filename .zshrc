@@ -67,7 +67,7 @@ export BROWSER="qutebrowser"
 
 #autoload -Uz promptinit && promptinit
 #prompt gentoo
-source ~/.zsh/themes/garu.zsh-theme
+source ~/.zsh/themes/distroprompt.zsh
 
 ### History
 
