@@ -32,11 +32,15 @@ Control+Down
 "ponymix toggle"
 XF86AudioMute
 
+### Config reloads
+
 "xrdb ~/.Xresources && pkill xbindkeys && xbindkeys"
 Control+Alt+r
 
 "setxkbmap fi"
 Control+Alt+f
+
+### Rofi-related
 
 #"scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'"
 "teiler"
@@ -61,7 +65,7 @@ Mod4+b
 "rofi-pass"
 Mod4+p
 
-# Spotify
+### Spotify
 
 #"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 #XF86AudioPrev
@@ -75,7 +79,9 @@ Mod4+p
 #"mutespotify"
 #XF86AudioPlay
 
-### Mouse (Logitech MX Master) 
+#----------------------------#
+# Mouse (Logitech MX Master) #
+#----------------------------#
 
 # Thumb button
 "sleep 0.1 && xte 'XF86AudioMute'"                                
