@@ -25,7 +25,7 @@ c.url.searchengines = {
 
 ### Appearance
 
-c.content.user_stylesheets = "style.css"
+# c.content.user_stylesheets = "style.css"
 config.source('themes/base16-dracula.config.py')
 c.fonts.monospace = "Hurmit NF"
 c.fonts.completion.category = "bold 10pt monospace"
@@ -47,6 +47,7 @@ config.bind('J', 'back')
 config.bind('K', 'tab-next')         
 config.bind('L', 'tab-prev')         
 config.bind('Ö', 'forward')         
+config.bind('x', 'tab-close')
 config.bind('j', 'move-to-prev-char', mode='caret')         
 config.bind('k', 'move-to-next-line', mode='caret')         
 config.bind('l', 'move-to-prev-line', mode='caret')         
