@@ -11,7 +11,7 @@ This repository is attempt to bring my dotfiles under version controlling. Mainl
 + Terminal multiplexer: **Tmux**
 + File manager:         **Ranger**
 + Launcher:             **Rofi**
-+ Browser:              **Vimb**
++ Browser:              **qutebrowser**
 + Notification system:  **Dunst**
 + Image viewer:         **Feh**
 + PDF viewer:           **Zathura**
@@ -20,7 +20,7 @@ This repository is attempt to bring my dotfiles under version controlling. Mainl
 + Video player:         **mpv**
 + Music player:         **cmus**
 
-There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m
+There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, vimb
 
 ### Keybindings
 
@@ -30,11 +30,11 @@ All programs that use Vim-keybindings I have remapped keys HJKL -> JKLÖ (Ö is 
 ![Screenshot](screenshots/screenshot.png?raw=true)
 
 I use [Dracula colorscheme](https://github.com/dracula/dracula-theme) everywhere on my main machine. I have been ported it to many programs that I use but are not supported.
-Font that I use is ShureTechMono and patched version with icons can be found from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
+Fonts that I use is ShureTechMono and Hurmit. Patched version with icons can be found from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
 
 ### Scripts
 
-Collection of scripts can be found in [scripts directory](scripts). Status scripts are used with statuslines, conky, etc. Scripts that works only with specific program are in their own directories and universal in statusscripts-root. If I did not write a script, it should be mentioned.
+Collection of scripts can be found in [scripts directory](scripts). Status scripts are used with statuslines, conky, etc. Scripts that works only with specific program are in their own directories and universal in statusscripts root. If I did not write a script, it should be mentioned.
 
 ### install.sh
 
