@@ -642,6 +642,20 @@ df_qutebrowser () {
    ln -s -v ${DOT}/.config/qutebrowser/userscripts ~/.config/qutebrowser/userscripts >> $LOGS
 }
 
+# GPG (commons)
+# This is little bit different because the nature of GPG
+df_gpg () {
+   if [[ ! -d ~/.gnupg ]]; then
+      mkdir -v ~/.gnupg >> $LOGS
+   fi
+   if [[ -e ~/.gnupg/gpg.conf ]]; then
+      mv -v ~/.gnupg/gpg.conf $BACKUP >> $LOGS
+   elif [[ -L ~/.gnupg/gpg.conf ]]; then
+      rm -v ~/.gnupg/gpg.conf >> $LOGS
+   fi
+   ln -s -v ${DOT}/.gnupg/gpg.conf ~/.gnupg/gpg.conf >> $LOGS
+}
+
 ### Help
 
 helps () {
@@ -661,7 +675,7 @@ helps () {
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
-   echo -e "df_w3m, df_qutebrowser"
+   echo -e "df_w3m, df_qutebrowser, df_gpg"
    echo
    echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_rofi,"
    echo -e "df_ranger"

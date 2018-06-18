@@ -16,11 +16,10 @@ This repository is attempt to bring my dotfiles under version controlling. Mainl
 + Image viewer:         **Feh**
 + PDF viewer:           **Zathura**
 + Compositor:           **Compton**
-+ VCS:                  **GIT**
 + Video player:         **mpv**
 + Music player:         **cmus**
 
-There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, vimb
+There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, vimb
 
 ### Keybindings
 
@@ -30,7 +29,7 @@ All programs that use Vim-keybindings I have remapped keys HJKL -> JKLÖ (Ö is 
 ![Screenshot](screenshots/screenshot.png?raw=true)
 
 I use [Dracula colorscheme](https://github.com/dracula/dracula-theme) everywhere on my main machine. I have been ported it to many programs that I use but are not supported.
-Fonts that I use is ShureTechMono and Hurmit. Patched version with icons can be found from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
+Fonts that I use are ShureTechMono and Hurmit. Patched versions with icons can be found from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
 
 ZSH prompt theme is my self-made [distroprompt-zsh](https://github.com/mjturt/distroprompt-zsh).
 

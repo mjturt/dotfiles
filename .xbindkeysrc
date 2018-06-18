@@ -49,6 +49,9 @@ Print
 "rofi -show drun"
 Alt+space
 
+"rofi -show run"
+Mod4+r
+
 "rofi-notes"
 Mod4+n
 

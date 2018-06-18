@@ -1,7 +1,7 @@
 [user]
    name = mjturt
    email = maks.turtiainen@protonmail.com
-   signingkey = 1E048EA50E2C1C7E
+   signingkey = 0E2C1C7E
 [core]
    editor = vim
 [color]

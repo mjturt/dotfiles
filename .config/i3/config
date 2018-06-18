@@ -138,11 +138,10 @@ set $mode_launcher Start: [Q] 爵 [C]  [E]  [V] 
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
-      bindsym f exec qutebrowser, mode "default"
+      bindsym q exec qutebrowser, mode "default"
       bindsym c exec chromium, mode "default"
       bindsym e exec encryptr, mode "default"
-      bindsym s exec spacefm, mode "default"
-      bindsym g exec gvim, mode "default"
+      bindsym v exec gvim, mode "default"
 
       bindsym Escape mode "default"
       bindsym Return mode "default"
@@ -204,4 +203,4 @@ for_window [class="Godot"] floating enable
 client.focused          #bd93f9 #bd93f9 #000000 #282a36
 client.focused_inactive #535769 #535769 #AAAAAA #282a36
 client.unfocused        #323440 #323440 #999999 #282a36
-client.urgent           #ff79c6 #ff79c6 #f8f8f2 #ff5555
+client.urgent           #ff5555 #ff5555 #000000 #ff5555
