@@ -19,6 +19,7 @@ This repository is attempt to bring my dotfiles under version controlling. Mainl
 + Compositor:           **Compton**
 + Video player:         **mpv**
 + Music player:         **cmus**
++ Torrent client:       **rtorrent**
 
 There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb
 

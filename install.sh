@@ -56,6 +56,7 @@ commons_cli () {
    df_less
    df_git
    df_w3m
+   df_gpg
    df_scripts
 }
 
@@ -86,6 +87,8 @@ host_r5 () {
    df_xbindkeys r5
    df_gtk3 r5
    df_gtk2 r5
+   df_buku
+   df_pass
 }
 
 # Only host-specific files (server)
@@ -93,6 +96,7 @@ host_server () {
    df_zsh server
    df_ranger server
    df_rtorrent
+   df_irssi
 }
 
 # Only host-specific files (Thinkpad)
@@ -656,6 +660,36 @@ df_gpg () {
    ln -s -v ${DOT}/.gnupg/gpg.conf ~/.gnupg/gpg.conf >> $LOGS
 }
 
+# Irssi (private, commons)
+df_irssi () {
+   if [[ -e ~/irssi ]]; then
+      mv -v ~/.irssi $BACKUP >> $LOGS
+   elif [[ -L ~/.irssi ]]; then
+      rm -v ~/.irssi >> $LOGS
+   fi
+   ln -s -v ${DOT}/.irssi ~/.irssi >> $LOGS
+}
+
+# Buku (private, commons)
+df_buku () {
+   if [[ -e ~/.local/share/buku/bookmarks.db ]]; then
+      mv -v ~/.local/share/buku/bookmarks.db $BACKUP >> $LOGS
+   elif [[ -L ~/.local/share/buku/bookmarks.db ]]; then
+      rm -v ~/.local/share/buku/bookmarks.db >> $LOGS
+   fi
+   ln -s -v ${DOT}/bookmarks.db ~/.local/share/buku/bookmarks.db >> $LOGS
+}
+
+# Pass (private, commons)
+df_pass () {
+   if [[ -e ~/.password-store ]]; then
+      mv -v ~/.password-store $BACKUP >> $LOGS
+   elif [[ -L ~/.password-store ]]; then
+      rm -v ~/.password-store >> $LOGS
+   fi
+   ln -s -v ${DOT}/.password-store ~/.password-store >> $LOGS
+}
+
 ### Help
 
 helps () {
@@ -671,6 +705,8 @@ helps () {
    echo -e "\e[1;36mAlways install common files first! One group/program at a time!"
    echo
    echo -e "\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\e[0m" 
+   echo -e "\e[1;35mPrivates(not found in git-repo), cant take host-parameter:\e[0m df_irssi, df_buku, df_pass"
+   echo
    echo -e "\e[1;35mGroups:\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
