@@ -21,6 +21,7 @@ c.url.searchengines = {
         "gh" : "https://github.com/search?utf8=%E2%9C%93&q={}",
         "p" : "https://gpo.zugaina.org/Search?search={}",
         "y" : "https://www.youtube.com/results?search_query={}",
+        "e" : "https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw={}"
         }
 
 ### Appearance

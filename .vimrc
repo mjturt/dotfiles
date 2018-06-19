@@ -296,6 +296,7 @@ map <C-a> <Nop>
 map <leader>c :set cursorline!<CR>:set cursorcolumn!<CR>
 noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>p "0p
+noremap <leader>d di"
 
 map <F5> :call CompileRunGcc()<CR>
 vnoremap <F9> "ry:call Func2X11()<cr>

@@ -72,6 +72,10 @@ shebang() {
     rehash
 }
 
+newdot () {
+    printf '#┃ %s\n#┣━━━━━━━━━━━━━━\n#┃ mjturt\n\n' $1 > $1 && vim + $1;
+}
+
 screenshot() {
    scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'
 }
