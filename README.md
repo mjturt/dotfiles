@@ -21,7 +21,7 @@ This repository is attempt to bring my dotfiles under version controlling. Mainl
 + Music player:         **cmus**
 + Torrent client:       **rtorrent**
 
-There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb
+There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb and for pass and buku rofi-frontends.
 
 ### Keybindings
 

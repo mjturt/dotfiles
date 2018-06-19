@@ -72,6 +72,8 @@ commons_x11 () {
    df_mpv
    df_cmus
    df_qutebrowser
+   df_rofipass
+   df_buku_run
 }
 
 # Only host-specific files (R5)
@@ -691,6 +693,28 @@ df_pass () {
    ln -s -v ${DOT}/.password-store ~/.password-store >> $LOGS
 }
 
+# Rofi-pass (commons)
+df_rofipass () {
+   if [[ -e ~/.config/rofi-pass ]]; then
+      mv -v ~/.config/rofi-pass $BACKUP >> $LOGS
+   elif [[ -L ~/.config/rofi-pass ]]; then
+      rm -v ~/.config/rofi-pass >> $LOGS
+   fi
+   mkdir -v ~/.config/rofi-pass >> $LOGS
+   ln -s -v ${DOT}/.config/rofi-pass/config ~/.config/rofi-pass/config >> $LOGS
+}
+
+# buku_run (commons)
+df_buku_run () {
+   if [[ -e ~/.config/buku_run ]]; then
+      mv -v ~/.config/buku_run $BACKUP >> $LOGS
+   elif [[ -L ~/.config/buku_run ]]; then
+      rm -v ~/.config/buku_run >> $LOGS
+   fi
+   mkdir -v ~/.config/buku_run >> $LOGS
+   ln -s -v ${DOT}/.config/buku_run/config ~/.config/buku_run/config >> $LOGS
+}
+
 ### Help
 
 helps () {
@@ -712,7 +736,7 @@ helps () {
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
-   echo -e "df_w3m, df_qutebrowser, df_gpg"
+   echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run"
    echo
    echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_rofi,"
    echo -e "df_ranger"
