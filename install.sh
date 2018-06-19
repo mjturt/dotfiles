@@ -330,6 +330,7 @@ df_xresources () {
       mkdir -v ~/.Xresources.d >> $LOGS
       ln -v -s ${DOT}/.Xresources ~/.Xresources >> $LOGS
       ln -v -s ${DOT}/.Xresources.d/colors ~/.Xresources.d/colors >> $LOGS
+      ln -v -s ${DOT}/.Xresources.d/perl ~/.Xresources.d/perl >> $LOGS
    elif [[ $1 == "r5" ]]; then
       if [[ -e ~/.Xresources.d/Xresources.host ]]; then
          mv -v ~/.Xresources.d/Xresources.host $BACKUP >> $LOGS
@@ -662,7 +663,7 @@ df_gpg () {
 
 # Irssi (private, commons)
 df_irssi () {
-   if [[ -e ~/irssi ]]; then
+   if [[ -e ~/.irssi ]]; then
       mv -v ~/.irssi $BACKUP >> $LOGS
    elif [[ -L ~/.irssi ]]; then
       rm -v ~/.irssi >> $LOGS

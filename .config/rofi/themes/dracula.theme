@@ -8,4 +8,4 @@ rofi.color-urgent:                   argb:00282a36, #ff5555, argb:00282a36, #444
 ! Color scheme for active row
 rofi.color-active:                   argb:00282a36, #50fa7b, argb:00282a36, #44475a, #50fa7b
 ! Color scheme window
-rofi.color-window:                   argb:ee282a36, #bd93f9, #ff79c6
+rofi.color-window:                   argb:ee282a36, argb:00282a36, #ff79c6

@@ -1,7 +1,7 @@
-! ~/.Xresources 
-! -------------
-!  mjturt       
-! -------------
+!┃ ~/.Xresources
+!┣━━━━━━━━━━━━━━
+!┃ mjturt  
+
 ! Host-specific configurations in ~/.Xresources.d/Xresources.host
 
 !----------------!
@@ -65,8 +65,8 @@ URxvt*internalBorder:              5
 URxvt*depth:                       32
 URxvt.letterSpace:                 -1 
 URxvt*skipBuiltinGlyphs:           true
-URxvt*perl-lib:                    /usr/lib/urxvt/perl/
-URxvt.perl-ext-common:             default,matcher,font-size,keyboard-select-mod,clipboard,selection-to-clipboard,vtwheel
+URxvt*perl-lib:                    /home/mjt/.Xresources.d/perl/
+URxvt.perl-ext-common:             default,matcher,font-size,readline,bell-command,clipboard,selection-to-clipboard,vim-scrollback
 URxvt*iso14755:                    false
 URxvt*iso14755_52:                 false
 URxvt*cutchars:                    BACKSLASH '"'&()*,;<=>?@[]^{|}
@@ -78,11 +78,11 @@ URxvt.keysym.Meta-l:               command:\033]720;8\007
 URxvt.keysym.Meta-k:               command:\033]721;8\007
 URxvt*keysym.Control-Shift-C:      perl:clipboard:copy
 URxvt*keysym.Control-Shift-V:      perl:clipboard:paste
-URxvt.keysym.Control-Escape:       perl:keyboard-select:activate
 URxvt*keysym.Control-Return:       perl:matcher:last
 URxvt*keysym.Control-BackSpace:    perl:matcher:list
 URxvt.keysym.Control-Shift-Up:     perl:font-size:increase
 URxvt.keysym.Control-Shift-Down:   perl:font-size:decrease
+urxvt.vim-scrollback:              Control-Escape
 
 URxvt*matcher.pattern.0:           (?:https?:\\/\\/|ftp:\\/\\/|rsync:\\/\\/|news:\\/\\/|mailto:|file:\\/\\/|\\bwww\\.)\n\[a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\n\(\n\\\([a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\\)| # Allow a pair of matched parentheses\n\[a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_+*~]  # exclude some trailing characters (heuristic)\n\)+
 URxvt*matcher.button:              1
@@ -90,6 +90,8 @@ URxvt*url-launcher:                /usr/bin/xdg-open
 URxvt*underlineURLs:               true
 URxvt.clipboard.autocopy:          true
 URxvt.keyboard-select.clipboard:   true
+urxvt.vim-scrollback-bg:           12
+urxvt.vim-scrollback-fg:           1
 
 URxvt*tabbed.new-button:           no
 URxvt*tabbed.tabbar-fg:            12
