@@ -21,19 +21,20 @@ c.url.searchengines = {
         "gh" : "https://github.com/search?utf8=%E2%9C%93&q={}",
         "p" : "https://gpo.zugaina.org/Search?search={}",
         "y" : "https://www.youtube.com/results?search_query={}",
-        "e" : "https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw={}"
+        "e" : "https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw={}",
+        "gm" : "https://www.google.com/maps?q={}",
         }
 
 ### Appearance
 
-# c.content.user_stylesheets = "style.css"
+# c.content.user_stylesheets = "stylesheets/wiki.css"
 config.source('themes/base16-dracula.config.py')
 c.fonts.monospace = "Hurmit NF"
 c.fonts.completion.category = "bold 10pt monospace"
 c.fonts.completion.entry = "10pt monospace"
 c.fonts.debug_console = "10pt monospace"
 c.fonts.downloads = "10pt monospace"
-c.fonts.hints = "bold 8pt monospace"
+c.fonts.hints = "bold 9pt monospace"
 c.fonts.keyhint = "10pt monospace"
 c.fonts.statusbar = "10pt monospace"
 c.fonts.tabs = "10pt monospace"

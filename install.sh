@@ -1,7 +1,23 @@
 #!/bin/bash
-# Install script for mjturt's dotfiles
+#┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#┃░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀░┃
+#┃░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█░┃
+#┃░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀░┃
+#┠━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+#┃░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░┃
+#┃░░ Install script for mjturt's ░░┃
+#┃░░ dotfiles.                   ░░┃
+#┃░░ Do not recommended to use.  ░░┃
+#┃░░ Basic setup:                ░░┃
+#┃░░ ./install.sh commons        ░░┃
+#┃░░ ./install.sh host_r5        ░░┃
+#┃░░ ./install.sh -h to get help ░░┃
+#┃░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░┃
+#┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-### Annoying starting animation
+#┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#┃ Annoying starting animation ┃
+#┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 animate () {
    echo -ne "     $1\033[0K\r"
@@ -31,14 +47,18 @@ animate "\e[1;34mＩＮＳＴＡＬＬ\e[1;35mＳＣＲＩＰＴ\e[0m" 0.1
 echo
 echo
 
-### Variables and testing function
+#┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#┃ Variables and testing function ┃
+#┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 BACKUP=~/dotfiles-backup-$(date +%H%M%S)
 LOGS=${BACKUP}/dotfiles-logs-$(date +%H%M%S).log
 DOT=$(pwd)
 isFunction() { [[ "$(declare -Ff "$1")" ]]; }
 
-### Groups
+#┏━━━━━━━━┓
+#┃ Groups ┃
+#┗━━━━━━━━┛
 
 # Installing common files
 commons () {
@@ -117,7 +137,9 @@ host_thinkpad () {
    df_xmodmap thinkpad
 }
 
-### Programs
+#┏━━━━━━━━━━┓
+#┃ Programs ┃
+#┗━━━━━━━━━━┛
 
 # ViM (commons)
 df_vim () {
@@ -598,6 +620,7 @@ df_cmus () {
    fi
    mkdir -v ~/.config/cmus >> $LOGS
    ln -s -v ${DOT}/.config/cmus/rc ~/.config/cmus/rc >> $LOGS
+   ln -s -v ${DOT}/.config/cmus/scripts ~/.config/cmus/scripts >> $LOGS
 }
 
 # MPV (commons)
@@ -644,9 +667,9 @@ df_qutebrowser () {
    ln -s -v ${DOT}/.config/qutebrowser/config.py ~/.config/qutebrowser/config.py >> $LOGS
    ln -s -v ${DOT}/.config/qutebrowser/bookmarks ~/.config/qutebrowser/bookmarks >> $LOGS
    ln -s -v ${DOT}/.config/qutebrowser/quickmarks ~/.config/qutebrowser/quickmarks >> $LOGS
-   ln -s -v ${DOT}/.config/qutebrowser/style.css ~/.config/qutebrowser/style.css >> $LOGS
    ln -s -v ${DOT}/.config/qutebrowser/themes ~/.config/qutebrowser/themes >> $LOGS
    ln -s -v ${DOT}/.config/qutebrowser/userscripts ~/.config/qutebrowser/userscripts >> $LOGS
+   ln -s -v ${DOT}/.config/qutebrowser/stylesheets ~/.config/qutebrowser/stylesheets >> $LOGS
 }
 
 # GPG (commons)
@@ -715,10 +738,12 @@ df_buku_run () {
    ln -s -v ${DOT}/.config/buku_run/config ~/.config/buku_run/config >> $LOGS
 }
 
-### Help
+#┏━━━━━━┓
+#┃ Help ┃
+#┗━━━━━━┛
 
 helps () {
-   echo -e "\e[0;34mＨＥＬＰ ━━━━━━━━━━━━━━━━"
+   echo -e "\e[0;34mＨｅｌｐ ━━━━━━━━━━━━━━━━"
    echo -e "\e[1;36mScript installs dotfiles by making symlinks to the dotfiles directory."
    echo -e "\e[1;36mOld dotfiles are backed up to home under backup-XXXXXX-directory."
    echo
@@ -747,7 +772,9 @@ helps () {
    echo -e "\e[1;35mHosts(2nd parameter):\e[0m r5, server, thinkpad"
 }
 
-### Error
+#┏━━━━━━━┓
+#┃ Error ┃
+#┗━━━━━━━┛
 
 errors () {
    echo -e "\e[1;31m         ┳━┓┳━┓┳━┓┏━┓┳━┓\e[0m"
@@ -755,7 +782,9 @@ errors () {
    echo -e "\e[1;31m         ┻━┛┇┗┛┇┗┛┛━┛┇┗┛\e[0m"
 }
 
-### Start
+#┏━━━━━━━┓
+#┃ Start ┃
+#┗━━━━━━━┛
 
 if [[ $# -eq 0 ]] || [[ $1 == "-h" ]] || [[ $1 == "--help" ]] || [[ $1 == "help" ]]; then
    helps
