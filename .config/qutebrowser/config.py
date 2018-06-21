@@ -1,6 +1,6 @@
-# ~/.config/qutebrowser/config.py
-# -------------------------------
-# mjturt
+#┃ ~/.config/qutebrowser/config.py
+#┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
 
 ### Basics
 
@@ -13,6 +13,7 @@ c.backend = "webengine"
 c.scrolling.bar = True
 #c.backend = "webkit"
 #c.content.pdfjs = True
+c.hints.mode = "number"
 c.url.searchengines = { 
         "DEFAULT" : "https://duckduckgo.com/?q={}", 
         "w" : "https://www.wikipedia.org/w/index.php?title=Special:Search&search={}",
@@ -28,7 +29,13 @@ c.url.searchengines = {
 ### Appearance
 
 # c.content.user_stylesheets = "stylesheets/wiki.css"
+# c.content.user_stylesheets = "stylesheets/github.css"
+
 config.source('themes/base16-dracula.config.py')
+c.colors.hints.fg = "#ffb86c"
+c.colors.hints.match.fg = "#50fa7b"
+c.colors.hints.bg = "qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(40, 42, 54, 0.8), stop:1 rgba(68, 71, 90, 0.8))"
+
 c.fonts.monospace = "Hurmit NF"
 c.fonts.completion.category = "bold 10pt monospace"
 c.fonts.completion.entry = "10pt monospace"

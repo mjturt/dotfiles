@@ -1,6 +1,6 @@
-# ~/.zshrc (R5)
-# -------------
-# mjturt
+#┃ ~/.zshrc (R5)
+#┣━━━━━━━━━━━━━━
+#┃ mjturt
 
 # Host specific settings in this file and common settings sourced from ~/.zsh-directory
 
@@ -120,4 +120,4 @@ source $HOME/.zsh/keybindings.zsh
 
 ### Dircolors
 
-eval `dircolors ~/.zsh/dircolors/solarized.dircolors`
+eval `dircolors ~/.zsh/dircolors/jellybeans.dircolors`

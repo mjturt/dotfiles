@@ -42,7 +42,7 @@ alias tlk="tmux list-keys"
 alias tlkc="tmux list-keys -T copy-mode-vi"
 
 alias fbvar="export TERM=fbterm"
-alias pyg="pygmentize -O style=monokai -f console256 -g"
+alias pyg="pygmentize -O style=base16-monokai -f console256 -g"
 alias notes="vim ~/cloud/rnotes"
 alias rustofat="toilet -f rustofat --gay"
 alias wideterm="toilet -f wideterm --gay"

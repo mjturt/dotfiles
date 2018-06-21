@@ -37,7 +37,7 @@ FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
 HIGHLIGHT_TABWIDTH=8
 HIGHLIGHT_STYLE='pablo'
-PYGMENTIZE_STYLE='monokai'
+PYGMENTIZE_STYLE='base16-monokai'
 
 
 handle_extension() {

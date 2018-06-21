@@ -152,6 +152,16 @@ endtry
 " Completion
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
+" Editing non-plaintext files
+autocmd BufReadPost *.doc silent %!antiword "%" 
+autocmd BufWriteCmd *.doc set readonly
+autocmd BufReadPost *.odt,*.odp silent %!odt2txt "%"
+autocmd BufWriteCmd *.odt set readonly
+autocmd BufReadPost *.pdf  silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
+autocmd BufWriteCmd *.pdf set readonly
+autocmd BufReadPost *.rtf silent %!unrtf --text "%"
+autocmd BufWriteCmd *.rtf set readonly
+
 "---------
 " Colors |
 "---------
