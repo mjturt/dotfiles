@@ -1,0 +1,21 @@
+/*┃ ~/.config/qutebrowser/stylesheets/default.css
+ *┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *┃ mjturt
+ * */
+
+
+*,div,pre,textarea,body,input,td,tr,p {
+}
+
+h1,h2,h3,h4 {
+    color: #ff5555 !important;
+}
+a {
+    color: #bd93f9 !important;
+}
+a:hover,a:focus {
+    color: #50fa7b !important;
+}
+a:visited {
+    color: #ffb86c !important;
+}

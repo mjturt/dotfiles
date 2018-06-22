@@ -28,6 +28,7 @@ c.url.searchengines = {
 
 ### Appearance
 
+c.content.user_stylesheets = "stylesheets/default.css"
 # c.content.user_stylesheets = "stylesheets/wiki.css"
 # c.content.user_stylesheets = "stylesheets/github.css"
 
