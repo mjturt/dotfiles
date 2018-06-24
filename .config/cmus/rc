@@ -13,6 +13,8 @@ bind -f common j seek -5
 bind -f common k win-down
 bind -f common l win-up
 bind -f common p seek +5
+bind -f common d win-half-page-down
+bind -f common u win-half-page-up
 
 ### Notifications
 set status_display_program=/home/mjt/.config/cmus/scripts/CmusNotify

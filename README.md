@@ -31,9 +31,11 @@ All programs that use Vim-keybindings I have remapped keys HJKL -> JKLÖ (Ö is 
 ![Screenshot](screenshots/screenshot.png?raw=true)
 
 I use [Dracula colorscheme](https://github.com/dracula/dracula-theme) everywhere on my main machine. I have been ported it to many programs that I use but are not supported.
-Fonts that I use are ShureTechMono and Hurmit. Patched versions with icons can be found from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
+Fonts that I use are ShureTechMono, Hurmit and Gohu. Patched versions with icons can be found from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
 
 ZSH prompt theme is [distroprompt-zsh](https://github.com/mjturt/distroprompt-zsh).
+
+GTK theme: [Ant-Dracula](https://github.com/EliverLara/Ant-Dracula), Icon theme: [Lüv](https://github.com/Nitrux/luv-icon-theme).
 
 #### Without X11 (just a Linux console):
 ![Console screenshot](screenshots/console.png?raw=true)

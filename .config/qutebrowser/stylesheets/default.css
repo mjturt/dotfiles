@@ -3,19 +3,12 @@
  *┃ mjturt
  * */
 
-
-*,div,pre,textarea,body,input,td,tr,p {
-}
-
-h1,h2,h3,h4 {
-    color: #ff5555 !important;
-}
 a {
-    color: #bd93f9 !important;
+    color: #4D657F !important;
 }
 a:hover,a:focus {
-    color: #50fa7b !important;
+    color: #31994B !important;
 }
 a:visited {
-    color: #ffb86c !important;
+    color: #966C3F !important;
 }

@@ -55,10 +55,14 @@ Xmessage*form.message.Scroll:      WhenNeeded
 ! URxvt parameters !
 !------------------!
 
-URxvt*font:                        xft:ShureTechMono Nerd Font Mono:size=11
-URxvt*boldFont:                    xft:ShureTechMono Nerd Font Mono:Bold:size=11
-URxvt*italicFont:                  xft:ShureTechMono Nerd Font Mono:Italic:size=11
-URxvt*boldItalicFont:              xft:ShureTechMono Nerd Font Mono:Bold:Italic:size=11
+!URxvt*font:                        xft:ShureTechMono Nerd Font Mono:size=11
+!URxvt*boldFont:                    xft:ShureTechMono Nerd Font Mono:Bold:size=11
+!URxvt*italicFont:                  xft:ShureTechMono Nerd Font Mono:Italic:size=11
+!URxvt*boldItalicFont:              xft:ShureTechMono Nerd Font Mono:Bold:Italic:size=11
+URxvt*font:                        xft:GohuFont Nerd Font Mono:size=11
+URxvt*boldFont:                    xft:GohuFont Nerd Font Mono:Bold:size=11
+URxvt*italicFont:                  xft:GohuFont Nerd Font Mono:Italic:size=11
+URxvt*boldItalicFont:              xft:GohuFont Nerd Font Mono:Bold:Italic:size=11
 URxvt*scrollBar:                   false
 URxvt*borderLess:                  false
 URxvt*internalBorder:              5

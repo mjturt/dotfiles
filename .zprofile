@@ -14,4 +14,3 @@ if [ "$TERM" = "linux" ]; then
    source ~/.fbcolors/sourcerer
    #fb
 fi
-. ~/fbcolors

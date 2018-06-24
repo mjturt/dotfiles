@@ -136,8 +136,8 @@ set sidescroll=40
 set scrolloff=3
 
 autocmd! bufwritepost .vimrc source ~/.vimrc
-
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
+au BufRead /tmp/mutt-* set tw=72
 
 set titlestring=%(\ %M%)%(\ %F%)%a\ -\ 
 
@@ -281,10 +281,8 @@ let mapleader="'"
 map! <C-K> <Esc>
 vnoremap <C-K> <Esc>
 nmap <C-o> o<Esc>
-map <S-k> gT
-map <S-l> gt
-map <C-k> :bprevious<CR>
-map <C-l> :bnext<CR>
+map <S-k> :bprevious<CR>
+map <S-l> :bnext<CR>
 vmap <C-c> y
 nmap <leader>/ :nohl<CR>
 nnoremap <silent> <Leader>l :exe "resize +5"<CR>

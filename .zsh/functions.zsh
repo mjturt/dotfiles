@@ -31,6 +31,8 @@ function extract () {
       *.tgz)      tar         xzf   $1;;
       *.zip)      unzip             $1;;
       *.Z)        uncompress        $1;;
+      *.tar.xz)   tar         xJf   $1;;
+      *.xz)       xz          -d    $1;;
       *)          echo "'$1' cannot be extracted via extract()" ;;
       esac
    else
