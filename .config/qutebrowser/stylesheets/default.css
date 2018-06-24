@@ -12,3 +12,7 @@ a:hover,a:focus {
 a:visited {
     color: #966C3F !important;
 }
+#main .nerd-font-cheat-sheet .column .codepoint {
+    color: #000000 !important;
+    font-size: 18px !important;
+}

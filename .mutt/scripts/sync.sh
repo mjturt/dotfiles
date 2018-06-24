@@ -10,7 +10,7 @@ do
    newcount=$(find ~/mail/$account/INBOX/new/ -type f -newer ~/.mutt/lastsync 2> /dev/null | wc -l)
    if [ "$newcount" -gt "0" ]
    then
-      ssh mjt@r5.turtia.com mpv --quiet /home/mjt/notify.opus
+      ssh mjt@r5.turtia.com mpv --quiet /home/mjt/.notify.opus
    fi
 done
 

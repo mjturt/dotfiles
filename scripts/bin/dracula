@@ -1,0 +1,16 @@
+#!/bin/bash
+# Dracula-theme with 256 shell colors
+# Ported by mjturt
+
+echo -e "\E[1m\e[38;5;141mDracula colorscheme port to shell 256 colors \e(B\e[m"
+echo -e "#282a36 -> 17  -> \e[48;5;17m     \e(B\e[m # Background"
+echo -e "#44475a -> 59  -> \e[48;5;59m     \e(B\e[m # Selection"
+echo -e "#f8f8f2 -> 231 -> \e[48;5;231m     \e(B\e[m # Foreground"
+echo -e "#6272a4 -> 61  -> \e[48;5;61m     \e(B\e[m # Comment"
+echo -e "#8be9fd -> 117 -> \e[48;5;117m     \e(B\e[m # Cyan"
+echo -e "#50fa7b -> 84  -> \e[48;5;84m     \e(B\e[m # Green"
+echo -e "#ffb86c -> 215 -> \e[48;5;215m     \e(B\e[m # Orange"
+echo -e "#ff79c6 -> 212 -> \e[48;5;212m     \e(B\e[m # Pink"
+echo -e "#bd93f9 -> 141 -> \e[48;5;141m     \e(B\e[m # Purple"
+echo -e "#ff5555 -> 203 -> \e[48;5;203m     \e(B\e[m # Red"
+echo -e "#f1fa8c -> 228 -> \e[48;5;228m     \e(B\e[m # Yellow"

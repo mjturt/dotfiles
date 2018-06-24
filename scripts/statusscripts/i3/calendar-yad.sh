@@ -2,7 +2,7 @@
 
 width=200
 height=200
-datefmt="+%a %d.%m.%Y %H:%M:%S"
+datefmt="+%a %d.%m.%Y"
 
 OPTIND=1
 while getopts ":f:W:H:" opt; do
