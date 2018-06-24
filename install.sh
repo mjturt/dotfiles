@@ -738,6 +738,47 @@ df_buku_run () {
    ln -s -v ${DOT}/.config/buku_run/config ~/.config/buku_run/config >> $LOGS
 }
 
+# Mutt (commons)
+df_mutt () {
+   if [[ -e ~/.mutt ]]; then
+      mv -v ~/.mutt $BACKUP >> $LOGS
+   elif [[ -L ~/.mutt ]]; then
+      rm -v ~/.mutt >> $LOGS
+   fi
+   if [[ -e ~/.offlineimaprc ]]; then
+      mv -v ~/.offlineimaprc $BACKUP >> $LOGS
+   elif [[ -L ~/.offlineimaprc ]]; then
+      rm -v ~/.offlineimaprc >> $LOGS
+   fi
+   if [[ -e ~/.offlineimap.py ]]; then
+      mv -v ~/.offlineimap.py $BACKUP >> $LOGS
+   elif [[ -L ~/.offlineimap.py ]]; then
+      rm -v ~/.offlineimap.py >> $LOGS
+   fi
+   if [[ -e ~/.notmuch-config ]]; then
+      mv -v ~/.notmuch-config $BACKUP >> $LOGS
+   elif [[ -L ~/.notmuch-config ]]; then
+      rm -v ~/.notmuch-config >> $LOGS
+   fi
+   if [[ ! -e ~/mail ]]; then
+      mkdir -v ~/mail >> $LOGS
+   fi
+   mkdir -v ~/.mutt >> $LOGS
+   mkdir -v -p ~/.mutt/cache/{utu,gmail}/{headers,messages} >> $LOGS
+   ln -s -v ${DOT}/.mutt/muttrc ~/.mutt/muttrc >> $LOGS
+   ln -s -v ${DOT}/.mutt/keybindings ~/.mutt/keybindings >> $LOGS
+   ln -s -v ${DOT}/.mutt/mailcap ~/.mutt/mailcap >> $LOGS
+   ln -s -v ${DOT}/.mutt/colors ~/.mutt/colors >> $LOGS
+   ln -s -v ${DOT}/.mutt/mailboxes ~/.mutt/mailboxes >> $LOGS
+   ln -s -v ${DOT}/.mutt/scripts ~/.mutt/scripts >> $LOGS
+   ln -s -v ${DOT}/.mutt/accounts ~/.mutt/accounts >> $LOGS
+   ln -s -v ${DOT}/.mutt/aliases ~/.mutt/aliases >> $LOGS
+   ln -s -v ${DOT}/.mutt/signature ~/.mutt/signature >> $LOGS
+   ln -s -v ${DOT}/.mutt/offlineimap/offlineimaprc ~/.offlineimaprc >> $LOGS
+   ln -s -v ${DOT}/.mutt/offlineimap/offlineimap.py ~/.offlineimap.py >> $LOGS
+   ln -s -v ${DOT}/.mutt/notmuch-config ~/.notmuch-config >> $LOGS
+}
+
 #┏━━━━━━┓
 #┃ Help ┃
 #┗━━━━━━┛
@@ -761,7 +802,7 @@ helps () {
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
-   echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run"
+   echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt"
    echo
    echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_rofi,"
    echo -e "df_ranger"

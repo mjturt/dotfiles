@@ -1,0 +1,67 @@
+#┃ ~/.mutt/keybindings
+#┣━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
+
+bind index i  noop
+bind index g noop
+bind index gg first-entry
+bind index G last-entry
+bind index k next-undeleted
+bind index l previous-undeleted
+bind index S limit
+bind pager K next-entry
+bind pager L previous-entry
+bind pager i exit
+bind pager q toggle-quoted
+bind pager / search
+bind pager k next-line
+bind pager l previous-line
+bind pager \ek previous-entry
+bind pager \el next-entry
+bind attach l previous-entry
+bind attach k next-entry
+bind pager g noop
+bind pager gg top
+bind pager G  bottom
+bind index,pager \# noop
+bind index,pager \& noop
+bind index,pager R  group-reply
+bind index,pager \Cy sidebar-prev
+bind index,pager \Ch sidebar-next
+bind index,pager \Cu sidebar-open
+bind index,pager d half-down
+bind index,pager u half-up
+bind index D delete-message
+bind index U undelete-message
+bind index ö display-message
+bind pager j exit
+bind generic k next-entry
+bind generic l previous-entry
+bind attach <return> view-mailcap
+bind index <Space> collapse-thread
+bind index <tab> sync-mailbox
+bind compose p postpone-message
+
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "Mark all messages as read"
+macro index eC "!$EDITOR ~/.mutt/muttrc\n:source ~/.mutt/muttrc\n" "Edit config file and reload it"
+macro index O "<shell-escape>offlineimap -o<enter>" "Run offlineimap to sync all mail"
+
+macro index \Cf \
+"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
+<shell-escape>notmuch-mutt -r --prompt search<enter>\
+<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
+<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
+"notmuch: search mail"
+
+macro index <F9> \
+"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
+<pipe-message>notmuch-mutt -r thread<enter>\
+<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
+<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
+"notmuch: reconstruct thread"
+
+macro index <F6> \
+"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
+<pipe-message>notmuch-mutt tag -- -inbox<enter>\
+<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
+"notmuch: remove message from inbox"

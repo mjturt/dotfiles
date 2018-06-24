@@ -20,8 +20,9 @@ This repository is attempt to bring my dotfiles under version controlling. Mainl
 + Video player:         **mpv**
 + Music player:         **cmus**
 + Torrent client:       **rtorrent**
++ Mail client:          **Mutt**
 
-There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb and for pass and buku rofi-frontends.
+There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb, offlineimap and for pass and buku rofi-frontends.
 
 ### Keybindings
 

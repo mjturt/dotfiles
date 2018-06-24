@@ -1,0 +1,82 @@
+#┃ ~/.mutt/muttrc
+#┣━━━━━━━━━━━━━━━
+#┃ mjturt
+
+### Basic settings
+set send_charset="utf-8"
+set assumed_charset="iso-8859-1"
+set editor="vim -c 'set syntax=mail ft=mail enc=utf-8'"
+set menu_scroll=yes
+set simple_search="~f %s | ~C %s | ~s %s"
+source ~/.mutt/aliases
+
+### Receiving
+set mail_check=0
+set imap_keepalive=500
+unset imap_passive
+set mbox_type=Maildir
+set folder=~/mail
+source ~/.mutt/mailboxes
+set imap_check_subscribed
+subscribe "gentoo-.*@gentoo\\.org"
+
+### Sending
+set fast_reply
+set forward_format = "Fwd: %s"
+set forward_decode
+set forward_quote
+set reverse_name
+set include 
+set sig_dashes
+set edit_headers
+set signature=~/.mutt/signature
+
+### Attachments
+set mailcap_path=~/.mutt/mailcap
+auto_view application/msword
+auto_view application/pdf
+auto_view text/html
+set fcc_attach
+unset mime_forward 
+
+### UI and colors
+source ~/.mutt/colors/neonwolf.mutt
+## Index
+set sort_aux=last-date-received
+set sort=reverse-threads
+set strict_threads=yes
+set date_format ="%d.%m.%Y at %H:%M:%S%Z"
+set index_format ="%4C %Z %[%b %d at %H:%M] %-15.15L (%4l) %s"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+unset collapse_unread 
+set read_inc = 1
+set time_inc = 300
+spam "X-Spam-Score: ([0-9\\.]+).*" "SA: %1"
+ignore *
+unignore From To Cc Bcc Date Subject
+unhdr_order *
+hdr_order From: To: Cc: Bcc: Date: Subject:
+## Pager
+#set pager_format = " %C - %[%H:%M] %.20v, %s%* %?H? [%H] ?"
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+## Sidebar
+set sidebar_visible = yes
+set sidebar_width = 15
+set sidebar_folder_indent = yes
+set sidebar_short_path = yes
+ 
+### Accounts
+set spoolfile = "+utu/INBOX"
+source ~/.mutt/accounts/utu/account
+folder-hook ~/mail/utu/* 'source ~/.mutt/accounts/utu/account'
+folder-hook ~/mail/gmail/* 'source ~/.mutt/accounts/gmail/account'
+
+### Keybindings
+source ~/.mutt/keybindings

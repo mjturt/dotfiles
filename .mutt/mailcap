@@ -1,0 +1,12 @@
+#┃ ~/.mutt/mailcap
+#┣━━━━━━━━━━━━━━━━
+#┃ mjturt
+
+application/msword; antiword '%s'; copiousoutput; description=Word Document;
+nametemplate=%s.doc
+application/pdf; pdftotext '%s' -; copiousoutput; description=PDF Document;
+nametemplate=%s.pdf
+text/html; elinks -dump %s; needsterminal; copiousoutput
+image/*; feh %s; copiousoutput; needsterminal
+audio/*; /usr/bin/mpv %s ; copiousoutput
+video/*; /usr/bin/mpv %s ; copiousoutput

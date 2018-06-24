@@ -1,0 +1,67 @@
+# general settings
+color normal     color222 default # normal text
+color message    color222 default # messages
+color error      color124 default # errors
+color markers    color143 default # + signes for wrapped text (?)
+color tilde      color143 default # filling empty lines with tildes (?)
+color status     color111 default # status lines on top and bottom
+color search     color220 default # search
+
+# sidebar
+color sidebar_new       color137 default # mailboxes with new mail
+color sidebar_divider   color145 default # dividing characters
+color sidebar_indicator color109 default # selected mailbox
+
+# index
+color tree       color245 default     # tree arrows
+color indicator  color234 color110    # current selection
+color index      color222 default  ~A # all messages
+color index      color137 default  ~N # new messages
+color index      color137 default  ~U # unread messages
+color index      color240 default  ~R # read messages
+color index      color245 default  ~Q # replied messages
+color index      color94  default  ~O # old messages
+color index      color124 default  ~D # deleted messages
+color index      color96  default  ~F # flagged messages
+color index      color96  default  ~E # expired messages
+
+# header
+color hdrdefault color94  default
+color header     color109 default "^Subject"
+color header     color137 default "^From"
+color header     color137 default "^To"
+
+# url, email and web
+color body  color143 default "(finger|ftp|http|https|news|telnet)://[^ >]*"
+color body  color143 default "<URL:[^ ]*>"
+color body  color143 default "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+color body  color143 default "mailto: *[^ ]+\(\\i?subject=[^ ]+\)?"
+color body  color143 default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# misc body
+color attachment color214 default  # add-ons to the message
+color signature  color214 default
+
+# quote levels
+color quoted  color245 default
+color quoted1 color240 default
+color quoted2 color245 default
+color quoted3 color240 default
+color quoted4 color245 default
+color quoted5 color240 default
+color quoted6 color245 default
+color quoted7 color240 default
+color quoted8 color245 default
+color quoted9 color240 default
+
+# # gpg stuff
+# color body       color188 color237 "^gpg: Good signature.*"
+# color body       color115 color236 "^gpg: BAD signature.*"
+# color body       color174 color237 "^gpg: Can't check signature.*"
+# color body       color174 color237 "^-----BEGIN PGP SIGNED MESSAGE-----"
+# color body       color174 color237 "^-----BEGIN PGP SIGNATURE-----"
+# color body       color174 color237 "^-----END PGP SIGNED MESSAGE-----"
+# color body       color174 color237 "^-----END PGP SIGNATURE-----"
+# color body       color174 color237 "^Version: GnuPG.*"
+# color body       color174 color237 "^Comment: .*"
+
