@@ -31,6 +31,8 @@ All programs that use Vim-keybindings I have remapped keys HJKL -> JKLÖ (Ö is 
 ### Appearance
 ![Screenshot](screenshots/screenshot.png?raw=true)
 
+This screenshot is only one monitor even though its actually [dual monitor setup](screenshots/multimonitor.png?raw=true).
+
 I use [Dracula colorscheme](https://github.com/dracula/dracula-theme) everywhere on my main machine. I have been ported it to many programs that I use but are not supported.
 Fonts that I use are ShureTechMono, Hurmit and Gohu. Patched versions with icons can be found from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
 

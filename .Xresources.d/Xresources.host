@@ -9,4 +9,5 @@ Xcursor.size:                      22
 
 #include "colors/dracula"
 
-URxvt.background:                  [98]#282a36
+!URxvt.background:                  [98]#282a36
+URxvt.background:                  #282a36

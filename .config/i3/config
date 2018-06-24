@@ -125,10 +125,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 bar {
       status_command i3blocks
-      font pango:ShureTechMono Nerd Font 10
+      #font pango:ShureTechMono Nerd Font 10
       #font pango:GohuFont Nerd Font 9
       #font pango:FuraCode Nerd Font 9
-      #font pango:Hasklug Nerd Font 9
+      font pango:Hasklug Nerd Font 9
       tray_output HDMI-0
       separator_symbol ""
       
