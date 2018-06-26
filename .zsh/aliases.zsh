@@ -44,6 +44,8 @@ alias tlkc="tmux list-keys -T copy-mode-vi"
 alias fbvar="export TERM=fbterm"
 alias pyg="pygmentize -O style=base16-monokai -f console256 -g"
 alias notes="vim ~/cloud/rnotes"
+alias gotop="gotop -c monokai"
+
 alias rustofat="toilet -f rustofat --gay"
 alias wideterm="toilet -f wideterm --gay"
 

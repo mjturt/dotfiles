@@ -28,9 +28,10 @@ c.url.searchengines = {
 
 ### Appearance
 
-c.content.user_stylesheets = "stylesheets/default.css"
-# c.content.user_stylesheets = "stylesheets/wiki.css"
-# c.content.user_stylesheets = "stylesheets/github.css"
+c.downloads.remove_finished = 100
+
+c.content.user_stylesheets = "stylesheets/mjturt.css"
+# c.content.user_stylesheets = "stylesheets/dracula.css"
 
 config.source('themes/base16-dracula.config.py')
 c.colors.hints.fg = "#ffb86c"
@@ -67,3 +68,4 @@ config.bind('K', 'scroll down', mode='caret')
 config.bind('L', 'scroll up', mode='caret')         
 config.bind('Ö', 'scroll right', mode='caret')         
 config.bind('<Ctrl-b>', 'spawn --userscript ~/.config/qutebrowser/userscripts/qute-buku-add.sh')
+config.bind('<Ctrl-r>', 'config-source')

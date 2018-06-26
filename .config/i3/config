@@ -36,7 +36,7 @@ floating_modifier $mod
 # <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
 default_floating_border none
-hide_edge_borders both
+#hide_edge_borders both
 
 ### Keymappings
 
@@ -128,7 +128,7 @@ bar {
       #font pango:ShureTechMono Nerd Font 10
       #font pango:GohuFont Nerd Font 9
       #font pango:FuraCode Nerd Font 9
-      font pango:Hasklug Nerd Font 9
+      font pango:Misc Ohsnap,FuraCode Nerd Font 9 
       tray_output HDMI-0
       separator_symbol ""
       

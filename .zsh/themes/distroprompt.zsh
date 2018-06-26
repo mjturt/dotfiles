@@ -12,6 +12,7 @@ distroprompt_dir() {
 
 # OS symbol
 distroprompt_os_symbol() {
+   # Root
    if [[ $EUID == 0 ]] ; then
       echo -n "%B%F{228}"
    else
@@ -34,7 +35,7 @@ distroprompt_os_symbol() {
                echo -n "%B%F{052}"
             elif [ $(cat /etc/*-release | grep Slackware | wc -l) -gt "0" ]
             then
-               echo -n "%B%F{004}"
+               echo -n "%B%F{060}"
             elif [ $(cat /etc/*-release | grep Ubuntu | wc -l) -gt "0" ]
             then
                echo -n "%B%F{166}"
@@ -62,7 +63,23 @@ distroprompt_os_symbol() {
             elif [ $(cat /etc/*-release | grep Manjaro | wc -l) -gt "0" ]
             then
                echo -n "%B%F{040}"
+            elif [ $(cat /etc/*-release | grep Alpine | wc -l) -gt "0" ]
+            then
+               echo -n "%B%F{025}"
+            elif [ $(cat /etc/*-release | grep Devuan | wc -l) -gt "0" ]
+            then
+               echo -n "%B%F{059}"
+            elif [ $(cat /etc/*-release | grep Mageia | wc -l) -gt "0" ]
+            then
+               echo -n "%B%F{025}"
+            elif [ $(cat /etc/*-release | grep Sabayon | wc -l) -gt "0" ]
+            then
+               echo -n "%B%F{252}"
+            elif [ $(cat /etc/*-release | grep Raspbian | wc -l) -gt "0" ]
+            then
+               echo -n "%B%F{125}"
             else
+               # Distro cant be determined
                echo -n "%B%F{253}" 
             fi
          ;;
@@ -76,6 +93,7 @@ distroprompt_os_symbol() {
             echo -n "%B%F{033}"
          esac
       else
+         # If cant write
          echo -n "%B%F{203}"
       fi
    fi

@@ -68,6 +68,7 @@ Plug 'xolox/vim-colorscheme-switcher'
 " Color themes
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'jacoborus/tender.vim'
 
 " Not in use
 "Plug 'gcavallanti/vim-noscrollbar'
