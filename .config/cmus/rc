@@ -2,6 +2,9 @@
 #┣━━━━━━━━━━━━━━━━━━
 #┃ mjturt
 
+### Basic options
+set mouse=true
+
 ### Alsa
 set output_plugin=alsa
 set dsp.alsa.device=default

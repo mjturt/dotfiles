@@ -25,8 +25,7 @@ Xmessage*form.message.Scroll:      WhenNeeded
 
 *transparent:                      false
 *lineSpace:                        0
-! *letterSpace:                      -1
-! *fading:                           30
+!*fading:                           30
 *cursorBlink:                      true
 *cursorUnderline:                  true
 *saveLines:                        4096
@@ -41,10 +40,10 @@ Xmessage*form.message.Scroll:      WhenNeeded
 ! Colors !
 !--------!
 
-*colorUL:                          #268bd2
-*underlineColor:                   #129b33
-*cursorColor:                      #c8ff00
-*cursorColor2:                     #004049
+!*colorUL:                          #268bd2
+!*underlineColor:                   #129b33
+!*cursorColor:                      #c8ff00
+!*cursorColor2:                     #004049
 !*highlightColor:                  #FF0000
 !*colorBD:                         #FF0000
 !*pointerColor:                    #656565

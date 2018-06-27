@@ -13,7 +13,7 @@ c.backend = "webengine"
 c.scrolling.bar = True
 #c.backend = "webkit"
 #c.content.pdfjs = True
-c.hints.mode = "number"
+c.hints.mode = "letter"
 c.url.searchengines = { 
         "DEFAULT" : "https://duckduckgo.com/?q={}", 
         "w" : "https://www.wikipedia.org/w/index.php?title=Special:Search&search={}",

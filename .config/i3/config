@@ -209,6 +209,7 @@ for_window [class="Blueberry"] floating enable
 for_window [class="Yad"] floating enable
 for_window [class="Turku Infected"] floating enable
 for_window [class="Godot"] floating enable
+for_window [class="Gimp"] floating enable
 
 ### Colors (Dracula)
 

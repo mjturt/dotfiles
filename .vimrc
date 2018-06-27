@@ -1,10 +1,10 @@
-" ~/.vimrc  
-" --------
-" mjturt   
+"┃ ~/.vimrc
+"┣━━━━━━━━━
+"┃ mjturt
 
-"-------------------
-" VIM-Plug install |
-"-------------------
+"------------------"
+" VIM-Plug install "
+"------------------"
 
 if empty(glob('~/.vim/autoload/plug.vim'))
    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -14,28 +14,22 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-"----------
-" Plugins |
-"----------
-
-" Nerdtree
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs' 
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"---------"
+" Plugins "
+"---------"
 
 " Completion
-Plug 'maralla/completor.vim'
-Plug 'ervandew/supertab'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'artur-shaik/vim-javacomplete2'
-Plug 'shawncplus/phpcomplete.vim'
 
 " Syntax
 Plug 'vim-syntastic/syntastic'
+Plug 'vitalk/vim-shebang'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'ricpelo/vim-gdscript'
-Plug 'ap/vim-css-color'
 Plug 'tmux-plugins/vim-tmux'
 
 " Automation
@@ -45,43 +39,34 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'tpope/vim-surround'
 
 " Interface
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'farmergreg/vim-lastplace'
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-eunuch'
 Plug 'google/vim-searchindex'
 Plug 'lilydjwg/colorizer'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'ap/vim-buftabline'
+Plug 'ryanoasis/vim-devicons'
+Plug 'gcavallanti/vim-noscrollbar'
 
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" Appearance
-Plug 'ryanoasis/vim-devicons'
-Plug 'xolox/vim-colorscheme-switcher'
-
 " Color themes
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'jacoborus/tender.vim'
-
-" Not in use
-"Plug 'gcavallanti/vim-noscrollbar'
-"Plug 'jszakmeister/vim-togglecursor'
-"Plug 'michaeljsmith/vim-indent-object'
-"Plug 'majutsushi/tagbar'
-"Plug 'godlygeek/tabular'
+Plug 'xero/sourcerer.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
-"-----------
-" Settings |
-"-----------
+"----------"
+" Settings "
+"----------"
 
 syntax on
 filetype plugin indent on
@@ -95,13 +80,12 @@ set showmatch
 set nowrap
 set hlsearch
 set noshowmode
-set list listchars=tab:∙\ ,extends:▶,precedes:◀
+set list listchars=tab:∙\ ,extends:,precedes:
 set hidden
 set shortmess=atI
+set laststatus=2
 
 set number relativenumber
-autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 
 set ttyfast
 set mouse=a
@@ -115,6 +99,7 @@ set autoread
 set autochdir
 set clipboard=unnamedplus
 set lazyredraw
+set ttimeoutlen=50
 
 set incsearch
 set ignorecase
@@ -136,24 +121,15 @@ set smartindent
 set sidescroll=40
 set scrolloff=3
 
-autocmd! bufwritepost .vimrc source ~/.vimrc
-autocmd VimLeave * call system("xsel -ib", getreg('+'))
-au BufRead /tmp/mutt-* set tw=72
-
-set titlestring=%(\ %M%)%(\ %F%)%a\ -\ 
-
 set backupdir=~/.vim/temp/backup
 set directory=~/.vim/temp/swap
-try
-   set undodir=~/.vim/temp/undo
-   set undofile
-catch
-endtry
+set undodir=~/.vim/temp/undo
+set backup
+set undofile
 
-" Completion
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
-" Editing non-plaintext files
 autocmd BufReadPost *.doc silent %!antiword "%" 
 autocmd BufWriteCmd *.doc set readonly
 autocmd BufReadPost *.odt,*.odp silent %!odt2txt "%"
@@ -163,24 +139,23 @@ autocmd BufWriteCmd *.pdf set readonly
 autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 autocmd BufWriteCmd *.rtf set readonly
 
-"---------
-" Colors |
-"---------
+"------------"
+" Appearance "
+"------------"
 
-"color molokai
-"color PaperColor
-color dracula
+set titlestring=%(\ %M%)%(\ %F%)%a\ -\ 
+
+color sourcerer
 
 set background=dark
 hi Normal guibg=NONE ctermbg=NONE
-hi CursorLine  cterm=NONE ctermbg=236 ctermfg=NONE
-hi CursorColumn  ctermbg=236 ctermfg=NONE
 hi Visual ctermbg=3 ctermfg=0
-autocmd InsertEnter * highlight CursorColumn ctermbg=22 ctermfg=NONE
-autocmd InsertLeave * highlight CursorColumn ctermbg=236 ctermfg=NONE
+hi TabLine ctermbg=NONE ctermfg=101
+hi TabLineFill ctermbg=NONE ctermfg=101
+hi TabLineSel cterm=bold ctermbg=101 ctermfg=16
+hi LineNr cterm=bold ctermbg=NONE ctermfg=237
 
-" Cursor color and shape settings
-
+" Cursor color and shape
 if &term =~ "xterm\\|rxvt-unicode-256color"
    let &t_SI = "\<Esc>]12;Green\x7"
    let &t_EI = "\<Esc>]12;DarkCyan\x7"
@@ -201,71 +176,65 @@ if exists('$TMUX')
 "   autocmd VimLeave * silent execute "!echo -en \<esc>[3 q"
 endif
 
-"------------------
-" Plugin settings |
-"------------------
+"-------------"
+" Status line "
+"-------------"
 
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='violet'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_section_z = ' %p%%  %l/%L  %v'
-set ttimeoutlen=50
+set statusline=
+set statusline+=%1*\ %{ModeCurrent()}%*%2*%*
+set statusline+=\ %-3.(%3*%m%*%)\ %4*%f%*\ %y
+set statusline+=\ %{fugitive#head()!=''?'\ \ '.fugitive#head().'\ ':''}
+set statusline+=%h%r
+set statusline+=%=
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
+set statusline+=%-16.(C:%c\ L:%4*%l%*/%L%)
+set statusline+=%{noscrollbar#statusline(15,'▒','▉')}
+set statusline+=\ %4*%n%*
 
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
-"let g:NERDTreeDirArrowExpandable = ''
-"let g:NERDTreeDirArrowCollapsible = ''
-let g:nerdtree_tabs_open_on_gui_startup=2
-let g:NERDTreeWinPos = "right"
+" Mode indicator
+let g:currentmode={ 'n' : 'N ', 'no' : 'N·O ', 'v' : 'V ', 'V' : 'V·L ', '^V' : 'V·B ', 's' : 'S ', 'S': 'S·L ', '^S' : 'S·B ', 'i' : 'I ', 'R' : 'R ', 'Rv' : 'V·R ', 'c' : 'C ', 'cv' : 'V-Ex ', 'ce' : 'Ex ', 'r' : 'P ', 'rm' : 'M ', 'r?' : 'Confirm ', '!' : 'S ', 't' : 'T '}
+function! ModeCurrent() abort
+    let l:modecurrent = mode()
+    let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·B '))
+    let l:current_status_mode = l:modelist
+    return l:current_status_mode
+endfunction
 
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" Statusline colors
+hi StatusLine cterm=NONE ctermbg=NONE ctermfg=101
+hi User1 cterm=bold ctermbg=101   ctermfg=16   guibg=green guifg=red
+hi User2 cterm=bold ctermbg=NONE  ctermfg=101  guibg=red   guifg=blue
+hi User3 cterm=bold ctermbg=NONE  ctermfg=64 guibg=blue  guifg=green
+hi User4 cterm=bold ctermbg=NONE  ctermfg=101  guibg=red   guifg=blue
+au InsertEnter * hi User1 ctermbg=16 ctermfg=101 | hi User2 ctermfg=16
+au InsertLeave * hi User1 ctermbg=101 ctermfg=16 | hi User2 ctermfg=101
 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+"-----------------"
+" Plugin settings "
+"-----------------"
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-let g:colorscheme_switcher_define_mappings = 0
-
-let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:syntastic_c_remove_include_errors = 1
 
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 
-let g:syntastic_c_remove_include_errors = 1
-
-"Projects for syntastic
-source ~/.vim/projects.vim
-
-"Vimpager settings
-let g:vimpager = {}
-let g:less     = {}
-let g:less.enabled = 0
-
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
-"---------------
-" GUI-settings |
-"--------------- 
+let g:deoplete#enable_at_startup = 1
 
-if has("gui_running")
-   if has("gui_gtk2") || has("gui_gtk3")
-      set guifont=ShureTechMono\ Nerd\ Font\ Mono\ 10
-   endif
-endif
+"Projects for syntastic
+source ~/.vim/projects.vim
 
-"--------------------
-" Keyboard mappings |
-"--------------------
+"-------------------"
+" Keyboard mappings "
+"-------------------"
 
 noremap j h
 noremap k j
@@ -277,31 +246,28 @@ nmap <silent> <C-w>k :wincmd j<CR>
 nmap <silent> <C-w>j :wincmd h<CR>
 nmap <silent> <C-w>ö :wincmd l<CR>
 
-let mapleader="'"
-"set pastetoggle=<F3>
-map! <C-K> <Esc>
-vnoremap <C-K> <Esc>
 nmap <C-o> o<Esc>
+"set pastetoggle=<F3>
 map <S-k> :bprevious<CR>
 map <S-l> :bnext<CR>
+map + $
+map <C-a> <Nop>
+nmap QQ :q<CR>
+nmap WW :wq<CR>
 vmap <C-c> y
-nmap <leader>/ :nohl<CR>
+
+let mapleader="'"
 nnoremap <silent> <Leader>l :exe "resize +5"<CR>
 nnoremap <silent> <Leader>k :exe "resize -5"<CR>
 nnoremap <silent> <Leader>ö :exe "vertical resize +5"<CR>
 nnoremap <silent> <Leader>j :exe "vertical resize -5"<CR>
+
 nnoremap <leader>ev :tabnew ~/.vimrc<CR>
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 noremap <Leader>gg gg=G
-cmap Q q
-cmap W w
-"cmap qw wq
-nmap QQ :q<CR>
-nmap WW :wq<CR>
-map + $
+nmap <leader>/ :nohl<CR>
 map <leader>X :!chmod +x %<CR><CR>
 map <leader>W :%s/ \{2,}/ /g<CR>
-map <C-a> <Nop>
 map <leader>c :set cursorline!<CR>:set cursorcolumn!<CR>
 noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>p "0p
@@ -310,24 +276,27 @@ noremap <leader>d di"
 map <F5> :call CompileRunGcc()<CR>
 vnoremap <F9> "ry:call Func2X11()<cr>
 
-command! Sw silent execute 'write !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
+cmap Q q
+cmap W w
 
 " Mappings for plugins
-
-nmap <F12> :TagbarToggle<CR>
-map <F2> <plug>NERDTreeTabsToggle<CR>
-nmap <F11> :RandomColorScheme<CR>
-nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 nmap s <Plug>(easymotion-overwin-f)
-nmap s <Plug>(easymotion-overwin-f2)
 nmap <leader>s ys$"
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-"------------
-" Functions |
-"------------
+"----------"
+" Commands "
+"----------"
+
+command! Sw silent execute 'write !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
+command! -nargs=1 Shebang :new <args> | 0put =\"#!/bin/bash\<nl>\"|$
+command! -nargs=1 Newdot :new <args> | 0put =\"#┃\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
+
+"-----------"
+" Functions "
+"-----------"
 
 " Compiler
-
 func! CompileRunGcc()
    exec"w"
    if &filetype == 'c'
@@ -352,7 +321,6 @@ func! CompileRunGcc()
 endfunc
 
 " ToggleWrap
-
 func! ToggleWrap()
    if &wrap
       echo "Wrap OFF"
@@ -383,7 +351,16 @@ func! ToggleWrap()
 endfunction
 
 " Fallback copy
-
 function! Func2X11()
    :call system('xclip -selection c', @r)
 endfunction
+
+"--------------"
+" GUI-settings "
+"--------------" 
+
+if has("gui_running")
+   if has("gui_gtk2") || has("gui_gtk3")
+      set guifont=ShureTechMono\ Nerd\ Font\ Mono\ 10
+   endif
+endif
