@@ -128,7 +128,7 @@ bar {
       #font pango:ShureTechMono Nerd Font 10
       #font pango:GohuFont Nerd Font 9
       #font pango:FuraCode Nerd Font 9
-      font pango:Misc Ohsnap,FuraCode Nerd Font 9 
+      font pango:bitocra13full,GohuFont Nerd Font 9 
       tray_output HDMI-0
       separator_symbol ""
       

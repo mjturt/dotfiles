@@ -11,6 +11,6 @@ fi
 # Console colors
 
 if [ "$TERM" = "linux" ]; then
-   source ~/.fbcolors/sourcerer
+   source ~/.fbcolors/praiso
    #fb
 fi

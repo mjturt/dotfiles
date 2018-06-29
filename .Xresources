@@ -15,7 +15,7 @@ Xft*lcdfilter:                     lcddefault
 Xft*embolden:                      false
 Xft*render:                        true
 Xft*hinting:                       true
-Xft*antialias:                     true
+Xft*antialias:                     false
 Xft*rgba:                          rgba
 
 *Font:                             xft:ShureTechMono Nerd Font Mono:size=11
@@ -53,15 +53,14 @@ Xmessage*form.message.Scroll:      WhenNeeded
 !------------------!
 ! URxvt parameters !
 !------------------!
-
-URxvt*font:                        xft:ShureTechMono Nerd Font Mono:size=11
-URxvt*boldFont:                    xft:ShureTechMono Nerd Font Mono:Bold:size=11
-URxvt*italicFont:                  xft:ShureTechMono Nerd Font Mono:Italic:size=11
-URxvt*boldItalicFont:              xft:ShureTechMono Nerd Font Mono:Bold:Italic:size=11
-!URxvt*font:                        xft:GohuFont Nerd Font Mono:size=10
-!URxvt*boldFont:                    xft:GohuFont Nerd Font Mono:Bold:size=10
-!URxvt*italicFont:                  xft:GohuFont Nerd Font Mono:Italic:size=10
-!URxvt*boldItalicFont:              xft:GohuFont Nerd Font Mono:Bold:Italic:size=10
+URxvt.font:                        xft:GohuFont NF:size=9
+URxvt.boldFont:                    xft:GohuFont NF:size=9
+URxvt.italicFont:                  xft:GohuFont NF:size=9
+URxvt.boldItalicFont:              xft:GohuFont NF:size=9
+!URxvt*font:                        xft:ShureTechMono NF:size=11
+!URxvt*boldFont:                    xft:ShureTechMono Nerd Font Mono:Bold:size=11
+!URxvt*italicFont:                  xft:ShureTechMono Nerd Font Mono:Italic:size=11
+!URxvt*boldItalicFont:              xft:ShureTechMono Nerd Font Mono:Bold:Italic:size=11
 URxvt*scrollBar:                   false
 URxvt*borderLess:                  false
 URxvt*internalBorder:              5
