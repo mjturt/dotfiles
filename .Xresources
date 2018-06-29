@@ -53,10 +53,10 @@ Xmessage*form.message.Scroll:      WhenNeeded
 !------------------!
 ! URxvt parameters !
 !------------------!
-URxvt.font:                        xft:GohuFont NF:size=9
-URxvt.boldFont:                    xft:GohuFont NF:size=9
-URxvt.italicFont:                  xft:GohuFont NF:size=9
-URxvt.boldItalicFont:              xft:GohuFont NF:size=9
+URxvt.font:                        xft:GohuFont NF:size=10
+URxvt.boldFont:                    xft:GohuFont NF:size=10
+URxvt.italicFont:                  xft:GohuFont NF:size=10
+URxvt.boldItalicFont:              xft:GohuFont NF:size=10
 !URxvt*font:                        xft:ShureTechMono NF:size=11
 !URxvt*boldFont:                    xft:ShureTechMono Nerd Font Mono:Bold:size=11
 !URxvt*italicFont:                  xft:ShureTechMono Nerd Font Mono:Italic:size=11

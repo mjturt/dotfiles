@@ -165,6 +165,10 @@ df_vim () {
    mkdir -v ~/.vim/temp/undo >> $LOGS
    ln -v -s ${DOT}/.vimrc ~/.vimrc >> $LOGS
    ln -v -s ${DOT}/.vim/indent ~/.vim/indent >> $LOGS
+   ln -v -s ${DOT}/.vim/appearance.vim ~/.vim/appearance.vim >> $LOGS
+   ln -v -s ${DOT}/.vim/functions.vim ~/.vim/functions.vim >> $LOGS
+   ln -v -s ${DOT}/.vim/keybindings.vim ~/.vim/keybindings.vim >> $LOGS
+   ln -v -s ${DOT}/.vim/plugins.vim ~/.vim/plugins.vim >> $LOGS
    ln -v -s ${DOT}/.vim/projects.vim ~/.vim/projects.vim >> $LOGS
    ln -v -s ${DOT}/.gvimrc ~/.gvimrc >> $LOGS
 }
