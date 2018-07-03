@@ -36,23 +36,10 @@ Xmessage*form.message.Scroll:      WhenNeeded
 *imFont:                           xft:ShureTechMono Nerd Font Mono:size=11
 *utf8Title:                        true
 
-!--------!
-! Colors !
-!--------!
-
-!*colorUL:                          #268bd2
-!*underlineColor:                   #129b33
-!*cursorColor:                     #bd93f9 
-!*cursorColor2:                     #004049
-!*highlightColor:                  #FF0000
-!*colorBD:                         #FF0000
-!*pointerColor:                    #656565
-!*foreground:                      #93a1a1
-!*background:                      #002b36
-
 !------------------!
 ! URxvt parameters !
 !------------------!
+
 URxvt.font:                        xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true
 URxvt.boldFont:                    xft:GohuFont:size=10:Bold:antialias=false,xft:GohuFont NF:size=10:antialias=true
 URxvt.italicFont:                  xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true
