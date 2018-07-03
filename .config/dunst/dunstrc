@@ -3,7 +3,7 @@
 # mjturt
 
 [global]
-   font = ShureTechMono Nerd Font Mono 10
+   font = ShureTechMono NF 10
    monitor = 0
    follow = mouse
    geometry = "320x5-15+15"

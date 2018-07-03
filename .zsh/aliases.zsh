@@ -45,7 +45,10 @@ alias fbvar="export TERM=fbterm"
 alias pyg="pygmentize -O style=base16-monokai -f console256 -g"
 alias notes="vim ~/cloud/rnotes"
 alias gotop="gotop -c monokai"
+alias changefont="printf '\e]710;%s\007'"
 
 alias rustofat="toilet -f rustofat --gay"
 alias wideterm="toilet -f wideterm --gay"
+
+alias hc="herbstclient"
 

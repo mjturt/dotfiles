@@ -6,6 +6,11 @@
 # Keyboard (DZ60) #
 #-----------------#
 
+### Terminal
+
+"urxvt"
+Mod4 + Return
+
 ### Media keys
 
 "cmus-remote -r"
@@ -40,6 +45,9 @@ Control+Alt+r
 "setxkbmap fi"
 Control+Alt+f
 
+"comptontoggle"
+Control+Alt+c
+
 ### Rofi-related
 
 #"scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'"
@@ -50,10 +58,10 @@ Print
 Alt+space
 
 "rofi -show run"
-Mod4+r
+Alt+r
 
 "rofi-notes"
-Mod4+n
+Alt+n
 
 "rofi-power"
 Alt+x
@@ -63,10 +71,10 @@ Alt+x
 Control+Alt+b
 
 "buku_run"
-Mod4+b
+Alt+b
 
 "rofi-pass"
-Mod4+p
+Alt+p
 
 ### Spotify
 

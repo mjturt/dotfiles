@@ -15,7 +15,7 @@ Xft*lcdfilter:                     lcddefault
 Xft*embolden:                      false
 Xft*render:                        true
 Xft*hinting:                       true
-Xft*antialias:                     false
+Xft*antialias:                     true
 Xft*rgba:                          rgba
 
 *Font:                             xft:ShureTechMono Nerd Font Mono:size=11
@@ -42,7 +42,7 @@ Xmessage*form.message.Scroll:      WhenNeeded
 
 !*colorUL:                          #268bd2
 !*underlineColor:                   #129b33
-!*cursorColor:                      #c8ff00
+!*cursorColor:                     #bd93f9 
 !*cursorColor2:                     #004049
 !*highlightColor:                  #FF0000
 !*colorBD:                         #FF0000
@@ -53,10 +53,10 @@ Xmessage*form.message.Scroll:      WhenNeeded
 !------------------!
 ! URxvt parameters !
 !------------------!
-URxvt.font:                        xft:GohuFont NF:size=10
-URxvt.boldFont:                    xft:GohuFont NF:size=10
-URxvt.italicFont:                  xft:GohuFont NF:size=10
-URxvt.boldItalicFont:              xft:GohuFont NF:size=10
+URxvt.font:                        xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true
+URxvt.boldFont:                    xft:GohuFont:size=10:Bold:antialias=false,xft:GohuFont NF:size=10:antialias=true
+URxvt.italicFont:                  xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true
+URxvt.boldItalicFont:              xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true
 !URxvt*font:                        xft:ShureTechMono NF:size=11
 !URxvt*boldFont:                    xft:ShureTechMono Nerd Font Mono:Bold:size=11
 !URxvt*italicFont:                  xft:ShureTechMono Nerd Font Mono:Italic:size=11
@@ -65,7 +65,7 @@ URxvt*scrollBar:                   false
 URxvt*borderLess:                  false
 URxvt*internalBorder:              5
 URxvt*depth:                       32
-URxvt.letterSpace:                 -1 
+!URxvt.letterSpace:                 -1 
 URxvt*skipBuiltinGlyphs:           true
 URxvt*perl-lib:                    /home/mjt/.Xresources.d/perl/
 URxvt.perl-ext-common:             default,matcher,font-size,readline,bell-command,clipboard,selection-to-clipboard,vim-scrollback
@@ -74,6 +74,8 @@ URxvt*iso14755_52:                 false
 URxvt*cutchars:                    BACKSLASH '"'&()*,;<=>?@[]^{|}
 URxvt*urgentOnBell:                true
 
+URxvt.keysym.M-C-1:                command:\033]710;xft:envypn,xft:GohuFont NF:size=10:antialias=true\007\033]711;xft:envypn,xft:GohuFont NF:size=10:antialias=true\007
+URxvt.keysym.M-C-2:                command:\033]710;xft:ShureTechMono NF:antialias=true\007\033]711;xft:ShureTechMono NF:antialias=true\007
 URxvt.keysym.Shift-Up:             command:\033]720;1\007
 URxvt.keysym.Shift-Down:           command:\033]721;1\007
 URxvt.keysym.Meta-l:               command:\033]720;8\007

@@ -366,6 +366,7 @@ df_xresources () {
          rm -v ~/.Xresources.d/Xresources.host >> $LOGS
       fi
       ln -v -s ${DOT}/.Xresources.d/Xresources.host ~/.Xresources.d/Xresources.host >> $LOGS
+      xrdb ~/.Xresources
    elif [[ $1 == "thinkpad" ]]; then
       if [[ -e ~/.Xresources.d/Xresources.host ]]; then
          mv -v ~/.Xresources.d/Xresources.host $BACKUP >> $LOGS
@@ -373,6 +374,7 @@ df_xresources () {
          rm -v ~/.Xresources.d/Xresources.host >> $LOGS
       fi
       ln -v -s ${DOT}/thinkpad/.Xresources.d/Xresources.host ~/.Xresources.d/Xresources.host >> $LOGS
+      xrdb ~/.Xresources
    fi
 }
 

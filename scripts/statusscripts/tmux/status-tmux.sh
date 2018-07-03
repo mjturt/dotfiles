@@ -29,7 +29,7 @@ else
       echo "4" > $tempfile
       ;;
    4*)
-      echo "#[fg=colour199] $(uptime | cut -f 4-5 -d ' ' | sed 's/days,/d/' | sed 's/hours,/h/' )"
+      echo "#[fg=colour199] $(uptime | cut -f 4-5 -d ' ' | sed 's/days,/d/' | sed 's/hours,/h/' | tr -d , )"
       echo "5" > $tempfile
       ;;
    5*)

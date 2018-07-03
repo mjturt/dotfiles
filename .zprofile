@@ -3,6 +3,7 @@
 # mjturt
 
 export PATH="$PATH:$HOME/bin/:$HOME/.cargo/bin/"
+export LC_TIME="fi_FI.utf8"
 
 if [[ -z $DISPLAY && ! -e /tmp/.X11-unix/X0 ]]; then
    #exec startx
