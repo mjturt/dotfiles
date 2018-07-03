@@ -50,6 +50,6 @@ cmap Q q
 cmap W w
 
 " Mappings for plugins
-nmap s <Plug>(easymotion-overwin-f)
+nmap s <Plug>(easymotion-overwin-f2)
 nmap <leader>s ys$"
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"

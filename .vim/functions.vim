@@ -70,5 +70,7 @@ endfunction
 "----------"
 
 command! Sw silent execute 'write !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
-command! -nargs=1 Shebang :new <args> | 0put =\"#!/bin/bash\<nl>\"|$
-command! -nargs=1 Newdot :new <args> | 0put =\"#┃\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
+command! -nargs=1 ShebangFile :new <args> | 0put =\"#!/bin/bash\<nl>\"|$
+command! Shebang 0put =\"#!/bin/bash\<nl>\"|$
+command! -nargs=1 NewdotFile :new <args> | 0put =\"#┃\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
+command! Newdot 0put =\"#┃\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$

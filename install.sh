@@ -780,9 +780,33 @@ df_mutt () {
    ln -s -v ${DOT}/.mutt/accounts ~/.mutt/accounts >> $LOGS
    ln -s -v ${DOT}/.mutt/aliases ~/.mutt/aliases >> $LOGS
    ln -s -v ${DOT}/.mutt/signature ~/.mutt/signature >> $LOGS
+   ln -s -v ${DOT}/.mutt/lists ~/.mutt/lists >> $LOGS
    ln -s -v ${DOT}/.mutt/offlineimap/offlineimaprc ~/.offlineimaprc >> $LOGS
    ln -s -v ${DOT}/.mutt/offlineimap/offlineimap.py ~/.offlineimap.py >> $LOGS
    ln -s -v ${DOT}/.mutt/notmuch-config ~/.notmuch-config >> $LOGS
+}
+
+# Polybar (commons)
+df_polybar () {
+   if [[ -e ~/.config/polybar ]]; then
+      mv -v ~/.config/polybar $BACKUP >> $LOGS
+   elif [[ -L ~/.config/polybar ]]; then
+      rm -v ~/.config/polybar >> $LOGS
+   fi
+   mkdir -v ~/.config/polybar >> $LOGS
+   ln -s -v ${DOT}/.config/polybar/config ~/.config/polybar/config >> $LOGS
+}
+
+# Herbstluftwm (commons)
+df_hlwm () {
+   if [[ -e ~/.config/herbstluftwm ]]; then
+      mv -v ~/.config/herbstluftwm $BACKUP >> $LOGS
+   elif [[ -L ~/.config/herbstluftwm ]]; then
+      rm -v ~/.config/herbstluftwm >> $LOGS
+   fi
+   mkdir -v ~/.config/herbstluftwm >> $LOGS
+   ln -s -v ${DOT}/.config/herbstluftwm/autostart ~/.config/herbstluftwm/autostart >> $LOGS
+   ln -s -v ${DOT}/.config/herbstluftwm/scripts ~/.config/herbstluftwm/scripts >> $LOGS
 }
 
 #┏━━━━━━┓
@@ -808,7 +832,7 @@ helps () {
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
-   echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt"
+   echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_polybar, df_hlwm"
    echo
    echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_rofi,"
    echo -e "df_ranger"

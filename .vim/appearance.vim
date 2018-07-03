@@ -65,6 +65,7 @@ endfunction
 
 " Statusline colors
 hi StatusLine cterm=NONE ctermbg=NONE ctermfg=101
+hi StatusLineNC cterm=NONE ctermbg=016 ctermfg=101
 hi User1 cterm=bold ctermbg=101   ctermfg=16   guibg=green guifg=red
 hi User2 cterm=bold ctermbg=NONE  ctermfg=101  guibg=red   guifg=blue
 hi User3 cterm=bold ctermbg=NONE  ctermfg=64 guibg=blue  guifg=green

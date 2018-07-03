@@ -18,7 +18,7 @@ set mbox_type=Maildir
 set folder=~/mail
 source ~/.mutt/mailboxes
 set imap_check_subscribed
-subscribe "gentoo-.*@gentoo\\.org"
+source ~/.mutt/lists
 
 ### Sending
 set fast_reply
@@ -52,12 +52,13 @@ unset collapse_unread
 set read_inc = 1
 set time_inc = 300
 spam "X-Spam-Score: ([0-9\\.]+).*" "SA: %1"
+## Header
 ignore *
 unignore From To Cc Bcc Date Subject
 unhdr_order *
 hdr_order From: To: Cc: Bcc: Date: Subject:
 ## Pager
-#set pager_format = " %C - %[%H:%M] %.20v, %s%* %?H? [%H] ?"
+set pager_format = " %C - %[%H:%M] %.20v, %s%* %?H? [%H] ?"
 set pager_index_lines = 10
 set pager_context = 3
 set pager_stop
