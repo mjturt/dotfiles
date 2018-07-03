@@ -1,20 +1,20 @@
-# ~/.config/dunst/dunstrc (R5)
-# ----------------------------
-# mjturt
+#┃ ~/.config/dunst/dunstrc (R5)
+#┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
 
 [global]
-   font = ShureTechMono NF 10
+   font = Misc Ohsnap 
    monitor = 0
    follow = mouse
-   geometry = "320x5-15+15"
+   geometry = "220x5-15+40"
    indicate_hidden = yes
    shrink = no
-   transparency = 10
+   transparency = 0
    notification_height = 0
    separator_height = 1
    padding = 10
    horizontal_padding = 10
-   frame_width = 0
+   frame_width = 1
    separator_color = frame
    sort = yes
    idle_threshold = 120
@@ -31,7 +31,7 @@
    show_indicators = yes
    icon_position = off
    max_icon_size = 32
-   icon_folders = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
+   icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
    sticky_history = yes
    history_length = 20
    always_run_script = true
