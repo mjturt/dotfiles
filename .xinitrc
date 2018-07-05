@@ -20,8 +20,5 @@ steam &
 nitrogen --restore &
 redshift -l 60.46:22.29 &
 
-## Panel
-polybar hlwm &
-
 ## Window manager
-exec herbstluftwm
+exec bspwm

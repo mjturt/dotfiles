@@ -121,3 +121,8 @@ source $HOME/.zsh/keybindings.zsh
 ### Dircolors
 
 eval `dircolors ~/.zsh/dircolors/jellybeans.dircolors`
+
+### Autostart tmux
+
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
