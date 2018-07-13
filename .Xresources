@@ -62,7 +62,7 @@ URxvt*cutchars:                    BACKSLASH '"'&()*,;<=>?@[]^{|}
 URxvt*urgentOnBell:                true
 
 URxvt.keysym.M-C-1:                command:\033]710;xft:envypn,xft:GohuFont NF:size=10:antialias=true\007\033]711;xft:envypn,xft:GohuFont NF:size=10:antialias=true\007
-URxvt.keysym.M-C-2:                command:\033]710;xft:ShureTechMono NF:antialias=true\007\033]711;xft:ShureTechMono NF:antialias=true\007
+URxvt.keysym.M-C-2:                command:\033]710;xft:ShureTechMono NF:size=10:antialias=true\007\033]711;xft:ShureTechMono NF:antialias=true\007
 URxvt.keysym.Shift-Up:             command:\033]720;1\007
 URxvt.keysym.Shift-Down:           command:\033]721;1\007
 URxvt.keysym.Meta-l:               command:\033]720;8\007

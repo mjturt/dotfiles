@@ -36,7 +36,7 @@ if exists('$TMUX')
    let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[1 q\<Esc>\\"
    let &t_SR .= "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[5 q\<Esc>\\"
-"   autocmd VimLeave * silent execute "!echo -en \<esc>[3 q"
+"   autocmd VimLeave * silent execute "!echo -en \<Esc>Ptmux;\<Esc>\<Esc>[3 q\<Esc>\\"
 endif
 
 "-------------"

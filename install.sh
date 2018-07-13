@@ -823,10 +823,11 @@ df_bspwm () {
       rm -v ~/.config/bspwm >> $LOGS
    fi
    mkdir -v ~/.config/bspwm >> $LOGS
+   ln -s -v ${DOT}/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc >> $LOGS
    if [[ $1 == "r5" ]]; then
-      ln -s -v ${DOT}/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc >> $LOGS
+      ln -s -v ${DOT}/.config/bspwm/bspwmrc.host ~/.config/bspwm/bspwmrc.host >> $LOGS
    elif [[ $1 == "thinkpad" ]]; then
-      ln -s -v ${DOT}/thinkpad/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc >> $LOGS
+      ln -s -v ${DOT}/thinkpad/.config/bspwm/bspwmrc.host ~/.config/bspwm/bspwmrc.host >> $LOGS
    fi
 }
 

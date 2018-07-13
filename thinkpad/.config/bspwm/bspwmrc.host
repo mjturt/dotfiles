@@ -1,0 +1,6 @@
+#! /bin/sh
+#┃ ~/.config/bspwm/bspwmrc.host (thinkpad)
+#┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
+
+bspc monitor eDP-1 -d 1 2 3 4 5 6

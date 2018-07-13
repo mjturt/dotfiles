@@ -1,9 +1,11 @@
 #! /bin/sh
+#┃ ~/.config/bspwm/bspwmrc
+#┣━━━━━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
 
 sxhkd &
 
-bspc monitor HDMI-0 -d 1 2 3 4 5
-bspc monitor DVI-I-1 -d 6 7 8 9 0
+source bspwmrc.host
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -24,3 +26,5 @@ bspc rule -a Screenkey manage=off
 bspc config focus_follows_pointer true
 
 poly bspwm
+
+bspc config top_padding 20
