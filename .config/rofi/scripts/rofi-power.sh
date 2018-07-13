@@ -3,7 +3,12 @@
 # Based on Oliver Kraitschy's power.sh script 
 # Dependencies: rofi, lxqt-sudo, i3lock
 
-OPTIONS="Lock\nExit\nReboot\nHalt"
+if [[ "$1" = "tp" ]]; then
+   OPTIONS="Lock\nExit\ntpReboot\ntpHalt\nSuspend"
+else
+   OPTIONS="Lock\nExit\nReboot\nHalt"
+fi
+
 LAUNCHER="rofi -width 30 -dmenu -i -p rofi-power:"
 
 option=`echo -e $OPTIONS | $LAUNCHER | tr -d '\r\n'`
@@ -11,16 +16,25 @@ if [ ${#option} -gt 0 ]
 then
    case $option in
    Lock)
-      i3lock -c 282a36
+      i3lock -c "#2F1E2E"
       ;;
    Exit)
-      i3-msg exit
+      bspc quit
       ;;
    Reboot)
       lxqt-sudo reboot
       ;;
    Halt)
       lxqt-sudo halt
+      ;;
+   tpReboot)
+      systemctl reboot
+      ;;
+   tpHalt)
+      systemctl halt
+      ;;
+   Suspend)
+      suspend
       ;;
    *)
       ;;

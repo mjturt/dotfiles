@@ -94,6 +94,10 @@ commons_x11 () {
    df_qutebrowser
    df_rofipass
    df_buku_run
+   df_dunst
+   df_teiler
+   df_sxhkd
+   df_hlwm
 }
 
 # Only host-specific files (R5)
@@ -103,14 +107,14 @@ host_r5 () {
    df_i3 r5
    df_i3blocks r5
    df_ranger r5
-   df_rofi r5
-   df_dunst r5
    df_xinit r5
    df_xbindkeys r5
    df_gtk3 r5
    df_gtk2 r5
    df_buku
    df_pass
+   df_bspwm r5
+   df_polybar r5
 }
 
 # Only host-specific files (server)
@@ -128,13 +132,15 @@ host_thinkpad () {
    df_i3 thinkpad
    df_i3blocks thinkpad
    df_ranger thinkpad
-   df_rofi thinkpad
-   df_dunst thinkpad
    df_xinit thinkpad
    df_xbindkeys thinkpad
    df_gtk3 thinkpad
    df_gtk2 thinkpad
    df_xmodmap thinkpad
+   df_buku
+   df_pass
+   df_bspwm thinkpad
+   df_polybar thinkpad
 }
 
 #┏━━━━━━━━━━┓
@@ -242,13 +248,23 @@ df_zsh () {
       elif [[ -L ~/.zshrc ]]; then
          rm -v ~/.zshrc >> $LOGS
       fi
+      if [[ -e ~/.zsh/plugins ]]; then
+         mv -v ~/.zsh/plugins $BACKUP >> $LOGS
+      elif [[ -L ~/.zsh/plugins ]]; then
+         rm -v ~/.zsh/plugins >> $LOGS
+      fi
       if [[ -e ~/.zprofile ]]; then
          mv -v ~/.zprofile $BACKUP >> $LOGS
       elif [[ -L ~/.zprofile ]]; then
          rm -v ~/.zprofile >> $LOGS
       fi
-      ln -v -s ${DOT}/thinkpad/.zshrc ~/.zshrc >> $LOGS
-      ln -v -s ${DOT}/thinkpad/.zprofile ~/.zprofile >> $LOGS
+      ln -v -s ${DOT}/.zshrc ~/.zshrc >> $LOGS
+      ln -v -s ${DOT}/.zsh/plugins ~/.zsh/plugins >> $LOGS
+      if [[ $(id -u) -eq 0 ]]; then
+         ln -v -s ${DOT}/.zprofile-root ~/.zprofile >> $LOGS
+      else
+         ln -v -s ${DOT}/.zprofile ~/.zprofile >> $LOGS
+      fi
    fi
 }
 
@@ -378,34 +394,19 @@ df_xresources () {
    fi
 }
 
-# Rofi (commons, r5, thinkpad)
+# Rofi (commons)
 df_rofi () {
-   if [[ -z "$1" ]]; then
-      if [[ -e ~/.config/rofi ]]; then
-         mv -v ~/.config/rofi $BACKUP >> $LOGS
-      elif [[ -L ~/.config/rofi ]]; then
-         rm -v ~/.config/rofi >> $LOGS
-      fi
+   if [[ -e ~/.config/rofi ]]; then
+      mv -v ~/.config/rofi $BACKUP >> $LOGS
+   elif [[ -L ~/.config/rofi ]]; then
+      rm -v ~/.config/rofi >> $LOGS
+   fi
       mkdir -v ~/.config/rofi >> $LOGS
       ln -v -s ${DOT}/.config/rofi/themes ~/.config/rofi/themes >> $LOGS
       ln -v -s ${DOT}/.config/rofi/scripts ~/.config/rofi/scripts >> $LOGS
+      ln -v -s ${DOT}/.config/rofi/config ~/.config/rofi/config >> $LOGS
       ln -v -s ${DOT}/.config/rofi/scripts/rofi-notes.sh ${DOT}/scripts/bin/rofi-notes >> $LOGS
       ln -v -s ${DOT}/.config/rofi/scripts/rofi-power.sh ${DOT}/scripts/bin/rofi-power >> $LOGS
-   elif [[ $1 == "r5" ]]; then
-      if [[ -e ~/.config/rofi/config ]]; then
-         mv -v ~/.config/rofi/config $BACKUP >> $LOGS
-      elif [[ -L ~/.config/rofi/config ]]; then
-         rm -v ~/.config/rofi/config >> $LOGS
-      fi
-      ln -v -s ${DOT}/.config/rofi/config ~/.config/rofi/config >> $LOGS
-   elif [[ $1 == "thinkpad" ]]; then
-      if [[ -e ~/.config/rofi/config ]]; then
-         mv -v ~/.config/rofi/config $BACKUP >> $LOGS
-      elif [[ -L ~/.config/rofi/config ]]; then
-         rm -v ~/.config/rofi/config >> $LOGS
-      fi
-      ln -v -s ${DOT}/thinkpad/.config/rofi/config ~/.config/rofi/config >> $LOGS
-   fi
 }
 
 # Feh (commons)
@@ -506,25 +507,15 @@ df_i3blocks () {
    fi
 }
 
-# Dunst (r5, thinkpad)
+# Dunst (commons)
 df_dunst () {
-   if [[ $1 == "r5" ]]; then
-      if [[ -e ~/.config/dunst ]]; then
-         mv -v ~/.config/dunst $BACKUP >> $LOGS
-      elif [[ -L ~/.config/dunst ]]; then
-         rm -v ~/.config/dunst >> $LOGS
-      fi
-      mkdir -v ~/.config/dunst >> $LOGS
-      ln -v -s ${DOT}/.config/dunst/dunstrc ~/.config/dunst/dunstrc >> $LOGS
-   elif [[ $1 == "thinkpad" ]]; then
-      if [[ -e ~/.config/dunst ]]; then
-         mv -v ~/.config/dunst $BACKUP >> $LOGS
-      elif [[ -L ~/.config/dunst ]]; then
-         rm -v ~/.config/dunst >> $LOGS
-      fi
-      mkdir -v ~/.config/dunst >> $LOGS
-      ln -v -s ${DOT}/thinkpad/.config/dunst/dunstrc ~/.config/dunst/dunstrc >> $LOGS
+   if [[ -e ~/.config/dunst ]]; then
+      mv -v ~/.config/dunst $BACKUP >> $LOGS
+   elif [[ -L ~/.config/dunst ]]; then
+      rm -v ~/.config/dunst >> $LOGS
    fi
+   mkdir -v ~/.config/dunst >> $LOGS
+   ln -v -s ${DOT}/.config/dunst/dunstrc ~/.config/dunst/dunstrc >> $LOGS
 }
 
 # Xinit (r5, thinkpad)
@@ -786,7 +777,7 @@ df_mutt () {
    ln -s -v ${DOT}/.mutt/notmuch-config ~/.notmuch-config >> $LOGS
 }
 
-# Polybar (commons)
+# Polybar (r5, thinkpad)
 df_polybar () {
    if [[ -e ~/.config/polybar ]]; then
       mv -v ~/.config/polybar $BACKUP >> $LOGS
@@ -794,7 +785,11 @@ df_polybar () {
       rm -v ~/.config/polybar >> $LOGS
    fi
    mkdir -v ~/.config/polybar >> $LOGS
-   ln -s -v ${DOT}/.config/polybar/config ~/.config/polybar/config >> $LOGS
+   if [[ $1 == "r5" ]]; then
+      ln -s -v ${DOT}/.config/polybar/config.* ~/.config/polybar >> $LOGS
+   elif [[ $1 == "thinkpad" ]]; then
+      ln -s -v ${DOT}/thinkpad/.config/polybar/config.* ~/.config/polybar >> $LOGS
+   fi
 }
 
 # Herbstluftwm (commons)
@@ -807,6 +802,43 @@ df_hlwm () {
    mkdir -v ~/.config/herbstluftwm >> $LOGS
    ln -s -v ${DOT}/.config/herbstluftwm/autostart ~/.config/herbstluftwm/autostart >> $LOGS
    ln -s -v ${DOT}/.config/herbstluftwm/scripts ~/.config/herbstluftwm/scripts >> $LOGS
+}
+
+# Teiler (commons)
+df_teiler () {
+   if [[ -e ~/.config/teiler ]]; then
+      mv -v ~/.config/teiler $BACKUP >> $LOGS
+   elif [[ -L ~/.config/teiler ]]; then
+      rm -v ~/.config/teiler >> $LOGS
+   fi
+   mkdir -v ~/.config/teiler >> $LOGS
+   ln -s -v ${DOT}/.config/teiler/config ~/.config/teiler/config >> $LOGS
+}
+
+# BSPWM (r5, thinkpad)
+df_bspwm () {
+   if [[ -e ~/.config/bspwm ]]; then
+      mv -v ~/.config/bspwm $BACKUP >> $LOGS
+   elif [[ -L ~/.config/bspwm ]]; then
+      rm -v ~/.config/bspwm >> $LOGS
+   fi
+   mkdir -v ~/.config/bspwm >> $LOGS
+   if [[ $1 == "r5" ]]; then
+      ln -s -v ${DOT}/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc >> $LOGS
+   elif [[ $1 == "thinkpad" ]]; then
+      ln -s -v ${DOT}/thinkpad/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc >> $LOGS
+   fi
+}
+
+# sxhkd (commons)
+df_sxhkd () {
+   if [[ -e ~/.config/sxhkd ]]; then
+      mv -v ~/.config/sxhkd $BACKUP >> $LOGS
+   elif [[ -L ~/.config/sxhkd ]]; then
+      rm -v ~/.config/sxhkd >> $LOGS
+   fi
+   mkdir -v ~/.config/sxhkd >> $LOGS
+   ln -s -v ${DOT}/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc >> $LOGS
 }
 
 #┏━━━━━━┓
@@ -832,13 +864,13 @@ helps () {
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
-   echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_polybar, df_hlwm"
+   echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
+   echo -e "df_dunst"
    echo
-   echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_rofi,"
-   echo -e "df_ranger"
+   echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_ranger"
    echo
-   echo -e "\e[1;35mSingle programs that MUST take host-parameter:\e[0m df_i3blocks, df_dunst, df_xinit,"
-   echo -e "df_gtk3, df_gtk2, df_xbindkeys, df_xmodmap"
+   echo -e "\e[1;35mSingle programs that MUST take host-parameter:\e[0m df_i3blocks, df_xinit, df_bspwm"
+   echo -e "df_gtk3, df_gtk2, df_xbindkeys, df_xmodmap, df_polybar"
    echo
    echo -e "\e[1;35mHosts(2nd parameter):\e[0m r5, server, thinkpad"
 }
@@ -871,7 +903,7 @@ else
       [yY]) echo ;; 
    *) exit 0 ;;
    esac
-   for value in {1..4}
+   for value in {1..3}
    do
       animate '             \e[1;33m\ ' 0.1
       animate '             \e[1;33m| ' 0.1

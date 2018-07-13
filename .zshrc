@@ -107,8 +107,9 @@ fi
 
 ### Local aliases
 
-alias plugins="antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh"
+alias plugins="/usr/local/bin/antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh"
 alias upgrade="sudo emerge -uDU --keep-going --with-bdeps=y @world"
+alias useflags="sudo vim /etc/portage/package.use/0custom"
 
 ### Sourcing common settings
 
@@ -124,5 +125,5 @@ eval `dircolors ~/.zsh/dircolors/jellybeans.dircolors`
 
 ### Autostart tmux
 
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
+#[[ $- != *i* ]] && return
+#[[ -z "$TMUX" ]] && exec tmux

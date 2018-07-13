@@ -12,7 +12,7 @@ if [[ $1 == "r5" ]]; then
 elif [[ $1 == "thinkpad" ]]; then
    xidlehook \
       --time 5 \
-      --timer 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness 1; i3lock-fancy -f DS\-Terminal' \
+      --timer 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness 1; i3lock -c 282a36' \
       --notify 10 \
       --notifier  'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness .1' \
       --canceller 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness 1' \

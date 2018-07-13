@@ -1,12 +1,66 @@
-# ~/.xbindkeysrc (Thinkpad)
-# -------------------------
-# mjturt
+#┃ ~/.xbindkeysrc (Thinkpad)
+#┣━━━━━━━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
 
-### Keyboard (Thinkpad)
+#---------------------#
+# Keyboard (thinkpad) #
+#---------------------#
 
-"i3lock-fancy -f Ancient-Geek"
+### Terminal
+"urxvt"
+Mod4 + Return
+
+### Screen
+"i3lock -c '#2F1E2E'"
 XF86Display
 
+"backlight up 50"
+XF86MonBrightnessUp
+
+"backlight down 50"
+XF86MonBrightnessDown
+
+### Toggles
+"touchpadtoggle.sh"
+Control+Alt+t
+
+"comptontoggle"
+Control+Alt+c
+
+### Config reloads
+"xrdb ~/.Xresources && pkill xbindkeys && xbindkeys"
+Control+Alt+r
+
+"setxkbmap fi"
+Control+Alt+f
+
+### Rofi-related
+"teiler"
+Print
+
+"rofi -show drun"
+Alt+space
+
+"rofi -show run"
+Alt+r
+
+"rofi-notes"
+Alt+n
+
+"rofi-power tp"
+Alt+x
+
+# Adds primary selection to bookmarks
+"bukuadd"
+Control+Alt+b
+
+"buku_run"
+Alt+b
+
+"rofi-pass"
+Alt+p
+
+### Media keys
 "amixer -D pulse sset Master toggle"
 XF86AudioMute
 
@@ -19,12 +73,6 @@ XF86AudioLowerVolume
 "amixer -D pulse sset Capture toggle"
 XF86AudioMicMute
 
-"xbacklight -inc 10"
-XF86MonBrightnessUp
-
-"xbacklight -dec 10"
-XF86MonBrightnessDown
-
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 XF86LaunchA
 
@@ -34,40 +82,35 @@ XF86Explorer
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 XF86Tools
 
-"touchpadtoggle.sh"
-Control+Alt + t
+### Cmus
+#"cmus-remote -r"
+#XF86LaunchA
 
-"catfish"
-Control+Alt + s
+#"cmus-remote -n"
+#XF86Explorer
 
-"scrot ~/cloud/images/screenshots/%Y-%m-%d-%T-screenshot.png"
-Print
+#"cmus-remote -u"
+#XF86Tools
 
-# For external keyboard
-
+### For external keyboard
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 XF86AudioPrev
 
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 XF86AudioNext
 
-### External mouse (MX Master)
+#-------------------------------------#
+# External mouse (Logitech MX Master) #
+#-------------------------------------#
 
-# thumb wheel up => increase volume
-#"xte 'key XF86AudioRaiseVolume'"
-#   b:6
+# Thumb button
+"sleep 0.1 && xte 'XF86AudioMute'"                                
+   m:0xc + c:23
 
-# thumb wheel down => lower volume
-#"xte 'key XF86AudioLowerVolume'"
-#   b:7
-
-# backward button => previous song       
-#"xte 'key XF86AudioPrev'"                
-#   b:8                                   
+# Thumb back key       
+"xte 'key XF86AudioLowerVolume'"                
+   b:8                                   
                                         
-# forward button => next song            
-#"xte 'key XF86AudioNext'"                
-#   b:9
-
-#"sleep 0.1 && xte 'key XF86AudioMute'"                                        
-#   m:0xc + c:64
+# Thumb forward key
+"xte 'key XF86AudioRaiseVolume'"        
+   b:9

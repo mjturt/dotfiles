@@ -1,6 +1,6 @@
 # mjturt's dotfiles
 
-This repository is attempt to bring my dotfiles under version controlling. Mainly for my Gentoo Linux main machine but contains some host-specific configurations for my Archlinux laptop and Debian server in their own directories.
+This repository is attempt to bring my dotfiles under version controlling. Mainly for my Gentoo Linux main machine but contains some host-specific configurations for my Gentoo laptop and Debian server in their own directories.
 
 ### Software
 
@@ -22,9 +22,9 @@ This repository is attempt to bring my dotfiles under version controlling. Mainl
 + Torrent client:       **rtorrent**
 + Mail client:          **Mutt**
 
-Right now testing Herbstluftwm with Polybar.
+Right now testing ~~Herbstluftwm~~ bspwm with Polybar.
 
-There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb, offlineimap and for pass and buku rofi-frontends.
+There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb, offlineimap, teiler, sxhkd and for pass and buku rofi-frontends.
 
 ### Keybindings
 

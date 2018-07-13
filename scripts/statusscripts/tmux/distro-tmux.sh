@@ -9,7 +9,7 @@ case $(uname) in
       echo -n "#[fg=colour232,bold] "
       if [ $(cat /etc/*-release | grep Gentoo | wc -l) -gt "0" ]
       then
-         echo "#[fg=colour063]#[fg=default,nobold]"
+         echo "#[fg=colour56]#[fg=default,nobold]"
       elif [ $(cat /etc/*-release | grep Arch | wc -l) -gt "0" ]
       then
          echo "#[fg=colour033]#[fg=default,nobold]"

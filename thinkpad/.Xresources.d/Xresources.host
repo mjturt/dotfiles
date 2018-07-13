@@ -1,12 +1,21 @@
-! ~/.Xresources.d/Xresources.host (Thinkpad)
-! ------------------------------------------
-! mjturt
+!┃ ~/.Xresources.d/Xresources.host (thinkpad)
+!┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+!┃ mjturt  
 
-! Host-specifis configurations
+!## Host-specifis configurations
 
-Xcursor.theme:                     Numix
+!## Cursor
+Xcursor.theme:                     BMZ
 Xcursor.size:                      22
 
-#include "colors/atelierforest"
+!## Colorscheme
+#include "colors/sourcerer.Xcolors"
 
-URxvt.background:                  [95]#002b36
+!## Color overridings
+!*.foreground:      #c2c2b0
+!*.background:      #282a36
+*.cursorColor:     #ff9800
+!URxvt.colorIT:     #719611
+!URxvt.colorBD:     #d3d3d3
+!URxvt.colorUL:     #528b8b
+!*.underlineColor:  #129b33
