@@ -10,7 +10,7 @@ set selection-clipboard clipboard
 set incremental-search true
 set recolor "true"
 set recolor-keephue "false"
-set font "ShureTechMono Nerd Font Mono 10"
+set font "Hurmit NF 10"
 
 # Keybindings
 # Unfortunately looks like Zathura is the only application that I encoutered where finnish 
