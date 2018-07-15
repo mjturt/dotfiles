@@ -17,6 +17,7 @@ c.hints.mode = "letter"
 c.url.searchengines = { 
         "DEFAULT" : "https://duckduckgo.com/?q={}", 
         "w" : "https://www.wikipedia.org/w/index.php?title=Special:Search&search={}",
+        "wfi" : "https://fi.wikipedia.org/w/index.php?search={}",
         "a" : "https://wiki.archlinux.org/index.php?search={}",
         "g" : "https://wiki.gentoo.org/index.php?title=Special%3ASearch&search={}&go=Go",
         "gh" : "https://github.com/search?utf8=%E2%9C%93&q={}",

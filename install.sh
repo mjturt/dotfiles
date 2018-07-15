@@ -143,6 +143,15 @@ host_thinkpad () {
    df_polybar thinkpad
 }
 
+# Private assets
+assets () {
+   df_fonts
+   df_cursors
+   df_gtk_themes
+   df_icons
+   df_fbcolors
+}
+
 #┏━━━━━━━━━━┓
 #┃ Programs ┃
 #┗━━━━━━━━━━┛
@@ -842,6 +851,58 @@ df_sxhkd () {
    ln -s -v ${DOT}/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc >> $LOGS
 }
 
+# Fonts (private, commons)
+# Global install!
+df_fonts () {
+   if [[ -e /usr/share/fonts/fontset ]]; then
+      sudo mv -v /usr/share/fonts/fontset $BACKUP >> $LOGS
+   elif [[ -L /usr/share/fonts/fontset ]]; then
+      sudo rm -v /usr/share/fonts/fontset >> $LOGS
+   fi
+   sudo ln -s -v ${DOT}/assets/fontset /usr/share/fonts/fontset >> $LOGS
+}
+
+# Cursors (private, commons)
+# Global install!
+df_cursors () {
+   if [[ -e /usr/share/cursors/xorg-x11 ]]; then
+      sudo mv -v /usr/share/cursors/xorg-x11 $BACKUP >> $LOGS
+   elif [[ -L /usr/share/cursors/xorg-x11 ]]; then
+      sudo rm -v /usr/share/cursors/xorg-x11 >> $LOGS
+   fi
+   sudo ln -s -v ${DOT}/assets/cursors /usr/share/cursors/xorg-x11 >> $LOGS
+}
+
+# GTK themes (private, commons)
+df_gtk_themes () {
+   if [[ -e ~/.themes ]]; then
+      mv -v ~/.themes $BACKUP >> $LOGS
+   elif [[ -L ~/.themes ]]; then
+      rm -v ~/.themes >> $LOGS
+   fi
+   ln -s -v ${DOT}/assets/gtk-themes ~/.themes >> $LOGS
+}
+
+# Icons (private, commons)
+df_icons () {
+   if [[ -e ~/.local/share/icons ]]; then
+      mv -v ~/.local/share/icons $BACKUP >> $LOGS
+   elif [[ -L ~/.local/share/icons ]]; then
+      rm -v ~/.local/share/icons >> $LOGS
+   fi
+   ln -s -v ${DOT}/assets/icons ~/.local/share/icons >> $LOGS
+}
+
+# Console framebuffer colors (private, commons)
+df_fbcolors () {
+   if [[ -e ~/.fbcolors ]]; then
+      mv -v ~/.fbcolors $BACKUP >> $LOGS
+   elif [[ -L ~/.fbcolors ]]; then
+      rm -v ~/.fbcolors >> $LOGS
+   fi
+   ln -s -v ${DOT}/assets/fbcolors ~/.fbcolors >> $LOGS
+}
+
 #┏━━━━━━┓
 #┃ Help ┃
 #┗━━━━━━┛
@@ -859,9 +920,11 @@ helps () {
    echo -e "\e[1;36mAlways install common files first! One group/program at a time!"
    echo
    echo -e "\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\e[0m" 
-   echo -e "\e[1;35mPrivates(not found in git-repo), cant take host-parameter:\e[0m df_irssi, df_buku, df_pass"
+   echo -e "\e[1;35mPrivate(not found in git-repo), cant take host-parameter:\e[0m df_irssi, df_buku, df_pass"
+   echo -e "df_fonts, df_cursors, df_gtk_themes, df_icons, df_fbcolors"
    echo
    echo -e "\e[1;35mGroups:\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
+   echo -e "assets(private)"
    echo
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"

@@ -5,7 +5,7 @@
 
 sxhkd &
 
-source bspwmrc.host
+source ~/.config/bspwm/bspwmrc.host
 
 bspc config border_width         2
 bspc config window_gap          12

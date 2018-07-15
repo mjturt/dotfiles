@@ -125,5 +125,5 @@ eval `dircolors ~/.zsh/dircolors/jellybeans.dircolors`
 
 ### Autostart tmux
 
-#[[ $- != *i* ]] && return
-#[[ -z "$TMUX" ]] && exec tmux
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
