@@ -1,0 +1,317 @@
+;┃ ~/.config/polybar/config.bspwm (r5)
+;┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;┃ mjturt
+
+[colors]
+background = #cc222222
+background-alt = #1187875f
+foreground = #87875f
+foreground-alt = #c2c2b0
+alert = #ff6a6a
+blue = #6688aa
+green = #719611
+lgreen = #b1d631
+magneta = #8f6f8f
+orange = #cc8800
+lorange = #ff9800
+cyan = #528b8b
+red = #aa4450
+
+[bar/bspwm]
+monitor = ${env:MONITOR:HDMI-0}
+width = 100%
+height = 22
+;offset-x = 1%
+;offset-y = 1%
+;radius = 2.0
+fixed-center = false
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color =  #87875f
+
+border-size = 10
+border-top-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Misc\ Ohsnap:size=8:antialias=false;0
+font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
+font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
+font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+
+modules-left = distro bspwm weather bitcoin cmus volume compton
+modules-center = xwindow
+modules-right = fsroot fshome fscommon fsstorage cpu load memory temp uptime date xkeyboard  powermenu
+
+;dim-value = 0.3
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #87875f
+
+;scroll-up = bspwm-wsnext
+;scroll-down = bspwm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+wm-restack = bspwm
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = false
+inline-mode = false
+enable-click = true
+enable-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+; ws-icon-[0-9]+ = label;icon
+;ws-icon-0 = 1;
+;ws-icon-default = ●
+
+format = <label-state> <label-mode>
+
+;label-monitor = ●
+
+label-dimmed-focused = asd
+;label-dimmed-foreground = #ffffff
+;label-dimmed-underline = ${colors.foreground}
+label-dimmed-focused-background = ${colors.background}
+
+label-focused = %name%
+label-focused-padding = 1
+;label-focused-foreground = #fff
+label-focused-background = #333
+label-focused-underline = ${colors.lorange}
+
+label-occupied = %name%
+label-occupied-padding = 1
+label-occupied-underline = ${colors.foreground}
+
+label-urgent = %name%
+label-urgent-padding = 1
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+
+label-empty = %name%
+label-empty-padding = 1
+label-empty-foreground = #777
+
+label-monocle = " "
+label-tiled = "﬿ "
+label-fullscreen = " "
+label-floating = " "
+label-pseudotiled = "P "
+label-locked = " "
+label-locked-foreground = #bd2c40
+label-sticky = "𢡊 "
+label-sticky-foreground = #fba922
+label-private = " "
+label-private-foreground = #bd2c40
+
+[module/distro]
+type = custom/script
+exec = echo "  "
+format-background = ${colors.foreground}
+format-foreground = #381A36
+interval = 600
+label = %output%  
+
+[module/bitcoin]
+type = custom/script
+exec = ~/.statusscripts/bitcoin.sh
+interval = 360
+format-prefix = 
+format-prefix-foreground = ${colors.orange}
+
+[module/weather]
+type = custom/script
+exec = ~/.statusscripts/weather.sh "turku"
+label = %output%
+label-font = 2
+label-foreground = ${colors.foreground-alt}
+interval = 600
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+label-foreground = ${colors.foreground-alt}
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+label-layout-underline = ${colors.magneta}
+
+[module/compton]
+type = custom/script
+exec = ~/.statusscripts/polybar/isrunning-compton.sh
+interval = 5
+click-left = ~/.statusscripts/polybar/isrunning-compton.sh --toggle
+format-prefix = "ﳻ "
+format-prefix-foreground = ${colors.blue}
+
+[module/cmus]
+type = custom/script
+exec = ~/.statusscripts/polybar/cmus.sh
+interval = 1
+click-left = cmus-remote --next
+click-right = cmus-remote --prev
+click-middle = cmus-remote --pause
+label-maxlen = 30
+
+[module/fsroot]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted = %{F#ff9800}/%{F-}:%percentage_used%%
+label-unmounted = /
+format-mounted-underline = ${colors.green}
+format-unmounted-underline = ${colors.alert}
+[module/fshome]
+type = internal/fs
+interval = 25
+mount-0 = /home
+label-mounted = %{F#719611}%{F-}:%percentage_used%%
+label-unmounted = 
+format-mounted-underline = ${colors.green}
+format-unmounted-underline = ${colors.alert}
+[module/fscommon]
+type = internal/fs
+interval = 25
+mount-0 = /mnt/common
+label-mounted = %{F#8f6f8f}%{F-}:%percentage_used%%
+label-unmounted = 
+format-mounted-underline = ${colors.green}
+format-unmounted-underline = ${colors.alert}
+[module/fsstorage]
+type = internal/fs
+interval = 25
+mount-0 = /mnt/storage
+label-mounted = %{F#6688aa}歷%{F-}:%percentage_used%%
+label-unmounted = 歷
+format-mounted-underline = ${colors.green}
+format-unmounted-underline = ${colors.alert}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.red}
+format-underline = ${colors.foreground}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.blue}
+format-underline = ${colors.foreground}
+label = %percentage_used%%
+
+[module/temp]
+type = custom/script
+exec = ~/.statusscripts/temp.sh
+interval = 10
+format-prefix = " "
+format-prefix-foreground = ${colors.green}
+format-underline = ${colors.foreground}
+
+[module/uptime]
+type = custom/script
+exec = ~/.statusscripts/uptime-small.sh
+interval = 10
+format-prefix = " "
+format-prefix-foreground = ${colors.orange}
+format-underline = ${colors.magneta}
+
+[module/load]
+type = custom/script
+exec = cat /proc/loadavg | cut -d " " -f 1
+interval = 10
+format-prefix = " "
+format-prefix-foreground = ${colors.cyan}
+format-underline = ${colors.foreground}
+
+[module/date]
+type = custom/script
+exec = date +"%a %d %H:%M"
+interval = 1
+format-prefix = " "
+format-prefix-foreground = ${colors.blue}
+format-underline = ${colors.magneta}
+label-foreground = #ff9800
+click-left = yad --calendar --undecorated --fixed --close-on-unfocus --no-buttons --width=220 --posx=1620 --posy=880 > /dev/null
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+label-volume = 
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = "ﱝ "
+format-muted-foreground = ${colors.blue}
+label-muted = sound muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.blue}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.green}
+label-close = ﰸ
+label-close-foreground = ${colors.green}
+label-separator = |
+label-separator-foreground = ${colors.blue}
+
+menu-0-0 = 
+menu-0-0-exec = i3lock -c 8f6f8f
+menu-0-1 = 
+menu-0-1-exec = bspc quit
+menu-0-2 = 
+menu-0-2-exec = lxqt-sudo reboot
+menu-0-3 = 
+menu-0-3-exec = lxqt-sudo halt
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
