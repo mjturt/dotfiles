@@ -32,9 +32,8 @@ c.url.searchengines = {
 c.downloads.remove_finished = 100
 
 c.content.user_stylesheets = "stylesheets/mjturt.css"
-# c.content.user_stylesheets = "stylesheets/dracula.css"
 
-config.source('themes/base16-dracula.config.py')
+config.source('themes/sourcerer-qutebrowser.py')
 c.colors.hints.fg = "#ffb86c"
 c.colors.hints.match.fg = "#50fa7b"
 c.colors.hints.bg = "qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(40, 42, 54, 0.8), stop:1 rgba(68, 71, 90, 0.8))"

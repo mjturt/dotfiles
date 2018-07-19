@@ -3,7 +3,8 @@
 ;┃ mjturt
 
 [colors]
-background = #cc222222
+;background = #cc222222
+background = #222222
 background-alt = #1187875f
 foreground = #87875f
 foreground-alt = #c2c2b0

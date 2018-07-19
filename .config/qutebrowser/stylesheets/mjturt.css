@@ -5,15 +5,6 @@
 
 /* mjturt stylesheet */
 
-a {
-    color: #4D657F !important;
-}
-a:hover,a:focus {
-    color: #31994B !important;
-}
-a:visited {
-    color: #966C3F !important;
-}
 #main .nerd-font-cheat-sheet .column .codepoint {
     color: #000000 !important;
     font-size: 18px !important;
@@ -22,24 +13,24 @@ a:visited {
     width: 10px;
 }
 ::-webkit-scrollbar-button:vertical:increment {
-    background-color:#282a36;
+    background-color:#222222;
 }
 ::-webkit-scrollbar-button:vertical:increment:hover {
-    background-color:#bd93f9;
+    background-color:#87875f;
 }
 ::-webkit-scrollbar-button:vertical:decrement {
-    background-color:#282a36;
+    background-color:#222222;
 }
 ::-webkit-scrollbar-button:vertical:decrement:hover {
-    background-color:#bd93f9;
+    background-color:#87875f;
 } 
 ::-webkit-scrollbar-thumb{
-    background-color:#6272a4;
+    background-color:#4D4D35;
     border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover{
-    background-color:#bd93f9;
+    background-color:#87875f;
 }
 ::-webkit-scrollbar-track{
-    background-color:#282a36;
+    background-color:#222222;
 }
