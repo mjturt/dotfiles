@@ -1,4 +1,5 @@
 #!/bin/bash 
+#author unknown
 NCMP=$(mpc | grep "^\[playing\]" | awk '{print $1}')
 NUM_NCMP=$(mpc | head -1 | wc -c )
 S_NCMP=$(mpc | head -1 | head -c 30)

@@ -1,4 +1,5 @@
 #!/bin/bash
+# mjturt
 
 device="wlan0"
 status=$(cat /sys/class/net/${device}/operstate)

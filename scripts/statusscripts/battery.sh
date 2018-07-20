@@ -1,4 +1,5 @@
 #!/bin/bash 
+#i3blocks-contrib?
 
 Bat=$(acpi | cut -d " " -f4 | tr -d "%,")
 Adapt=$(acpi -a | cut -d " " -f3)

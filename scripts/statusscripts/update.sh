@@ -1,4 +1,5 @@
 #!/bin/bash 
+# Unknown author
 
 Update=$(checkupdates | cut -d " " -f1 | wc -l)
 

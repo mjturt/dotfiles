@@ -245,13 +245,13 @@ format-underline = ${colors.foreground}
 
 [module/date]
 type = custom/script
-exec = date +"%a %d %H:%M"
+exec = ~/.statusscripts/polybar/date-calendar.sh
 interval = 1
 format-prefix = " "
 format-prefix-foreground = ${colors.blue}
 format-underline = ${colors.magneta}
 label-foreground = #ff9800
-click-left = yad --calendar --undecorated --fixed --close-on-unfocus --no-buttons --width=220 --posx=1620 --posy=880 > /dev/null
+click-left = ~/.statusscripts/polybar/date-calendar.sh click
 
 [module/volume]
 type = internal/volume

@@ -1,3 +1,4 @@
+#Author unknown
 USER=Your_Gmail_Username
 PASS=Your_Password
  

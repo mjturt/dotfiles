@@ -1,4 +1,5 @@
 #!/bin/bash 
+#author unknown
 
 # Show Wifi Stuff
 W_inter=$(ip link | grep "[1-9]: wlp" | cut -d " " -f2 | tr -d ':')

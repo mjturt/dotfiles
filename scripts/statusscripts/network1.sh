@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#author unknown
 
 ################################
 # Shows ip address of a given interface

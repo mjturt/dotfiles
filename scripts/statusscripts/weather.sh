@@ -1,4 +1,5 @@
 #!/bin/bash 
+# Somewhere from the internet
 
 METRIC=1 #Should be 0 or 1; 0 for F, 1 for C
  

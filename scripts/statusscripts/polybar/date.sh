@@ -1,4 +1,5 @@
 #!/bin/bash
+# Simple date script based on example polybar script
 t=0
 
 toggle() {

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Cmus status script from i3blocks-contrib I think
-# Modified for polybar/lemonbar
+# Modified for polybar/lemonbar and added mouse support
+# mjturt
 
 info=$(cmus-remote -Q 2> /dev/null)
 

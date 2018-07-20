@@ -1,4 +1,5 @@
 #!/bin/bash
+#author unknown
 
 device="${BLOCK_INSTANCE:-wlan0}"
 status=$(cat /sys/class/net/${device}/operstate)

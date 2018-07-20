@@ -1,4 +1,5 @@
 #!/bin/bash 
+#i3blocks-contrib?
 Disk=$(df -h "$1" | grep -v "^[A-Z]" | awk '{print $3-G"/"$2}')
 
 if [ -z "$1" ];then 

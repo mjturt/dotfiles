@@ -1,4 +1,5 @@
 #!/bin/bash 
+# author unknown
 
 Title=$(mocp -i | grep "^Title:" | cut -d ":" -f2)
 NUM_Title=$(echo -e "$Title" | wc -c )
