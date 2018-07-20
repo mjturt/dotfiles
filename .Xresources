@@ -40,7 +40,7 @@ Xmessage*form.message.Scroll:      WhenNeeded
 ! URxvt parameters !
 !------------------!
 
-URxvt.font:                        xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true
+URxvt.font:                        xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true,xft:xos4 Terminus
 URxvt.boldFont:                    xft:GohuFont:size=10:Bold:antialias=false,xft:GohuFont NF:size=10:antialias=true
 URxvt.italicFont:                  xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true
 URxvt.boldItalicFont:              xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true
