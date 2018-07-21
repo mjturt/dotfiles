@@ -1,23 +1,35 @@
 #!/bin/bash
 # Date script for polybar/lemonbar with popup calendar
-# Dependencies: Yad (https://sourceforge.net/projects/yad-dialog/), xdotool
-# by mjturt
+# Dependencies:
+# - Yad (https://sourceforge.net/projects/yad-dialog/) or Rofi (https://github.com/DaveDavenport/rofi)
+# - xdotool
+# by mjturt (https://github.com/mjturt)
 
+# dimensions
 width=200
 height=200
-# if used bottom panel
+# if used bottom panel (0 if top panel)
 bottom=1
+# if wanted to use rofi (Yad is better for this purpose)
+popup="yad"
+# rofi theme, must be theme where location can be set, for example:
+rofitheme="/usr/share/rofi/themes/Arc-Dark.rasi"
+# date string
+date="$(date +"%a %d %H:%M")"
 
-date=$(date +"%a %d %H:%M")
-echo $date
+echo "$date"
 if [[ $1 = "click" ]]; then
-   eval $(xdotool getmouselocation --shell)
+   eval "$(xdotool getmouselocation --shell)"
    if [[ $bottom -eq 1 ]]; then
-      let "posy = $Y - $height - 20"
-      let "posx = $X - ($width / 2)"
+      (( posy = Y - height - 20 ))
+      (( posx = X - (width / 2) ))
    else
-      let "posy = $Y + 20"
-      let "posx = $X - ($width / 2)"
+      (( posy = Y + 20 ))
+      (( posx = X - (width / 2) ))
    fi
-   yad --calendar --undecorated --fixed --close-on-unfocus --no-buttons --width=${width} --height=${height} --posx=${posx} --posy=${posy} > /dev/null
+   if [[ $popup = "rofi" ]]; then
+      cal --color=always | sed 's/\x1b\[[7;]*m/\<b\>\<u\>/g' | sed 's/\x1b\[[27;]*m/\<\/u\>\<\/b\>/g' | tail -n +2 | rofi -dmenu -location 1 -width ${width} -lines 9 -markup-rows -p "$date" > /dev/null -hide-scrollbar -xoffset ${posx} -yoffset ${posy} -font "monospace 9" -click-to-exit -theme ${rofitheme}
+   elif [[ $popup = "yad" ]]; then
+      yad --calendar --undecorated --fixed --close-on-unfocus --no-buttons --width=${width} --height=${height} --posx=${posx} --posy=${posy} > /dev/null
+   fi
 fi

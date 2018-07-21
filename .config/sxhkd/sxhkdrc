@@ -10,6 +10,10 @@
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# keybindings help
+super + h
+   cat ~/.config/sxhkd/sxhkdrc | rofihelp
+
 ## bspwm hotkeys
 
 # reload config
