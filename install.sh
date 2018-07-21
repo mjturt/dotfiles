@@ -883,16 +883,6 @@ df_gtk_themes () {
    ln -s -v ${DOT}/assets/gtk-themes ~/.themes >> $LOGS
 }
 
-# Icons (private, commons)
-df_icons () {
-   if [[ -e ~/.local/share/icons ]]; then
-      mv -v ~/.local/share/icons $BACKUP >> $LOGS
-   elif [[ -L ~/.local/share/icons ]]; then
-      rm -v ~/.local/share/icons >> $LOGS
-   fi
-   ln -s -v ${DOT}/assets/icons ~/.local/share/icons >> $LOGS
-}
-
 # Console framebuffer colors (private, commons)
 df_fbcolors () {
    if [[ -e ~/.fbcolors ]]; then
