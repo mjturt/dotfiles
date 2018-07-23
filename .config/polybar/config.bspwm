@@ -296,7 +296,7 @@ label-separator = |
 label-separator-foreground = ${colors.blue}
 
 menu-0-0 = 
-menu-0-0-exec = i3lock -c 8f6f8f
+menu-0-0-exec = lock
 menu-0-1 = 
 menu-0-1-exec = bspc quit
 menu-0-2 = 

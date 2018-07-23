@@ -26,9 +26,6 @@ bind pager G  bottom
 bind index,pager \# noop
 bind index,pager \& noop
 bind index,pager R  group-reply
-bind index,pager \Cy sidebar-prev
-bind index,pager \Ch sidebar-next
-bind index,pager \Cu sidebar-open
 bind index,pager d half-down
 bind index,pager u half-up
 bind index D delete-message
@@ -42,9 +39,14 @@ bind index <Space> collapse-thread
 bind index <tab> sync-mailbox
 bind compose p postpone-message
 
+bind index,pager \Cl sidebar-prev
+bind index,pager \Ck sidebar-next
+bind index,pager \Cu sidebar-open
+
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "Mark all messages as read"
 macro index eC "!$EDITOR ~/.mutt/muttrc\n:source ~/.mutt/muttrc\n" "Edit config file and reload it"
-macro index O "<shell-escape>offlineimap -o<enter>" "Run offlineimap to sync all mail"
+macro index O "<shell-escape>$HOME/.mutt/scripts/sync.sh<enter>" "Run offlineimap to sync all mail"
+macro index \Co "<shell-escape>$HOME/.mutt/scripts/sync.sh -qf INBOX<enter>" "run offlineimap to sync inbox"
 
 macro index \Cf \
 "<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\

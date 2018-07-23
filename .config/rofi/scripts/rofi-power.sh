@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Rofi power menu for i3 that does not need systemd by mjturt
+# Rofi power menu that does not need systemd by mjturt
 # Based on Oliver Kraitschy's power.sh script 
 # Dependencies: rofi, lxqt-sudo, i3lock
 
@@ -16,7 +16,7 @@ if [ ${#option} -gt 0 ]
 then
    case $option in
    Lock)
-      i3lock -c "#2F1E2E"
+      lock
       ;;
    Exit)
       bspc quit
