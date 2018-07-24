@@ -51,8 +51,8 @@ c.fonts.tabs = "10pt monospace"
 ### Keybindings
 
 config.bind('j', 'scroll left')         
-config.bind('k', 'scroll down')         
-config.bind('l', 'scroll up')         
+config.bind('k', 'run-with-count 3 scroll down')         
+config.bind('l', 'run-with-count 3 scroll up')         
 config.bind('ö', 'scroll right')         
 config.bind('J', 'back')         
 config.bind('K', 'tab-next')         
@@ -69,3 +69,4 @@ config.bind('L', 'scroll up', mode='caret')
 config.bind('Ö', 'scroll right', mode='caret')         
 config.bind('<Ctrl-b>', 'spawn --userscript ~/.config/qutebrowser/userscripts/qute-buku-add.sh')
 config.bind('<Ctrl-r>', 'config-source')
+config.bind('<Ctrl-m>', 'spawn mpv --loop {url}')

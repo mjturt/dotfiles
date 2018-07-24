@@ -1,12 +1,18 @@
 #!/bin/bash
-# Torrent magnet link -> .torrent file from Arch wiki
-# usage: ./magnet "magnet_link"
+# Torrent magnet link -> .torrent file based on Arch wiki example
+# usage: ./magnet "magnet_link" --here (optional)
 
-if [[ -e /mnt/storage/rtorrent ]]; then
-   watch=/mnt/storage/rtorrent/watch/start
-else
-   watch=/storage/rtorrent/watch/start
-fi
-cd $watch
+case "$2" in
+   --here)
+      ;;
+   *)
+      if [[ -e /mnt/storage/rtorrent ]]; then
+         watch=/mnt/storage/rtorrent/watch/start
+      else
+         watch=/storage/rtorrent/watch/start
+      fi
+      cd $watch
+      ;;
+esac
 [[ "$1" =~ xt=urn:btih:([^&/]+) ]] || exit;
 echo "d10:magnet-uri${#1}:${1}e" > "meta-${BASH_REMATCH[1]}.torrent"
