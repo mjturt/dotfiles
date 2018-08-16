@@ -47,7 +47,7 @@ rofi.location:                       0
 ! rofi.fullscreen:                     false
 
 !# Theme
-rofi.theme: ~/.config/rofi/themes/sidebar.rasi                          
+rofi.theme: ~/.config/rofi/themes/dmenu.rasi
 
 !-------------!
 ! Keybindings !
