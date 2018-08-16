@@ -864,6 +864,17 @@ df_fbcolors () {
    ln -s -v ${DOT}/assets/fbcolors ~/.fbcolors >> $LOGS
 }
 
+# Elinks (commons)
+df_elinks () {
+   if [[ -e ~/.elinks ]]; then
+      mv -v ~/.elinks $BACKUP >> $LOGS
+   elif [[ -L ~/.elinks ]]; then
+      rm -v ~/.elinks >> $LOGS
+   fi
+   mkdir -v ~/.elinks >> $LOGS
+   ln -s -v ${DOT}/.elinks/elinks.conf ~/.elinks/elinks.conf >> $LOGS
+}
+
 #┏━━━━━━┓
 #┃ Help ┃
 #┗━━━━━━┛
@@ -890,7 +901,7 @@ helps () {
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
    echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
-   echo -e "df_dunst, df_zsh"
+   echo -e "df_dunst, df_zsh, df_elinks"
    echo
    echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_xresources, df_i3, df_ranger"
    echo

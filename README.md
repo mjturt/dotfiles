@@ -22,7 +22,7 @@ This repository is attempt to bring my dotfiles under version controlling. Mainl
 + Torrent client:       **rtorrent**
 + Mail client:          **Mutt**
 
-There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb, offlineimap, teiler, sxhkd, i3, i3blocks, herbstluftwm and for pass and buku rofi-frontends.
+There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb, offlineimap, teiler, sxhkd, i3, i3blocks, herbstluftwm, elinks and for pass and buku rofi-frontends.
 
 ### Keybindings
 
