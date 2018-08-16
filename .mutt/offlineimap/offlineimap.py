@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/local/bin/python2.7
 
 # Character encodings and pass-integration to offlineimap
 

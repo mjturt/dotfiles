@@ -3,6 +3,13 @@
 # Nerdfonts patched font required (https://github.com/ryanoasis/nerd-fonts)
 # Based on Karu prompt theme by zaari
 
+# "stat" command
+if [[ "$(uname)" = FreeBSD ]]; then
+   STATCMD="gnustat"
+else
+   STATCMD="stat"
+fi
+
 # Current working directory
 distroprompt_dir() {
    if [[ "$(pwd)" != "$HOME" ]] ; then
@@ -16,7 +23,7 @@ distroprompt_os_symbol() {
    if [[ $EUID == 0 ]] ; then
       echo -n "%B%F{228}"
    else
-      stat_ret=( $(stat -Lc "%a %G %U" "`pwd`") )
+      stat_ret=( $(${STATCMD} -Lc "%a %G %U" "`pwd`") )
       local stat_perm=${stat_ret[1]}
       local stat_owner=${stat_ret[3]}
 

@@ -1,6 +1,6 @@
 # mjturt's dotfiles
 
-This repository is attempt to bring my dotfiles under version controlling. Mainly for my Gentoo Linux main machine but contains some host-specific configurations for my Gentoo laptop and Debian server in their own directories.
+This repository is attempt to bring my dotfiles under version controlling. Mainly for my Gentoo Linux main machine but contains some host-specific configurations for my Gentoo laptop and FreeBSD server in their own directories.
 
 ### Software
 
