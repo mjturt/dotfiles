@@ -148,7 +148,6 @@ assets () {
    df_fonts
    df_cursors
    df_gtk_themes
-   df_icons
    df_fbcolors
 }
 
@@ -863,24 +862,27 @@ df_fonts () {
 }
 
 # Cursors (private, commons)
-# Global install!
+# Global install! Copy!
 df_cursors () {
    if [[ -e /usr/share/cursors/xorg-x11 ]]; then
       sudo mv -v /usr/share/cursors/xorg-x11 $BACKUP >> $LOGS
    elif [[ -L /usr/share/cursors/xorg-x11 ]]; then
       sudo rm -v /usr/share/cursors/xorg-x11 >> $LOGS
    fi
-   sudo ln -s -v ${DOT}/assets/cursors /usr/share/cursors/xorg-x11 >> $LOGS
+   sudo mkdir -v -p /usr/share/cursors/xorg-x11 >> $LOGS
+   sudo cp -R -v ${DOT}/assets/cursors/* /usr/share/cursors/xorg-x11 >> $LOGS
 }
 
 # GTK themes (private, commons)
+# Copy!
 df_gtk_themes () {
    if [[ -e ~/.themes ]]; then
       mv -v ~/.themes $BACKUP >> $LOGS
    elif [[ -L ~/.themes ]]; then
       rm -v ~/.themes >> $LOGS
    fi
-   ln -s -v ${DOT}/assets/gtk-themes ~/.themes >> $LOGS
+   mkdir -v -p ~/.themes >> $LOGS
+   cp -R -v ${DOT}/assets/gtk-themes/* ~/.themes >> $LOGS
 }
 
 # Console framebuffer colors (private, commons)
