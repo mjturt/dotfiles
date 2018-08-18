@@ -1,11 +1,16 @@
 # ZSH aliases
 # mjturt
 
-alias ls="ls --color -F"
-alias sl="ls --color -F"
-alias ll="ls --color -lh"
-alias la="ls --color -ah"
-alias lla="ls --color -lah"
+if [[ "$(uname)" = "FreeBSD" ]]; then
+   LSCMD="gls"
+else
+   LSCMD="ls"
+fi
+alias ls="${LSCMD} --color -F"
+alias sl="${LSCMD} --color -F"
+alias ll="${LSCMD} --color -lh"
+alias la="${LSCMD} --color -ah"
+alias lla="${LSCMD} --color -lah"
 
 alias cd..="cd .."
 alias ..="cd .."
@@ -51,4 +56,4 @@ alias rustofat="toilet -f rustofat --gay"
 alias wideterm="toilet -f wideterm --gay"
 
 alias hc="herbstclient"
-
+alias git-chmod="git status --short | cut -d " " -f 3 | xargs chmod +x"

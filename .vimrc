@@ -75,6 +75,10 @@ autocmd BufWriteCmd *.pdf set readonly
 autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 autocmd BufWriteCmd *.rtf set readonly
 
+if substitute(system('uname'), '\n', '', '') == "FreeBSD"
+   let g:python3_host_prog="/usr/local/bin/python3.6"
+endif
+
 "--------------"
 " GUI-settings "
 "--------------" 

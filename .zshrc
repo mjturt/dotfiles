@@ -121,7 +121,11 @@ source $HOME/.zsh/keybindings.zsh
 
 ### Dircolors
 
-eval `dircolors ~/.zsh/dircolors/jellybeans.dircolors`
+if [[ "$(uname)" = "FreeBSD" ]]; then
+   eval `gdircolors ~/.zsh/dircolors/jellybeans.dircolors`
+else
+   eval `dircolors ~/.zsh/dircolors/jellybeans.dircolors`
+fi
 
 ### Autostart tmux
 

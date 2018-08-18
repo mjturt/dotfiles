@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 #┃░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀░┃
 #┃░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█░┃
@@ -102,7 +102,7 @@ commons_x11 () {
 
 # Only host-specific files (R5)
 host_r5 () {
-   df_zsh r5
+   df_zprofile r5
    df_xresources r5
    df_i3 r5
    df_i3blocks r5
@@ -119,15 +119,16 @@ host_r5 () {
 
 # Only host-specific files (server)
 host_server () {
-   df_zsh server
+   df_zprofile server
    df_ranger server
    df_rtorrent
    df_irssi
+   df_mutt
 }
 
 # Only host-specific files (Thinkpad)
 host_thinkpad () {
-   df_zsh thinkpad
+   df_zprofile thinkpad
    df_xresources thinkpad
    df_i3 thinkpad
    df_i3blocks thinkpad
@@ -197,84 +198,53 @@ df_tmux () {
    ln -v -s ${DOT}/.tmux.conf ~/.tmux.conf >> $LOGS
 }
 
-# ZSH (commons, r5, server, thinkpad)
+# ZSH (commons)
 df_zsh () {
-   if [[ -z "$1" ]]; then
-      if [[ -e ~/.zsh ]]; then
-         mv -v ~/.zsh $BACKUP >> $LOGS
-      elif [[ -L ~/.zsh ]]; then
-         rm -v ~/.zsh >> $LOGS
-      fi
-      mkdir -v ~/.zsh >> $LOGS
-      ln -v -s ${DOT}/.zsh/completion ~/.zsh/completion >> $LOGS
-      ln -v -s ${DOT}/.zsh/themes ~/.zsh/themes >> $LOGS
-      ln -v -s ${DOT}/.zsh/aliases.zsh ~/.zsh/aliases.zsh >> $LOGS
-      ln -v -s ${DOT}/.zsh/evars.zsh ~/.zsh/evars.zsh >> $LOGS
-      ln -v -s ${DOT}/.zsh/functions.zsh ~/.zsh/functions.zsh >> $LOGS
-      ln -v -s ${DOT}/.zsh/keybindings.zsh ~/.zsh/keybindings.zsh >> $LOGS
-      ln -v -s ${DOT}/.zsh/dircolors ~/.zsh/dircolors >> $LOGS
-      ln -v -s ${DOT}/.zsh/private.zsh ~/.zsh/private.zsh >> $LOGS
-   elif [[ $1 == "r5" ]]; then
-      if [[ -e ~/.zshrc ]]; then
-         mv -v ~/.zshrc $BACKUP >> $LOGS
-      elif [[ -L ~/.zshrc ]]; then
-         rm -v ~/.zshrc >> $LOGS
-      fi
-      if [[ -e ~/.zsh/plugins ]]; then
-         mv -v ~/.zsh/plugins $BACKUP >> $LOGS
-      elif [[ -L ~/.zsh/plugins ]]; then
-         rm -v ~/.zsh/plugins >> $LOGS
-      fi
-      if [[ -e ~/.zprofile ]]; then
-         mv -v ~/.zprofile $BACKUP >> $LOGS
-      elif [[ -L ~/.zprofile ]]; then
-         rm -v ~/.zprofile >> $LOGS
-      fi
-      ln -v -s ${DOT}/.zshrc ~/.zshrc >> $LOGS
-      ln -v -s ${DOT}/.zsh/plugins ~/.zsh/plugins >> $LOGS
-      if [[ $(id -u) -eq 0 ]]; then
-         ln -v -s ${DOT}/.zprofile-root ~/.zprofile >> $LOGS
-      else
-         ln -v -s ${DOT}/.zprofile ~/.zprofile >> $LOGS
-      fi
-   elif [[ $1 == "server" ]]; then
-      if [[ -e ~/.zshrc ]]; then
-         mv -v ~/.zshrc $BACKUP >> $LOGS
-      elif [[ -L ~/.zshrc ]]; then
-         rm -v ~/.zshrc >> $LOGS
-      fi
-      if [[ -e ~/.zprofile ]]; then
-         mv -v ~/.zprofile $BACKUP >> $LOGS
-      elif [[ -L ~/.zprofile ]]; then
-         rm -v ~/.zprofile >> $LOGS
-      fi
-      ln -v -s ${DOT}/server/.zshrc ~/.zshrc >> $LOGS
-      ln -v -s ${DOT}/server/.zprofile ~/.zprofile >> $LOGS
-   elif [[ $1 == "thinkpad" ]]; then
-      if [[ -e ~/.zshrc ]]; then
-         mv -v ~/.zshrc $BACKUP >> $LOGS
-      elif [[ -L ~/.zshrc ]]; then
-         rm -v ~/.zshrc >> $LOGS
-      fi
-      if [[ -e ~/.zsh/plugins ]]; then
-         mv -v ~/.zsh/plugins $BACKUP >> $LOGS
-      elif [[ -L ~/.zsh/plugins ]]; then
-         rm -v ~/.zsh/plugins >> $LOGS
-      fi
-      if [[ -e ~/.zprofile ]]; then
-         mv -v ~/.zprofile $BACKUP >> $LOGS
-      elif [[ -L ~/.zprofile ]]; then
-         rm -v ~/.zprofile >> $LOGS
-      fi
-      ln -v -s ${DOT}/.zshrc ~/.zshrc >> $LOGS
-      ln -v -s ${DOT}/.zsh/plugins ~/.zsh/plugins >> $LOGS
-      if [[ $(id -u) -eq 0 ]]; then
-         ln -v -s ${DOT}/.zprofile-root ~/.zprofile >> $LOGS
-      else
-         ln -v -s ${DOT}/.zprofile ~/.zprofile >> $LOGS
-      fi
+   if [[ -e ~/.zsh ]]; then
+      mv -v ~/.zsh $BACKUP >> $LOGS
+   elif [[ -L ~/.zsh ]]; then
+      rm -v ~/.zsh >> $LOGS
    fi
+   if [[ -e ~/.zshrc ]]; then
+      mv -v ~/.zshrc $BACKUP >> $LOGS
+   elif [[ -L ~/.zshrc ]]; then
+      rm -v ~/.zshrc >> $LOGS
+   fi
+   if [[ -e ~/.zsh/plugins ]]; then
+      mv -v ~/.zsh/plugins $BACKUP >> $LOGS
+   elif [[ -L ~/.zsh/plugins ]]; then
+      rm -v ~/.zsh/plugins >> $LOGS
+   fi
+   mkdir -v ~/.zsh >> $LOGS
+   ln -v -s ${DOT}/.zsh/completion ~/.zsh/completion >> $LOGS
+   ln -v -s ${DOT}/.zsh/themes ~/.zsh/themes >> $LOGS
+   ln -v -s ${DOT}/.zsh/aliases.zsh ~/.zsh/aliases.zsh >> $LOGS
+   ln -v -s ${DOT}/.zsh/evars.zsh ~/.zsh/evars.zsh >> $LOGS
+   ln -v -s ${DOT}/.zsh/functions.zsh ~/.zsh/functions.zsh >> $LOGS
+   ln -v -s ${DOT}/.zsh/keybindings.zsh ~/.zsh/keybindings.zsh >> $LOGS
+   ln -v -s ${DOT}/.zsh/dircolors ~/.zsh/dircolors >> $LOGS
+   ln -v -s ${DOT}/.zsh/private.zsh ~/.zsh/private.zsh >> $LOGS
+   ln -v -s ${DOT}/.zshrc ~/.zshrc >> $LOGS
+   ln -v -s ${DOT}/.zsh/plugins ~/.zsh/plugins >> $LOGS
 }
+
+# zprofile (r5, server, thinkpad)
+df_zprofile () {
+      if [[ -e ~/.zprofile ]]; then
+         mv -v ~/.zprofile $BACKUP >> $LOGS
+      elif [[ -L ~/.zprofile ]]; then
+         rm -v ~/.zprofile >> $LOGS
+      fi
+      if [[ "$1" = "r5" ]] || [[ "$1" = "thinkpad" ]]; then
+         if [[ $(id -u) -eq 0 ]]; then
+            ln -v -s ${DOT}/.zprofile-root ~/.zprofile >> $LOGS
+         else
+            ln -v -s ${DOT}/.zprofile ~/.zprofile >> $LOGS
+         fi
+      elif [[ "$1" = "server" ]]; then
+         ln -v -s ${DOT}/server/.zprofile ~/.zprofile >> $LOGS
+      fi
+   }
 
 # Ranger (commons, r5, server, thinkpad)
 df_ranger () {
@@ -708,6 +678,7 @@ df_buku () {
    elif [[ -L ~/.local/share/buku/bookmarks.db ]]; then
       rm -v ~/.local/share/buku/bookmarks.db >> $LOGS
    fi
+   mkdir -v -p ~/.local/share/buku >> $LOGS
    ln -s -v ${DOT}/bookmarks.db ~/.local/share/buku/bookmarks.db >> $LOGS
 }
 
@@ -895,6 +866,27 @@ df_fbcolors () {
    ln -s -v ${DOT}/assets/fbcolors ~/.fbcolors >> $LOGS
 }
 
+# Elinks (commons)
+df_elinks () {
+   if [[ -e ~/.elinks ]]; then
+      mv -v ~/.elinks $BACKUP >> $LOGS
+   elif [[ -L ~/.elinks ]]; then
+      rm -v ~/.elinks >> $LOGS
+   fi
+   mkdir -v ~/.elinks >> $LOGS
+   ln -s -v ${DOT}/.elinks/elinks.conf ~/.elinks/elinks.conf >> $LOGS
+}
+
+# Calcurse (commons, private)
+df_calcurse () {
+   if [[ -e ~/.calcurse ]]; then
+      mv -v ~/.calcurse $BACKUP >> $LOGS
+   elif [[ -L ~/.calcurse ]]; then
+      rm -v ~/.calcurse >> $LOGS
+   fi
+   ln -s -v ${DOT}/.calcurse ~/.calcurse >> $LOGS
+}
+
 #┏━━━━━━┓
 #┃ Help ┃
 #┗━━━━━━┛
@@ -913,7 +905,7 @@ helps () {
    echo
    echo -e "\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\e[0m" 
    echo -e "\e[1;35mPrivate(not found in git-repo), cant take host-parameter:\e[0m df_irssi, df_buku, df_pass"
-   echo -e "df_fonts, df_cursors, df_gtk_themes, df_icons, df_fbcolors"
+   echo -e "df_fonts, df_cursors, df_gtk_themes, df_icons, df_fbcolors, df_calcurse"
    echo
    echo -e "\e[1;35mGroups:\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
    echo -e "assets(private)"
@@ -921,12 +913,12 @@ helps () {
    echo -e "\e[1;35mSingle programs that CANT take host-parameter:\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
    echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
-   echo -e "df_dunst"
+   echo -e "df_dunst, df_zsh, df_elinks"
    echo
-   echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_zsh, df_xresources, df_i3, df_ranger"
+   echo -e "\e[1;35mSingle programs that CAN take host-parameter:\e[0m df_xresources, df_i3, df_ranger"
    echo
    echo -e "\e[1;35mSingle programs that MUST take host-parameter:\e[0m df_i3blocks, df_xinit, df_bspwm"
-   echo -e "df_gtk3, df_gtk2, df_xbindkeys, df_xmodmap, df_polybar"
+   echo -e "df_gtk3, df_gtk2, df_xbindkeys, df_xmodmap, df_polybar, df_zprofile"
    echo
    echo -e "\e[1;35mHosts(2nd parameter):\e[0m r5, server, thinkpad"
 }
