@@ -21,7 +21,7 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 
 ### Toggles
-"touchpadtoggle.sh"
+"touchpadtoggle"
 Control+Alt+t
 
 "comptontoggle"

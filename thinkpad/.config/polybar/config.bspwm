@@ -49,9 +49,9 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro bspwm weather bitcoin cmus volume compton
+modules-left = distro bspwm weather bitcoin cmus volume compton touchpad
 modules-center = xwindow
-modules-right = backlight battery fsroot cpu load memory temp uptime date xkeyboard  powermenu
+modules-right = backlight battery wireless-network fsroot cpu temp uptime date
 
 tray-position = right
 tray-padding = 2
@@ -80,34 +80,56 @@ label = %output%
 
 [module/bspwm]
 type = internal/bspwm
-
-; Only show workspaces defined on the same output as the bar
-; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
-; Default: true
-pin-workspaces = true
-
-; Output mode flags after focused state label
-; Default: false
+pin-workspaces = false
 inline-mode = false
-
-; Create click handler used to focus workspace
-; Default: true
-enable-click = false
-
-; Create scroll handlers used to cycle workspaces
-; Default: true
+enable-click = true
 enable-scroll = false
-
-; Set the scroll cycle direction 
-; Default: true
 reverse-scroll = false
-
-; Use fuzzy (partial) matching on labels when assigning 
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces 
-; containing 'code' in the label
-; Default: false
 fuzzy-match = true
+; ws-icon-[0-9]+ = label;icon
+;ws-icon-0 = 1;
+;ws-icon-default = ●
+
+format = <label-state> <label-mode>
+
+;label-monitor = ●
+
+label-dimmed-focused = asd
+;label-dimmed-foreground = #ffffff
+;label-dimmed-underline = ${colors.foreground}
+label-dimmed-focused-background = ${colors.background}
+
+label-focused = %name%
+label-focused-padding = 1
+;label-focused-foreground = #fff
+label-focused-background = #333
+label-focused-underline = ${colors.lorange}
+
+label-occupied = %name%
+label-occupied-padding = 1
+label-occupied-underline = ${colors.foreground}
+
+label-urgent = %name%
+label-urgent-padding = 1
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+
+label-empty = %name%
+label-empty-padding = 1
+label-empty-foreground = #777
+
+label-monocle = " "
+label-tiled = "﬿ "
+label-fullscreen = " "
+label-floating = " "
+label-pseudotiled = "P "
+label-locked = " "
+label-locked-foreground = #bd2c40
+label-sticky = "𢡊 "
+label-sticky-foreground = #fba922
+label-private = " "
+label-private-foreground = #bd2c40
 
 [module/bitcoin]
 type = custom/script
@@ -136,10 +158,18 @@ label-layout-underline = ${colors.magneta}
 
 [module/compton]
 type = custom/script
-exec = ~/.statusscripts/polybar/isrunning-compton.sh
+exec = ~/.statusscripts/polybar/compton.sh
 interval = 5
-click-left = ~/.statusscripts/polybar/isrunning-compton.sh --toggle
+click-left = ~/.statusscripts/polybar/compton.sh --toggle
 format-prefix = "ﳻ "
+format-prefix-foreground = ${colors.blue}
+
+[module/touchpad]
+type = custom/script
+exec = ~/.statusscripts/polybar/touchpad.sh
+interval = 5
+click-left = ~/.statusscripts/polybar/touchpad.sh --toggle
+format-prefix = " "
 format-prefix-foreground = ${colors.blue}
 
 [module/cmus]
@@ -226,24 +256,23 @@ format-underline = ${colors.foreground}
 
 [module/date]
 type = custom/script
-exec = date +"%a %d %H:%M"
+exec = ~/.statusscripts/polybar/date-calendar.sh
 interval = 1
 format-prefix = " "
 format-prefix-foreground = ${colors.blue}
 format-underline = ${colors.magneta}
 label-foreground = #ff9800
-click-left = yad --calendar --undecorated --fixed --close-on-unfocus --no-buttons --width=220 --posx=1650 --posy=35 > /dev/null
+click-left = ~/.statusscripts/polybar/date-calendar.sh click
 
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
-label-volume = 
+format-volume = <label-volume>
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = "ﱝ "
 format-muted-foreground = ${colors.blue}
-label-muted = sound muted
+label-muted = ﱝ
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -295,29 +324,11 @@ format-discharging-underline = ${colors.orange}
 format-charging-underline = ${colors.green}
 format-full-underline = ${colors.foreground}
 time-format = %H:%M
-;   <label-charging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;   <animation-charging>
 format-charging = <animation-charging> <label-charging>
-;   <label-discharging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;   <animation-discharging> (unreleased)
 format-discharging = <ramp-capacity> <label-discharging>
-;   <label-full> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
 format-full = <ramp-capacity> <label-full>
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current charge rate in watts)
 label-charging = %percentage%%
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current discharge rate in watts)
 label-discharging = %percentage%%
-;   %percentage% (default)
 label-full = Fully charged
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -344,6 +355,25 @@ card = intel_backlight
 format-prefix = "ﯦ "
 format-prefix-foreground = ${colors.magneta}
 format-underline = ${colors.foreground}
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+format-connected = <label-connected>
+format-connected-underline = ${colors.green}
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${colors.alert}
+format-packetloss = <animation-packetloss> <label-connected>
+label-connected = 直 %essid%
+label-connected-foreground = ${colors.foreground}
+label-disconnected = 睊
+label-disconnected-foreground = ${colors.alert}
+animation-packetloss-0 = ﯱ
+animation-packetloss-0-foreground = ${colors.foreground}
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${colors.red}
+animation-packetloss-framerate = 500
 
 [settings]
 screenchange-reload = true
