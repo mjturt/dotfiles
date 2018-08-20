@@ -2,6 +2,24 @@
 "┣━━━━━━━━━
 "┃ mjturt
 
+"---------------"
+" Figure out OS "
+"---------------"
+
+let os = ""
+if has("unix")
+   let g:uname = substitute(system("uname"), '\n\+$', '', '')
+   if g:uname == "Linux"
+      let os="linux"
+   elseif g:uname == "FreeBSD"
+      let os="freebsd"
+   elseif g:uname == "Darwin"
+      let os="macos"
+   endif
+elseif has("win32")
+   let os = "windows"
+endif
+
 "----------------"
 " Basic settings "
 "----------------"

@@ -19,9 +19,13 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Completion
+if os=="freebsd"
+   Plug 'Valloric/YouCompleteMe'
+else
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 

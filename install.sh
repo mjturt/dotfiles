@@ -905,7 +905,7 @@ helps () {
    echo
    echo -e "\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\e[0m" 
    echo -e "\e[1;35mPrivate(not found in git-repo), cant take host-parameter:\e[0m df_irssi, df_buku, df_pass"
-   echo -e "df_fonts, df_cursors, df_gtk_themes, df_icons, df_fbcolors, df_calcurse"
+   echo -e "df_fonts, df_cursors, df_gtk_themes, df_fbcolors, df_calcurse"
    echo
    echo -e "\e[1;35mGroups:\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
    echo -e "assets(private)"

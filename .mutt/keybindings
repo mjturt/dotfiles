@@ -43,6 +43,8 @@ bind index,pager \Cl sidebar-prev
 bind index,pager \Ck sidebar-next
 bind index,pager \Cu sidebar-open
 
+bind index e noop
+
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "Mark all messages as read"
 macro index eC "!$EDITOR ~/.mutt/muttrc\n:source ~/.mutt/muttrc\n" "Edit config file and reload it"
 macro index O "<shell-escape>$HOME/.mutt/scripts/sync.sh<enter>" "Run offlineimap to sync all mail"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Dracula-theme with 256 shell colors
 # Ported by mjturt
 
