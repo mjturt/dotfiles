@@ -129,7 +129,7 @@ fi
 
 ### Autostart tmux
 
-if [[ -n $DISPLAY ]] && [[ $(id -u) -ne 0 ]]; then
+if [[ -n $DISPLAY ]] && [[ $(id -u) -ne 0 ]] && [[ "$(hostname)" != "server" ]]; then
    [[ $- != *i* ]] && return
    [[ -z "$TMUX" ]] && exec tmux
 fi

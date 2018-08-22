@@ -1,9 +1,10 @@
-# ~/.zprofile (R5)
+# ~/.zprofile (R5 & tp)
 # ----------------
 # mjturt
 
 export PATH="$PATH:$HOME/bin/:$HOME/.cargo/bin/:$HOME/.local/bin"
 export LC_TIME="fi_FI.utf8"
+export BROWSER="qutebrowser"
 
 if [[ -z $DISPLAY && ! -e /tmp/.X11-unix/X0 ]]; then
    #exec startx
