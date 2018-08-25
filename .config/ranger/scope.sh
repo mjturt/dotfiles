@@ -79,9 +79,9 @@ handle_extension() {
         # HTML
         htm|html|xhtml)
             # Preview as text conversion
+            elinks -dump "${FILE_PATH}" && exit 5
             w3m -dump "${FILE_PATH}" && exit 5
             lynx -dump -- "${FILE_PATH}" && exit 5
-            elinks -dump "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
     esac
 }
@@ -96,19 +96,23 @@ handle_image() {
 
         # Image
         image/*)
-            #img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
-            local orientation
-            orientation="$( identify -format '%[EXIF:Orientation]\n' -- "${FILE_PATH}" )"
-            # If orientation data is present and the image actually
-            # needs rotating ("1" means no rotation)...
-            if [[ -n "$orientation" && "$orientation" != 1 ]]; then
-                # ...auto-rotate the image according to the EXIF data.
-                convert -- "${FILE_PATH}" -auto-orient "${IMAGE_CACHE_PATH}" && exit 6
-            fi
+           if [[ "$(uname)" = "FreeBSD" ]]; then
+              img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
+           else
+              local orientation
+              orientation="$( identify -format '%[EXIF:Orientation]\n' -- "${FILE_PATH}" )"
+              # If orientation data is present and the image actually
+              # needs rotating ("1" means no rotation)...
+              if [[ -n "$orientation" && "$orientation" != 1 ]]; then
+                 # ...auto-rotate the image according to the EXIF data.
+                 convert -- "${FILE_PATH}" -auto-orient "${IMAGE_CACHE_PATH}" && exit 6
+              fi
 
-            # `w3mimgdisplay` will be called for all images (unless overriden as above),
-            # but might fail for unsupported types.
-            exit 7;;
+              # `w3mimgdisplay` will be called for all images (unless overriden as above),
+              # but might fail for unsupported types.
+              exit 7
+           fi
+           ;;
 
         # Video
         # video/*)

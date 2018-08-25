@@ -4,3 +4,4 @@
 #┃ mjturt
 
 bspc monitor eDP-1 -d 1 2 3 4 5 6
+bspc config focus_follows_pointer false
