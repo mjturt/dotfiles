@@ -1,5 +1,8 @@
-# Environment variables
-# mjturt
+#┃ ~/.zsh/evars.zsh
+#┣━━━━━━━━━━━━━━━━━
+#┃ mjturt
+
+## Common enviroment variables (host-specific enviroment variables are set in ~/.zprofile)
 
 export EDITOR="vim"
 export RANGER_LOAD_DEFAULT_RC=TRUE

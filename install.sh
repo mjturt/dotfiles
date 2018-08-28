@@ -254,9 +254,9 @@ df_ranger () {
       elif [[ -L ~/.config/ranger ]]; then
          rm -v ~/.config/ranger >> $LOGS
       fi
-      mkdir -v ~/.config/ranger >> $LOGS
-      mkdir -v ~/.config/ranger/colorschemes >> $LOGS
-      mkdir -v ~/.config/ranger/plugins >> $LOGS
+      mkdir -p -v ~/.config/ranger >> $LOGS
+      mkdir -p -v ~/.config/ranger/colorschemes >> $LOGS
+      mkdir -p -v ~/.config/ranger/plugins >> $LOGS
       ln -v -s ${DOT}/.config/ranger/rc.conf ~/.config/ranger/rc.conf >> $LOGS
       ln -v -s ${DOT}/.config/ranger/rifle.conf ~/.config/ranger/rifle.conf >> $LOGS
       ln -v -s ${DOT}/.config/ranger/scope.sh ~/.config/ranger/scope.sh >> $LOGS

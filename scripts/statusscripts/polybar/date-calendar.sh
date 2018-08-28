@@ -4,12 +4,18 @@
 # - Yad (https://sourceforge.net/projects/yad-dialog/) or Rofi (https://github.com/DaveDavenport/rofi)
 # - xdotool
 # by mjturt (https://github.com/mjturt)
+# In this version there are tweaks for my specific setup. I've committed the original script 
+# to polybar-scripts (https://github.com/x70b1/polybar-scripts/tree/master/polybar-scripts/popup-calendar)
 
 # dimensions
 width=200
 height=200
 # if used bottom panel (0 if top panel)
-bottom=1
+if [[ "$(hostname)" == "r5" ]]; then
+   bottom=1
+else
+   bottom=0
+fi
 # if wanted to use rofi (Yad is better for this purpose)
 popup="yad"
 # rofi theme, must be theme where location can be set, for example:

@@ -5,5 +5,5 @@
 export LC_ALL="en_US.UTF-8"
 export LC_TIME="fi_FI.UTF-8"
 export CLICOLOR=1
-export BROWSE="elinks"
+export BROWSER="elinks"
 umask 027

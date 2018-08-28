@@ -1,6 +1,6 @@
-# ~/.zprofile (R5 & tp)
-# ----------------
-# mjturt
+#┃ ~/.zprofile (R5 & tp)
+#┣━━━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
 
 export PATH="$PATH:$HOME/bin/:$HOME/.cargo/bin/:$HOME/.local/bin"
 export LC_TIME="fi_FI.utf8"

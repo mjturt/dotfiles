@@ -1,5 +1,6 @@
-# ZSH keybindings
-# mjturt
+#┃ ~/.zsh/keybindings.zsh
+#┣━━━━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
 
 typeset -g -A key
 

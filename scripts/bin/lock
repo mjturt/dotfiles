@@ -1,2 +1,6 @@
 #!/bin/bash
-slock
+if [[ "$(hostname)" == "r5" ]]; then
+   slock
+else
+   i3lock -c 282a36
+fi

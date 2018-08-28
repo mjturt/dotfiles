@@ -1,11 +1,13 @@
-#┃ ~/.zshrc (R5)
-#┣━━━━━━━━━━━━━━
+#┃ ~/.zshrc
+#┣━━━━━━━━━
 #┃ mjturt
-
-# Host specific settings in this file and common settings sourced from ~/.zsh-directory
 
 ### Plugins
 
+if [[ ! -f /usr/local/bin/antibody ]]; then
+   curl -sL git.io/antibody | sudo sh -s
+   /usr/local/bin/antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
+fi
 source ~/.zsh/plugins.sh
 
 ### Completion
@@ -59,10 +61,6 @@ setopt always_to_end
 
 fpath=(~/.zsh/completion $fpath)
 
-### Local environment variables
-
-export BROWSER="qutebrowser"
-
 ### Prompt
 
 #autoload -Uz promptinit && promptinit
@@ -105,13 +103,7 @@ if [[ "$TERM" == (screen*|xterm*|rxvt*) ]]; then
    add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
-### Local aliases
-
-alias plugins="/usr/local/bin/antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh"
-alias upgrade="sudo emerge -uDU --keep-going --with-bdeps=y @world"
-alias useflags="sudo vim /etc/portage/package.use/0custom"
-
-### Sourcing common settings
+### Include other files
 
 source $HOME/.zsh/evars.zsh
 source $HOME/.zsh/functions.zsh

@@ -1,5 +1,6 @@
-# ZSH functions
-# mjtrurt
+#┃ ~/.zsh/functions.zsh
+#┣━━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
 
 function ranger-cd {
    tempfile="$(mktemp -t tmp.XXXXXX)"
