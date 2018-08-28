@@ -1,6 +1,15 @@
-#!/bin/bash
-# Script intended to use with cron for automatic Nextcloud sync without graphical client
+#!/usr/bin/env bash
+# Script for automatic Nextcloud sync without graphical client
+# Example with cron(sync every 5 minutes, mailing only when error):
+# */5 * * * * /home/user/bin/nextcloudsync >> /var/log/nextcloudsync.log
+
+USER="user"
+PASS="$(pass show nextcloud)" # Using pass (https://www.passwordstore.org/) for password retrieval
+LOCALDIR="/home/user/nextcloud"
+SERVER="https://nextcloud.example.com"
+
 echo "Sync at $(date) with $(nextcloudcmd -v)"
-nextcloudcmd -h -u "user" -p 'pass' -s /path https://domain.example
-echo "Done"
+nextcloudcmd -h -u "$USER" -p "$PASS" -s "$LOCALDIR" "$SERVER"
+echo "---"
+echo "Done at $(date)"
 exit 0
