@@ -2,14 +2,26 @@
 # Script for automatic Nextcloud sync without graphical client
 # Example with cron(sync every 5 minutes, mailing only when error):
 # */5 * * * * /home/user/bin/nextcloudsync >> /var/log/nextcloudsync.log
+# To silence messages use --silent
+# by mjturt
 
-USER="user"
-PASS="$(pass show nextcloud)" # Using pass (https://www.passwordstore.org/) for password retrieval
-LOCALDIR="/home/user/nextcloud"
-SERVER="https://nextcloud.example.com"
+USER="mjt"
+PASS="$(pass show server/nextcloud)" # Using pass (https://www.passwordstore.org/) for password retrieval
+LOCALDIR="/home/mjt/cloud"
+SERVER="https://cloud.turtia.fi"
 
-echo "Sync at $(date) with $(nextcloudcmd -v)"
-nextcloudcmd -h -u "$USER" -p "$PASS" -s "$LOCALDIR" "$SERVER"
-echo "---"
-echo "Done at $(date)"
+case "$1" in
+--silent)
+   nextcloudcmd -h -u "$USER" -p "$PASS" -s "$LOCALDIR" "$SERVER"
+   ;;
+*)
+   echo -e "\e[1;32mNextcloudsync ───────────────\e[0m"
+   echo "Sync at $(date) with $(nextcloudcmd -v)"
+   echo "User $USER at $SERVER"
+   echo "Local sync directory: $LOCALDIR"
+   nextcloudcmd -h -u "$USER" -p "$PASS" -s "$LOCALDIR" "$SERVER"
+   echo -e "\e[1;32m─────────────────────────────\e[0m"
+   echo "Done at $(date)"
+   ;;
+esac
 exit 0

@@ -2,6 +2,7 @@
 # Syncs from imap and sends notification over ssh when there is a new mail
 # This is runned as a cron job
 # based on LukeSmithxyz:s script
+# mjturt
 
 offlineimap -o -u ttyui "$@"
 

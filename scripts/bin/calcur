@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# calcurse starting script with caldav using pass for password retrieval
+# mjturt
+
+CALCURSE_CALDAV_PASSWORD=$(pass show server/nextcloud) calcurse-caldav
+calcurse
+CALCURSE_CALDAV_PASSWORD=$(pass show server/nextcloud) calcurse-caldav
+
