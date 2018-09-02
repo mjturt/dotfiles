@@ -1,8 +1,0 @@
-#┃ ~/.mutt/lists
-#┣━━━━━━━━━━━━━━
-#┃ mjturt
-
-subscribe "gentoo-.*@gentoo\\.org"
-subscribe "riski-info@lists.utu.fi"
-subscribe "Vector@lists.utu.fi"
-subscribe "qutebrowser@lists.qutebrowser.org"
