@@ -40,12 +40,12 @@ set fcc_attach
 unset mime_forward 
 
 ### UI and colors
-source ~/.mutt/colors/luke.mutt
+source ~/.mutt/colors/mjt.mutt
 ## Index
 set sort_aux=last-date-received
 set sort=reverse-threads
 set strict_threads=yes
-set date_format ="%d.%m.%Y at %H:%M"
+set date_format ="%d.%m.%y » %H:%M"
 #set index_format ="%4C %Z %[%b %d at %H:%M] %-15.15L (%4l) %s"
 set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
