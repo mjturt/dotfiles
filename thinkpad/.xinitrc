@@ -16,6 +16,7 @@ dunst &
 compton -b &
 nextcloud &
 rambox &
+nm-applet &
 hsetroot -solid "#2B303B"
 
 ## Window manager
