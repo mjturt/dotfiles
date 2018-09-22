@@ -34,6 +34,7 @@ bspc rule -a Yad state=floating
 bspc rule -a mpv state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+bspc rule -a Pinentry-gtk-2 state=floating
 
 ### Start polybar with starting script
 poly bspwm

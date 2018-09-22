@@ -28,6 +28,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'artur-shaik/vim-javacomplete2'
 
 " Syntax
 Plug 'vim-syntastic/syntastic'
@@ -58,6 +59,10 @@ Plug 'gcavallanti/vim-noscrollbar'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" Additional language support
+Plug 'derekwyatt/vim-scala'
+Plug 'ensime/ensime-vim'
+
 " Colorschemes
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'NLKNguyen/papercolor-theme'
@@ -87,3 +92,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_completion_start_length = 2
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = []
+let g:deoplete#file#enable_buffer_path = 1

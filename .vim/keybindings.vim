@@ -53,3 +53,4 @@ cmap W w
 nmap s <Plug>(easymotion-overwin-f2)
 nmap <leader>s ys$"
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)

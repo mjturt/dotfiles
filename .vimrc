@@ -97,6 +97,9 @@ if substitute(system('uname'), '\n', '', '') == "FreeBSD"
    let g:python3_host_prog="/usr/local/bin/python3.6"
 endif
 
+set omnifunc=syntaxcomplete#Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
 "--------------"
 " GUI-settings "
 "--------------" 

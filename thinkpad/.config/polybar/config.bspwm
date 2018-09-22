@@ -64,6 +64,35 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[bar/bspwmhdmi]
+monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 20
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 1
+line-color =  #87875f
+border-size = 5
+border-left-size = 15
+border-right-size = 15
+border-color = #00000000
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+font-0 = Misc\ Ohsnap:size=8:antialias=false;0
+font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
+font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
+font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+modules-left = distro bspwm weather bitcoin cmus volume compton touchpad
+modules-center = xwindow
+modules-right = backlight battery wireless-network fsroot cpu temp uptime date
+tray-position = right
+tray-padding = 2
+cursor-click = pointer
+cursor-scroll = ns-resize
+
 [module/hlwm]
 type = custom/script
 exec = ~/.statusscripts/hlwm/hlwm-tags.sh
