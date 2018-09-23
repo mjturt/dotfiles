@@ -2,15 +2,22 @@
 #┣━━━━━━━━━━━━━━━━━━━━━
 #┃ mjturt
 
+# Ranger startup function
+# Preventing nested sessions and changes shell directory to same as ranger
 function ranger-cd {
-   tempfile="$(mktemp -t tmp.XXXXXX)"
-   ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-   test -f "$tempfile" && if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-      cd -- "$(cat "$tempfile")"
+   if [[ -z "$RANGER_LEVEL" ]]; then
+      tempfile="$(mktemp -t tmp.XXXXXX)"
+      ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+      test -f "$tempfile" && if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+         cd -- "$(cat "$tempfile")"
+      fi
+      rm -f -- "$tempfile"
+   else
+      exit
    fi
-   rm -f -- "$tempfile"
 }
 
+# Extension lowering
 function lowerextensions() {
    autoload zmv
    zmv '(**/)(*).(#i)jpg' '$1$2.jpg'
@@ -19,6 +26,7 @@ function lowerextensions() {
    zmv '(**/)(*).(#i)mp3' '$1$2.mp3'
 }
 
+# Extract archives without looking for tar manpages
 function extract () {
    if [ -f $1 ] ; then
       case $1 in
@@ -41,6 +49,7 @@ function extract () {
    fi
 }
 
+# Xterm/rxvt title changing functions
 function xterm_title_precmd () {
    print -Pn '\e]2;%n@%m %1~ - \a'
 }
@@ -50,6 +59,7 @@ function xterm_title_preexec () {
    print -n "${(q)1}\a"
 }
 
+# Manpage colors
 man() {
    LESS_TERMCAP_md=$'\e[01;31m' \
       LESS_TERMCAP_me=$'\e[0m' \
@@ -60,11 +70,13 @@ man() {
       command man "$@"
 }
 
+# ZSH auto rehash
 function _force_rehash () {
    (( CURRENT == 1 )) && rehash
    return 1
 }
 
+# Automatic shebang lines and permissions when creating new scripts
 shebang() {
     if i=$(which $1);
     then
@@ -75,20 +87,23 @@ shebang() {
     rehash
 }
 
+# Automatic title for new dotfiles
 newdot () {
     printf '#┃ %s\n#┣━━━━━━━━━━━━━━\n#┃ mjturt\n\n' $1 > $1 && vim + $1;
 }
 
+# Screenshot and move to cloud
 screenshot() {
    scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'
 }
 
-# C-y
+# C-y to delete last word in shell
 backward-delete-to-slash () {
   local WORDCHARS=${WORDCHARS//\//}
   zle .backward-delete-word
 }
 
+# Fast archiving
 pack () {
     name=$1;
     if [ "$name" != "" ]; then
@@ -96,32 +111,30 @@ pack () {
     fi
 }
 
+# Backup files fast (-s to move to server)
 buf () {
-    oldname=$1;
-    if [ "$oldname" != "" ]; then
-        datepart=$(date +%Y-%m-%d);
-        firstpart=`echo $oldname | cut -d "." -f 1`;
-        newname=`echo $oldname | sed s/$firstpart/$firstpart.$datepart/`;
-        cp -R ${oldname} ${newname};
-        tar cvjf $newname.tar.bz2 $newname
-        rm -rf $newname
-        if [[ -e /mnt/storage ]]; then
-            mv $newname.tar.bz2 /mnt/storage/backup/buf
-        elif [[ -e /storage ]]; then
-            mv $newname.tar.bz2 /storage/backup/buf
-        fi
+   case "$1" in
+      "-s")
+         oldname=$2
+         storage=1
+      ;;
+      *)
+         oldname=$1
+         storage=0
+      ;;
+   esac
+   if [ "$oldname" != "" ]; then
+      datepart=$(date +%Y-%m-%d);
+      firstpart=`echo $oldname | cut -d "." -f 1`;
+      newname=`echo $oldname | sed s/$firstpart/$firstpart.$datepart/`;
+      cp -R ${oldname} ${newname};
+      tar cvjf $newname.tar.bz2 $newname
+      rm -rf $newname
+      if [[ "$storage" -gt 0 ]]; then
+         mv $newname.tar.bz2 /mnt/storage/backup/buf
+      fi
     fi
 }
 
-buftemp () {
-    oldname=$1;
-    if [ "$oldname" != "" ]; then
-        datepart=$(date +%Y-%m-%d);
-        firstpart=`echo $oldname | cut -d "." -f 1`;
-        newname=`echo $oldname | sed s/$firstpart/$firstpart.$datepart/`;
-        cp -R ${oldname} ${newname};
-    fi
-}
-
-# C-x-s
+# C-x-s to put sudo before the command in the shell
 run-with-sudo() { LBUFFER="sudo $LBUFFER" }

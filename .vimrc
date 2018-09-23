@@ -81,8 +81,20 @@ set backup
 set noswapfile
 set undofile
 
+if os=="freebsd"
+   let g:python3_host_prog="/usr/local/bin/python3.6"
+endif
+
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
+set omnifunc=syntaxcomplete#Complete
+
+"-------------------"
+" Filetype settings "
+"-------------------"
+
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 autocmd BufReadPost *.doc silent %!antiword "%" 
 autocmd BufWriteCmd *.doc set readonly
@@ -92,13 +104,6 @@ autocmd BufReadPost *.pdf  silent %!pdftotext -nopgbrk -layout -q -eol unix "%" 
 autocmd BufWriteCmd *.pdf set readonly
 autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 autocmd BufWriteCmd *.rtf set readonly
-
-if substitute(system('uname'), '\n', '', '') == "FreeBSD"
-   let g:python3_host_prog="/usr/local/bin/python3.6"
-endif
-
-set omnifunc=syntaxcomplete#Complete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 "--------------"
 " GUI-settings "

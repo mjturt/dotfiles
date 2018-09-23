@@ -30,12 +30,14 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'artur-shaik/vim-javacomplete2'
 
-" Syntax
+" Syntax / Additional language support
 Plug 'vim-syntastic/syntastic'
 Plug 'vitalk/vim-shebang'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'ricpelo/vim-gdscript'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'derekwyatt/vim-scala'
+Plug 'lervag/vimtex'
 
 " Automation
 Plug 'jiangmiao/auto-pairs'
@@ -58,10 +60,6 @@ Plug 'gcavallanti/vim-noscrollbar'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-
-" Additional language support
-Plug 'derekwyatt/vim-scala'
-Plug 'ensime/ensime-vim'
 
 " Colorschemes
 Plug 'dracula/vim', { 'as': 'dracula' }
