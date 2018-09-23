@@ -120,26 +120,30 @@ set clipboard=unnamedplus
 set lazyredraw
 set ttimeoutlen=50
 
+" Searching
 set incsearch
 set ignorecase
 set smartcase
 
+" No folding
 set nofoldenable
 set foldmethod=indent
 
+" Indent / tab-key behavior
 set expandtab
 set shiftwidth=3
 set softtabstop=3
 set smarttab
 "set tabstop=3
-
 set autoindent
 "set copyindent
 set smartindent
 
+" Cursor position which triggers scrolling
 set sidescroll=40
 set scrolloff=3
 
+" Temporary files (and persistent undo)
 set backupdir=~/.vim/temp/backup
 set directory=~/.vim/temp/swap
 set undodir=~/.vim/temp/undo
@@ -147,13 +151,17 @@ set backup
 set noswapfile
 set undofile
 
+" Python path for FreeBSD
 if os=="freebsd"
    let g:python3_host_prog="/usr/local/bin/python3.6"
 endif
 
+" Auto-source .vimrc when writing
 autocmd! bufwritepost .vimrc source ~/.vimrc
+" Transfer + -register content to system clipboard on exit
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
+" Defeault completion method
 set omnifunc=syntaxcomplete#Complete
 
 " Gvim font
@@ -268,6 +276,7 @@ nmap <silent> <C-w>k :wincmd j<CR>
 nmap <silent> <C-w>j :wincmd h<CR>
 nmap <silent> <C-w>ö :wincmd l<CR>
 
+" Basics
 nmap <C-o> o<Esc>
 "set pastetoggle=<F3>
 map <S-k> :bprevious<CR>
@@ -277,13 +286,12 @@ map <C-a> <Nop>
 nmap QQ :q<CR>
 nmap WW :wq<CR>
 vmap <C-c> y
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" Easymotion plugin
+nmap s <Plug>(easymotion-overwin-f2)
 
+" Leader key
 let mapleader="'"
-nnoremap <silent> <Leader>l :exe "resize +5"<CR>
-nnoremap <silent> <Leader>k :exe "resize -5"<CR>
-nnoremap <silent> <Leader>ö :exe "vertical resize +5"<CR>
-nnoremap <silent> <Leader>j :exe "vertical resize -5"<CR>
-
 nnoremap <leader>ev :tabnew ~/.vimrc<CR>
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 noremap <Leader>gg gg=G
@@ -294,10 +302,22 @@ map <leader>c :set cursorline!<CR>:set cursorcolumn!<CR>
 noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>p "0p
 noremap <leader>d di"
+" Surroung plugin
+nmap <leader>s ys$"
 
+" Resizing panes
+nnoremap <silent> <Leader>l :exe "resize +5"<CR>
+nnoremap <silent> <Leader>k :exe "resize -5"<CR>
+nnoremap <silent> <Leader>ö :exe "vertical resize +5"<CR>
+nnoremap <silent> <Leader>j :exe "vertical resize -5"<CR>
+
+" Function keys
 map <F5> :call CompileAndRun()<CR>
 vnoremap <F9> "ry:call Func2X11()<cr>
+" Javacomplete plugin
+nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 
+" Command prompt
 cmap Q q
 cmap W w
 
@@ -328,13 +348,6 @@ let g:deoplete#auto_completion_start_length = 2
 let g:deoplete#sources = {}
 let g:deoplete#sources._ = []
 let g:deoplete#file#enable_buffer_path = 1
-
-" Keyboard mappings for plugins
-
-nmap s <Plug>(easymotion-overwin-f2)
-nmap <leader>s ys$"
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 
 " Vim functions
 " -------------
