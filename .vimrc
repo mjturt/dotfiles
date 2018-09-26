@@ -2,7 +2,6 @@
 "┣━━━━━━━━━
 "┃ mjturt
 
-
 " First figure out OS
 " -------------------
 
@@ -53,7 +52,6 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'ricpelo/vim-gdscript'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'derekwyatt/vim-scala'
-Plug 'lervag/vimtex'
 
 " Automation
 Plug 'jiangmiao/auto-pairs'
@@ -302,6 +300,7 @@ map <leader>c :set cursorline!<CR>:set cursorcolumn!<CR>
 noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>p "0p
 noremap <leader>d di"
+nmap <leader>S :SyntasticToggleMode<CR>
 " Surroung plugin
 nmap <leader>s ys$"
 
@@ -323,8 +322,6 @@ cmap W w
 
 " Plugin settings
 " ---------------
-
-" Basic settings for plugins
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -375,6 +372,9 @@ func! CompileAndRun()
       exec "!time go run %"
    elseif &filetype == 'markdown'
       exec "!$BROWSER http://localhost:6419/ & grip %"
+   elseif &filetype == 'tex'
+      exec "!pdflatex %"
+      exec "!zathura %<.pdf &"
    endif
 endfunc
 

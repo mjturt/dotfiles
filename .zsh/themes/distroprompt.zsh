@@ -142,6 +142,10 @@ distroprompt_git_info() {
    echo "${current_branch} "
 }
 
+distroprompt_hostname() {
+
+}
+
 # Executed before each prompt
 precmd() {
    local distroprompt_exit_color="%(?.${DISTROPROMPT_NOERROR_COLOR}.${DISTROPROMPT_ERROR_COLOR})"  
@@ -170,7 +174,7 @@ DISTROPROMPT_GIT_AHEAD="  "
 DISTROPROMPT_GIT_BEHIND="  "
 
 # Colors
-DISTROPROMPT_LEFT_PROMPT_COLOR="%B%F{212}"
+DISTROPROMPT_LEFT_PROMPT_COLOR="%B%F{101}"
 DISTROPROMPT_RIGHT_PROMPT_COLOR="%B%F{84}"
 DISTROPROMPT_ERROR_COLOR="%B%F{203}"
 DISTROPROMPT_NOERROR_COLOR="%B%F{84}"

@@ -64,6 +64,10 @@ alias cls=' echo -ne "\033c" && rm ~/.zsh/history'
 alias upgrade-gentoo="sudo emerge -uDU --keep-going --with-bdeps=y @world"
 alias useflags="sudo vim /etc/portage/package.use/0custom"
 
+## FreeBSD
+alias pkgi="pkg install"
+alias pkgs="pkg search"
+
 ## Other
 alias fbvar="export TERM=fbterm"
 alias c="pygmentize -O style=base16-monokai -f console256 -g"

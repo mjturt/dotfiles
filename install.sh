@@ -216,7 +216,7 @@ df_zsh () {
       rm -v ~/.zsh/plugins >> $LOGS
    fi
    mkdir -v ~/.zsh >> $LOGS
-   ln -v -s ${DOT}/.zsh/completion ~/.zsh/completion >> $LOGS
+   ln -v -s ${DOT}/.zsh/site-functions ~/.zsh/site-functions >> $LOGS
    ln -v -s ${DOT}/.zsh/themes ~/.zsh/themes >> $LOGS
    ln -v -s ${DOT}/.zsh/aliases.zsh ~/.zsh/aliases.zsh >> $LOGS
    ln -v -s ${DOT}/.zsh/evars.zsh ~/.zsh/evars.zsh >> $LOGS
@@ -726,24 +726,30 @@ df_mutt () {
    elif [[ -L ~/.notmuch-config ]]; then
       rm -v ~/.notmuch-config >> $LOGS
    fi
-   if [[ ! -e ~/mail ]]; then
-      mkdir -v ~/mail >> $LOGS
-   fi
+
    mkdir -v ~/.mutt >> $LOGS
-   mkdir -v -p ~/.mutt/cache/{utu,gmail}/{headers,messages} >> $LOGS
-   ln -s -v ${DOT}/.mutt/muttrc ~/.mutt/muttrc >> $LOGS
    ln -s -v ${DOT}/.mutt/keybindings ~/.mutt/keybindings >> $LOGS
    ln -s -v ${DOT}/.mutt/mailcap ~/.mutt/mailcap >> $LOGS
    ln -s -v ${DOT}/.mutt/colors ~/.mutt/colors >> $LOGS
-   ln -s -v ${DOT}/.mutt/mailboxes ~/.mutt/mailboxes >> $LOGS
    ln -s -v ${DOT}/.mutt/scripts ~/.mutt/scripts >> $LOGS
-   ln -s -v ${DOT}/.mutt/accounts ~/.mutt/accounts >> $LOGS
    ln -s -v ${DOT}/.mutt/aliases ~/.mutt/aliases >> $LOGS
    ln -s -v ${DOT}/.mutt/signature ~/.mutt/signature >> $LOGS
+   ln -s -v ${DOT}/.mutt/notmuch-config ~/.notmuch-config >> $LOGS
+   if [[ $(id -u) -eq 0 ]]; then
+      ln -s -v ${DOT}/.mutt/muttrc-local ~/.mutt/muttrc >> $LOGS
+   else
+   if [[ ! -e ~/mail ]]; then
+      mkdir -v ~/mail >> $LOGS
+   fi
+   mkdir -v -p ~/.mutt/cache/{utu,gmail}/{headers,messages} >> $LOGS
+   ln -s -v ${DOT}/.mutt/muttrc ~/.mutt/muttrc >> $LOGS
+   ln -s -v ${DOT}/.mutt/muttrc-local ~/.mutt/muttrc-local >> $LOGS
+   ln -s -v ${DOT}/.mutt/mailboxes ~/.mutt/mailboxes >> $LOGS
+   ln -s -v ${DOT}/.mutt/accounts ~/.mutt/accounts >> $LOGS
    ln -s -v ${DOT}/.mutt/lists ~/.mutt/lists >> $LOGS
    ln -s -v ${DOT}/.mutt/offlineimap/offlineimaprc ~/.offlineimaprc >> $LOGS
    ln -s -v ${DOT}/.mutt/offlineimap/offlineimap.py ~/.offlineimap.py >> $LOGS
-   ln -s -v ${DOT}/.mutt/notmuch-config ~/.notmuch-config >> $LOGS
+   fi
 }
 
 # Polybar (r5, thinkpad)
@@ -877,6 +883,14 @@ df_calcurse () {
    ln -s -v ${DOT}/.calcurse ~/.calcurse >> $LOGS
 }
 
+#┏━━━━━━━━━━━━━━━┓
+#┃ Test function ┃
+#┗━━━━━━━━━━━━━━━┛
+
+df_test () {
+   echo "Just test"
+}
+
 #┏━━━━━━┓
 #┃ Help ┃
 #┗━━━━━━┛
@@ -943,10 +957,14 @@ else
    esac
    for value in {1..3}
    do
-      animate '             \e[1;33m\ ' 0.1
-      animate '             \e[1;33m| ' 0.1
-      animate '             \e[1;33m/ ' 0.1
-      animate '             \e[1;33m- ' 0.1
+      animate '             \e[1;35m  ' 0.1
+      animate '             \e[0;35m░ ' 0.1
+      animate '             \e[0;35m▒ ' 0.1
+      animate '             \e[1;35m▓ ' 0.1
+      animate '             \e[1;35m▋ ' 0.1
+      animate '             \e[1;35m▓ ' 0.1
+      animate '             \e[0;35m▒ ' 0.1
+      animate '             \e[0;35m░ ' 0.1
    done
    animate '\e[1;31m' 0.1
    mkdir $BACKUP

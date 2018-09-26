@@ -51,7 +51,7 @@ font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = distro bspwm weather bitcoin cmus volume compton touchpad
 modules-center = xwindow
-modules-right = backlight battery wireless-network fsroot cpu temp uptime date
+modules-right = backlight battery wireless-network fsroot cpu temp date uptime
 
 tray-position = right
 tray-padding = 2

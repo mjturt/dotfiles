@@ -59,13 +59,20 @@ setopt complete_in_word
 setopt always_to_end
 #setopt menucomplete
 
-fpath=(~/.zsh/completion $fpath)
+fpath=(~/.zsh/site-functions $fpath)
 
 ### Prompt
 
-#autoload -Uz promptinit && promptinit
-#prompt gentoo
-source ~/.zsh/themes/distroprompt.zsh
+if [[ ! -L ~/.zsh/site-functions/prompt_pure_setup ]]; then
+   ln -v -s ~/.zsh/themes/pure/pure.zsh ~/.zsh/site-functions/prompt_pure_setup
+fi
+if [[ ! -L ~/.zsh/site-functions/async ]]; then
+   ln -v -s ~/.zsh/themes/pure/async.zsh ~/.zsh/site-functions/async
+fi
+
+autoload -Uz promptinit && promptinit
+prompt pure
+#source ~/.zsh/themes/distroprompt.zsh
 
 ### History
 
