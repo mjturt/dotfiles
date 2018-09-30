@@ -11,7 +11,7 @@ do
    newcount=$(find ~/mail/$account/INBOX/new/ -type f -newer ~/.mutt/lastsync 2> /dev/null | wc -l)
    if [ "$newcount" -gt "0" ]
    then
-      ssh mjt@r5.turtia.fi "DISPLAY=:0 notify-send \"$newcount new mail(s) in $account\" && mpv --quiet /home/mjt/.notify.opus"
+      ssh mjt@r5.turtia.org "DISPLAY=:0 notify-send \"$newcount new mail(s) in $account\" && mpv --quiet /home/mjt/.notify.opus"
       notmuch new
    fi
 done

@@ -67,6 +67,7 @@ alias useflags="sudo vim /etc/portage/package.use/0custom"
 ## FreeBSD
 alias pkgi="pkg install"
 alias pkgs="pkg search"
+alias ez="ezjail-admin"
 
 ## Other
 alias fbvar="export TERM=fbterm"

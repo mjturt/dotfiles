@@ -8,7 +8,7 @@
 USER="mjt"
 PASS="$(pass show server/nextcloud)" # Using pass (https://www.passwordstore.org/) for password retrieval
 LOCALDIR="/home/mjt/cloud"
-SERVER="https://cloud.turtia.fi"
+SERVER="https://cloud.turtia.org"
 
 case "$1" in
 --silent)
