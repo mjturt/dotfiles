@@ -25,7 +25,7 @@ bspc config presel_feedback_color "#87875f"
 
 ### Rules
 bspc rule -a Gimp desktop='^4' state=floating follow=on
-bspc rule -a Rambox desktop='^6'
+#bspc rule -a Rambox desktop='^6'
 bspc rule -a Steam desktop='^7'
 bspc rule -a Nitrogen state=floating
 bspc rule -a ColorGrab state=floating

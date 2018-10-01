@@ -112,7 +112,6 @@ host_r5 () {
    df_gtk3 r5
    df_gtk2 r5
    df_buku
-   df_pass
    df_bspwm r5
    df_polybar r5
 }
@@ -139,7 +138,6 @@ host_thinkpad () {
    df_gtk2 thinkpad
    df_xmodmap thinkpad
    df_buku
-   df_pass
    df_bspwm thinkpad
    df_polybar thinkpad
 }

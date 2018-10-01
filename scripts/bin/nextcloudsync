@@ -1,27 +1,98 @@
 #!/usr/bin/env bash
 # Script for automatic Nextcloud sync without graphical client
-# Example with cron(sync every 5 minutes, mailing only when error):
-# */5 * * * * /home/user/bin/nextcloudsync >> /var/log/nextcloudsync.log
-# To silence messages use --silent
+# Use -h for help
 # by mjturt
 
+
+# Configurable options
 USER="mjt"
-PASS="$(pass show server/nextcloud)" # Using pass (https://www.passwordstore.org/) for password retrieval
+PASS="$(pass show server/nextcloud)"
 LOCALDIR="/home/mjt/cloud"
 SERVER="https://cloud.turtia.org"
+LOOPINTERVAL=300
+LOGFILE="/var/log/mjt/cronjobs/nextcloudsync.log"
 
-case "$1" in
---silent)
-   nextcloudcmd -h -u "$USER" -p "$PASS" -s "$LOCALDIR" "$SERVER"
-   ;;
-*)
-   echo -e "\e[1;32mNextcloudsync ───────────────\e[0m"
-   echo "Sync at $(date) with $(nextcloudcmd -v)"
-   echo "User $USER at $SERVER"
-   echo "Local sync directory: $LOCALDIR"
-   nextcloudcmd -h -u "$USER" -p "$PASS" -s "$LOCALDIR" "$SERVER"
-   echo -e "\e[1;32m─────────────────────────────\e[0m"
-   echo "Done at $(date)"
-   ;;
-esac
-exit 0
+# Not configurable
+OPTIND=1
+SILENT=0
+LOOP=0
+LOGS=0
+COMMAND=""
+
+function show_help () {
+   echo -e "\\e[1;34mNextcloudsync help ────────────────────────────────────────\\e[0m"
+   echo "Nextcloudsync is script for automatic Nextcloud sync without graphical client"
+   echo "Can be used with cron or if that is not option in infinite loop by itself"
+   echo "For password retrieval pass (https://www.passwordstore.org/) or netrc can be used"
+   echo "You must change configuration variables in the script file"
+   echo
+   echo "Example with cron(sync every 5 minutes, using logs and netrc):"
+   echo "*/5 * * * * /home/user/bin/nextcloudsync -n -g"
+   echo
+   echo "Example with screen in loop mode(using pass):"
+   echo "screen /home/user/bin/nextcloudsync -p -l"
+   echo
+   echo "Arguments:"
+   echo "-h              Show help"
+   echo "-s              Silent"
+   echo "-g              Use logfile instead stdout (dont use -s then)"
+   echo "-l              Run in infinite loop"
+   echo "-p              Use pass for password retrieval"
+   echo "-n              OR use netrc for password retrieval (safer)"
+   echo "-n or -p are required"
+}
+
+function ncsync () {
+   if [ ! -n "$COMMAND" ]; then
+      echo "-n or -p are required. -h for help."
+      exit 1
+   fi
+   if [ $SILENT -eq 1 ]; then
+      eval $COMMAND
+   else
+      echo -e "\\e[1;32mNextcloudsync ────────────────────────────\\e[0m"
+      echo "Sync at $(date) with $(nextcloudcmd -v)"
+      echo "User $USER at $SERVER"
+      echo "Local sync directory: $LOCALDIR"
+      eval $COMMAND
+      echo -e "\\e[1;32mDone at $(date) ───\\e[0m"
+   fi
+}
+
+while getopts "h?slnpg" opt; do
+   case "$opt" in
+   h|\?)
+      show_help
+      exit 0
+      ;;
+   s) SILENT=1 
+      ;;
+   l) LOOP=1
+      ;;
+   n) 
+      COMMAND="nextcloudcmd -h -n -s $LOCALDIR $SERVER"
+      ;;
+   p)
+      COMMAND="nextcloudcmd -h -u $USER -p $PASS -s $LOCALDIR $SERVER"
+      ;;
+   g) LOGS=1
+      ;;
+   esac
+done
+
+shift $((OPTIND-1))
+[ "${1:-}" = "--" ] && shift
+
+if [[ $LOGS -eq 0 ]]; then
+   LOGFILE="/dev/stdout"
+fi
+
+if [ $LOOP -eq 1 ]; then
+   while true; do
+      ncsync >> "$LOGFILE" 2>&1
+      sleep $LOOPINTERVAL
+   done
+else
+   ncsync >> "$LOGFILE" 2>&1
+   exit 0
+fi
