@@ -1,6 +1,6 @@
-# ~/.config/zathura/zathurarc
-# ---------------------------
-# mjturt
+#┃ ~/.config/zathura/zathurarc
+#┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
 
 # Basic settings
 
@@ -8,13 +8,11 @@ set zoom-step 20
 set scroll-step 80
 set selection-clipboard clipboard
 set incremental-search true
-set recolor "true"
+#set recolor "true"
 set recolor-keephue "false"
 set font "Hurmit NF 10"
 
 # Keybindings
-# Unfortunately looks like Zathura is the only application that I encoutered where finnish 
-# character Ö(or keysym) is not mappable. Still best PDF-viewer so using P instead.
 
 map j scroll left
 map k scroll down
