@@ -6,7 +6,7 @@
 
 case $(uname) in
    "Linux")
-      echo -n "#[fg=colour232,bold] "
+      #echo -n "#[fg=colour232,bold] "
       if [ $(cat /etc/*-release | grep Gentoo | wc -l) -gt "0" ]
       then
          echo "#[fg=colour56]#[fg=default,nobold]"

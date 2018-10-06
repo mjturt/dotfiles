@@ -18,6 +18,7 @@ bind -f common l win-up
 bind -f common p seek +5
 bind -f common d win-half-page-down
 bind -f common u win-half-page-up
+bind -f common R shell ~/.config/cmus/scripts/cmus-reload-library
 
 ### Notifications
 set status_display_program=/home/mjt/.config/cmus/scripts/CmusNotify
