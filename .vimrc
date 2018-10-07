@@ -97,7 +97,7 @@ set ruler
 set showmatch
 "set nowrap
 set hlsearch
-set noshowmode
+"set noshowmode
 set list listchars=tab:∙\ ,extends:,precedes:
 set hidden
 set shortmess=atI
@@ -201,21 +201,10 @@ hi TabLineFill ctermbg=NONE ctermfg=101
 hi TabLineSel cterm=bold ctermbg=101 ctermfg=16
 hi LineNr cterm=bold ctermbg=NONE ctermfg=237
 
-" Cursor color and shape for xterm/rxvt
+" Cursor color and shape for urxvt+tmux
 " Normal: blue block
 " Insert: green vertical line
 " Replace: red underline
-if &term =~ "xterm\\|rxvt-unicode-256color"
-   let &t_SI = "\<Esc>]12;Green\x7"
-   let &t_EI = "\<Esc>]12;DarkCyan\x7"
-   let &t_SR = "\<Esc>]12;Red\x7"
-   let &t_EI .= "\<Esc>[1 q"
-   let &t_SR .= "\<Esc>[4 q"
-   let &t_SI .= "\<Esc>[5 q"
-"   autocmd VimLeave * silent execute "!echo -en \<esc>[3 q"
-endif
-
-" Same but when on tmux
 if exists('$TMUX')
    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]12;Green\x7\<Esc>\\"
    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]12;DarkCyan\x7\<Esc>\\"
@@ -223,7 +212,8 @@ if exists('$TMUX')
    let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[1 q\<Esc>\\"
    let &t_SR .= "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[5 q\<Esc>\\"
-"   autocmd VimLeave * silent execute "!echo -en \<Esc>Ptmux;\<Esc>\<Esc>[3 q\<Esc>\\"
+   autocmd VimLeave * silent execute '!print -n -- "\033Ptmux;\033\033[1 q\033\\"'
+   autocmd VimLeave * silent execute '!print -n -- "\033Ptmux;\033\033]12;DarkCyan\x7\033\\"'
 endif
 
 " Status line

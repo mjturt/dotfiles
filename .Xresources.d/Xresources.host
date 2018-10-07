@@ -14,7 +14,7 @@ Xcursor.size:                      22
 !## Color overridings
 !*.foreground:      #c2c2b0
 !*.background:      #282a36
-*.cursorColor:     #ff9800
+*.cursorColor:     DarkCyan
 !URxvt.colorIT:     #719611
 !URxvt.colorBD:     #d3d3d3
 !URxvt.colorUL:     #528b8b

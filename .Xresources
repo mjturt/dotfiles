@@ -8,7 +8,7 @@
 ! Basic settings !
 !----------------!
 
-Xft*dpi:                           96
+!Xft*dpi:                           96
 Xft*autohint:                      true
 Xft*hintstyle:                     hintslight
 Xft*lcdfilter:                     lcddefault
@@ -18,16 +18,11 @@ Xft*hinting:                       true
 Xft*antialias:                     true
 Xft*rgba:                          rgba
 
-*Font:                             xft:ShureTechMono Nerd Font Mono:size=11
-
-Xmessage*defaultButton:            okay
-Xmessage*form.message.Scroll:      WhenNeeded
-
 *transparent:                      false
 *lineSpace:                        0
 !*fading:                           30
 *cursorBlink:                      true
-*cursorUnderline:                  true
+*cursorUnderline:                  false
 *saveLines:                        4096
 *shading:                          75
 *mouseWheelScrollPage:             false
@@ -40,61 +35,56 @@ Xmessage*form.message.Scroll:      WhenNeeded
 ! URxvt parameters !
 !------------------!
 
-URxvt.font:                        xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true,xft:xos4 Terminus
-URxvt.boldFont:                    xft:GohuFont:size=10:Bold:antialias=false,xft:GohuFont NF:size=10:antialias=true
-URxvt.italicFont:                  xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true
-URxvt.boldItalicFont:              xft:envypn:antialias=false,xft:GohuFont NF:size=10:antialias=true
-!URxvt*font:                        xft:ShureTechMono NF:size=11
-!URxvt*boldFont:                    xft:ShureTechMono Nerd Font Mono:Bold:size=11
-!URxvt*italicFont:                  xft:ShureTechMono Nerd Font Mono:Italic:size=11
-!URxvt*boldItalicFont:              xft:ShureTechMono Nerd Font Mono:Bold:Italic:size=11
+URxvt*font:                        xft:ShureTechMono Nerd Font Mono:size=10,xft:Unifont
+URxvt*boldFont:                    xft:ShureTechMono Nerd Font Mono:Bold:size=10,xft:Unifont
+uRxvt*italicFont:                  xft:ShureTechMono Nerd Font Mono:Italic:size=10,xft:Unifont
+URxvt*boldItalicFont:              xft:ShureTechMono Nerd Font Mono:Bold:Italic:size=10,xft:Unifont
 URxvt*scrollBar:                   false
 URxvt*borderLess:                  false
 URxvt*internalBorder:              5
 URxvt*depth:                       32
-!URxvt.letterSpace:                 -1 
+URxvt.letterSpace:                 -1 
 URxvt*skipBuiltinGlyphs:           true
 URxvt*perl-lib:                    /home/mjt/.Xresources.d/perl/
-URxvt.perl-ext-common:             default,matcher,font-size,readline,bell-command,clipboard,selection-to-clipboard,keyboard-select
+URxvt.perl-ext-common:             matcher,font-size,clipboard
 URxvt*iso14755:                    false
 URxvt*iso14755_52:                 false
 URxvt*cutchars:                    BACKSLASH '"'&()*,;<=>?@[]^{|}
 URxvt*urgentOnBell:                true
 
-URxvt.keysym.M-C-1:                command:\033]710;xft:envypn,xft:GohuFont NF:size=10:antialias=true\007\033]711;xft:envypn,xft:GohuFont NF:size=10:antialias=true\007
-URxvt.keysym.M-C-2:                command:\033]710;xft:ShureTechMono NF:size=10:antialias=true\007\033]711;xft:ShureTechMono NF:antialias=true\007
-URxvt.keysym.Shift-Up:             command:\033]720;1\007
-URxvt.keysym.Shift-Down:           command:\033]721;1\007
-URxvt.keysym.Meta-l:               command:\033]720;8\007
-URxvt.keysym.Meta-k:               command:\033]721;8\007
+!URxvt.keysym.M-C-1:                command:\033]710;xft:Unifont,xft:GohuFont NF:size=10:antialias=true\007\033]711;xft:Unifont,xft:GohuFont NF:size=10:antialias=true\007
+!URxvt.keysym.M-C-2:                command:\033]710;xft:ShureTechMono NF:size=10:antialias=true\007\033]711;xft:ShureTechMono NF:antialias=true\007
+!URxvt.keysym.Shift-Up:             command:\033]720;1\007
+!URxvt.keysym.Shift-Down:           command:\033]721;1\007
+!URxvt.keysym.Meta-l:               command:\033]720;8\007
+!URxvt.keysym.Meta-k:               command:\033]721;8\007
 URxvt*keysym.Control-Shift-C:      perl:clipboard:copy
 URxvt*keysym.Control-Shift-V:      perl:clipboard:paste
-URxvt*keysym.Control-Return:       perl:matcher:last
-URxvt*keysym.Control-BackSpace:    perl:matcher:list
+!URxvt*keysym.Control-Return:       perl:matcher:last
+!URxvt*keysym.Control-BackSpace:    perl:matcher:list
 URxvt.keysym.Control-Shift-Up:     perl:font-size:increase
 URxvt.keysym.Control-Shift-Down:   perl:font-size:decrease
-URxvt.keysym.Control-Escape:       perl:keyboard-select:activate
-URxvt.keysym.M-s:                  perl:keyboard-select:search
-!urxvt.vim-scrollback:              Control-Escape
+!URxvt.keysym.Control-Escape:       perl:keyboard-select:activate
+!URxvt.keysym.M-s:                  perl:keyboard-select:search
 
 URxvt*matcher.pattern.0:           (?:https?:\\/\\/|ftp:\\/\\/|rsync:\\/\\/|news:\\/\\/|mailto:|file:\\/\\/|\\bwww\\.)\n\[a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\n\(\n\\\([a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\\)| # Allow a pair of matched parentheses\n\[a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_+*~]  # exclude some trailing characters (heuristic)\n\)+
-URxvt*matcher.button:              1
+URxvt*matcher.button:              3
 URxvt*url-launcher:                /usr/bin/xdg-open
 URxvt*underlineURLs:               true
 URxvt.clipboard.autocopy:          true
-URxvt.keyboard-select.clipboard:   true
-urxvt.vim-scrollback-bg:           12
-urxvt.vim-scrollback-fg:           1
+!URxvt.keyboard-select.clipboard:   true
+!urxvt.vim-scrollback-bg:           12
+!urxvt.vim-scrollback-fg:           1
 
-URxvt*tabbed.new-button:           no
-URxvt*tabbed.tabbar-fg:            12
-URxvt*tabbed.tabbar-bg:            8
-URxvt*tabbed.tab-fg:               8
-URxvt*tabbed.tab-bg:               12
-URxvt*tabbed.title-fg:             12
-URxvt*tabbed.title-bg:             8
-URxvt*tabbed.autohide:             true
-URxvt*tabbed.reopen-on-close:      yes
+!URxvt*tabbed.new-button:           no
+!URxvt*tabbed.tabbar-fg:            12
+!URxvt*tabbed.tabbar-bg:            8
+!URxvt*tabbed.tab-fg:               8
+!URxvt*tabbed.tab-bg:               12
+!URxvt*tabbed.title-fg:             12
+!URxvt*tabbed.title-bg:             8
+!URxvt*tabbed.autohide:             true
+!URxvt*tabbed.reopen-on-close:      yes
 
 !----------------!
 ! Other programs !
