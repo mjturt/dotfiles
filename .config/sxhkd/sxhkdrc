@@ -125,7 +125,7 @@ super + minus
 	fi
 
 # toggle scratchpad
-super + shift + minus
+super + n
 	i=$(bspc query -N -n "focused.floating");\
 	if [ -n "$i" ];then \
 		xprop -id $i -f _SCRATCH 32ii -set _SCRATCH $(date +%s,%N);\
