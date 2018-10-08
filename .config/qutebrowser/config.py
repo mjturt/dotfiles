@@ -16,6 +16,7 @@ c.scrolling.bar = True
 c.hints.mode = "letter"
 c.url.searchengines = { 
         "DEFAULT" : "https://duckduckgo.com/?q={}", 
+        "d" : "https://duckduckgo.com/?q={}", 
         "w" : "https://www.wikipedia.org/w/index.php?title=Special:Search&search={}",
         "wfi" : "https://fi.wikipedia.org/w/index.php?search={}",
         "a" : "https://wiki.archlinux.org/index.php?search={}",
