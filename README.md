@@ -39,6 +39,7 @@ ZSH prompt: [distroprompt-zsh](https://github.com/mjturt/distroprompt-zsh).
 ### Linux console
 
 Proper kernel and driver support with properly generated initramfs needed to get 1920x1080 resolution support in console(without X11/Wayland). Fbterm (framebuffer terminal emulator) is used to get background image and true type font support. [Startup scrip](scripts/bin/fb).
+
 [Console screenshot](screenshots/console.png?raw=true)
 
 ### Scripts
