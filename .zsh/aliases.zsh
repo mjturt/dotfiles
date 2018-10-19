@@ -65,9 +65,9 @@ alias upgrade-gentoo="sudo emerge -uDU --keep-going --with-bdeps=y @world"
 alias useflags="sudo vim /etc/portage/package.use/0custom"
 
 ## FreeBSD
-alias pkgi="pkg install"
+alias pkgi="sudo pkg install"
 alias pkgs="pkg search"
-alias ez="ezjail-admin"
+alias ez="sudo ezjail-admin"
 
 ## Other
 alias fbvar="export TERM=fbterm"
@@ -79,5 +79,5 @@ alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 alias colors='for code ({000..255}) print -P -- "$code: %F{$code}COLORS%f"'
 alias r="ranger-cd"
 alias hc="herbstclient"
-alias git-chmod="git status --short | cut -d " " -f 3 | xargs chmod +x"
+alias git-chmod='git status --short | cut -d " " -f 3 | xargs chmod +x'
 alias muttlocal="mutt -F ~/.mutt/muttrc-local"

@@ -291,8 +291,7 @@ noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>p "0p
 noremap <leader>d di"
 nmap <leader>S :SyntasticToggleMode<CR>
-" Surroung plugin
-nmap <leader>s ys$"
+nmap <leader>F :!shfmt -i 3 -ci -sr -w %<CR><CR>
 
 " Resizing panes
 nnoremap <silent> <Leader>l :exe "resize +5"<CR>
@@ -309,6 +308,9 @@ nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 " Command prompt
 cmap Q q
 cmap W w
+
+" Delete all blank or whitespace lines
+" g/^\s*$/d
 
 " Plugin settings
 " ---------------
@@ -363,7 +365,7 @@ func! CompileAndRun()
    elseif &filetype == 'markdown'
       exec "!$BROWSER http://localhost:6419/ & grip %"
    elseif &filetype == 'tex'
-      exec "!pdflatex %"
+      exec "!pdflatex -shell-escape %"
       exec "!zathura %<.pdf &"
    endif
 endfunc
