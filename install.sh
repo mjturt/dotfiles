@@ -78,6 +78,7 @@ commons_cli() {
    df_w3m
    df_gpg
    df_scripts
+   df_bin
    df_calcurse
    df_newsboat
 }
@@ -100,12 +101,12 @@ commons_x11() {
    df_teiler
    df_sxhkd
    df_hlwm
+   df_bspwm
 }
 
 # Only host-specific files (R5)
 host_r5() {
    df_zprofile r5
-   df_xresources r5
    df_i3 r5
    df_i3blocks r5
    df_ranger r5
@@ -114,7 +115,6 @@ host_r5() {
    df_gtk3 r5
    df_gtk2 r5
    df_buku
-   df_bspwm r5
    df_polybar r5
 }
 
@@ -130,7 +130,6 @@ host_server() {
 # Only host-specific files (Thinkpad)
 host_thinkpad() {
    df_zprofile thinkpad
-   df_xresources thinkpad
    df_i3 thinkpad
    df_i3blocks thinkpad
    df_ranger thinkpad
@@ -140,7 +139,6 @@ host_thinkpad() {
    df_gtk2 thinkpad
    df_xmodmap thinkpad
    df_buku
-   df_bspwm thinkpad
    df_polybar thinkpad
 }
 
@@ -212,10 +210,10 @@ df_zsh() {
    elif [[ -L ~/.zshrc ]]; then
       rm -v ~/.zshrc >> "$LOGS"
    fi
-   if [[ -e ~/.zsh/plugins ]]; then
-      mv -v ~/.zsh/plugins "$BACKUP" >> "$LOGS"
-   elif [[ -L ~/.zsh/plugins ]]; then
-      rm -v ~/.zsh/plugins >> "$LOGS"
+   if [[ -e ~/.zshenv ]]; then
+      mv -v ~/.zshenv "$BACKUP" >> "$LOGS"
+   elif [[ -L ~/.zshenv ]]; then
+      rm -v ~/.zshenv >> "$LOGS"
    fi
    {
       mkdir -v ~/.zsh
@@ -229,6 +227,7 @@ df_zsh() {
       ln -v -s "${DOT}"/.zsh/private.zsh ~/.zsh/private.zsh
       ln -v -s "${DOT}"/.zshrc ~/.zshrc
       ln -v -s "${DOT}"/.zsh/plugins ~/.zsh/plugins
+      ln -v -s "${DOT}"/.zshenv ~/.zshenv
    } >> "$LOGS"
 }
 
@@ -326,10 +325,10 @@ df_less() {
 
 # Scripts (commons)
 df_scripts() {
-   if [[ -e ~/bin ]]; then
-      mv -v ~/bin "$BACKUP" >> "$LOGS"
-   elif [[ -L ~/bin ]]; then
-      rm -v ~/bin >> "$LOGS"
+   if [[ -e ~/sh ]]; then
+      mv -v ~/sh "$BACKUP" >> "$LOGS"
+   elif [[ -L ~/sh ]]; then
+      rm -v ~/sh >> "$LOGS"
    fi
    if [[ -e ~/.statusscripts ]]; then
       mv -v ~/.statusscripts "$BACKUP" >> "$LOGS"
@@ -337,49 +336,45 @@ df_scripts() {
       rm -v ~/.statusscripts >> "$LOGS"
    fi
    {
-      ln -v -s "${DOT}"/scripts/bin ~/bin
+      ln -v -s "${DOT}"/scripts/sh ~/sh
       ln -v -s "${DOT}"/scripts/statusscripts ~/.statusscripts
-      chmod -v -R +x ~/bin/*
+      chmod -v -R +x ~/sh/*
       chmod -v -R +x ~/.statusscripts/*
    } >> "$LOGS"
 }
 
-# Xresources (common, r5, thinkpad)
-df_xresources() {
-   if [[ -z "$1" ]]; then
-      if [[ -e ~/.Xresources.d ]]; then
-         mv -v ~/.Xresources.d "$BACKUP" >> "$LOGS"
-      elif [[ -L ~/.Xresources.d ]]; then
-         rm -v ~/.Xresources.d >> "$LOGS"
-      fi
-      if [[ -e ~/.Xresources ]]; then
-         mv -v ~/.Xresources "$BACKUP" >> "$LOGS"
-      elif [[ -L ~/.Xresources ]]; then
-         rm -v ~/.Xresources >> "$LOGS"
-      fi
-      {
-         mkdir -v ~/.Xresources.d
-         ln -v -s "${DOT}"/.Xresources ~/.Xresources
-         ln -v -s "${DOT}"/.Xresources.d/colors ~/.Xresources.d/colors
-         ln -v -s "${DOT}"/.Xresources.d/perl ~/.Xresources.d/perl
-      } >> "$LOGS"
-   elif [[ $1 == "r5" ]]; then
-      if [[ -e ~/.Xresources.d/Xresources.host ]]; then
-         mv -v ~/.Xresources.d/Xresources.host "$BACKUP" >> "$LOGS"
-      elif [[ -L ~/.Xresources.d/Xresources.host ]]; then
-         rm -v ~/.Xresources.d/Xresources.host >> "$LOGS"
-      fi
-      ln -v -s "${DOT}"/.Xresources.d/Xresources.host ~/.Xresources.d/Xresources.host >> "$LOGS"
-      xrdb ~/.Xresources
-   elif [[ $1 == "thinkpad" ]]; then
-      if [[ -e ~/.Xresources.d/Xresources.host ]]; then
-         mv -v ~/.Xresources.d/Xresources.host "$BACKUP" >> "$LOGS"
-      elif [[ -L ~/.Xresources.d/Xresources.host ]]; then
-         rm -v ~/.Xresources.d/Xresources.host >> "$LOGS"
-      fi
-      ln -v -s "${DOT}"/thinkpad/.Xresources.d/Xresources.host ~/.Xresources.d/Xresources.host >> "$LOGS"
-      xrdb ~/.Xresources
+# Binaries (commons)
+df_bin() {
+   if [[ -e ~/bin ]]; then
+      mv -v ~/bin "$BACKUP" >> "$LOGS"
+   elif [[ -L ~/bin ]]; then
+      rm -v ~/bin >> "$LOGS"
    fi
+   {
+      ln -v -s "${DOT}"/bin ~/bin
+      chmod -v -R +x ~/bin/*
+   } >> "$LOGS"
+}
+
+# Xresources (commons)
+df_xresources() {
+   if [[ -e ~/.Xresources.d ]]; then
+      mv -v ~/.Xresources.d "$BACKUP" >> "$LOGS"
+   elif [[ -L ~/.Xresources.d ]]; then
+      rm -v ~/.Xresources.d >> "$LOGS"
+   fi
+   if [[ -e ~/.Xresources ]]; then
+      mv -v ~/.Xresources "$BACKUP" >> "$LOGS"
+   elif [[ -L ~/.Xresources ]]; then
+      rm -v ~/.Xresources >> "$LOGS"
+   fi
+   {
+      mkdir -v ~/.Xresources.d
+      ln -v -s "${DOT}"/.Xresources ~/.Xresources
+      ln -v -s "${DOT}"/.Xresources.d/colors ~/.Xresources.d/colors
+      ln -v -s "${DOT}"/.Xresources.d/perl ~/.Xresources.d/perl
+   } >> "$LOGS"
+   xrdb ~/.Xresources
 }
 
 # Rofi (commons)
@@ -784,9 +779,9 @@ df_polybar() {
    fi
    mkdir -v ~/.config/polybar >> "$LOGS"
    if [[ $1 == "r5" ]]; then
-      ln -s -v "${DOT}"/.config/polybar/config.* ~/.config/polybar >> "$LOGS"
+      ln -s -v "${DOT}"/.config/polybar/config* ~/.config/polybar >> "$LOGS"
    elif [[ $1 == "thinkpad" ]]; then
-      ln -s -v "${DOT}"/thinkpad/.config/polybar/config.* ~/.config/polybar >> "$LOGS"
+      ln -s -v "${DOT}"/thinkpad/.config/polybar/config* ~/.config/polybar >> "$LOGS"
    fi
 }
 
@@ -815,7 +810,7 @@ df_teiler() {
    ln -s -v "${DOT}"/.config/teiler/config ~/.config/teiler/config >> "$LOGS"
 }
 
-# BSPWM (r5, thinkpad)
+# BSPWM (commons)
 df_bspwm() {
    if [[ -e ~/.config/bspwm ]]; then
       mv -v ~/.config/bspwm "$BACKUP" >> "$LOGS"
@@ -824,11 +819,6 @@ df_bspwm() {
    fi
    mkdir -v ~/.config/bspwm >> "$LOGS"
    ln -s -v "${DOT}"/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc >> "$LOGS"
-   if [[ $1 == "r5" ]]; then
-      ln -s -v "${DOT}"/.config/bspwm/bspwmrc.host ~/.config/bspwm/bspwmrc.host >> "$LOGS"
-   elif [[ $1 == "thinkpad" ]]; then
-      ln -s -v "${DOT}"/thinkpad/.config/bspwm/bspwmrc.host ~/.config/bspwm/bspwmrc.host >> "$LOGS"
-   fi
 }
 
 # sxhkd (commons)
@@ -952,11 +942,11 @@ helps() {
    echo -e "\\e[1;35mSingle programs that CANT take host-parameter:\\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
    echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
-   echo -e "df_dunst, df_zsh, df_elinks"
+   echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources"
    echo
-   echo -e "\\e[1;35mSingle programs that CAN take host-parameter:\\e[0m df_xresources, df_i3, df_ranger"
+   echo -e "\\e[1;35mSingle programs that CAN take host-parameter:\\e[0m df_i3, df_ranger"
    echo
-   echo -e "\\e[1;35mSingle programs that MUST take host-parameter:\\e[0m df_i3blocks, df_xinit, df_bspwm"
+   echo -e "\\e[1;35mSingle programs that MUST take host-parameter:\\e[0m df_i3blocks, df_xinit,"
    echo -e "df_gtk3, df_gtk2, df_xbindkeys, df_xmodmap, df_polybar, df_zprofile"
    echo
    echo -e "\\e[1;35mHosts(2nd parameter):\\e[0m r5, server, thinkpad"

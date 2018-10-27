@@ -132,3 +132,6 @@ if [[ -n $DISPLAY ]] && [[ $(id -u) -ne 0 ]] && [[ "$(hostname)" != "server" ]];
    [[ $- != *i* ]] && return
    [[ -z "$TMUX" ]] && exec tmux
 fi
+
+### Remove some useless files
+rm -rf ~/dbus-send.core

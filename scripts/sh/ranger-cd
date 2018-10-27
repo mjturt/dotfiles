@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Ranger startup script
+# Preventing nested sessions and changes shell directory to same as ranger
+if [[ -z "$RANGER_LEVEL" ]]; then
+   tempfile="$(mktemp -t tmp.XXXXXX)"
+   ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+   test -f "$tempfile" && if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+      cd -- "$(cat "$tempfile")"
+   fi
+   rm -f -- "$tempfile"
+else
+   exit
+fi

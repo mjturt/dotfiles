@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# mjturt
+
+# Automatic shebang lines and permissions when creating new scripts
+if [ "$1" = "posix" ]; then
+   printf '#!/bin/sh\n\n' $1 > $2 && chmod 755 $2 && vim + $2 && chmod 755 $2;
+else
+   if i=$(which $1);
+   then
+      printf '#!/usr/bin/env %s\n\n' $1 > $2 && chmod 755 $2 && vim + $2 && chmod 755 $2;
+   else
+      echo "'which' could not find $1, is it in your \$PATH?";
+   fi;
+fi;

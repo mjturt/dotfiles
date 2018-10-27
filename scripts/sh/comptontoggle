@@ -1,8 +1,8 @@
 #!/bin/sh
 
 if pgrep -x "compton" > /dev/null
-	then
-		pkill compton
-	else
-		compton -b
+then
+   pkill compton
+else
+   compton -b
 fi
