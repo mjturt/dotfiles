@@ -20,5 +20,4 @@ menu_down   k Down
 menu_up     l Up
 menu_select space Return
 toggle_menu Tab
-save_filelist
 toggle_fullscreen f F5

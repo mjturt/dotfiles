@@ -26,6 +26,7 @@ c.url.searchengines = {
         "y" : "https://www.youtube.com/results?search_query={}",
         "e" : "https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw={}",
         "gm" : "https://www.google.com/maps?q={}",
+        "aur" : "https://aur.archlinux.org/packages/?O=0&K={}",
         }
 
 ### Appearance

@@ -34,13 +34,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Completion
-if os=="freebsd"
-   Plug 'Valloric/YouCompleteMe'
-else
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'artur-shaik/vim-javacomplete2'
@@ -70,6 +64,8 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'ap/vim-buftabline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'gcavallanti/vim-noscrollbar'
+Plug 'airblade/vim-rooter'
+Plug 'terryma/vim-multiple-cursors'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -292,6 +288,7 @@ noremap <leader>p "0p
 noremap <leader>d di"
 nmap <leader>S :SyntasticToggleMode<CR>
 nmap <leader>F :!shfmt -i 3 -ci -sr -w %<CR><CR>
+nmap <leader>R :Rooter<CR>
 
 " Resizing panes
 nnoremap <silent> <Leader>l :exe "resize +5"<CR>
@@ -337,6 +334,8 @@ let g:deoplete#auto_completion_start_length = 2
 let g:deoplete#sources = {}
 let g:deoplete#sources._ = []
 let g:deoplete#file#enable_buffer_path = 1
+
+let g:rooter_manual_only = 1
 
 " Vim functions
 " -------------

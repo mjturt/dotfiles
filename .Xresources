@@ -2,8 +2,6 @@
 !┣━━━━━━━━━━━━━━
 !┃ mjturt  
 
-! Host-specific configurations in ~/.Xresources.d/Xresources.host
-
 !----------------!
 ! Basic settings !
 !----------------!
@@ -86,6 +84,26 @@ URxvt.clipboard.autocopy:          true
 !URxvt*tabbed.autohide:             true
 !URxvt*tabbed.reopen-on-close:      yes
 
+!------------!
+! Appearance !
+!------------!
+
+!## Cursor
+Xcursor.theme:                     BMZ
+Xcursor.size:                      22
+
+!## Colorscheme
+#include "./.Xresources.d/colors/sourcerer.Xcolors"
+
+!## Color overridings
+!*.foreground:      #c2c2b0
+!*.background:      #282a36
+*.cursorColor:     DarkCyan
+!URxvt.colorIT:     #719611
+!URxvt.colorBD:     #d3d3d3
+!URxvt.colorUL:     #528b8b
+!*.underlineColor:  #129b33
+
 !----------------!
 ! Other programs !
 !----------------!
@@ -128,9 +146,3 @@ XClock*minuteColor:                cyan
 XClock*secondColor:                red
 XClock*majorColor:                 red
 XClock*minorColor:                 cyan
-
-!-----------------------------!
-! Host-specific configuration !
-!-----------------------------!
-
-#include ".Xresources.d/Xresources.host"

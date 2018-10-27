@@ -1,8 +1,0 @@
-#! /bin/sh
-#┃ ~/.config/bspwm/bspwmrc.host (thinkpad)
-#┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-#┃ mjturt
-
-bspc monitor eDP-1 -d 1 2 3 4 5 6
-bspc monitor HDMI-1 -d 7 8 9
-bspc config focus_follows_pointer false

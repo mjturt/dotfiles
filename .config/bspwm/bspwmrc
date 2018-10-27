@@ -7,7 +7,15 @@
 sxhkd &
 
 ### Host specific configurations
-source ~/.config/bspwm/bspwmrc.host
+if [[ "$(hostname)" = "r5" ]]; then
+   bspc monitor DVI-I-2 -d 1 2 3 4 5 6 7 8
+   #bspc monitor DVI-I-1 -d 6 7 8 9 0
+   bspc config focus_follows_pointer true
+elif [[ "$(hostname)" = "tp" ]]; then
+   bspc monitor eDP-1 -d 1 2 3 4 5 6
+   bspc monitor HDMI-1 -d 7 8 9
+   bspc config focus_follows_pointer false
+fi
 
 ### Basic settings
 bspc config border_width         2
@@ -25,7 +33,7 @@ bspc config presel_feedback_color "#87875f"
 
 ### Rules
 bspc rule -a Gimp desktop='^4' state=floating follow=on
-#bspc rule -a Rambox desktop='^6'
+bspc rule -a Rambox desktop='^2'
 bspc rule -a Steam desktop='^7'
 bspc rule -a Nitrogen state=floating
 bspc rule -a ColorGrab state=floating

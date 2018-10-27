@@ -22,19 +22,19 @@ XF86AudioNext
 "cmus-remote -u"
 XF86AudioPlay
 
-"ponymix increase 5"
+"amixer set Master 2dB+ unmute"
 XF86AudioRaiseVolume
 
-"ponymix decrease 5"
+"amixer set Master 2dB- unmute"
 XF86AudioLowerVolume
 
-"ponymix increase 5"
+"amixer set Master 2dB+ unmute"
 Control+Up
 
-"ponymix decrease 5"
+"amixer set Master 2dB- unmute"
 Control+Down
 
-"ponymix toggle"
+"amixer set Master toggle"
 XF86AudioMute
 
 ### Config reloads

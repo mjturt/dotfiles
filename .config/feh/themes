@@ -3,9 +3,10 @@
 # mjturt
 
 # default
-feh --info "echo %w x %h \| %S \| %z" --draw-tinted \
+feh \ 
+#--info "echo %w x %h \| %S \| %z" --draw-tinted \
 --scale-down --draw-actions --draw-filename \
---fontpath /usr/share/fonts/set/nerdfonts-customset/ \
+--fontpath /usr/share/fonts/fontset/nerdfonts-customset/ \
 --font 'Hurmit Medium Nerd Font Complete Mono Windows Compatible.otf/10' \
 --menu-font 'Hurmit Medium Nerd Font Complete Mono Windows Compatible.otf/10' \
 
