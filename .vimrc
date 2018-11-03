@@ -98,6 +98,8 @@ set list listchars=tab:∙\ ,extends:,precedes:
 set hidden
 set shortmess=atI
 set laststatus=2
+set wildmenu
+set matchpairs+=<:>
 
 set number relativenumber
 
@@ -208,8 +210,8 @@ if exists('$TMUX')
    let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[1 q\<Esc>\\"
    let &t_SR .= "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[5 q\<Esc>\\"
-   autocmd VimLeave * silent execute '!print -n -- "\033Ptmux;\033\033[1 q\033\\"'
-   autocmd VimLeave * silent execute '!print -n -- "\033Ptmux;\033\033]12;DarkCyan\x7\033\\"'
+   autocmd VimLeave * silent execute '!print -n -- "\033Ptmux;\033\033[2 q\033\\"'
+   autocmd VimLeave * silent execute '!print -n -- "\033Ptmux;\033\033]12;burlywood4\x7\033\\"'
 endif
 
 " Status line
@@ -261,14 +263,14 @@ nmap <silent> <C-w>j :wincmd h<CR>
 nmap <silent> <C-w>ö :wincmd l<CR>
 
 " Basics
-nmap <C-o> o<Esc>
+"nmap <C-p> o<Esc>
 "set pastetoggle=<F3>
 map <S-k> :bprevious<CR>
 map <S-l> :bnext<CR>
 map + $
 map <C-a> <Nop>
 nmap QQ :q<CR>
-nmap WW :wq<CR>
+nmap QW :wq<CR>
 vmap <C-c> y
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " Easymotion plugin
@@ -317,6 +319,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_go_checkers = ['go']
 
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
@@ -326,14 +329,14 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_completion_start_length = 2
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = []
-let g:deoplete#file#enable_buffer_path = 1
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#omni_patterns = {}
+"let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#auto_completion_start_length = 2
+"let g:deoplete#sources = {}
+"let g:deoplete#sources._ = []
+"let g:deoplete#file#enable_buffer_path = 1
 
 let g:rooter_manual_only = 1
 
@@ -408,8 +411,8 @@ endfunction
 " --------
 
 command! Sw silent execute 'write !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
-command! -nargs=1 ShebangFile :new <args> | 0put =\"#!/bin/bash\<nl>\"|$
-command! Shebang 0put =\"#!/bin/bash\<nl>\"|$
+command! -nargs=1 ShebangFile :new <args> | 0put =\"#!/usr/bin/env bash\<nl>\"|$
+command! Shebang 0put =\"#!/usr/env/bin bash\<nl>\"|$
 command! -nargs=1 NewdotFile :new <args> | 0put =\"#┃\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
 command! Newdot 0put =\"#┃\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
 

@@ -71,7 +71,8 @@ alias ez="sudo ezjail-admin"
 
 ## Other
 alias fbvar="export TERM=fbterm"
-alias c="pygmentize -O style=base16-monokai -f console256 -g"
+alias c="syntax-highlighting"
+alias pyg="pygmentize -O style=base16-monokai -f console256 -g"
 alias notes="ranger ~/cloud/rnotes"
 alias gotop="gotop -c monokai"
 alias changefont="printf '\e]710;%s\007'"

@@ -7,17 +7,17 @@
 #---------------------#
 
 ### Terminal
-"st"
+"urxvt"
 Mod4 + Return
 
 ### Screen
 "i3lock -c '#2F1E2E'"
 XF86Display
 
-"sudo /home/mjt/bin/backlight up 50"
+"sudo /home/mjt/sh/backlight up 50"
 XF86MonBrightnessUp
 
-"sudo /home/mjt/bin/backlight down 50"
+"sudo /home/mjt/sh/backlight down 50"
 XF86MonBrightnessDown
 
 ### Toggles

@@ -4,15 +4,15 @@
 
 toggle_keep_vp
 
-prev_img J Left BackSpace
-zoom_in plus L
-zoom_out minus K
-next_img S-Odiaeresis Right space
+prev_img j Left BackSpace
+zoom_in plus l
+zoom_out minus k
+next_img odiaeresis Right space
 
-scroll_left  j C-Left
-scroll_down  k C-Down
-scroll_up    l C-Up
-scroll_right odiaeresis C-Right
+scroll_left  J C-Left
+scroll_down  K C-Down
+scroll_up    L C-Up
+scroll_right S-Odiaeresis C-Right
 
 menu_parent j Left
 menu_child  odiaeresis Right

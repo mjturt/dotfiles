@@ -2,9 +2,8 @@
 !┣━━━━━━━━━━━━━━
 !┃ mjturt  
 
-!----------------!
-! Basic settings !
-!----------------!
+! xft
+!-----
 
 !Xft*dpi:                           96
 Xft*autohint:                      true
@@ -16,133 +15,72 @@ Xft*hinting:                       true
 Xft*antialias:                     true
 Xft*rgba:                          rgba
 
-*transparent:                      false
-*lineSpace:                        0
-!*fading:                           30
-*cursorBlink:                      true
-*cursorUnderline:                  false
-*saveLines:                        4096
-*shading:                          75
-*mouseWheelScrollPage:             false
-*pointerBlank:                     true
-*imLocale:                         en_US.utf8
-*imFont:                           xft:ShureTechMono Nerd Font Mono:size=11
-*utf8Title:                        true
 
-!------------------!
-! URxvt parameters !
-!------------------!
+! URxvt
+!------
 
-URxvt*font:                        xft:ShureTechMono Nerd Font Mono:size=10,xft:Unifont
-URxvt*boldFont:                    xft:ShureTechMono Nerd Font Mono:Bold:size=10,xft:Unifont
-uRxvt*italicFont:                  xft:ShureTechMono Nerd Font Mono:Italic:size=10,xft:Unifont
-URxvt*boldItalicFont:              xft:ShureTechMono Nerd Font Mono:Bold:Italic:size=10,xft:Unifont
+URxvt*font:                        xft:FuraCode Nerd Font Mono:size=9,xft:Unifont:size=9
+URxvt*boldFont:                    xft:FuraCode Nerd Font Mono:Bold:size=9,xft:Unifont:size=9
+uRxvt*italicFont:                  xft:FuraCode Nerd Font Mono:Italic:size=9,xft:Unifont:size=9
+URxvt*boldItalicFont:              xft:FuraCode Nerd Font Mono:Bold:Italic:size=9,xft:Unifont:size=9
+URxvt.letterSpace:                 -1 
+URxvt.lineSpace:                   0
+URxvt*skipBuiltinGlyphs:           false
+
 URxvt*scrollBar:                   false
 URxvt*borderLess:                  false
 URxvt*internalBorder:              5
+URxvt.transparent:                 false
+URxvt.fading:                      30
+URxvt.shading:                     75
+URxvt.cursorBlink:                 false
+URxvt.cursorUnderline:             false
+URxvt*underlineURLs:               true
+
 URxvt*depth:                       32
-URxvt.letterSpace:                 -1 
-URxvt*skipBuiltinGlyphs:           true
-URxvt*perl-lib:                    /home/mjt/.Xresources.d/perl/
-URxvt.perl-ext-common:             matcher,font-size,clipboard
 URxvt*iso14755:                    false
 URxvt*iso14755_52:                 false
 URxvt*cutchars:                    BACKSLASH '"'&()*,;<=>?@[]^{|}
 URxvt*urgentOnBell:                true
+URxvt.saveLines:                   100
+URxvt.mouseWheelScrollPage:        false
 
+URxvt*perl-lib:                    /home/mjt/.Xresources.d/perl/
+URxvt.perl-ext-common:             matcher,font-size,clipboard
+
+! change font
 !URxvt.keysym.M-C-1:                command:\033]710;xft:Unifont,xft:GohuFont NF:size=10:antialias=true\007\033]711;xft:Unifont,xft:GohuFont NF:size=10:antialias=true\007
 !URxvt.keysym.M-C-2:                command:\033]710;xft:ShureTechMono NF:size=10:antialias=true\007\033]711;xft:ShureTechMono NF:antialias=true\007
+! scroll up/down 1 line
 !URxvt.keysym.Shift-Up:             command:\033]720;1\007
 !URxvt.keysym.Shift-Down:           command:\033]721;1\007
+! scroll up/down 8 line
 !URxvt.keysym.Meta-l:               command:\033]720;8\007
 !URxvt.keysym.Meta-k:               command:\033]721;8\007
 URxvt*keysym.Control-Shift-C:      perl:clipboard:copy
 URxvt*keysym.Control-Shift-V:      perl:clipboard:paste
-!URxvt*keysym.Control-Return:       perl:matcher:last
-!URxvt*keysym.Control-BackSpace:    perl:matcher:list
 URxvt.keysym.Control-Shift-Up:     perl:font-size:increase
 URxvt.keysym.Control-Shift-Down:   perl:font-size:decrease
-!URxvt.keysym.Control-Escape:       perl:keyboard-select:activate
-!URxvt.keysym.M-s:                  perl:keyboard-select:search
 
 URxvt*matcher.pattern.0:           (?:https?:\\/\\/|ftp:\\/\\/|rsync:\\/\\/|news:\\/\\/|mailto:|file:\\/\\/|\\bwww\\.)\n\[a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\n\(\n\\\([a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\\)| # Allow a pair of matched parentheses\n\[a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_+*~]  # exclude some trailing characters (heuristic)\n\)+
 URxvt*matcher.button:              3
 URxvt*url-launcher:                /usr/bin/xdg-open
-URxvt*underlineURLs:               true
 URxvt.clipboard.autocopy:          true
-!URxvt.keyboard-select.clipboard:   true
-!urxvt.vim-scrollback-bg:           12
-!urxvt.vim-scrollback-fg:           1
 
-!URxvt*tabbed.new-button:           no
-!URxvt*tabbed.tabbar-fg:            12
-!URxvt*tabbed.tabbar-bg:            8
-!URxvt*tabbed.tab-fg:               8
-!URxvt*tabbed.tab-bg:               12
-!URxvt*tabbed.title-fg:             12
-!URxvt*tabbed.title-bg:             8
-!URxvt*tabbed.autohide:             true
-!URxvt*tabbed.reopen-on-close:      yes
-
-!------------!
-! Appearance !
-!------------!
-
-!## Cursor
-Xcursor.theme:                     BMZ
-Xcursor.size:                      22
-
-!## Colorscheme
+!## colorscheme
 #include "./.Xresources.d/colors/sourcerer.Xcolors"
 
-!## Color overridings
-!*.foreground:      #c2c2b0
-!*.background:      #282a36
-*.cursorColor:     DarkCyan
-!URxvt.colorIT:     #719611
-!URxvt.colorBD:     #d3d3d3
-!URxvt.colorUL:     #528b8b
-!*.underlineColor:  #129b33
+!## urxvt color overridings
+!URxvt.foreground:      #c2c2b0
+!URxvt.background:      [80]#222222
+URxvt.cursorColor:      #87875f
+!URxvt.colorIT:         #719611
+!URxvt.colorBD:         #d3d3d3
+!URxvt.colorUL:         #528b8b
+!URxvt.underlineColor:  #129b33
 
-!----------------!
-! Other programs !
-!----------------!
+! cursor
+!-------
 
-! XTerm/UXTerm
-
-*xterm*termName:                   xterm-256color
-*xterm*locale:                     true
-*xterm*utf8:                       2
-*xterm*metaSendsEscape:            true
-*xterm*renderFont:                 true
-*xterm*faceName:                   xft:ShureTechMono Nerd Font Mono:size=11
-*xterm*bellIsUrgent:               true
-*xterm*scaleHeight:                1.01
-*xterm*borderWidth:                0
-*xterm*selectToClipboard:          true
-*xterm*allowSendEvents:            false
-*xterm*sessionMgt:                 false
-*xterm*VT100*colorULMode:          on
-*xterm*VT100*colorBDMode:          off
-*xterm*VT100.titeInhibit:          off
-*xterm*VT100.translations:         #override \n Shift <Key>Home: scroll-back(4096) \n Shift <Key>End: scroll-forw(4096)
-*xterm*VT100.geometry:             80x32
-*xterm*SimpleMenu*background:      #353535
-*xterm*SimpleMenu*foreground:      #AAA
-*xterm*dynamicColors:              true
-*xterm*eightBitInput:              true
-*xterm*eightBitControl:            false
-*xterm*eightBitOutput:             true
-*xterm*trimSelection:              true
-*xterm*charClass:                  33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
-
-! XClock
-
-XClock*width:                      350
-XClock*height:                     350
-XClock*update:                     1
-XClock*hourColor:                  cyan
-XClock*minuteColor:                cyan
-XClock*secondColor:                red
-XClock*majorColor:                 red
-XClock*minorColor:                 cyan
+Xcursor.theme:                     Vanilla-DMZ
+Xcursor.size:                      22

@@ -2,8 +2,8 @@
 # Lock script
 
 xidlehook \
-   --time 5 \
-   --timer 'xrandr --output "$(xrandr | grep -e primary -e connected | grep -v disconnected | cut -d " " -f 1)" --brightness 1; /home/mjt/bin/lock' \
+   --time 10 \
+   --timer 'xrandr --output "$(xrandr | grep -e primary -e connected | grep -v disconnected | cut -d " " -f 1)" --brightness 1; /home/mjt/sh/lock' \
    --notify 10 \
    --notifier  'xrandr --output "$(xrandr | grep -e primary -e connected | grep -v disconnected | cut -d " " -f 1)" --brightness .1' \
    --canceller 'xrandr --output "$(xrandr | grep -e primary -e connected | grep -v disconnected | cut -d " " -f 1)" --brightness 1' \
