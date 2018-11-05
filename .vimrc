@@ -286,11 +286,12 @@ map <leader>X :!chmod +x %<CR><CR>
 map <leader>W :%s/ \{2,}/ /g<CR>
 map <leader>c :set cursorline!<CR>:set cursorcolumn!<CR>
 noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
-noremap <leader>p "0p
 noremap <leader>d di"
 nmap <leader>S :SyntasticToggleMode<CR>
 nmap <leader>F :!shfmt -i 3 -ci -sr -w %<CR><CR>
 nmap <leader>R :Rooter<CR>
+noremap <leader>p "bp
+noremap <leader>t :let @b=@+<CR>
 
 " Resizing panes
 nnoremap <silent> <Leader>l :exe "resize +5"<CR>
@@ -413,8 +414,8 @@ endfunction
 command! Sw silent execute 'write !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
 command! -nargs=1 ShebangFile :new <args> | 0put =\"#!/usr/bin/env bash\<nl>\"|$
 command! Shebang 0put =\"#!/usr/env/bin bash\<nl>\"|$
-command! -nargs=1 NewdotFile :new <args> | 0put =\"#┃\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
-command! Newdot 0put =\"#┃\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
+command! -nargs=1 NewdotFile :new <args> | 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
+command! Newdot 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
 
 " Personal project settings
 " -------------------------
