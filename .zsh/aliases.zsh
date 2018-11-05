@@ -3,7 +3,7 @@
 #┃ mjturt
 
 ## Coreutils
-if [[ "$(uname)" = "FreeBSD" ]]; then
+if [[ "$(uname)" == "FreeBSD" ]]; then
    LSCMD="gls"
 else
    LSCMD="ls"
@@ -65,9 +65,24 @@ alias upgrade-gentoo="sudo emerge -uDU --keep-going --with-bdeps=y @world"
 alias useflags="sudo vim /etc/portage/package.use/0custom"
 
 ## FreeBSD
-alias pkgi="sudo pkg install"
-alias pkgs="pkg search"
 alias ez="sudo ezjail-admin"
+
+# Package managment
+case $(uname) in
+   "Linux")
+      if grep -q Gentoo /etc/*-release; then
+         alias pkgi="sudo emerge"
+         alias pkgs="eix"
+      elif grep -q Arch /etc/*-release; then
+         alias pkgi="sudo pacman -S"
+         alias pkgs="pacman -Ss"
+      fi
+      ;;
+   "FreeBSD")
+      alias pkgi="sudo pkg install"
+      alias pkgs="pkg search"
+      ;;
+esac
 
 ## Other
 alias fbvar="export TERM=fbterm"
