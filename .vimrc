@@ -292,6 +292,7 @@ nmap <leader>F :!shfmt -i 3 -ci -sr -w %<CR><CR>
 nmap <leader>R :Rooter<CR>
 noremap <leader>p "bp
 noremap <leader>t :let @b=@+<CR>
+noremap <leader>r gqap
 
 " Resizing panes
 nnoremap <silent> <Leader>l :exe "resize +5"<CR>

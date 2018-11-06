@@ -125,6 +125,8 @@ host_server() {
    df_rtorrent
    df_irssi
    df_mutt
+   df_vdirsyncer
+   df_khard
 }
 
 # Only host-specific files (Thinkpad)
@@ -179,11 +181,8 @@ df_vim() {
       mkdir -v ~/.vim/temp/undo
       ln -v -s "${DOT}"/.vimrc ~/.vimrc
       ln -v -s "${DOT}"/.vim/indent ~/.vim/indent
-      ln -v -s "${DOT}"/.vim/appearance.vim ~/.vim/appearance.vim
-      ln -v -s "${DOT}"/.vim/functions.vim ~/.vim/functions.vim
-      ln -v -s "${DOT}"/.vim/keybindings.vim ~/.vim/keybindings.vim
-      ln -v -s "${DOT}"/.vim/plugins.vim ~/.vim/plugins.vim
       ln -v -s "${DOT}"/.vim/projects.vim ~/.vim/projects.vim
+      ln -v -s "${DOT}"/.vim/filetype.vim ~/.vim/filetype.vim
       ln -v -s "${DOT}"/.gvimrc ~/.gvimrc
    } >> "$LOGS"
 }
@@ -749,6 +748,7 @@ df_mutt() {
       ln -s -v "${DOT}"/.mutt/scripts ~/.mutt/scripts
       ln -s -v "${DOT}"/.mutt/aliases ~/.mutt/aliases
       ln -s -v "${DOT}"/.mutt/signature ~/.mutt/signature
+      ln -s -v "${DOT}"/.mutt/gpg.rc ~/.mutt/gpg.rc
       ln -s -v "${DOT}"/.mutt/notmuch-config ~/.notmuch-config
    } >> "$LOGS"
    if [[ $(id -u) -eq 0 ]]; then
@@ -908,6 +908,27 @@ df_newsboat() {
    ln -s -v "${DOT}"/.newsboat ~/.newsboat >> "$LOGS"
 }
 
+# vdirsyncer (commons, private)
+df_vdirsyncer() {
+   if [[ -e ~/.vdirsyncer ]]; then
+      mv -v ~/.vdirsyncer "$BACKUP" >> "$LOGS"
+   elif [[ -L ~/.vdirsyncer ]]; then
+      rm -v ~/.vdirsyncer >> "$LOGS"
+   fi
+   mkdir -v ~/.vdirsyncer >> "$LOGS"
+   ln -s -v "${DOT}"/.vdirsyncer/config ~/.vdirsyncer/config >> "$LOGS"
+}
+
+# Khard (commons, private)
+df_khard() {
+   if [[ -e ~/.config/khard ]]; then
+      mv -v ~/.config/khard "$BACKUP" >> "$LOGS"
+   elif [[ -L ~/.config/khard ]]; then
+      rm -v ~/.config/khard >> "$LOGS"
+   fi
+   ln -s -v "${DOT}"/.config/khard ~/.config/khard >> "$LOGS"
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -934,7 +955,8 @@ helps() {
    echo
    echo -e "\\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\\e[0m"
    echo -e "\\e[1;35mPrivate(not found in git-repo), cant take host-parameter:\\e[0m df_irssi, df_buku"
-   echo -e "df_fonts, df_cursors, df_gtk_themes, df_fbcolors, df_calcurse, df_newsboat"
+   echo -e "df_fonts, df_cursors, df_gtk_themes, df_fbcolors, df_calcurse, df_newsboat, df_vdirsyncer,"
+   echo -e "df_khard"
    echo
    echo -e "\\e[1;35mGroups:\\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
    echo -e "assets(private)"

@@ -37,11 +37,14 @@ bind generic l previous-entry
 bind attach <return> view-mailcap
 bind index <Space> collapse-thread
 bind index <tab> sync-mailbox
-bind compose p postpone-message
+bind compose P postpone-message
 
 bind index,pager \Cl sidebar-prev
 bind index,pager \Ck sidebar-next
 bind index,pager \Cu sidebar-open
+
+bind editor <Tab> complete-query
+bind editor ^T    complete
 
 bind index e noop
 
@@ -69,3 +72,7 @@ macro index <F6> \
 <pipe-message>notmuch-mutt tag -- -inbox<enter>\
 <enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
 "notmuch: remove message from inbox"
+
+macro index,pager A \
+    "<pipe-message>khard add-email<return>" \
+    "add the sender email address to khard"
