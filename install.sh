@@ -81,6 +81,7 @@ commons_cli() {
    df_bin
    df_calcurse
    df_newsboat
+   df_linopen
 }
 
 # Commons, but only graphical programs
@@ -311,15 +312,8 @@ df_less() {
    elif [[ -L ~/.lesskey ]]; then
       rm -v ~/.lesskey >> "$LOGS"
    fi
-   if [[ -e ~/.lessfilter ]]; then
-      mv -v ~/.lessfilter "$BACKUP" >> "$LOGS"
-   elif [[ -L ~/.lessfilter ]]; then
-      rm -v ~/.lessfilter >> "$LOGS"
-   fi
    ln -v -s "${DOT}"/.lesskey ~/.lesskey >> "$LOGS"
-   ln -v -s "${DOT}"/.lessfilter ~/.lessfilter >> "$LOGS"
    lesskey ~/.lesskey
-   chmod -v +x ~/.lessfilter >> "$LOGS" >> "$LOGS"
 }
 
 # Scripts (commons)
@@ -929,6 +923,16 @@ df_khard() {
    ln -s -v "${DOT}"/.config/khard ~/.config/khard >> "$LOGS"
 }
 
+# linopen (commons, private)
+df_linopen() {
+   if [[ -e ~/.linopenrc ]]; then
+      mv -v ~/.linopenrc "$BACKUP" >> "$LOGS"
+   elif [[ -L ~/.linopenrc ]]; then
+      rm -v ~/.linopenrc >> "$LOGS"
+   fi
+   ln -s -v "${DOT}"/.linopenrc ~/.linopenrc >> "$LOGS"
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -956,7 +960,7 @@ helps() {
    echo -e "\\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\\e[0m"
    echo -e "\\e[1;35mPrivate(not found in git-repo), cant take host-parameter:\\e[0m df_irssi, df_buku"
    echo -e "df_fonts, df_cursors, df_gtk_themes, df_fbcolors, df_calcurse, df_newsboat, df_vdirsyncer,"
-   echo -e "df_khard"
+   echo -e "df_khard, df_linopen"
    echo
    echo -e "\\e[1;35mGroups:\\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
    echo -e "assets(private)"

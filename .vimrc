@@ -415,8 +415,8 @@ endfunction
 command! Sw silent execute 'write !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
 command! -nargs=1 ShebangFile :new <args> | 0put =\"#!/usr/bin/env bash\<nl>\"|$
 command! Shebang 0put =\"#!/usr/env/bin bash\<nl>\"|$
-command! -nargs=1 NewdotFile :new <args> | 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
-command! Newdot 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|$
+command! -nargs=1 NewdotFile :new <args> | 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|normal gg$
+command! Newdot 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|normal gg$
 
 " Personal project settings
 " -------------------------

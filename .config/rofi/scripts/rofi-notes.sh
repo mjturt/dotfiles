@@ -3,7 +3,7 @@
 set -u
 set -e
 
-readonly NOTES_FILE=~/cloud/rnotes/rofinotes.txt
+readonly NOTES_FILE=~/cloud/txt/rofinotes.txt
 
 if [[ ! -a "${NOTES_FILE}" ]]; then
     echo "empty" >> "${NOTES_FILE}"
