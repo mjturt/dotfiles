@@ -51,7 +51,8 @@ echo
 #┃ Variables and testing function ┃
 #┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-BACKUP=~/dotfiles-backup-$(date +%H%M%S)
+BACKUPROOT=~/.dotfiles-backup
+BACKUP=${BACKUPROOT}/dotfiles-backup-$(date +%H%M%S)
 LOGS=${BACKUP}/dotfiles-logs-$(date +%H%M%S).log
 DOT=$(pwd)
 isFunction() { [[ "$(declare -Ff "$1")" ]]; }
@@ -82,6 +83,7 @@ commons_cli() {
    df_calcurse
    df_newsboat
    df_linopen
+   df_elinks
 }
 
 # Commons, but only graphical programs
@@ -1018,7 +1020,12 @@ else
       animate '             \e[0;35m░ ' 0.1
    done
    animate '\e[1;31m' 0.1
-   mkdir "$BACKUP"
+
+   if [[ -e "$BACKUPROOT" ]] || [[ -L "$BACKUPROOT" ]] ; then
+      mkdir -p -v "$BACKUPROOT" >> "$LOGS"
+   fi
+   mkdir -v "$BACKUP" >> "$LOGS"
+
    if "$1" "$2"; then
       echo -e "\\e[1;32m            ┳━┓┏━┓┏┓┓┳━┓\\e[0m"
       echo -e "\\e[1;32m            ┃ ┃┃ ┃┃┃┃┣━\\e[0m"

@@ -34,7 +34,10 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Completion
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'artur-shaik/vim-javacomplete2'
@@ -310,9 +313,6 @@ nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 cmap Q q
 cmap W w
 
-" Delete all blank or whitespace lines
-" g/^\s*$/d
-
 " Plugin settings
 " ---------------
 
@@ -331,10 +331,9 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
-"let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 "let g:deoplete#omni_patterns = {}
 "let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-"let g:deoplete#enable_at_startup = 1
 "let g:deoplete#auto_completion_start_length = 2
 "let g:deoplete#sources = {}
 "let g:deoplete#sources._ = []
@@ -369,7 +368,7 @@ func! CompileAndRun()
    elseif &filetype == 'markdown'
       exec "!$BROWSER http://localhost:6419/ & grip %"
    elseif &filetype == 'tex'
-      exec "!pdflatex -shell-escape %"
+      exec "!pdflatex -shell-escape % && biber %< && pdflatex -shell-escape %"
       exec "!zathura %<.pdf &"
    endif
 endfunc
@@ -422,3 +421,11 @@ command! Newdot 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjt
 " -------------------------
 
 source $HOME/.vim/projects.vim
+
+" Tips
+" ----
+
+" Delete all blank or whitespace lines
+" g/^\s*$/d
+" Delete all spaces and tabs at the end of lines
+" %s/\s\+$//

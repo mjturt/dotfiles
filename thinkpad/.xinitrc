@@ -17,7 +17,7 @@ compton -b &
 nextcloud &
 rambox &
 nm-applet &
-hsetroot -solid "#2B303B"
+setroot --on 0 -sc "#2B303B"
 
 ## Window manager
 exec bspwm

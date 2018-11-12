@@ -27,37 +27,39 @@ map L zoom in
 map D toggle_page_mode
 map e scroll half-up
 map d scroll half-down
-map [normal] ,p1 set "pages-per-row 1"
-map [normal] ,p2 set "pages-per-row 2"
+map [normal] ,1 set "pages-per-row 1"
+map [normal] ,2 set "pages-per-row 2"
+map m mark_add
+map , mark_evaluate
 
 # Colors
 
-set default-bg                  "#000000" #00
-set default-fg                  "#1f1b3f" #01
+set default-bg                  "#332733" #00
+set default-fg                  "#719611" #01
 
-set statusbar-fg                "#bd93f9" #04
-set statusbar-bg                "#282a36" #01
+set statusbar-fg                "#87875f" #04
+set statusbar-bg                "#222222" #01
 
-set inputbar-bg                 "#dbe2ec" #00
-set inputbar-fg                 "#2a4f81" #02
+set inputbar-bg                 "#c2c2b0" #00
+set inputbar-fg                 "#528b8b" #02
 
-set notification-error-bg       "#0e868b" #08
-set notification-error-fg       "#1f1b3f" #00
+set notification-error-bg       "#ff6a6a" #08
+set notification-error-fg       "#222222" #00
 
 set notification-warning-bg     "#0188aa" #08
-set notification-warning-fg     "#1f1b3f" #00
+set notification-warning-fg     "#272822" #00
 
-set highlight-color             "#2a4f81" #0A
-set highlight-active-color      "#1f1b3f" #0D
+set highlight-color             "#0e868b" #0A
+set highlight-active-color      "#272822" #0D
 
-set completion-highlight-fg     "#1f1b3f"  #02
-set completion-highlight-bg     "#8b09a8" #0C
+set completion-highlight-fg     "#272822"  #02
+set completion-highlight-bg     "#8181a6" #0C
 
-set completion-bg               "#e0eaf9" #02
-set completion-fg               "#1f1b3f" #0C
+set completion-bg               "#d3d3d3" #02
+set completion-fg               "#272822" #0C
 
-set notification-bg             "#ee8109" #0B
-set notification-fg             "#1f1b3f" #00
+set notification-bg             "#cc8800" #0B
+set notification-fg             "#272822" #00
 
 set recolor-lightcolor          "#b3bf96" #00
 set recolor-darkcolor           "#0e1713" #06

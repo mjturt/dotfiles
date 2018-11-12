@@ -83,6 +83,7 @@ case $(uname) in
       alias pkgs="pkg search"
       ;;
 esac
+alias worlds="ranger ~/cloud/txt/worlds"
 
 ## Other
 alias fbvar="export TERM=fbterm"

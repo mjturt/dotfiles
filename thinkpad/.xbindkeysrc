@@ -50,6 +50,10 @@ Alt+n
 "rofi-power tp"
 Alt+x
 
+### Color picker
+"yad --color"
+Alt+c
+
 # Adds primary selection to bookmarks
 "bukuadd"
 Control+Alt+b
@@ -61,16 +65,16 @@ Alt+b
 Alt+p
 
 ### Media keys
-"amixer -D pulse sset Master toggle"
-XF86AudioMute
-
-"ponymix increase 5"
+"amixer set Master 2dB+ unmute"
 XF86AudioRaiseVolume
 
-"ponymix decrease 5"
+"amixer set Master 2dB- unmute"
 XF86AudioLowerVolume
 
-"amixer -D pulse sset Capture toggle"
+"amixer set Master toggle"
+XF86AudioMute
+
+"amixer set Capture toggle"
 XF86AudioMicMute
 
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
