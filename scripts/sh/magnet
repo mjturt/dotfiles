@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Torrent magnet link -> .torrent file based on Arch wiki example
 # usage: ./magnet "magnet_link" --here (optional)
 
@@ -6,11 +6,7 @@ case "$2" in
    --here)
       ;;
    *)
-      if [[ -e /mnt/storage/rtorrent ]]; then
-         watch=/mnt/storage/rtorrent/watch/start
-      else
-         watch=/storage/rtorrent/watch/start
-      fi
+      watch=/home/mjt/cloud/watch-torrent
       cd $watch
       ;;
 esac

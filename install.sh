@@ -1021,10 +1021,10 @@ else
    done
    animate '\e[1;31m' 0.1
 
-   if [[ -e "$BACKUPROOT" ]] || [[ -L "$BACKUPROOT" ]] ; then
-      mkdir -p -v "$BACKUPROOT" >> "$LOGS"
+   if [[ ! -e "$BACKUPROOT" ]]; then
+      mkdir -p -v "$BACKUPROOT"
    fi
-   mkdir -v "$BACKUP" >> "$LOGS"
+   mkdir -p "$BACKUP"
 
    if "$1" "$2"; then
       echo -e "\\e[1;32m            ┳━┓┏━┓┏┓┓┳━┓\\e[0m"
