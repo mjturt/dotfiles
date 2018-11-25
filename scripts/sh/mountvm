@@ -34,6 +34,7 @@ else
          exit 0
          ;;
       -u)
+         sudo echo >> /dev/null
          echo -e "\\e[1;34mUnmounting mountpoint and detaching all loopback devices\\e[0m"
          # Umount last image
          sudo umount -v -f "${MOUNTPOINT}"
@@ -43,6 +44,7 @@ else
          ;;
       *)
          if [ -e "$1" ]; then
+            sudo echo >> /dev/null
             echo -e "\\e[1;34mStarting mount process for partition/file $1\\e[0m"
             echo -e "\\e[1;34mUnmounting mountpoint and detaching all loopback devices\\e[0m"
             # Umount last image
