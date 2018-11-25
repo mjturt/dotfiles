@@ -63,7 +63,7 @@ Plug 'xolox/vim-misc'
 Plug 'tpope/vim-eunuch'
 Plug 'google/vim-searchindex'
 Plug 'lilydjwg/colorizer'
-Plug 'francoiscabrol/ranger.vim'
+Plug 'rafaqz/ranger.vim'
 Plug 'ap/vim-buftabline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'gcavallanti/vim-noscrollbar'
@@ -186,21 +186,24 @@ autocmd BufWriteCmd *.pdf set readonly
 autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 autocmd BufWriteCmd *.rtf set readonly
 
+" Latex
+let g:tex_flavor = 'tex'
+
 " Interface / appearance
 " ----------------------
 
 set titlestring=%(\ %M%)%(\ %F%)%a\ -\ 
 
-color sourcerer
+color nord
 
 " Color overriding
 set background=dark
 hi Normal guibg=NONE ctermbg=NONE
-hi Visual ctermbg=3 ctermfg=0
-hi TabLine ctermbg=NONE ctermfg=101
-hi TabLineFill ctermbg=NONE ctermfg=101
-hi TabLineSel cterm=bold ctermbg=101 ctermfg=16
-hi LineNr cterm=bold ctermbg=NONE ctermfg=237
+"hi Visual ctermbg=3 ctermfg=0
+"hi TabLine ctermbg=NONE ctermfg=101
+"hi TabLineFill ctermbg=NONE ctermfg=101
+"hi TabLineSel cterm=bold ctermbg=101 ctermfg=16
+"hi LineNr cterm=bold ctermbg=NONE ctermfg=237
 
 " Cursor color and shape for urxvt+tmux
 " Normal: blue block
@@ -208,13 +211,14 @@ hi LineNr cterm=bold ctermbg=NONE ctermfg=237
 " Replace: red underline
 if exists('$TMUX')
    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]12;Green\x7\<Esc>\\"
-   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]12;DarkCyan\x7\<Esc>\\"
+   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]12;White\x7\<Esc>\\"
    let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]12;Red\x7\<Esc>\\"
    let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[1 q\<Esc>\\"
    let &t_SR .= "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[5 q\<Esc>\\"
    autocmd VimLeave * silent execute '!print -n -- "\033Ptmux;\033\033[2 q\033\\"'
-   autocmd VimLeave * silent execute '!print -n -- "\033Ptmux;\033\033]12;burlywood4\x7\033\\"'
+   "autocmd VimLeave * silent execute '!print -n -- "\033Ptmux;\033\033]12;burlywood4\x7\033\\"'
+   autocmd VimLeave * silent execute '!print -n -- \033Ptmux;\033\033]12;White\x7\033\\"'
 endif
 
 " Status line
@@ -295,7 +299,13 @@ nmap <leader>F :!shfmt -i 3 -ci -sr -w %<CR><CR>
 nmap <leader>R :Rooter<CR>
 noremap <leader>p "bp
 noremap <leader>t :let @b=@+<CR>
-noremap <leader>r gqap
+noremap <leader>f gqap
+" Ranger
+map <leader>rr :RangerEdit<cr>
+map <leader>rv :RangerVSplit<cr>
+map <leader>rs :RangerSplit<cr>
+map <leader>rt :RangerTab<cr>
+map <leader>ri :RangerInsert<cr>
 
 " Resizing panes
 nnoremap <silent> <Leader>l :exe "resize +5"<CR>

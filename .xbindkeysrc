@@ -45,6 +45,9 @@ Control+Alt+r
 "setxkbmap fi"
 Control+Alt+f
 
+"setxkbmap us"
+Control+Alt+u
+
 "comptontoggle"
 Control+Alt+c
 

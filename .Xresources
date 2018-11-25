@@ -19,10 +19,10 @@ Xft*rgba:                          rgba
 ! URxvt
 !------
 
-URxvt*font:                        xft:FuraCode Nerd Font Mono:size=9,xft:Unifont:size=9
-URxvt*boldFont:                    xft:FuraCode Nerd Font Mono:Bold:size=9,xft:Unifont:size=9
-uRxvt*italicFont:                  xft:FuraCode Nerd Font Mono:Italic:size=9,xft:Unifont:size=9
-URxvt*boldItalicFont:              xft:FuraCode Nerd Font Mono:Bold:Italic:size=9,xft:Unifont:size=9
+URxvt*font:                        xft:Iosevka NF:size=10,xft:Unifont:size=10
+URxvt*boldFont:                    xft:Iosevka NF:Bold:size=10,xft:Unifont:size=10
+uRxvt*italicFont:                  xft:Iosevka NF:Italic:size=10,xft:Unifont:size=10
+URxvt*boldItalicFont:              xft:Iosevka NF:Bold:Italic:size=10,xft:Unifont:size=10
 URxvt.letterSpace:                 -1 
 URxvt.lineSpace:                   0
 URxvt*skipBuiltinGlyphs:           false
@@ -68,12 +68,12 @@ URxvt*url-launcher:                /usr/bin/xdg-open
 URxvt.clipboard.autocopy:          true
 
 !## colorscheme
-#include "./.Xresources.d/colors/sourcerer.Xcolors"
+#include "./.Xresources.d/colors/nord"
 
 !## urxvt color overridings
 !URxvt.foreground:      #c2c2b0
 !URxvt.background:      [80]#222222
-URxvt.cursorColor:      #87875f
+!URxvt.cursorColor:      #87875f
 !URxvt.colorIT:         #719611
 !URxvt.colorBD:         #d3d3d3
 !URxvt.colorUL:         #528b8b
