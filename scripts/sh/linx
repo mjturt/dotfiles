@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# "client" for my servers paste service powered by linx
+# mjturt
+
+curl -k -H "Linx-Randomize: yes" -T "$1" https://turtia.org/files/upload/ 

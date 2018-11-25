@@ -1,0 +1,58 @@
+#┃ ~/.linopenrc
+#┣━━━━━━━━━━━━━
+#┃ mjturt
+
+# linopen used to replace xdg-open
+# enviroiment variables can be used
+
+# Specify your terminal emulator here
+# for terminal support.
+terminal=rxvt-unicode
+
+# Specify all programs you want to
+# open in terminal like this:
+interm=vim,ranger
+
+# There are 4 ways to match filetypes.
+# The following examples are in the order
+# which linopen chooses the program as well.
+
+# 1. File extension
+# .png:sxiv
+# .mp4:mplayer
+# .txt:vim
+.epub:zathura
+.gif:mpv
+
+# 2. Mime type
+# image/png:sxiv
+# video/mp4:mplayer
+# text/plain:vim
+application/pdf:zathura
+x-scheme-handler/magnet:magnet
+
+# 3. Mime category
+image:feh
+video:mpv
+audio:mpv # you can also specify the interm rule explictly after '->'
+text:vim
+
+# 4. Regexp
+# Match some protocols by default
+?'^magnet:':/home/mjt/sh/magnet
+?'^http:\/\/':$BROWSER
+?'^https:\/\/':$BROWSER
+?'^www.':$BROWSER
+?'^dvd:\/\/':mpv
+?'^cdda:\/\/':mpv
+
+# Directory rule for directories
+# ideally you want to use file manager
+# here if you are a GUI user.
+directory:echo
+
+# Default rule just echoes back whatever
+# was feed. If you are using DE you could
+# just map a file manager here and it would
+# integrate with your system.
+default:echo

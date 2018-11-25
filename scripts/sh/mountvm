@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+# Mounting VM-images from partition or file
+# mjturt
+
+echo -e "\\e[1;34m
+┏┳┓┏━┓╻ ╻┏┓╻╺┳╸╻ ╻┏┳┓
+┃┃┃┃ ┃┃ ┃┃┗┫ ┃ ┃┏┛┃┃┃
+╹ ╹┗━┛┗━┛╹ ╹ ╹ ┗┛ ╹ ╹
+\\e[0m"
+
+# Settings
+MOUNTPOINT=/mnt/windows
+
+help() {
+   echo "Mount VM-images setting partition/file as loopback-device and then mount partition in it."
+   echo "Mountpoint can be set in scripts MOUNTPOINT variable. Now it is $MOUNTPOINT"
+   echo "Usage:"
+   echo "mountvm <partition/file>      Mount partition from partition/file(asks which partition on image later)"
+   echo "mountvm -u                    Unmount and detach all"
+   echo "mountvm -h                    Help"
+   echo "Example:"
+   echo "mountvm /dev/sdc2"
+   echo
+   echo -e "\\e[1;31mDont do this whem the VM is running. Data corruption is likely then.\\e[0m"
+}
+
+if [ "$#" -ne 1 ]; then
+   help
+   exit 1
+else
+   case "$1" in
+      -h|--help)
+         help
+         exit 0
+         ;;
+      -u)
+         echo -e "\\e[1;34mUnmounting mountpoint and detaching all loopback devices\\e[0m"
+         # Umount last image
+         sudo umount -v -f "${MOUNTPOINT}"
+         # Detach all loopback devices
+         sudo losetup -v -D
+         echo -e "\\e[1;34mDone\\e[0m"
+         ;;
+      *)
+         if [ -e "$1" ]; then
+            echo -e "\\e[1;34mStarting mount process for partition/file $1\\e[0m"
+            echo -e "\\e[1;34mUnmounting mountpoint and detaching all loopback devices\\e[0m"
+            # Umount last image
+            sudo umount -v -f "${MOUNTPOINT}"
+            # Detach all loopback devices
+            sudo losetup -v -D
+            # Loopback module reload
+            echo -e "\\e[1;34mReloading loopback module\\e[0m"
+            sudo rmmod -v loop
+            sudo modprobe -v loop max_part=15
+            # Create loopback-device
+            echo -e "\\e[1;34mCreating loopback device from $1\\e[0m"
+            sudo losetup -v -f -P "$1"
+            # Show partitions on loopback-device
+            echo -e "\\e[1;34mPartitions on loopback device /dev/loop0:\\e[0m"
+            LINE=$(sudo fdisk -l /dev/loop0 | grep -n "Device" | awk -F ":" '{print $1}')
+            sudo fdisk -l /dev/loop0 | tail -n +"${LINE}"
+            # Which partition will be mounted
+            printf "\\e[1;34mWhich partition you want to mount from loopback device /dev/loop0? (1,2,3..) \\e[0m"
+            read -r part
+            sudo mount /dev/loop0p"${part}" "${MOUNTPOINT}"
+            echo -e "\\e[1;34mls $MOUNTPOINT\\e[0m"
+            ls "${MOUNTPOINT}"
+            echo -e "\\e[1;34mMounted partition $part from $1 to $MOUNTPOINT\\e[0m"
+         else
+            echo -e "\\e[1;31m$1 does not exist!\\e[0m"
+            echo "use -h for help"
+            exit 1
+         fi
+            ;;
+   esac
+fi
+

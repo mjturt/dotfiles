@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Fast wikipedia reading
+# mjturt
+
+if [[ "$1" = "-fi" ]]; then
+   elinks -dump -dump-color-mode 3 "https://fi.wikipedia.org/w/index.php?search=$2" | less
+else
+   elinks -dump -dump-color-mode 3 "https://www.wikipedia.org/w/index.php?title=Special:Search&search=$1" | less
+fi
