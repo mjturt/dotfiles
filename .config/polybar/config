@@ -4,7 +4,7 @@
 
 [colors]
 ;background = #cc222222
-background = #2E3440
+background = #282828
 background-alt = #1187875f
 foreground = #87875f
 foreground-alt = #c2c2b0

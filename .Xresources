@@ -68,7 +68,7 @@ URxvt*url-launcher:                /usr/bin/xdg-open
 URxvt.clipboard.autocopy:          true
 
 !## colorscheme
-#include "./.Xresources.d/colors/nord"
+#include "./.Xresources.d/colors/gruvbox-urxvt256.xresources"
 
 !## urxvt color overridings
 !URxvt.foreground:      #c2c2b0

@@ -28,107 +28,145 @@ if empty(glob('~/.vim/autoload/plug.vim'))
    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Plugin list
-" -----------
+" Plugins
+" -------
 
 call plug#begin('~/.vim/plugged')
 
-" Completion
+" -- Completion --
 Plug 'Shougo/deoplete.nvim'
+   let g:deoplete#enable_at_startup = 0
+   autocmd InsertEnter * call deoplete#enable()
+   "let g:deoplete#omni_patterns = {}
+   "let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+   "let g:deoplete#auto_completion_start_length = 2
+   "let g:deoplete#sources = {}
+   "let g:deoplete#sources._ = []
+   "let g:deoplete#file#enable_buffer_path = 1
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 "Plug 'Valloric/YouCompleteMe'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'artur-shaik/vim-javacomplete2'
 
-" Syntax / Additional language support
+" -- Snippets --
+Plug 'SirVer/ultisnips'
+   let g:UltiSnipsExpandTrigger="<c-o>"
+   let g:UltiSnipsJumpForwardTrigger="<c-b>"
+   let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+   let g:UltiSnipsEditSplit="vertical"
+Plug 'honza/vim-snippets'
+
+" -- Syntax checking --
 Plug 'vim-syntastic/syntastic'
+   let g:syntastic_always_populate_loc_list = 1
+   let g:syntastic_auto_loc_list = 1
+   let g:syntastic_check_on_open = 1
+   let g:syntastic_check_on_wq = 0
+   let g:syntastic_c_remove_include_errors = 1
+   let g:syntastic_go_checkers = ['go']
+
+" -- Additional language support --
 Plug 'vitalk/vim-shebang'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'ricpelo/vim-gdscript'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'derekwyatt/vim-scala'
 
-" Automation
+" -- Automation --
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'tpope/vim-surround'
 
-" Interface
+" -- Interface --
 Plug 'easymotion/vim-easymotion'
+   let g:EasyMotion_do_mapping = 0
+   let g:EasyMotion_smartcase = 1
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mjturt/ranger.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-eunuch'
 Plug 'google/vim-searchindex'
 Plug 'lilydjwg/colorizer'
-Plug 'rafaqz/ranger.vim'
 Plug 'ap/vim-buftabline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'gcavallanti/vim-noscrollbar'
 Plug 'airblade/vim-rooter'
-Plug 'terryma/vim-multiple-cursors'
+   let g:rooter_manual_only = 1
 
-" Git
+" -- Git --
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Colorschemes
+" -- Colorschemes --
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'jacoborus/tender.vim'
 Plug 'xero/sourcerer.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
-" Basic settings
-" --------------
+" Settings
+" --------
 
-syntax on
-filetype plugin indent on
 set nocompatible
 set encoding=utf-8
-
-set ruler
-set showmatch
-"set nowrap
-set hlsearch
-"set noshowmode
-set list listchars=tab:∙\ ,extends:,precedes:
-set hidden
-set shortmess=atI
-set laststatus=2
-set wildmenu
-set matchpairs+=<:>
-
-set number relativenumber
-
 set ttyfast
 set mouse=a
+set clipboard=unnamedplus
+
+" -- Syntax/filetype
+syntax on
+filetype plugin indent on
+
+" -- Interface --
+set ruler
+set number relativenumber
+"set noshowmode
+set hidden
+set wildmenu
 set showcmd
-set title
 set report=0
+set titlestring=%(\ %M%)%(\ %F%)%a\ -\ 
+set title
+set list listchars=tab:∙\ ,extends:,precedes:
+set shortmess=atI
+"set nowrap
+set laststatus=2
+
+" -- Behavior --
+set matchpairs+=<:>
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set autoread
 set autochdir
-set clipboard=unnamedplus
-set lazyredraw
-set ttimeoutlen=50
 
-" Searching
+" -- Completion --
+set complete=.,w,b,u,t
+set completeopt=longest,menuone
+
+" -- Performance --
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+set lazyredraw
+
+" -- Search --
+set showmatch
+set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-" No folding
+" -- No folds --
 set nofoldenable
 set foldmethod=indent
 
-" Indent / tab-key behavior
+" -- Indent / tab-key behavior --
 set expandtab
 set shiftwidth=3
 set softtabstop=3
@@ -138,11 +176,11 @@ set autoindent
 "set copyindent
 set smartindent
 
-" Cursor position which triggers scrolling
+" -- Cursor position which triggers scrolling --
 set sidescroll=40
 set scrolloff=3
 
-" Temporary files (and persistent undo)
+" -- Temporary files (and persistent undo) --
 set backupdir=~/.vim/temp/backup
 set directory=~/.vim/temp/swap
 set undodir=~/.vim/temp/undo
@@ -150,20 +188,23 @@ set backup
 set noswapfile
 set undofile
 
-" Python path for FreeBSD
+" -- Python path --
 if os=="freebsd"
    let g:python3_host_prog="/usr/local/bin/python3.6"
+elseif os=="linux"
+   let g:python3_host_prog="/usr/bin/python3"
 endif
 
-" Auto-source .vimrc when writing
+" -- Auto-source .vimrc when writing --
 autocmd! bufwritepost .vimrc source ~/.vimrc
-" Transfer + -register content to system clipboard on exit
-autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
-" Defeault completion method
+" -- Transfer + -register content to system clipboard on exit --
+"autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
+" -- Defeault completion method --
 set omnifunc=syntaxcomplete#Complete
 
-" Gvim font
+" -- Gvim font --
 if has("gui_running")
    if has("gui_gtk2") || has("gui_gtk3")
       set guifont=ShureTechMono\ Nerd\ Font\ Mono\ 10
@@ -173,10 +214,10 @@ endif
 " Filetype settings
 " -----------------
 
-" Java completion
+" -- Java completion --
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-" Document viewing
+" -- Document viewing --
 autocmd BufReadPost *.doc silent %!antiword "%" 
 autocmd BufWriteCmd *.doc set readonly
 autocmd BufReadPost *.odt,*.odp silent %!odt2txt "%"
@@ -186,17 +227,16 @@ autocmd BufWriteCmd *.pdf set readonly
 autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 autocmd BufWriteCmd *.rtf set readonly
 
-" Latex
+" -- Latex --
 let g:tex_flavor = 'tex'
 
-" Interface / appearance
-" ----------------------
+" Appearance
+" ----------
 
-set titlestring=%(\ %M%)%(\ %F%)%a\ -\ 
+" -- Color scheme --
+color gruvbox
 
-color nord
-
-" Color overriding
+" -- Color overriding --
 set background=dark
 hi Normal guibg=NONE ctermbg=NONE
 "hi Visual ctermbg=3 ctermfg=0
@@ -205,7 +245,7 @@ hi Normal guibg=NONE ctermbg=NONE
 "hi TabLineSel cterm=bold ctermbg=101 ctermfg=16
 "hi LineNr cterm=bold ctermbg=NONE ctermfg=237
 
-" Cursor color and shape for urxvt+tmux
+" -- Cursor color and shape for urxvt+tmux --
 " Normal: blue block
 " Insert: green vertical line
 " Replace: red underline
@@ -224,7 +264,7 @@ endif
 " Status line
 " -----------
 
-" Statusline sections
+" -- Statusline sections --
 set statusline=
 set statusline+=%1*\ %{ModeCurrent()}%*%2*%*
 set statusline+=\ %-3.(%3*%m%*%)\ %4*%f%*\ %y
@@ -236,7 +276,7 @@ set statusline+=%-16.(C:%c\ L:%4*%l%*/%L%)
 set statusline+=%{noscrollbar#statusline(15,'▒','▉')}
 set statusline+=\ %4*%n%*
 
-" Statusline mode indicator
+" -- Statusline mode indicator --
 let g:currentmode={ 'n' : 'N ', 'no' : 'N·O ', 'v' : 'V ', 'V' : 'V·L ', '^V' : 'V·B ', 's' : 'S ', 'S': 'S·L ', '^S' : 'S·B ', 'i' : 'I ', 'R' : 'R ', 'Rv' : 'V·R ', 'c' : 'C ', 'cv' : 'V-Ex ', 'ce' : 'Ex ', 'r' : 'P ', 'rm' : 'M ', 'r?' : 'Confirm ', '!' : 'S ', 't' : 'T '}
 function! ModeCurrent() abort
     let l:modecurrent = mode()
@@ -245,7 +285,7 @@ function! ModeCurrent() abort
     return l:current_status_mode
 endfunction
 
-" Statusline colors
+" -- Statusline colors --
 hi StatusLine cterm=NONE ctermbg=NONE ctermfg=101
 hi StatusLineNC cterm=NONE ctermbg=016 ctermfg=101
 hi User1 cterm=bold ctermbg=101   ctermfg=16   guibg=green guifg=red
@@ -258,10 +298,10 @@ au InsertLeave * hi User1 ctermbg=101 ctermfg=16 | hi User2 ctermfg=101
 " Keyboard mappings
 " -----------------
 
-" HJKL -> JKLÖ
+" -- HJKL -> JKLÖ --
 noremap j h
-noremap k j
-noremap l k
+noremap k gj
+noremap l gk
 noremap ö l
 
 nmap <silent> <C-w>l :wincmd k<CR>
@@ -269,9 +309,7 @@ nmap <silent> <C-w>k :wincmd j<CR>
 nmap <silent> <C-w>j :wincmd h<CR>
 nmap <silent> <C-w>ö :wincmd l<CR>
 
-" Basics
-"nmap <C-p> o<Esc>
-"set pastetoggle=<F3>
+" -- Basics --
 map <S-k> :bprevious<CR>
 map <S-l> :bnext<CR>
 map + $
@@ -280,81 +318,53 @@ nmap QQ :q<CR>
 nmap QW :wq<CR>
 vmap <C-c> y
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" Easymotion plugin
+nnoremap <cr> o<esc>
+" -- Easymotion plugin
 nmap s <Plug>(easymotion-overwin-f2)
 
-" Leader key
+" -- Leader key --
 let mapleader="'"
 nnoremap <leader>ev :tabnew ~/.vimrc<CR>
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 noremap <Leader>gg gg=G
 nmap <leader>/ :nohl<CR>
 map <leader>X :!chmod +x %<CR><CR>
-map <leader>W :%s/ \{2,}/ /g<CR>
-map <leader>c :set cursorline!<CR>:set cursorcolumn!<CR>
+map <leader>C :set cursorline!<CR>:set cursorcolumn!<CR>
 noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
-noremap <leader>d di"
 nmap <leader>S :SyntasticToggleMode<CR>
 nmap <leader>F :!shfmt -i 3 -ci -sr -w %<CR><CR>
 nmap <leader>R :Rooter<CR>
 noremap <leader>p "bp
 noremap <leader>t :let @b=@+<CR>
 noremap <leader>f gqap
-" Ranger
-map <leader>rr :RangerEdit<cr>
-map <leader>rv :RangerVSplit<cr>
-map <leader>rs :RangerSplit<cr>
-map <leader>rt :RangerTab<cr>
-map <leader>ri :RangerInsert<cr>
+noremap <leader>s :%s//g<LEFT><LEFT>
+" -- Ranger
+map <leader>rr :Ranger<CR>
+map <leader>rh :RangerCurrentFileNewVSplit<CR>
+map <leader>rv :RangerCurrentFileNewSplit<CR>
 
-" Resizing panes
+
+" -- Resizing panes --
 nnoremap <silent> <Leader>l :exe "resize +5"<CR>
 nnoremap <silent> <Leader>k :exe "resize -5"<CR>
 nnoremap <silent> <Leader>ö :exe "vertical resize +5"<CR>
 nnoremap <silent> <Leader>j :exe "vertical resize -5"<CR>
 
-" Function keys
+" -- Function keys --
 map <F5> :call CompileAndRun()<CR>
 vnoremap <F9> "ry:call Func2X11()<cr>
-" Javacomplete plugin
+"set pastetoggle=<F3>
+" -- Javacomplete plugin
 nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 
-" Command prompt
+" -- Command prompt --
 cmap Q q
 cmap W w
 
-" Plugin settings
-" ---------------
+" Custom functions
+" ----------------
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_c_remove_include_errors = 1
-let g:syntastic_go_checkers = ['go']
-
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 1
-
-let g:UltiSnipsExpandTrigger="<c-o>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-
-let g:deoplete#enable_at_startup = 1
-"let g:deoplete#omni_patterns = {}
-"let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-"let g:deoplete#auto_completion_start_length = 2
-"let g:deoplete#sources = {}
-"let g:deoplete#sources._ = []
-"let g:deoplete#file#enable_buffer_path = 1
-
-let g:rooter_manual_only = 1
-
-" Vim functions
-" -------------
-
-" Compile and run
+" -- Compile and run --
 func! CompileAndRun()
    exec"w"
    if &filetype == 'c'
@@ -383,7 +393,7 @@ func! CompileAndRun()
    endif
 endfunc
 
-" ToggleWrap
+" -- ToggleWrap --
 func! ToggleWrap()
    if &wrap
       echo "Wrap OFF"
@@ -413,7 +423,7 @@ func! ToggleWrap()
    endif
 endfunction
 
-" Fallback copy
+" -- Fallback copy to clipboard --
 function! Func2X11()
    :call system('xclip -selection c', @r)
 endfunction
@@ -421,9 +431,11 @@ endfunction
 " Commands
 " --------
 
-command! Sw silent execute 'write !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
+" -- New script --
 command! -nargs=1 ShebangFile :new <args> | 0put =\"#!/usr/bin/env bash\<nl>\"|$
-command! Shebang 0put =\"#!/usr/env/bin bash\<nl>\"|$
+command! Shebang 0put =\"#!/usr/bin/env bash\<nl>\"|$
+
+" -- New dotfile --
 command! -nargs=1 NewdotFile :new <args> | 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|normal gg$
 command! Newdot 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|normal gg$
 
@@ -439,3 +451,5 @@ source $HOME/.vim/projects.vim
 " g/^\s*$/d
 " Delete all spaces and tabs at the end of lines
 " %s/\s\+$//
+" Delete whitespaces longer than 2 characters
+" :%s/ \{2,}/ /g

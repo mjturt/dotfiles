@@ -24,7 +24,7 @@ mono bold bold
 mono underline underline
 mono indicator reverse
 mono error bold
-color indicator brightblack color101
+color indicator blue color233
 color normal default default
 
 color sidebar_highlight magenta color233
