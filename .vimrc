@@ -94,6 +94,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'gcavallanti/vim-noscrollbar'
 Plug 'airblade/vim-rooter'
    let g:rooter_manual_only = 1
+Plug 'junegunn/goyo.vim'
 
 " -- Git --
 Plug 'tpope/vim-fugitive'
@@ -338,11 +339,12 @@ noremap <leader>p "bp
 noremap <leader>t :let @b=@+<CR>
 noremap <leader>f gqap
 noremap <leader>s :%s//g<LEFT><LEFT>
+noremap <leader>G :Goyo<CR><CR>
+
 " -- Ranger
 map <leader>rr :Ranger<CR>
 map <leader>rh :RangerCurrentFileNewVSplit<CR>
 map <leader>rv :RangerCurrentFileNewSplit<CR>
-
 
 " -- Resizing panes --
 nnoremap <silent> <Leader>l :exe "resize +5"<CR>

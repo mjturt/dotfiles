@@ -2,9 +2,8 @@
 # -------------------
 # mjturt
 
-#-----------------#
-# Keyboard (DZ60) #
-#-----------------#
+# Keyboard
+# --------
 
 ### Terminal
 
@@ -13,13 +12,16 @@ Mod4 + Return
 
 ### Media keys
 
-"cmus-remote -r"
+#"cmus-remote -r"
+"playerctl previous"
 XF86AudioPrev
 
-"cmus-remote -n"
+#"cmus-remote -n"
+"playerctl next"
 XF86AudioNext
 
-"cmus-remote -u"
+#"cmus-remote -u"
+"playerctl play-pause"
 XF86AudioPlay
 
 "amixer set Master 2dB+ unmute"
@@ -27,12 +29,6 @@ XF86AudioRaiseVolume
 
 "amixer set Master 2dB- unmute"
 XF86AudioLowerVolume
-
-"amixer set Master 2dB+ unmute"
-Control+Up
-
-"amixer set Master 2dB- unmute"
-Control+Down
 
 "amixer set Master toggle"
 XF86AudioMute
@@ -101,9 +97,8 @@ Control+Alt+s
 #"mutespotify"
 #XF86AudioPlay
 
-#----------------------------#
-# Mouse (Logitech MX Master) #
-#----------------------------#
+# Mouse (MX Master)
+# -----------------
 
 # Thumb button
 "sleep 0.1 && xte 'XF86AudioMute'"                                
