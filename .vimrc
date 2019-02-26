@@ -34,17 +34,20 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " -- Completion --
-Plug 'Shougo/deoplete.nvim'
-   let g:deoplete#enable_at_startup = 0
-   autocmd InsertEnter * call deoplete#enable()
+if has('nvim')
+   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+   Plug 'Shougo/deoplete.nvim'
+   Plug 'roxma/nvim-yarp'
+   Plug 'roxma/vim-hug-neovim-rpc'
+endif
+   let g:deoplete#enable_at_startup = 1
    "let g:deoplete#omni_patterns = {}
    "let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
    "let g:deoplete#auto_completion_start_length = 2
    "let g:deoplete#sources = {}
    "let g:deoplete#sources._ = []
    "let g:deoplete#file#enable_buffer_path = 1
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'artur-shaik/vim-javacomplete2'
 
@@ -57,13 +60,13 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " -- Syntax checking --
-Plug 'vim-syntastic/syntastic'
-   let g:syntastic_always_populate_loc_list = 1
-   let g:syntastic_auto_loc_list = 1
-   let g:syntastic_check_on_open = 1
-   let g:syntastic_check_on_wq = 0
-   let g:syntastic_c_remove_include_errors = 1
-   let g:syntastic_go_checkers = ['go']
+"Plug 'vim-syntastic/syntastic'
+   "let g:syntastic_always_populate_loc_list = 1
+   "let g:syntastic_auto_loc_list = 1
+   "let g:syntastic_check_on_open = 1
+   "let g:syntastic_check_on_wq = 0
+   "let g:syntastic_c_remove_include_errors = 1
+   "let g:syntastic_go_checkers = ['go']
 
 " -- Additional language support --
 Plug 'vitalk/vim-shebang'
@@ -71,6 +74,16 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'ricpelo/vim-gdscript'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'derekwyatt/vim-scala'
+
+Plug 'Yggdroot/indentLine'
+Plug 'sbdchd/neoformat'
+Plug 'neomake/neomake'
+autocmd! BufWritePost,BufEnter * Neomake
+augroup astyle
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " -- Automation --
 Plug 'jiangmiao/auto-pairs'
@@ -83,7 +96,7 @@ Plug 'easymotion/vim-easymotion'
    let g:EasyMotion_do_mapping = 0
    let g:EasyMotion_smartcase = 1
 Plug 'terryma/vim-multiple-cursors'
-Plug 'mjturt/ranger.vim'
+"Plug 'mjturt/ranger.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-eunuch'
@@ -95,18 +108,20 @@ Plug 'gcavallanti/vim-noscrollbar'
 Plug 'airblade/vim-rooter'
    let g:rooter_manual_only = 1
 Plug 'junegunn/goyo.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " -- Git --
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " -- Colorschemes --
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'jacoborus/tender.vim'
-Plug 'xero/sourcerer.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'mhartington/oceanic-next'
+"Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'NLKNguyen/papercolor-theme'
+"Plug 'jacoborus/tender.vim'
+"Plug 'xero/sourcerer.vim'
+"Plug 'arcticicestudio/nord-vim'
+"Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
@@ -272,7 +287,7 @@ set statusline+=\ %-3.(%3*%m%*%)\ %4*%f%*\ %y
 set statusline+=\ %{fugitive#head()!=''?'\ \ '.fugitive#head().'\ ':''}
 set statusline+=%h%r
 set statusline+=%=
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
+"set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
 set statusline+=%-16.(C:%c\ L:%4*%l%*/%L%)
 set statusline+=%{noscrollbar#statusline(15,'▒','▉')}
 set statusline+=\ %4*%n%*

@@ -21,3 +21,5 @@ setroot --on 0 -sc "#2B303B"
 
 ## Window manager
 exec bspwm
+
+export _JAVA_AWT_WM_NONREPARENTING=1

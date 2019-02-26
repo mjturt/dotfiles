@@ -3,7 +3,7 @@
 #┃ mjturt
 
 export LC_TIME="fi_FI.utf8"
-export BROWSER="qutebrowser"
+export BROWSER="chromium"
 
 if [[ -z $DISPLAY && ! -e /tmp/.X11-unix/X0 ]]; then
    #exec startx

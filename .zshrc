@@ -70,9 +70,10 @@ if [[ ! -L ~/.zsh/site-functions/async ]]; then
    ln -v -s ~/.zsh/themes/pure/async.zsh ~/.zsh/site-functions/async
 fi
 
-autoload -Uz promptinit && promptinit
-prompt pure
+#autoload -Uz promptinit && promptinit
+#prompt pure
 #source ~/.zsh/themes/distroprompt.zsh
+#source ~/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-geometry-zsh-SLASH-geometry/geometry.zsh
 
 ### History
 
@@ -135,3 +136,9 @@ fi
 
 ### Remove some useless files
 rm -rf ~/dbus-send.core
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/mjt/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

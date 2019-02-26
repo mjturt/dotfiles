@@ -36,9 +36,11 @@ alias tcurl="proxychains curl"
 alias torip="proxychains curl http://ipecho.net/plain; echo"
 
 ## Vim
-alias svim="sudo vim"
-alias ev="vim ~/.vimrc"
-alias vim-noswap='vim -n -i NONE --cmd "setlocal noswapfile" --cmd "set nocompatible" --cmd "set tabstop=4" -u NONE'
+alias vim="nvim"
+alias vmdiff="nvim -d"
+alias svim="sudo nvim"
+alias ev="nvim ~/.vimrc"
+alias vim-noswap='nvim -n -i NONE --cmd "setlocal noswapfile" --cmd "set nocompatible" --cmd "set tabstop=4" -u NONE'
 
 ## Translate
 alias enfi="trans en:fi"

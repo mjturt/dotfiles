@@ -4,7 +4,7 @@
 
 ## Common enviroment variables (host-specific enviroment variables are set in ~/.zprofile)
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export RANGER_LOAD_DEFAULT_RC=TRUE
 export PAGER="less"
 export LESS="-R"

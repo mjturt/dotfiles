@@ -2,6 +2,8 @@
 #┣━━━━━━━━━━━
 #┃ mjturt
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 ## Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
