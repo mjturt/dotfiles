@@ -938,14 +938,13 @@ df_linopen() {
 
 # SpaceVim (commons)
 df_spacevim() {
-  if [[ -e ~/.SpaceVim ]]
+  if [[ -e ~/.SpaceVim ]];then
     mv -v ~/.SpaceVim.d "$BACKUP" >> "$LOGS"
   elif [[ -L ~/.SpaceVim ]]; then
     rm -v ~/.SpaceVim.d >> "$LOGS"
   fi
   mkdir -v ~/.SpaceVim.d >> "$LOGS"
-  ln -s -v "{DOT}"/.SpaceVim.d/init.toml ~/.SpaceVim.d/init.toml >> "$LOGS"
-  
+  ln -s -v "${DOT}"/.SpaceVim.d/init.toml ~/.SpaceVim.d/init.toml >> "$LOGS"
 }
 
 #┏━━━━━━━━━━━━━━━┓

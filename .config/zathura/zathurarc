@@ -14,15 +14,15 @@ set font "Hurmit NF 10"
 
 # Keybindings
 
-map j scroll left
-map k scroll down
-map l scroll up
-map p scroll right
+map h scroll left
+map j scroll down
+map k scroll up
+map l scroll right
 
-map J navigate previous
-map P navigate next
+map H navigate previous
+map L navigate next
 map K zoom out
-map L zoom in
+map J zoom in
 
 map D toggle_page_mode
 map e scroll half-up

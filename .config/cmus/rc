@@ -12,10 +12,10 @@ set mixer.alsa.device=default
 set mixer.alsa.channel=Master
 
 ### Keybindings
-bind -f common j seek -5
-bind -f common k win-down
-bind -f common l win-up
-bind -f common p seek +5
+bind -f common h seek -5
+bind -f common j win-down
+bind -f common k win-up
+bind -f common l seek +5
 bind -f common d win-half-page-down
 bind -f common u win-half-page-up
 bind -f common R shell ~/.config/cmus/scripts/cmus-reload-library

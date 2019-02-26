@@ -1,6 +1,6 @@
 # dotfiles
 
-This repository is attempt to bring my dotfiles under version controlling. Operating systems in use are Gentoo Linux and FreeBSD.
+This repository is attempt to bring my dotfiles under version controlling. Operating systems in use are Arch Linux and FreeBSD.
 
 ### Software
 
@@ -23,10 +23,6 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 + Mail client:          **Mutt**
 
 There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb, offlineimap, teiler, sxhkd, i3, i3blocks, herbstluftwm, elinks and for pass and buku rofi-frontends.
-
-### Keybindings
-
-Software that use vim-like keybindings I have remapped HJKL->JKLÖ (Ö is finnish letter, in same place on US-layout is odiaeresis).
 
 ![Screenshot](screenshots/screenshot.png?raw=true)
 

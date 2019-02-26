@@ -4,20 +4,20 @@
 
 toggle_keep_vp
 
-prev_img j Left BackSpace
-zoom_in plus l
-zoom_out minus k
-next_img odiaeresis Right space
+prev_img h Left BackSpace
+zoom_in plus k
+zoom_out minus j
+next_img l Right space
 
-scroll_left  J C-Left
-scroll_down  K C-Down
-scroll_up    L C-Up
-scroll_right S-Odiaeresis C-Right
+scroll_left  H C-Left
+scroll_down  J C-Down
+scroll_up    K C-Up
+scroll_right L C-Right
 
-menu_parent j Left
-menu_child  odiaeresis Right
-menu_down   k Down
-menu_up     l Up
+menu_parent h Left
+menu_child  l Right
+menu_down   j Down
+menu_up     k Up
 menu_select space Return
 toggle_menu Tab
 toggle_fullscreen f F5
