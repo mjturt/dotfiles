@@ -84,6 +84,7 @@ commons_cli() {
    df_newsboat
    df_linopen
    df_elinks
+   df_spacevim
 }
 
 # Commons, but only graphical programs
@@ -935,6 +936,18 @@ df_linopen() {
    ln -s -v "${DOT}"/.linopenrc ~/.linopenrc >> "$LOGS"
 }
 
+# SpaceVim (commons)
+df_spacevim() {
+  if [[ -e ~/.SpaceVim ]]
+    mv -v ~/.SpaceVim.d "$BACKUP" >> "$LOGS"
+  elif [[ -L ~/.SpaceVim ]]; then
+    rm -v ~/.SpaceVim.d >> "$LOGS"
+  fi
+  mkdir -v ~/.SpaceVim.d >> "$LOGS"
+  ln -s -v "{DOT}"/.SpaceVim.d/init.toml ~/.SpaceVim.d/init.toml >> "$LOGS"
+  
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -970,7 +983,7 @@ helps() {
    echo -e "\\e[1;35mSingle programs that CANT take host-parameter:\\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
    echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
-   echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources"
+   echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim"
    echo
    echo -e "\\e[1;35mSingle programs that CAN take host-parameter:\\e[0m df_i3, df_ranger"
    echo
