@@ -23,6 +23,9 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_display_mode = false
+    lint_on_the_fly = true
+    bootstrap_before = "myspacevim#before"
+    bootstrap_after = "myspacevim#after"
 
 # Enable autocomplete layer
 [[layers]]
@@ -31,12 +34,23 @@ auto-completion-return-key-behavior = "complete"
 auto-completion-tab-key-behavior = "smart"
 
 [[layers]]
+  name = "VersionControl"
+
+[[layers]]
 name = 'shell'
 default_position = 'top'
 default_height = 30
 
 [[layers]]
 name = "lang#java"
+[[layers]]
+name = "lang#sh"
+[[layers]]
+name = "lang#javascript"
+[[layers]]
+name = "lang#latex"
+[[layers]]
+name = "lang#markdown"
 
 [[layers]]
   name = "lsp"

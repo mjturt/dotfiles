@@ -943,8 +943,12 @@ df_spacevim() {
   elif [[ -L ~/.SpaceVim ]]; then
     rm -v ~/.SpaceVim.d >> "$LOGS"
   fi
-  mkdir -v ~/.SpaceVim.d >> "$LOGS"
-  ln -s -v "${DOT}"/.SpaceVim.d/init.toml ~/.SpaceVim.d/init.toml >> "$LOGS"
+  {
+    mkdir -v ~/.SpaceVim.d
+    mkdir -v ~/.SpaceVim.d/autoload
+    ln -s -v "${DOT}"/.SpaceVim.d/init.toml ~/.SpaceVim.d/init.toml
+    ln -s -v "${DOT}"/.SpaceVim.d/autoload/config.vim ~/.SpaceVim.d/autoload/config.vim
+  } >> "$LOGS"
 }
 
 #┏━━━━━━━━━━━━━━━┓
