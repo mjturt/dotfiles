@@ -91,6 +91,11 @@ alias worlds="ranger ~/cloud/txt/worlds"
 alias muttlocal="mutt -F ~/.mutt/muttrc-local"
 alias mutt="cd ~/cloud/attachments && mutt"
 
+# gcalcli
+alias gcal-agenda="gcalcli agenda --color-owner=red --military"
+alias gcal-thisweek="gcalcli calw --color-owner=red --military --monday"
+alias gcal-nextweek="gcalcli calw \"next week\" --color-owner=red --military --monday"
+
 ## Other
 alias fbvar="export TERM=fbterm"
 alias c="syntax-highlighting"
