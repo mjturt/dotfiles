@@ -95,6 +95,7 @@ alias mutt="cd ~/cloud/attachments && mutt"
 alias gcal-agenda="gcalcli agenda --color-owner=red --military"
 alias gcal-thisweek="gcalcli calw --color-owner=red --military --monday"
 alias gcal-nextweek="gcalcli calw \"next week\" --color-owner=red --military --monday"
+alias gcal-add="gcalcli --calendar=\"maks.turtiainen@gmail.com\" add"
 
 ## Other
 alias fbvar="export TERM=fbterm"
