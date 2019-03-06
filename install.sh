@@ -951,6 +951,21 @@ df_spacevim() {
   } >> "$LOGS"
 }
 
+# Neovim (commons)
+df_neovim() {
+    if [ -e ~/.config/nvim ]; then
+        mv -v ~/.config/nvim "$BACKUP" >> "$LOGS"
+    elif [ -L ~/.config/nvim ]; then
+        rm -v ~/.config/nvim >> "$LOGS"
+    fi
+    {
+        mkdir -v ~/.config/nvim
+        mkdir -v ~/.config/nvim/plugins
+        ln -s -v "${DOT}"/.config/nvim/init.vim ~/.config/nvim/init.vim
+        ln -s -v "${DOT}"/.config/nvim/projects.vim ~/.config/nvim/projects.vim
+    } >> "$LOGS"
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -986,7 +1001,7 @@ helps() {
    echo -e "\\e[1;35mSingle programs that CANT take host-parameter:\\e[0m df_vim, df_tmux, df_screen, df_feh,"
    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
    echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
-   echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim"
+   echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim, df_neovim"
    echo
    echo -e "\\e[1;35mSingle programs that CAN take host-parameter:\\e[0m df_i3, df_ranger"
    echo
