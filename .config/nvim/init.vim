@@ -68,6 +68,7 @@ Plug 'xolox/vim-misc'
 Plug 'mbbill/undotree'
 Plug 'dbakker/vim-projectroot'
 Plug 'dbeniamine/vim-mail'
+Plug 'wsdjeg/FlyGrep.vim'
 
 " -- UI --
 Plug 'farmergreg/vim-lastplace'
@@ -265,6 +266,8 @@ vmap <C-c> y
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 nnoremap <cr> o<esc>
 map <Esc> :nohl<CR>
+nnoremap <tab> <c-w>
+nnoremap <tab><tab> <c-w><c-w>
 
 " -- Neosnippet
 imap <C-o> <Plug>(neosnippet_expand_or_jump)
@@ -274,17 +277,18 @@ xmap <C-o> <Plug>(neosnippet_expand_target)
 " -- Leader key --
 let mapleader="\<Space>"
 nnoremap <leader>ev :tabnew ~/.config/nvim/init.vim<CR>
+noremap <leader>es :so ~/.config/nvim/init.vim<cr>
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
-noremap <Leader>gg gg=G
 map <leader>X :!chmod +x %<CR><CR>
-map <leader>C :set cursorline!<CR>:set cursorcolumn!<CR>
 noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>p "bp
 noremap <leader>R :let @b=@+<CR>
 noremap <leader>f gqap
 noremap <leader>s :%s//g<LEFT><LEFT>
-noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>
+noremap <Leader>gg gg=G
 
+noremap <leader>gr :FlyGrep<cr>
+noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>
 noremap <leader>G :Goyo<CR><CR>
 nnoremap <leader>u :UndotreeToggle<cr>
 nmap <leader>F :!shfmt -i 3 -ci -sr -w %<CR><CR>
