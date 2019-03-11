@@ -18,12 +18,13 @@ setroot --on 0 -sc "#2B303B" # --on 1 -sc  "#2B303B"
 #locktimer r5 &
 dunst &
 compton -b &
-nextcloud &
+#nextcloud &
 #blueberry-tray &
 rambox-bin &
 #steam &
 #nitrogen --restore &
 #redshift -l 60.46:22.29 &
+greenclip daemon &
 
 ## Window manager
 exec bspwm

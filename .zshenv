@@ -3,4 +3,5 @@
 #┃ mjturt
 
 typeset -U path
-path=(~/bin ~/sh $path[@])
+path=(~/bin ~/.config/composer/vendor/bin ~/sh $path[@])
+

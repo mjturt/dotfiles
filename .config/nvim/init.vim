@@ -44,15 +44,18 @@ Plug 'honza/vim-snippets'
 " -- Syntax checking --
 Plug 'neomake/neomake'
 
-" -- Additional language support --
+" -- Better/additional language support --
 Plug 'sheerun/vim-polyglot'
 Plug 'vitalk/vim-shebang'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'ricpelo/vim-gdscript'
 Plug 'artur-shaik/vim-javacomplete2'
+Plug 'StanAngeloff/php.vim'
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
 " -- Code formatting --
 Plug 'sbdchd/neoformat'
+Plug 'stephpy/vim-php-cs-fixer'
 
 " -- Language Client --
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next',  'do': 'bash install.sh', }

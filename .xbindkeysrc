@@ -65,6 +65,12 @@ Alt+n
 "rofi-power"
 Alt+x
 
+"rofi-surfraw"
+Control+space
+
+"rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+Alt+y
+
 # Adds primary selection to bookmarks
 "bukuadd"
 Control+Alt+b
