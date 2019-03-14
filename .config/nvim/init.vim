@@ -137,6 +137,7 @@ let g:airline_powerline_fonts = 1
 
 " -- Language server --
 let g:LanguageClient_serverCommands = { 'java': ['/usr/bin/jdtls', '-data', getcwd()], }
+let g:LanguageClient_serverCommands = { 'sh': ['bash-language-server', 'start'] }
 
 " Settings
 " --------

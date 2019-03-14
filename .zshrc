@@ -70,6 +70,7 @@ if [[ ! -L ~/.zsh/site-functions/async ]]; then
    ln -v -s ~/.zsh/themes/pure/async.zsh ~/.zsh/site-functions/async
 fi
 
+## Prompt set by antibody
 #autoload -Uz promptinit && promptinit
 #prompt pure
 #source ~/.zsh/themes/distroprompt.zsh
@@ -118,6 +119,7 @@ source $HOME/.zsh/functions.zsh
 source $HOME/.zsh/aliases.zsh
 source $HOME/.zsh/private.zsh
 source $HOME/.zsh/keybindings.zsh
+source $HOME/.zsh/themes/spaceship-settings.zsh
 
 ### Dircolors
 

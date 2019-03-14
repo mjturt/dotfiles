@@ -7,4 +7,5 @@ soimort/translate-shell
 # Themes
 #zaari/karu
 #cusxio/delta-prompt
-geometry-zsh/geometry
+#geometry-zsh/geometry
+denysdovhan/spaceship-prompt

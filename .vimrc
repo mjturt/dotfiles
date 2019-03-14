@@ -314,17 +314,6 @@ au InsertLeave * hi User1 ctermbg=101 ctermfg=16 | hi User2 ctermfg=101
 " Keyboard mappings
 " -----------------
 
-" -- HJKL -> JKLÖ --
-noremap j h
-noremap k gj
-noremap l gk
-noremap ö l
-
-nmap <silent> <C-w>l :wincmd k<CR>
-nmap <silent> <C-w>k :wincmd j<CR>
-nmap <silent> <C-w>j :wincmd h<CR>
-nmap <silent> <C-w>ö :wincmd l<CR>
-
 " -- Basics --
 map <S-k> :bprevious<CR>
 map <S-l> :bnext<CR>
@@ -362,10 +351,10 @@ map <leader>rh :RangerCurrentFileNewVSplit<CR>
 map <leader>rv :RangerCurrentFileNewSplit<CR>
 
 " -- Resizing panes --
-nnoremap <silent> <Leader>l :exe "resize +5"<CR>
-nnoremap <silent> <Leader>k :exe "resize -5"<CR>
-nnoremap <silent> <Leader>ö :exe "vertical resize +5"<CR>
-nnoremap <silent> <Leader>j :exe "vertical resize -5"<CR>
+nnoremap <silent> <Leader>h :exe "vertical resize -5"<CR>
+nnoremap <silent> <Leader>j :exe "resize -5"<CR>
+nnoremap <silent> <Leader>k :exe "resize +5"<CR>
+nnoremap <silent> <Leader>l :exe "vertical resize +5"<CR>
 
 " -- Function keys --
 map <F5> :call CompileAndRun()<CR>
