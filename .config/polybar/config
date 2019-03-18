@@ -254,7 +254,10 @@ label-foreground = #ff9800
 click-left = ~/.statusscripts/polybar/date-calendar.sh click
 
 [module/volume]
-type = internal/volume
+type = internal/pulseaudio
+
+sink = alsa_output.pci-0000_00_14.2.analog-stereo
+use-ui-max = true
 
 format-volume = <label-volume> <bar-volume>
 label-volume = 

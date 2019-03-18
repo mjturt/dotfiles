@@ -8,6 +8,10 @@ if [[ ! -f /usr/local/bin/antibody ]]; then
    curl -sL git.io/antibody | sudo sh -s
    /usr/local/bin/antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
 fi
+
+# https://github.com/denysdovhan/spaceship-prompt/issues/407
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
+
 source ~/.zsh/plugins.sh
 
 ### Completion

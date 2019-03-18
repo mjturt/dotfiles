@@ -24,10 +24,12 @@ XF86AudioNext
 "playerctl play-pause"
 XF86AudioPlay
 
-"amixer set Master 2dB+ unmute"
+#"amixer set Master 2dB+ unmute"
+"pactl set-sink-volume 12 +5%"
 XF86AudioRaiseVolume
 
-"amixer set Master 2dB- unmute"
+#"amixer set Master 2dB- unmute"
+"pactl set-sink-volume 12 -5%"
 XF86AudioLowerVolume
 
 "amixer set Master toggle"
