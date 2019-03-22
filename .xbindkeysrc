@@ -25,11 +25,11 @@ XF86AudioNext
 XF86AudioPlay
 
 #"amixer set Master 2dB+ unmute"
-"pactl set-sink-volume 12 +5%"
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
 XF86AudioRaiseVolume
 
 #"amixer set Master 2dB- unmute"
-"pactl set-sink-volume 12 -5%"
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
 XF86AudioLowerVolume
 
 "amixer set Master toggle"
@@ -82,6 +82,9 @@ Alt+b
 
 "rofi-pass"
 Alt+p
+
+"~/.config/rofi/scripts/rofi-nerdfonts/rofi-nerdfonts.sh"
+Alt+f
 
 ### Other
 

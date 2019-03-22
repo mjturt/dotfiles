@@ -139,6 +139,9 @@ let g:airline_powerline_fonts = 1
 let g:LanguageClient_serverCommands = { 'java': ['/usr/bin/jdtls', '-data', getcwd()], }
 let g:LanguageClient_serverCommands = { 'sh': ['bash-language-server', 'start'] }
 
+" -- Vim-markdown --
+let g:vim_markdown_conceal = 0
+
 " Settings
 " --------
 
@@ -295,10 +298,14 @@ noremap <leader>gr :FlyGrep<cr>
 noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>
 noremap <leader>G :Goyo<CR><CR>
 nnoremap <leader>u :UndotreeToggle<cr>
-nmap <leader>F :!shfmt -i 3 -ci -sr -w %<CR><CR>
+nmap <leader>F :!shfmt -i 4 -ci -sr -w %<CR><CR>
 nnoremap <leader>r :NERDTreeToggle<cr>
 nnoremap <leader>T :Tagbar<cr><cr>
 nmap <leader><Tab> :FZF<cr>
+nmap <leader>J <Plug>(JavaComplete-Imports-AddMissing)
+map <leader>R :call CompileAndRun()<CR>
+vnoremap <leader>Y "ry:call Func2X11()<cr>
+map <leader>C :ColorToggle<CR>
 
 " -- Leader guide
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
@@ -308,13 +315,6 @@ nnoremap <silent> <Leader>h :exe "vertical resize -5"<CR>
 nnoremap <silent> <Leader>j :exe "resize -5"<CR>
 nnoremap <silent> <Leader>k :exe "resize +5"<CR>
 nnoremap <silent> <Leader>l :exe "vertical resize +5"<CR>
-
-" -- Function keys --
-map <F5> :call CompileAndRun()<CR>
-vnoremap <F9> "ry:call Func2X11()<cr>
-"set pastetoggle=<F3>
-" -- Javacomplete plugin
-nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 
 " -- Command prompt --
 cmap Q q

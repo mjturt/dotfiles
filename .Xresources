@@ -19,11 +19,11 @@ Xft*rgba:                          rgba
 ! URxvt
 !------
 
-URxvt*font:                        xft:Iosevka NF:size=10,xft:Unifont:size=10
-URxvt*boldFont:                    xft:Iosevka NF:Bold:size=10,xft:Unifont:size=10
-uRxvt*italicFont:                  xft:Iosevka NF:Italic:size=10,xft:Unifont:size=10
-URxvt*boldItalicFont:              xft:Iosevka NF:Bold:Italic:size=10,xft:Unifont:size=10
-URxvt.letterSpace:                 -1 
+URxvt*font:                        xft:BlexMono NF:size=10,xft:Unifont:size=10
+URxvt*boldFont:                    xft:BlexMono NF:style=Bold:size=10,xft:Unifont:size=10
+URxvt*italicFont:                  xft:BlexMono NF:style=Italic:size=10,xft:Unifont:size=10
+URxvt*boldItalicFont:              xft:BlexMono NF:style=Bold Italic:size=10,xft:Unifont:size=10
+!URxvt.letterSpace:                 -1
 URxvt.lineSpace:                   0
 URxvt*skipBuiltinGlyphs:           false
 

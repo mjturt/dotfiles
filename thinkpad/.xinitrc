@@ -14,7 +14,7 @@ xmodmap ~/.Xmodmap
 locktimer thinkpad &
 dunst &
 compton -b &
-nextcloud &
+#nextcloud &
 rambox &
 nm-applet &
 setroot --on 0 -sc "#2B303B"
