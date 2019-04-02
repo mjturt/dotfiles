@@ -962,6 +962,7 @@ df_neovim() {
         mkdir -v ~/.config/nvim
         mkdir -v ~/.config/nvim/plugins
         ln -s -v "${DOT}"/.config/nvim/init.vim ~/.config/nvim/init.vim
+        ln -s -v "${DOT}"/.config/nvim/init-simple.vim ~/.config/nvim/init-simple.vim
         ln -s -v "${DOT}"/.config/nvim/projects.vim ~/.config/nvim/projects.vim
     } >> "$LOGS"
 }
