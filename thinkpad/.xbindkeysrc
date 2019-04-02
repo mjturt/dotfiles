@@ -50,6 +50,9 @@ Alt+n
 "rofi-power tp"
 Alt+x
 
+"rofi-surfraw"
+Control+space
+
 ### Color picker
 "yad --color"
 Alt+c

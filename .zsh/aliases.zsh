@@ -39,8 +39,9 @@ alias torip="proxychains curl http://ipecho.net/plain; echo"
 alias vim="nvim"
 alias vmdiff="nvim -d"
 alias svim="sudo nvim"
-alias ev="nvim ~/.vimrc"
+alias ev="nvim ~/.config/nvim/init.vim"
 alias vim-noswap='nvim -n -i NONE --cmd "setlocal noswapfile" --cmd "set nocompatible" --cmd "set tabstop=4" -u NONE'
+alias nvims="nvim -u ~/.config/nvim/init-simple.vim"
 
 ## Translate
 alias enfi="trans en:fi"

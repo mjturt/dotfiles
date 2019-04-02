@@ -52,6 +52,10 @@ Plug 'ricpelo/vim-gdscript'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'StanAngeloff/php.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+Plug 'dsawardekar/wordpress.vim'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'moll/vim-node'
+Plug 'epilande/vim-react-snippets'
 
 " -- Code formatting --
 Plug 'sbdchd/neoformat'
@@ -141,6 +145,12 @@ let g:LanguageClient_serverCommands = { 'sh': ['bash-language-server', 'start'] 
 
 " -- Vim-markdown --
 let g:vim_markdown_conceal = 0
+
+" -- Colorizer --
+let g:colorizer_maxlines = 1000
+
+" -- Wordpress --
+let g:wordpress_vim_wordpress_path = "/usr/share/webapps/wordpress"
 
 " Settings
 " --------
