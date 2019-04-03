@@ -52,10 +52,11 @@ Plug 'ricpelo/vim-gdscript'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'StanAngeloff/php.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-Plug 'dsawardekar/wordpress.vim'
+"Plug 'dsawardekar/wordpress.vim'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'moll/vim-node'
 Plug 'epilande/vim-react-snippets'
+Plug 'alvan/vim-closetag'
 
 " -- Code formatting --
 Plug 'sbdchd/neoformat'
@@ -94,9 +95,12 @@ Plug 'moll/vim-bbye'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
-" -- fzf --
-Plug '/usr/bin/fzf'
-Plug 'junegunn/fzf.vim'
+" -- Fuzzy finging --
+Plug 'ctrlpvim/ctrlp.vim'
+"Plug '/usr/bin/fzf'
+"Plug 'junegunn/fzf.vim'
+"Plug 'https://gist.github.com/drasill/ff9b94025dc8aa7e404f',
+    "\ { 'dir': g:plug_home.'/vim-fzf-git-ls-files/plugin', 'rtp': '..' }
 
 " -- Files --
 Plug 'scrooloose/nerdtree'
@@ -151,6 +155,11 @@ let g:colorizer_maxlines = 1000
 
 " -- Wordpress --
 let g:wordpress_vim_wordpress_path = "/usr/share/webapps/wordpress"
+
+" -- CtrlP --
+set wildignore+=vendor/*,docs/*,node_modules/*,components/*,build/*,dist/*,ttags
+let g:ctrlp_map = '<leader><Tab>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Settings
 " --------
@@ -301,8 +310,11 @@ noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>p "bp
 noremap <leader>R :let @b=@+<CR>
 noremap <leader>f gqap
-noremap <leader>s :%s//g<LEFT><LEFT>
+noremap <leader>ss :%s//g<LEFT><LEFT>
 noremap <Leader>gg gg=G
+noremap <leader>sw :%s/\s\+$//<cr>
+noremap <leader>so :so %<cr>
+noremap <leader>S :set spell!<cr>
 
 noremap <leader>gr :FlyGrep<cr>
 noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>
