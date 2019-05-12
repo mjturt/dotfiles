@@ -4,7 +4,7 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 
 ### Software
 
-+ Text editor:          **Vim**
++ Text editor:          **Neovim**
 + Window manager:       **Bspwm**
 + Panel:                **Polybar**
 + Terminal emulator:    **urxvt**
@@ -12,7 +12,7 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 + Terminal multiplexer: **Tmux**
 + File manager:         **Ranger**
 + Launcher:             **Rofi**
-+ Browser:              **qutebrowser**
++ Browser:              **Chromium**
 + Notification system:  **Dunst**
 + Image viewer:         **Feh**
 + PDF viewer:           **Zathura**

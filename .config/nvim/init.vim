@@ -35,6 +35,7 @@ call plug#begin('~/.config/nvim/plugins')
 
 " -- Completion --
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " -- Snippets --
 Plug 'Shougo/neosnippet.vim'
@@ -57,6 +58,7 @@ Plug 'shawncplus/phpcomplete.vim'
 Plug 'moll/vim-node'
 Plug 'epilande/vim-react-snippets'
 Plug 'alvan/vim-closetag'
+Plug 'Valloric/MatchTagAlways'
 
 " -- Code formatting --
 Plug 'sbdchd/neoformat'
@@ -157,9 +159,20 @@ let g:colorizer_maxlines = 1000
 let g:wordpress_vim_wordpress_path = "/usr/share/webapps/wordpress"
 
 " -- CtrlP --
-set wildignore+=vendor/*,docs/*,node_modules/*,components/*,build/*,dist/*,ttags
+set wildignore+=vendor/*,docs/*,node_modules/*,components/*,build/*,dist/*,tags
 let g:ctrlp_map = '<leader><Tab>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" -- MatchTagAlways --
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'javascript.jsx' : 1,
+    \ 'jsx' : 1,
+    \}
 
 " Settings
 " --------
@@ -320,7 +333,6 @@ noremap <leader>gr :FlyGrep<cr>
 noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>
 noremap <leader>G :Goyo<CR><CR>
 nnoremap <leader>u :UndotreeToggle<cr>
-nmap <leader>F :!shfmt -i 4 -ci -sr -w %<CR><CR>
 nnoremap <leader>r :NERDTreeToggle<cr>
 nnoremap <leader>T :Tagbar<cr><cr>
 nmap <leader><Tab> :FZF<cr>
@@ -328,6 +340,9 @@ nmap <leader>J <Plug>(JavaComplete-Imports-AddMissing)
 map <leader>R :call CompileAndRun()<CR>
 vnoremap <leader>Y "ry:call Func2X11()<cr>
 map <leader>C :ColorToggle<CR>
+nmap <leader>LS :!shfmt -i 4 -ci -sr -w %<CR><CR>
+nmap <leader>LE :!eslint --fix %<CR><CR>
+nmap <leader>LL :Neoformat<CR>
 
 " -- Leader guide
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>

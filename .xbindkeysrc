@@ -84,6 +84,9 @@ Alt+b
 Alt+p
 
 "~/.config/rofi/scripts/rofi-nerdfonts/rofi-nerdfonts.sh"
+Control+Alt+f
+
+"~/.config/rofi/scripts/rofi-fontawesome.sh"
 Alt+f
 
 ### Other

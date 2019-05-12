@@ -42,6 +42,7 @@ alias svim="sudo nvim"
 alias ev="nvim ~/.config/nvim/init.vim"
 alias vim-noswap='nvim -n -i NONE --cmd "setlocal noswapfile" --cmd "set nocompatible" --cmd "set tabstop=4" -u NONE'
 alias nvims="nvim -u ~/.config/nvim/init-simple.vim"
+alias vv="nvim -u ~/.config/nvim/init-unixkerho.vim"
 
 ## Translate
 alias enfi="trans en:fi"
