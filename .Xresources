@@ -34,7 +34,7 @@ URxvt.transparent:                 false
 URxvt.fading:                      30
 URxvt.shading:                     75
 URxvt.cursorBlink:                 false
-URxvt.cursorUnderline:             false
+URxvt.cursorUnderline:             true
 URxvt*underlineURLs:               true
 
 URxvt*depth:                       32

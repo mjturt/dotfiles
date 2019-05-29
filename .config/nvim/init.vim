@@ -43,7 +43,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 
 " -- Syntax checking --
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 
 " -- Better/additional language support --
 Plug 'sheerun/vim-polyglot'
@@ -59,6 +59,7 @@ Plug 'moll/vim-node'
 Plug 'epilande/vim-react-snippets'
 Plug 'alvan/vim-closetag'
 Plug 'Valloric/MatchTagAlways'
+Plug 'udalov/kotlin-vim'
 
 " -- Code formatting --
 Plug 'sbdchd/neoformat'
@@ -106,6 +107,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " -- Files --
 Plug 'scrooloose/nerdtree'
+Plug 'mjturt/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-eunuch'
 
 " -- Airline --
@@ -139,7 +142,7 @@ let g:deoplete#sources._ = []
 let g:deoplete#file#enable_buffer_path = 1
 
 " -- Neomake --
-call neomake#configure#automake('nrwi', 500)
+" call neomake#configure#automake('nrwi', 500)
 
 " -- Airline --
 let g:airline#extensions#tabline#enabled = 1
@@ -173,6 +176,12 @@ let g:mta_filetypes = {
     \ 'javascript.jsx' : 1,
     \ 'jsx' : 1,
     \}
+
+" -- Neoformat --
+let g:neoformat_enabled_javascript = ['prettier']
+
+" -- NerdCommenter --
+let g:NERDSpaceDelims = 1
 
 " Settings
 " --------
@@ -333,7 +342,10 @@ noremap <leader>gr :FlyGrep<cr>
 noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>
 noremap <leader>G :Goyo<CR><CR>
 nnoremap <leader>u :UndotreeToggle<cr>
-nnoremap <leader>r :NERDTreeToggle<cr>
+nnoremap <leader>rr :NERDTreeToggle<cr>
+map <leader>re :Ranger<CR>
+map <leader>rv :RangerCurrentFileNewVSplit<CR>
+map <leader>rs :RangerCurrentFileNewSplit<CR><Paste>
 nnoremap <leader>T :Tagbar<cr><cr>
 nmap <leader><Tab> :FZF<cr>
 nmap <leader>J <Plug>(JavaComplete-Imports-AddMissing)
