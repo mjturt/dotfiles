@@ -50,7 +50,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vitalk/vim-shebang'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'ricpelo/vim-gdscript'
-Plug 'artur-shaik/vim-javacomplete2'
+" Plug 'artur-shaik/vim-javacomplete2'
 Plug 'StanAngeloff/php.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 "Plug 'dsawardekar/wordpress.vim'
@@ -179,6 +179,12 @@ let g:mta_filetypes = {
 
 " -- Neoformat --
 let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_java_uncrustify = {
+            \ 'exe': 'uncrustify',
+            \ 'args': ['-c ~/.uncrustify', '--no-backup', '-f'],
+            \ }
+
+let g:neoformat_enabled_java = ['uncrustify']
 
 " -- NerdCommenter --
 let g:NERDSpaceDelims = 1

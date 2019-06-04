@@ -15,6 +15,10 @@ elif [[ "$(hostname)" = "tp" ]]; then
    bspc monitor eDP-1 -d 1 2 3 4 5 6
    bspc monitor DP-2 -d 7 8 9
    bspc config focus_follows_pointer false
+elif [[ "$(hostname)" = "yoga" ]]; then
+   bspc monitor eDP-1 -d 1 2 3 4
+   bspc monitor HDMI-2 -d 5 6 7 8 9
+   bspc config focus_follows_pointer true
 fi
 
 ### Basic settings
@@ -52,3 +56,4 @@ bspc rule -a propertymanager.MainApp state=floating
 
 ### Start polybar with starting script
 poly bspwm
+polybar bspwmhdmi
