@@ -68,10 +68,10 @@ Alt+b
 Alt+p
 
 ### Media keys
-"amixer set Master 2dB+ unmute"
+"amixer set Master 5%+"
 XF86AudioRaiseVolume
 
-"amixer set Master 2dB- unmute"
+"amixer set Master 5%-"
 XF86AudioLowerVolume
 
 "amixer set Master toggle"

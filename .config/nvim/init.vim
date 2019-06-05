@@ -53,6 +53,7 @@ Plug 'ricpelo/vim-gdscript'
 " Plug 'artur-shaik/vim-javacomplete2'
 Plug 'StanAngeloff/php.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 "Plug 'dsawardekar/wordpress.vim'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'moll/vim-node'
@@ -151,6 +152,7 @@ let g:airline_powerline_fonts = 1
 " -- Language server --
 let g:LanguageClient_serverCommands = { 'java': ['/usr/bin/jdtls', '-data', getcwd()], }
 let g:LanguageClient_serverCommands = { 'sh': ['bash-language-server', 'start'] }
+let g:LanguageClient_serverCommands = { 'python': ['pyls'] }
 
 " -- Vim-markdown --
 let g:vim_markdown_conceal = 0
@@ -183,8 +185,14 @@ let g:neoformat_java_uncrustify = {
             \ 'exe': 'uncrustify',
             \ 'args': ['-c ~/.uncrustify', '--no-backup', '-f'],
             \ }
-
 let g:neoformat_enabled_java = ['uncrustify']
+let g:neoformat_php_phpcsfixer = {
+            \ 'exe': 'php-cs-fixer',
+            \ 'args': ['fix', '--rules=@Symfony,-@PSR1,-blank_line_before_statement,indentation_type'],
+            \ 'stdin': 0,
+            \ 'replace': 1,
+            \ }
+let g:neoformat_enabled_php = ['phpcsfixer']
 
 " -- NerdCommenter --
 let g:NERDSpaceDelims = 1
