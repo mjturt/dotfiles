@@ -85,6 +85,7 @@ commons_cli() {
    df_linopen
    df_elinks
    df_spacevim
+   df_neovim
 }
 
 # Commons, but only graphical programs

@@ -106,18 +106,27 @@ XF86AudioPrev
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 XF86AudioNext
 
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+Control+Alt+Left
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+Control+Alt+Right
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+XF86AudioPlay
+
 #-------------------------------------#
 # External mouse (Logitech MX Master) #
 #-------------------------------------#
 
 # Thumb button
 "sleep 0.1 && xte 'XF86AudioMute'"                                
-   m:0xc + c:23
+m:0xc + c:23
 
 # Thumb back key       
 "xte 'key XF86AudioLowerVolume'"                
-   b:8                                   
-                                        
+b:8                                   
+
 # Thumb forward key
 "xte 'key XF86AudioRaiseVolume'"        
-   b:9
+b:9
