@@ -91,7 +91,7 @@ alias worlds="ranger ~/cloud/txt/worlds"
 
 ## Mutt
 alias muttlocal="mutt -F ~/.mutt/muttrc-local"
-alias mutt="cd ~/cloud/attachments && mutt"
+alias mutt="cd ~/cloud/attachments && neomutt"
 
 # gcalcli
 alias gcal-agenda="gcalcli agenda --color-owner=red --military"

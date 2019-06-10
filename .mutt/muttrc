@@ -55,7 +55,7 @@ set sort=reverse-threads
 set strict_threads=yes
 set date_format ="%d.%m.%y » %H:%M"
 set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
-set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+set status_format = "──[ Dir: %f ]─────[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]─────%>─%?p?( %p postponed )?───"
 unset collapse_unread
 set read_inc = 1
 set time_inc = 300

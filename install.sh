@@ -739,6 +739,16 @@ df_mutt() {
    elif [[ -L ~/.notmuch-config ]]; then
       rm -v ~/.notmuch-config >> "$LOGS"
    fi
+   if [[ -e ~/.mbsyncrc ]]; then
+      mv -v ~/.mbsyncrc "$BACKUP" >> "$LOGS"
+   elif [[ -L ~/.mbsyncrc ]]; then
+      rm -v ~/.mbsyncrc >> "$LOGS"
+   fi
+   if [[ -e ~/.config/msmtp ]]; then
+      mv -v ~/.config/msmtp "$BACKUP" >> "$LOGS"
+   elif [[ -L ~/.config/msmtp ]]; then
+      rm -v ~/.config/msmtp >> "$LOGS"
+   fi
    {
       mkdir -v ~/.mutt
       ln -s -v "${DOT}"/.mutt/keybindings ~/.mutt/keybindings
@@ -763,8 +773,11 @@ df_mutt() {
          ln -s -v "${DOT}"/.mutt/accounts ~/.mutt/accounts
          ln -s -v "${DOT}"/.mutt/signatures ~/.mutt/signatures
          ln -s -v "${DOT}"/.mutt/lists ~/.mutt/lists
+         ln -s -v "${DOT}"/.mutt/signatures ~/.mutt/signatures
          ln -s -v "${DOT}"/.mutt/offlineimap/offlineimaprc ~/.offlineimaprc
          ln -s -v "${DOT}"/.mutt/offlineimap/offlineimap.py ~/.offlineimap.py
+         ln -s -v "${DOT}"/.mbsyncrc ~/.mbsyncrc
+         ln -s -v "${DOT}"/.config/msmtp ~/.config/msmtp
       } >> "$LOGS"
    fi
 }
