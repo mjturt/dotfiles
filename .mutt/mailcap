@@ -1,12 +1,19 @@
+# vim: filetype=neomuttrc
 #┃ ~/.mutt/mailcap
 #┣━━━━━━━━━━━━━━━━
 #┃ mjturt
 
-application/msword; antiword '%s'; copiousoutput; description=Word Document;
-nametemplate=%s.doc
-application/pdf; pdftotext '%s' -; copiousoutput; description=PDF Document;
-nametemplate=%s.pdf
+# application/msword; antiword '%s'; copiousoutput; description=Word Document;
+# nametemplate=%s.doc
+# application/pdf; pdftotext '%s' -; copiousoutput; description=PDF Document;
+# nametemplate=%s.pdf
+text/plain; $EDITOR %s ;
+text/html; xdg-open %s ;
 text/html; elinks -dump %s; needsterminal; copiousoutput
-image/*; feh %s; copiousoutput; needsterminal
+image/*; feh %s; copiousoutput
 audio/*; /usr/bin/mpv %s ; copiousoutput
 video/*; /usr/bin/mpv %s ; copiousoutput
+application/pdf; xdg-open %s ;
+application/pgp-encrypted; gpg -d '%s'; copiousoutput;
+application/msword; libreoffice '%s'; copiousoutput; description=Word Document;
+application/msexcel; libreoffice '%s'; copiousoutput; description=Word Document;

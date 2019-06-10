@@ -86,6 +86,8 @@ commons_cli() {
    df_elinks
    df_spacevim
    df_neovim
+   df_mutt
+   df_tmuxp
 }
 
 # Commons, but only graphical programs
@@ -129,7 +131,6 @@ host_server() {
    df_ranger server
    df_rtorrent
    df_irssi
-   df_mutt
    df_vdirsyncer
    df_khard
 }
@@ -745,22 +746,22 @@ df_mutt() {
       ln -s -v "${DOT}"/.mutt/colors ~/.mutt/colors
       ln -s -v "${DOT}"/.mutt/scripts ~/.mutt/scripts
       ln -s -v "${DOT}"/.mutt/aliases ~/.mutt/aliases
-      ln -s -v "${DOT}"/.mutt/signature ~/.mutt/signature
       ln -s -v "${DOT}"/.mutt/gpg.rc ~/.mutt/gpg.rc
       ln -s -v "${DOT}"/.mutt/notmuch-config ~/.notmuch-config
    } >> "$LOGS"
    if [[ $(id -u) -eq 0 ]]; then
       ln -s -v "${DOT}"/.mutt/muttrc-local ~/.mutt/muttrc >> "$LOGS"
    else
-      if [[ ! -e ~/mail ]]; then
-         mkdir -v ~/mail >> "$LOGS"
+      if [[ ! -e ~/.local/share/mail ]]; then
+         mkdir -v ~/.local/share/mail >> "$LOGS"
       fi
       {
-         mkdir -v -p ~/.mutt/cache/{utu,gmail}/{headers,messages}
+         mkdir -v -p ~/.mutt/cache/{utu,gmail,lvs}/{headers,messages}
          ln -s -v "${DOT}"/.mutt/muttrc ~/.mutt/muttrc
          ln -s -v "${DOT}"/.mutt/muttrc-local ~/.mutt/muttrc-local
          ln -s -v "${DOT}"/.mutt/mailboxes ~/.mutt/mailboxes
          ln -s -v "${DOT}"/.mutt/accounts ~/.mutt/accounts
+         ln -s -v "${DOT}"/.mutt/signatures ~/.mutt/signatures
          ln -s -v "${DOT}"/.mutt/lists ~/.mutt/lists
          ln -s -v "${DOT}"/.mutt/offlineimap/offlineimaprc ~/.offlineimaprc
          ln -s -v "${DOT}"/.mutt/offlineimap/offlineimap.py ~/.offlineimap.py
@@ -968,6 +969,16 @@ df_neovim() {
     } >> "$LOGS"
 }
 
+# Tmuxp (private, commons)
+df_tmuxp() {
+    if [ -e ~/.tmuxp ]; then
+        mv -v ~/.tmuxp "$BACKUP" >> "$LOGS"
+    elif [ -L ~/.tmuxp ]; then
+        rm -v ~/.tmuxp >> "$LOGS"
+    fi
+    ln -s -v "${DOT}"/.tmuxp ~/.tmuxp >> "$LOGS"
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -995,7 +1006,7 @@ helps() {
    echo -e "\\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\\e[0m"
    echo -e "\\e[1;35mPrivate(not found in git-repo), cant take host-parameter:\\e[0m df_irssi, df_buku,"
    echo -e "df_fonts, df_cursors, df_gtk_themes, df_fbcolors, df_calcurse, df_newsboat, df_vdirsyncer,"
-   echo -e "df_khard, df_linopen"
+   echo -e "df_khard, df_linopen, df_tmuxp"
    echo
    echo -e "\\e[1;35mGroups:\\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
    echo -e "assets(private)"

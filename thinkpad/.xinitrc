@@ -21,5 +21,7 @@ setroot --span --blank-color "#2B303B"
 
 ## Window manager
 exec bspwm
+# export GDK_BACKEND=x11
+# exec gnome-session
 
 export _JAVA_AWT_WM_NONREPARENTING=1

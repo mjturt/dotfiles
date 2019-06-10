@@ -1,3 +1,4 @@
+# vim: filetype=neomuttrc
 #┃ ~/.mutt/muttrc
 #┣━━━━━━━━━━━━━━━
 #┃ mjturt
@@ -10,13 +11,18 @@ set menu_scroll=yes
 set simple_search="~f %s | ~C %s | ~s %s"
 #source ~/.mutt/aliases
 set query_command= "khard email --parsable '%s'"
+set rfc2047_parameters = yes
+set sleep_time = 0
+set markers = no
+set mark_old = no
+set wait_key = no
 
 ### Receiving
 set mail_check=0
 set imap_keepalive=500
 unset imap_passive
 set mbox_type=Maildir
-set folder=~/mail
+set folder=~/.local/share/mail
 source ~/.mutt/mailboxes
 set imap_check_subscribed
 source ~/.mutt/lists
@@ -27,19 +33,19 @@ set forward_format = "Fwd: %s"
 set forward_decode
 set forward_quote
 set reverse_name
-set include 
+set include
 set sig_dashes
 set edit_headers
-set signature=~/.mutt/signature
+set fast_reply
+set signature=~/.mutt/signatures/default
 source ~/.mutt/gpg.rc
 
 ### Attachments
 set mailcap_path=~/.mutt/mailcap
-auto_view application/msword
-auto_view application/pdf
 auto_view text/html
+auto_view application/pgp-encrypted
 set fcc_attach
-unset mime_forward 
+set mime_forward = yes
 
 ### UI and colors
 source ~/.mutt/colors/mjt.mutt
@@ -48,10 +54,9 @@ set sort_aux=last-date-received
 set sort=reverse-threads
 set strict_threads=yes
 set date_format ="%d.%m.%y » %H:%M"
-#set index_format ="%4C %Z %[%b %d at %H:%M] %-15.15L (%4l) %s"
 set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
-unset collapse_unread 
+unset collapse_unread
 set read_inc = 1
 set time_inc = 300
 spam "X-Spam-Score: ([0-9\\.]+).*" "SA: %1"
@@ -75,12 +80,13 @@ set sidebar_visible = yes
 set sidebar_width = 20
 set sidebar_folder_indent = yes
 set sidebar_short_path = yes
- 
+
 ### Accounts
 set spoolfile = "+utu/INBOX"
 source ~/.mutt/accounts/utu/account
-folder-hook ~/mail/utu/* 'source ~/.mutt/accounts/utu/account'
-folder-hook ~/mail/gmail/* 'source ~/.mutt/accounts/gmail/account'
+folder-hook ~/.local/share/mail/utu/* 'source ~/.mutt/accounts/utu/account'
+folder-hook ~/.local/share/mail/gmail/* 'source ~/.mutt/accounts/gmail/account'
+folder-hook ~/.local/share/mail/lvs/* 'source ~/.mutt/accounts/lvs/account'
 
 ### Keybindings
 source ~/.mutt/keybindings

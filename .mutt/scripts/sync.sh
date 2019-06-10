@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Old sync script.
 # Syncs from imap and sends notification over ssh when there is a new mail
 # This is runned as a cron job
 # based on LukeSmithxyz:s script

@@ -27,4 +27,4 @@ rambox-bin &
 greenclip daemon &
 
 ## Window manager
-startdwm
+dwm-start

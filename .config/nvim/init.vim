@@ -285,6 +285,7 @@ set list                " Show problematic characters.
 " Also highlight all tabs and trailing whitespace characters.
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$\|\t/
+autocmd FileType mail  highlight ExtraWhitespace ctermbg=NONE guibg=NONE
 
 " -- Python path --
 if os=="freebsd"
