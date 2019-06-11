@@ -773,7 +773,6 @@ df_mutt() {
          ln -s -v "${DOT}"/.mutt/accounts ~/.mutt/accounts
          ln -s -v "${DOT}"/.mutt/signatures ~/.mutt/signatures
          ln -s -v "${DOT}"/.mutt/lists ~/.mutt/lists
-         ln -s -v "${DOT}"/.mutt/signatures ~/.mutt/signatures
          ln -s -v "${DOT}"/.mutt/offlineimap/offlineimaprc ~/.offlineimaprc
          ln -s -v "${DOT}"/.mutt/offlineimap/offlineimap.py ~/.offlineimap.py
          ln -s -v "${DOT}"/.mbsyncrc ~/.mbsyncrc
