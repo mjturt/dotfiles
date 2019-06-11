@@ -763,7 +763,7 @@ df_mutt() {
       ln -s -v "${DOT}"/.mutt/muttrc-local ~/.mutt/muttrc >> "$LOGS"
    else
       if [[ ! -e ~/.local/share/mail ]]; then
-         mkdir -v ~/.local/share/mail >> "$LOGS"
+         mkdir -v -p ~/.local/share/mail/{utu,gmail,lvs} >> "$LOGS"
       fi
       {
          mkdir -v -p ~/.mutt/cache/{utu,gmail,lvs}/{headers,messages}
