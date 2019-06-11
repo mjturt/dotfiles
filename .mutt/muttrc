@@ -10,7 +10,7 @@ set editor="nvim -c 8"
 set menu_scroll=yes
 set simple_search="~f %s | ~C %s | ~s %s"
 #source ~/.mutt/aliases
-set query_command= "khard email --parsable '%s'"
+set query_command = "abook --mutt-query '%s'"
 set rfc2047_parameters = yes
 set sleep_time = 0
 set markers = no
