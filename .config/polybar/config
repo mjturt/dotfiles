@@ -18,6 +18,8 @@ lorange = #ff9800
 cyan = #528b8b
 red = #aa4450
 
+; Bars ----------------------------------------------------------------
+
 [bar/bspwm]
 monitor = ${env:MONITOR:DVI-I-2}
 width = 100%
@@ -66,6 +68,163 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 wm-restack = bspwm
+
+[bar/dwm]
+monitor = ${env:MONITOR:DVI-I-2}
+width = 100%
+height = 22
+;offset-x = 1%
+;offset-y = 1%
+;radius = 2.0
+fixed-center = false
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color =  #87875f
+
+border-size = 10
+border-top-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Misc\ Ohsnap:size=8:antialias=false;0
+font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
+font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
+font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+
+modules-left = distro ewmh weather bitcoin player-mpris-simple volume compton
+modules-center = xwindow
+modules-right = fsroot fshome fscommon fsstorage cpu load memory temp uptime date xkeyboard powermenu
+
+;dim-value = 0.3
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #87875f
+
+;scroll-up = bspwm-wsnext
+;scroll-down = bspwm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+wm-restack = bspwm
+override-redirect = true
+
+[bar/bspwmtp]
+monitor = ${env:MONITOR:eDP-1}
+width = 100%
+height = 20
+;offset-x = 1%
+;offset-y = 1%
+;radius = 2.0
+fixed-center = false
+;bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color =  #87875f
+
+border-size = 5
+border-left-size = 15
+border-right-size = 15
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Misc\ Ohsnap:size=8:antialias=false;0
+font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
+font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
+font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+
+modules-left = distro bspwm weather bitcoin cmus volume compton touchpad
+modules-center = xwindow
+modules-right = backlight battery wireless-network fsroot cpu temp date uptime
+
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #87875f
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/bspwmhdmi]
+monitor = ${env:MONITOR:HDMI-2}
+width = 100%
+height = 30
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 1
+line-color =  #87875f
+border-size = 5
+border-left-size = 15
+border-right-size = 15
+border-color = #00000000
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+font-0 = Misc\ Ohsnap:size=8:antialias=false;0
+font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
+font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
+font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+modules-left = distro bspwm weather volume compton
+modules-center = xwindow
+modules-right = backlight battery wireless-network fsroot cpu temp uptime date
+tray-position = right
+tray-padding = 2
+cursor-click = pointer
+cursor-scroll = ns-resize
+bottom = true
+
+; Modules --------------------------------------------------------
+
+[module/ewmh]
+type = internal/xworkspaces
+pin-workspaces = true
+; enable-click = false
+; enable-scroll = false
+
+[module/touchpad]
+type = custom/script
+exec = ~/.statusscripts/polybar/touchpad.sh
+interval = 5
+click-left = ~/.statusscripts/polybar/touchpad.sh --toggle
+format-prefix = " "
+format-prefix-foreground = ${colors.blue}
+
+[module/hlwm]
+type = custom/script
+exec = ~/.statusscripts/hlwm/hlwm-tags.sh
+tail = true
+label = %{O-10}%output%
+
+[module/player-mpris-simple]
+type = custom/script
+exec = ~/.statusscripts/polybar-scripts/polybar-scripts/player-mpris-simple/player-mpris-simple.sh
+interval = 3
+click-left = playerctl previous
+click-right = playerctl next
+click-middle = playerctl play-pause
 
 [module/bspwm]
 type = internal/bspwm
@@ -294,18 +453,20 @@ format-spacing = 1
 label-open = 
 label-open-foreground = ${colors.green}
 label-close = ﰸ
-label-close-foreground = ${colors.green}
+label-close-foreground = ${colors.red}
 label-separator = |
 label-separator-foreground = ${colors.blue}
 
 menu-0-0 = 
 menu-0-0-exec = lock
 menu-0-1 = 
-menu-0-1-exec = bspc quit
+menu-0-1-exec = killall xinit
 menu-0-2 = 
-menu-0-2-exec = lxqt-sudo reboot
+menu-0-2-exec = reboot
 menu-0-3 = 
-menu-0-3-exec = lxqt-sudo halt
+menu-0-3-exec = systemctl poweroff
+menu-0-4 = ﬌
+menu-0-4-exec = killall dwm
 
 [settings]
 screenchange-reload = true

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if grep -q "0" ~/.local/share/.dualhead; then
-    xinput set-prop "Wacom Pen and multitouch sensor Finger touch" --type=float "Coordinate Transformation Matrix" 0.43 0 0 0 0.60804878 0.12195122 0 0 1
+    xinput set-prop "Wacom Pen and multitouch sensor Finger touch" --type=float "Coordinate Transformation Matrix" 0.43 0 0 0 0.75 0 0 0 1
     echo "1" > ~/.local/share/.dualhead
 else
     xinput set-prop "Wacom Pen and multitouch sensor Finger touch" --type=float "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1

@@ -20,11 +20,12 @@ dunst &
 compton -b &
 #nextcloud &
 #blueberry-tray &
-rambox-bin &
+rambox &
 #steam &
 #nitrogen --restore &
 #redshift -l 60.46:22.29 &
 greenclip daemon &
 
 ## Window manager
+poly dwm &
 dwm-start

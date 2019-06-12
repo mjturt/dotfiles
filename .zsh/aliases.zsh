@@ -110,5 +110,6 @@ alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 alias colors='for code ({000..255}) print -P -- "$code: %F{$code}COLORS%f"'
 alias r="ranger-cd"
 alias hc="herbstclient"
-alias git-chmod='git status --short | cut -d " " -f 3 | xargs chmod +x'
+alias git-chmod-plus='git status --short | cut -d " " -f 3 | xargs chmod +x'
+alias git-chmod-minus='git status --short | cut -d " " -f 3 | xargs chmod -x'
 alias nvm-init="source /usr/share/nvm/init-nvm.sh"

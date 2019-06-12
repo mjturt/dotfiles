@@ -56,6 +56,6 @@ macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Ente
 macro index A "<limit>all\n" "show all messages (undo limit)"
 macro index,pager a "|abook --add-email\n" 'add sender to abook'
 
-macro index,pager i1 '<sync-mailbox><enter-command>source /home/mjt/.mutt/accounts/utu/account<enter><change-folder>!<enter>;<check-stats>' "switch to mjturt@utu.fi"
-macro index,pager i2 '<sync-mailbox><enter-command>source /home/mjt/.mutt/accounts/gmail/account<enter><change-folder>!<enter>;<check-stats>' "switch to maks.turtiainen@gmail.com"
-macro index,pager i3 '<sync-mailbox><enter-command>source /home/mjt/.mutt/accounts/lvs/account<enter><change-folder>!<enter>;<check-stats>' "switch to maks.turtiainen@lvsbrokers.com"
+macro index,pager iu '<sync-mailbox><enter-command>source /home/mjt/.mutt/accounts/utu/account<enter><change-folder>!<enter>;<check-stats>' "switch to mjturt@utu.fi"
+macro index,pager ii '<sync-mailbox><enter-command>source /home/mjt/.mutt/accounts/gmail/account<enter><change-folder>!<enter>;<check-stats>' "switch to maks.turtiainen@gmail.com"
+macro index,pager io '<sync-mailbox><enter-command>source /home/mjt/.mutt/accounts/lvs/account<enter><change-folder>!<enter>;<check-stats>' "switch to maks.turtiainen@lvsbrokers.com"

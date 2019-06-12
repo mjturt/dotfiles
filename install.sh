@@ -782,7 +782,7 @@ df_mutt() {
     fi
 }
 
-# Polybar (r5, thinkpad)
+# Polybar (commons)
 df_polybar() {
     if [[ -e ~/.config/polybar ]]; then
         mv -v ~/.config/polybar "$BACKUP" >>"$LOGS"
@@ -790,11 +790,7 @@ df_polybar() {
         rm -v ~/.config/polybar >>"$LOGS"
     fi
     mkdir -v ~/.config/polybar >>"$LOGS"
-    if [[ $1 == "r5" ]]; then
-        ln -s -v "${DOT}"/.config/polybar/config* ~/.config/polybar >>"$LOGS"
-    elif [[ $1 == "thinkpad" ]]; then
-        ln -s -v "${DOT}"/thinkpad/.config/polybar/config* ~/.config/polybar >>"$LOGS"
-    fi
+    ln -s -v "${DOT}"/.config/polybar/config* ~/.config/polybar >>"$LOGS"
 }
 
 # Herbstluftwm (commons)
