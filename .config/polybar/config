@@ -200,9 +200,11 @@ bottom = true
 
 [module/ewmh]
 type = internal/xworkspaces
-pin-workspaces = true
+; pin-workspaces = true
 ; enable-click = false
 ; enable-scroll = false
+label-active-foreground = #222222
+label-active-background = #87875f
 
 [module/touchpad]
 type = custom/script
