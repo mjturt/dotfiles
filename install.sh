@@ -1003,11 +1003,16 @@ df_abook() {
 # Transmission (private, commons)
 df_transmission() {
     if [ -d ~/.config/transmission-daemon ]; then
-        ln -s -v "${DOT}"/.config/transmission-daemon/settings.json ~/.config/transmission-daemon/settings.json >>"$LOGS"
+        if [ -e ~/.config/transmission-daemon/settings.cfg ]; then
+            mv -v ~/.config/transmission-daemon/settings.cfg "$BACKUP" >> "$LOGS"
+        elif [ -L ~/.config/transmission-daemon/settings.cfg ]; then
+            rm -b ~/.config/transmission-daemon/settings.cfg >> "$LOGS"
+        fi
+        ln -s -v "${DOT}"/.config/transmission-daemon/settings.cfg ~/.config/transmission-daemon/settings.cfg >>"$LOGS"
     else
         rm -v ~/.config/transmission-daemon >>"$LOGS"
         mkdir -v ~/.config/transmission-daemon >> "$LOGS"
-    ln -s -v "${DOT}"/.config/transmission-daemon/settings.json ~/.config/transmission-daemon/settings.json >>"$LOGS"
+    ln -s -v "${DOT}"/.config/transmission-daemon/settings.cfg ~/.config/transmission-daemon/settings.cfg >>"$LOGS"
     fi
 }
 
