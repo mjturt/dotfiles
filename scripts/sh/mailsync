@@ -11,6 +11,7 @@ pgrep -x mbsync >/dev/null && exit
 ping -q -c 1 1.1.1.1 > /dev/null || exit
 command -v notify-send >/dev/null || echo "Note that \`libnotify\` or \`libnotify-send\` should be installed for pop-up mail notifications with this script."
 
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 export DISPLAY=:0.0
 
 # Settings are different for MacOS (Darwin) systems.

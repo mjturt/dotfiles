@@ -134,6 +134,13 @@ call plug#end()
 " Plugin settings
 " ---------------
 
+" -- ALE --
+let b:ale_linters = {'css': ['prettier']}
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
+
 " -- Deoplete --
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
@@ -352,6 +359,8 @@ noremap <Leader>gg gg=G
 noremap <leader>sw :%s/\s\+$//<cr>
 noremap <leader>so :so %<cr>
 noremap <leader>S :set spell!<cr>
+noremap <leader>FH :set filetype=html<cr>
+noremap <leader>FP :set filetype=php<cr>
 
 noremap <leader>gr :FlyGrep<cr>
 noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>
