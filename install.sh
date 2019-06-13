@@ -89,6 +89,8 @@ commons_cli() {
     df_mutt
     df_tmuxp
     df_abook
+    df_transmission
+    df_tremc
 }
 
 # Commons, but only graphical programs
@@ -998,6 +1000,27 @@ df_abook() {
     ln -s -v "${DOT}"/.abook ~/.abook >>"$LOGS"
 }
 
+# Transmission (private, commons)
+df_transmission() {
+    if [ -d ~/.config/transmission-daemon ]; then
+        ln -s -v "${DOT}"/.config/transmission-daemon/settings.json ~/.config/transmission-daemon/settings.json >>"$LOGS"
+    else
+        rm -v ~/.config/transmission-daemon >>"$LOGS"
+        mkdir -v ~/.config/transmission-daemon >> "$LOGS"
+    ln -s -v "${DOT}"/.config/transmission-daemon/settings.json ~/.config/transmission-daemon/settings.json >>"$LOGS"
+    fi
+}
+
+# Tremc (private, commons)
+df_tremc() {
+    if [ -e ~/.config/tremc ]; then
+        mv -v ~/.config/tremc "$BACKUP" >>"$LOGS"
+    elif [ -L ~/.config/tremc ]; then
+        rm -v ~/.config/tremc >>"$LOGS"
+    fi
+    ln -s -v "${DOT}"/.config/tremc ~/.config/tremc >>"$LOGS"
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -1025,7 +1048,7 @@ helps() {
     echo -e "\\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\\e[0m"
     echo -e "\\e[1;35mPrivate(not found in git-repo), cant take host-parameter:\\e[0m df_irssi, df_buku,"
     echo -e "df_fonts, df_cursors, df_gtk_themes, df_fbcolors, df_calcurse, df_newsboat, df_vdirsyncer,"
-    echo -e "df_khard, df_linopen, df_tmuxp"
+    echo -e "df_khard, df_linopen, df_tmuxp, df_transmission, df_tremc"
     echo
     echo -e "\\e[1;35mGroups:\\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
     echo -e "assets(private)"
