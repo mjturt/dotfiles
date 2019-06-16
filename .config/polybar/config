@@ -100,7 +100,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro ewmh weather bitcoin player-mpris-simple volume compton
+modules-left = distro ewmh weather bitcoin playerctl volume compton
 modules-center = xwindow
 modules-right = fsroot fshome fscommon fsstorage cpu load memory temp uptime date xkeyboard powermenu
 
@@ -150,7 +150,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro bspwm weather bitcoin cmus volume compton touchpad
+modules-left = distro bspwm weather bitcoin volume compton touchpad
 modules-center = xwindow
 modules-right = backlight battery wireless-network fsroot cpu temp date uptime
 
@@ -197,13 +197,96 @@ bottom = true
 
 ; Modules --------------------------------------------------------
 
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = ADP0
+poll-interval = 1
+format-discharging-underline = ${colors.orange}
+format-charging-underline = ${colors.green}
+format-full-underline = ${colors.foreground}
+time-format = %H:%M
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = Fully charged
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+bar-capacity-width = 10
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 600
+;animation-discharging-0 = 
+;animation-discharging-1 = 
+;animation-discharging-2 = 
+;animation-discharging-3 = 
+;animation-discharging-4 = 
+;animation-discharging-framerate = 500
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format-prefix = "ﯦ "
+format-prefix-foreground = ${colors.magneta}
+format-underline = ${colors.foreground}
+
+[module/wireless-network]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+format-connected = <label-connected>
+format-connected-underline = ${colors.green}
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${colors.alert}
+format-packetloss = <animation-packetloss> <label-connected>
+label-connected = 直 %essid%
+label-connected-foreground = ${colors.foreground}
+label-disconnected = 睊
+label-disconnected-foreground = ${colors.alert}
+animation-packetloss-0 = ﯱ
+animation-packetloss-0-foreground = ${colors.foreground}
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${colors.red}
+animation-packetloss-framerate = 500
+
 [module/ewmh]
 type = internal/xworkspaces
-; pin-workspaces = true
-; enable-click = false
-; enable-scroll = false
+pin-workspaces = true
+enable-click = true
+enable-scroll = false
 label-active-foreground = #222222
 label-active-background = #87875f
+format = <label-state>
+label-monitor = %name%
+icon-0 = 1;" 1 "
+icon-1 = 2;" 2 "
+icon-2 = 3;" 3 "
+icon-3 = 4;" 4 "
+icon-4 = 5;" 5 "
+icon-5 = 6;" 6 "
+icon-6 = 7;" 7 "
+icon-7 = 8;" 8 "
+icon-8 = 9;" 9 "
+label-active =  %icon%
+label-active-underline = #87875f
+label-occupied = %icon%
+label-occupied-underline = #87875f
+label-occupied-foreground = #87875f
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+label-empty = %icon%
+label-empty-foreground = #87875f
 
 [module/touchpad]
 type = custom/script
@@ -219,10 +302,10 @@ exec = ~/.statusscripts/hlwm/hlwm-tags.sh
 tail = true
 label = %{O-10}%output%
 
-[module/player-mpris-simple]
+[module/playerctl]
 type = custom/script
-exec = ~/.statusscripts/polybar-scripts/polybar-scripts/player-mpris-simple/player-mpris-simple.sh
-interval = 3
+exec = ~/.statusscripts/polybar/playerctl.sh
+interval = 2
 click-left = playerctl previous
 click-right = playerctl next
 click-middle = playerctl play-pause
@@ -417,7 +500,7 @@ click-left = ~/.statusscripts/polybar/date-calendar.sh click
 type = internal/pulseaudio
 
 sink = alsa_output.pci-0000_00_14.2.analog-stereo
-use-ui-max = true
+use-ui-max = false
 
 format-volume = <label-volume> <bar-volume>
 label-volume = 

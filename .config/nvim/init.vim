@@ -379,6 +379,7 @@ map <leader>C :ColorToggle<CR>
 nmap <leader>LS :!shfmt -i 4 -ci -sr -w %<CR><CR>
 nmap <leader>LE :!eslint --fix %<CR><CR>
 nmap <leader>LL :Neoformat<CR>
+nmap <leader>PW :read !pwgen 10<CR>
 
 " -- Leader guide
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
