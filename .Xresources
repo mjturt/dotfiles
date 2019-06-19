@@ -31,7 +31,7 @@ URxvt*scrollBar:                   false
 URxvt*borderLess:                  false
 URxvt*internalBorder:              5
 URxvt.transparent:                 false
-URxvt.fading:                      30
+URxvt.fading:                      0
 URxvt.shading:                     75
 URxvt.cursorBlink:                 false
 URxvt.cursorUnderline:             false
