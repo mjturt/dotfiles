@@ -4,23 +4,23 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 
 ### Software
 
-+ Text editor:          **Neovim**
-+ Window manager:       **Bspwm**
-+ Panel:                **Polybar**
++ Text editor:          **neovim**
++ Window manager:       **dwm**
++ Panel:                **polybar**
 + Terminal emulator:    **urxvt**
-+ Shell:                **ZSH**
-+ Terminal multiplexer: **Tmux**
-+ File manager:         **Ranger**
-+ Launcher:             **Rofi**
-+ Browser:              **Chromium**
-+ Notification system:  **Dunst**
-+ Image viewer:         **Feh**
-+ PDF viewer:           **Zathura**
-+ Compositor:           **Compton**
++ Shell:                **zsh**
++ Terminal multiplexer: **tmux**
++ File manager:         **ranger**
++ Launcher:             **rofi**
++ Browser:              **chromium**
++ Notification system:  **dunst**
++ Image viewer:         **feh**
++ PDF viewer:           **zathura**
++ Compositor:           **compton**
 + Video player:         **mpv**
 + Music player:         **cmus**
-+ Torrent client:       **rtorrent**
-+ Mail client:          **Mutt**
++ Torrent client:       **transmission**
++ Mail client:          **mutt**
 
 There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb, offlineimap, teiler, sxhkd, i3, i3blocks, herbstluftwm, elinks and for pass and buku rofi-frontends.
 
@@ -28,13 +28,13 @@ There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GI
 
 Colors: [Sourcerer](https://github.com/xero/sourcerer).
 
-Fonts: Gohu, ShareTechMono. Patched versions with icons from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
+Fonts: Plex, Gohu, OhSnap. Patched versions with icons from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
 
 ZSH prompt: [distroprompt-zsh](https://github.com/mjturt/distroprompt-zsh).
 
 ### Linux console
 
-Proper kernel and driver support with properly generated initramfs needed to get 1920x1080 resolution support in console(without X11/Wayland). Fbterm (framebuffer terminal emulator) is used to get background image and true type font support. [Startup scrip](scripts/bin/fb).
+Proper kernel and driver support with properly generated initramfs needed to get 1920x1080 resolution support in console(without X11/Wayland). Fbterm (framebuffer terminal emulator) is used to get background image and true type font support. [Startup scrip](scripts/sh/fb).
 
 [Console screenshot](screenshots/console.png?raw=true)
 
@@ -44,7 +44,7 @@ Collection of scripts can be found in [scripts directory](scripts). If I did not
 
 ### install.sh
 
-install.sh script is designed for personal use and even though it makes allways backups it is not recommended to use. Help:
+install.sh script is designed for personal use and even though it makes always backups it is not recommended to use. Help:
 ```
 ./install.sh --help
 ```
