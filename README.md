@@ -24,6 +24,8 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 
 There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb, offlineimap, teiler, sxhkd, i3, i3blocks, herbstluftwm, elinks and for pass and buku rofi-frontends.
 
+Builds of suckless tools are in [this repo](https://github.com/mjturt/suckless).
+
 ![Screenshot](screenshots/screenshot.png?raw=true)
 
 Colors: [Sourcerer](https://github.com/xero/sourcerer).
