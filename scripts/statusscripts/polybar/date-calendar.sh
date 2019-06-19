@@ -12,7 +12,7 @@ width=200
 height=200
 # if used bottom panel (0 if top panel)
 if [[ "$(hostname)" == "r5" ]]; then
-   bottom=1
+   bottom=0
 else
    bottom=0
 fi

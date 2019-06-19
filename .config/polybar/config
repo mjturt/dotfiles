@@ -77,7 +77,7 @@ height = 22
 ;offset-y = 1%
 ;radius = 2.0
 fixed-center = false
-bottom = true
+bottom = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -85,7 +85,7 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color =  #87875f
 
-border-size = 10
+border-size = 5
 border-top-size = 0
 border-color = #00000000
 
@@ -100,9 +100,9 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro ewmh weather bitcoin playerctl volume compton
-modules-center = xwindow
-modules-right = fsroot fshome fscommon fsstorage cpu load memory temp uptime date xkeyboard powermenu
+modules-left = distro weather bitcoin playerctl volume compton
+modules-center = fsroot fshome fscommon fsstorage
+modules-right = cpu load memory temp uptime date xkeyboard powermenu
 
 ;dim-value = 0.3
 tray-position = right
@@ -260,7 +260,7 @@ animation-packetloss-framerate = 500
 
 [module/ewmh]
 type = internal/xworkspaces
-pin-workspaces = true
+pin-workspaces = false
 enable-click = true
 enable-scroll = false
 label-active-foreground = #222222
@@ -550,7 +550,7 @@ menu-0-2-exec = reboot
 menu-0-3 = 
 menu-0-3-exec = systemctl poweroff
 menu-0-4 = ﬌
-menu-0-4-exec = killall dwm
+menu-0-4-exec = restartwm
 
 [settings]
 screenchange-reload = true

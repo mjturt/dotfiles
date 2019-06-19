@@ -125,7 +125,7 @@ host_r5() {
     df_gtk3 r5
     df_gtk2 r5
     df_buku
-    df_polybar r5
+    df_polybar
 }
 
 # Only host-specific files (server)
@@ -150,7 +150,7 @@ host_thinkpad() {
     df_gtk2 thinkpad
     df_xmodmap thinkpad
     df_buku
-    df_polybar thinkpad
+    df_polybar
 }
 
 # Private assets

@@ -67,6 +67,12 @@ Alt+b
 "rofi-pass"
 Alt+p
 
+"~/.config/rofi/scripts/rofi-nerdfonts/rofi-nerdfonts.sh"
+Alt+g
+
+"~/.config/rofi/scripts/rofi-fontawesome.sh"
+Alt+f
+
 ### Media keys
 "amixer set Master 5%+"
 XF86AudioRaiseVolume
