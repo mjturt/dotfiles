@@ -20,6 +20,7 @@ nm-applet &
 setroot --span --blank-color "#2B303B"
 
 ## Window manager
-exec i3
+poly &
+dwm-start
 
 export _JAVA_AWT_WM_NONREPARENTING=1

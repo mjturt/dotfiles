@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
+
 killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-polybar "$1" &
+
+if [ "$(hostname)" = "yoga" ]; then
+    polybar dwmtp &
+    polybar dwmhdmi &
+elif [ "$(hostname)" = "r5" ]; then
+    polybar dwm &
+elif [ "$(hostname)" = "thinkpad" ]; then
+    polybar bspwmtp &
+fi
