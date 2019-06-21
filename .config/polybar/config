@@ -72,7 +72,7 @@ cursor-scroll = ns-resize
 
 override-redirect = true
 
-[bar/dwmtp]
+[bar/dwmyoga]
 monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 20
@@ -104,7 +104,7 @@ font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = distro weather bitcoin volume compton touchpad
-modules-center = backlight battery wireless-network
+modules-center = backlight battery-yoga wireless-network-yoga
 modules-right = fsroot cpu temp date uptime
 
 ;dim-value = 0.3
@@ -143,13 +143,62 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 modules-left = distro weather volume compton
-modules-center = backlight battery wireless-network
+modules-center = backlight battery-yoga wireless-network-yoga
 modules-right =  fsroot cpu temp uptime date
 tray-position = right
 tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 bottom = false
+override-redirect = true
+
+[bar/dwmtp]
+monitor = ${env:MONITOR:eDP-1}
+width = 100%
+height = 20
+;offset-x = 1%
+;offset-y = 1%
+;radius = 2.0
+fixed-center = false
+bottom = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color =  #87875f
+
+border-size = 5
+border-top-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Misc\ Ohsnap:size=8:antialias=false;0
+font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
+font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
+font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+
+modules-left = distro weather bitcoin volume compton touchpad
+modules-center = backlight battery-tp wireless-network-tp
+modules-right = fsroot cpu temp date uptime
+
+;dim-value = 0.3
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #87875f
+
+;scroll-up = bspwm-wsnext
+;scroll-down = bspwm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
 override-redirect = true
 
 ; bspwm ----------------------------------------------------
@@ -237,7 +286,7 @@ font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = distro bspwm weather bitcoin volume compton touchpad
 modules-center = xwindow
-modules-right = backlight battery wireless-network fsroot cpu temp date uptime
+modules-right = backlight battery-tp wireless-network-tp fsroot cpu temp date uptime
 
 tray-position = right
 tray-padding = 2
@@ -273,7 +322,7 @@ font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 modules-left = distro bspwm weather volume compton
 modules-center = xwindow
-modules-right = backlight battery wireless-network fsroot cpu temp uptime date
+modules-right = backlight battery-tp wireless-network-tp fsroot cpu temp uptime date
 tray-position = right
 tray-padding = 2
 cursor-click = pointer
@@ -283,11 +332,46 @@ bottom = true
 ; Modules --------------------------------------------------------
 ; ----------------------------------------------------------------
 
-[module/battery]
+[module/battery-yoga]
 type = internal/battery
 full-at = 99
 battery = BAT0
 adapter = ADP0
+poll-interval = 1
+format-discharging-underline = ${colors.orange}
+format-charging-underline = ${colors.green}
+format-full-underline = ${colors.foreground}
+time-format = %H:%M
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = Fully charged
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+bar-capacity-width = 10
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 600
+;animation-discharging-0 = 
+;animation-discharging-1 = 
+;animation-discharging-2 = 
+;animation-discharging-3 = 
+;animation-discharging-4 = 
+;animation-discharging-framerate = 500
+;
+[module/battery-tp]
+type = internal/battery
+full-at = 99
+battery = BAT1
+adapter = ADP1
 poll-interval = 1
 format-discharging-underline = ${colors.orange}
 format-charging-underline = ${colors.green}
@@ -325,9 +409,28 @@ format-prefix = "ﯦ "
 format-prefix-foreground = ${colors.magneta}
 format-underline = ${colors.foreground}
 
-[module/wireless-network]
+[module/wireless-network-yoga]
 type = internal/network
 interface = wlp2s0
+interval = 3.0
+format-connected = <label-connected>
+format-connected-underline = ${colors.green}
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${colors.alert}
+format-packetloss = <animation-packetloss> <label-connected>
+label-connected = 直 %essid%
+label-connected-foreground = ${colors.foreground}
+label-disconnected = 睊
+label-disconnected-foreground = ${colors.alert}
+animation-packetloss-0 = ﯱ
+animation-packetloss-0-foreground = ${colors.foreground}
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${colors.red}
+animation-packetloss-framerate = 500
+
+[module/wireless-network-tp]
+type = internal/network
+interface = wlp3s0
 interval = 3.0
 format-connected = <label-connected>
 format-connected-underline = ${colors.green}

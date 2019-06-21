@@ -4,10 +4,10 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 if [ "$(hostname)" = "yoga" ]; then
-    polybar dwmtp &
+    polybar dwmyoga &
     polybar dwmhdmi &
 elif [ "$(hostname)" = "r5" ]; then
     polybar dwm &
-elif [ "$(hostname)" = "thinkpad" ]; then
-    polybar bspwmtp &
+elif [ "$(hostname)" = "tp" ]; then
+    polybar dwmtp &
 fi
