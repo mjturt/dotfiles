@@ -80,7 +80,7 @@ XF86AudioRaiseVolume
 "amixer set Master 5%-"
 XF86AudioLowerVolume
 
-"amixer set Master toggle"
+"pactl set-sink-mute 0 toggle"
 XF86AudioMute
 
 "amixer set Capture toggle"
