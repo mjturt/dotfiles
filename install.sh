@@ -1026,6 +1026,19 @@ df_tremc() {
     ln -s -v "${DOT}"/.config/tremc ~/.config/tremc >>"$LOGS"
 }
 
+# Ncmpcpp (private, commons)
+df_ncmpcpp() {
+    if [ -e ~/.ncmpcpp ]; then
+        mv -v ~/.ncmpcpp "$BACKUP" >>"$LOGS"
+    elif [ -L ~/.ncmpcpp ]; then
+        rm -v ~/.ncmpcpp >>"$LOGS"
+    fi
+    {
+        mkdir -v ~/.ncmpcpp
+        ln -s -v "${DOT}"/.ncmpcpp/config ~/.ncmpcpp/config
+    } >>"$LOGS"
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -1053,7 +1066,7 @@ helps() {
     echo -e "\\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\\e[0m"
     echo -e "\\e[1;35mPrivate(not found in git-repo), cant take host-parameter:\\e[0m df_irssi, df_buku,"
     echo -e "df_fonts, df_cursors, df_gtk_themes, df_fbcolors, df_calcurse, df_newsboat, df_vdirsyncer,"
-    echo -e "df_khard, df_linopen, df_tmuxp, df_transmission, df_tremc"
+    echo -e "df_khard, df_linopen, df_tmuxp, df_transmission, df_tremc, df_ncmpcpp"
     echo
     echo -e "\\e[1;35mGroups:\\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
     echo -e "assets(private)"
