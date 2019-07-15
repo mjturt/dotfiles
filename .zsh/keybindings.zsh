@@ -29,6 +29,9 @@ key[PageDown]="$terminfo[knp]"
 [[ -n "$key[Left]"      ]] && bindkey -- "$key[Left]"      backward-char
 [[ -n "$key[Right]"     ]] && bindkey -- "$key[Right]"     forward-char
 
+bindkey "^b" backward-word
+bindkey "^w" forward-word
+
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     function zle-line-init () {
         echoti smkx

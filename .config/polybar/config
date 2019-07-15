@@ -54,7 +54,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro weather bitcoin playerctl volume compton
+modules-left = distro weather bitcoin mpc volume compton
 modules-center = fsroot fshome fscommon fsstorage
 modules-right = cpu load memory temp uptime date xkeyboard powermenu
 
@@ -103,7 +103,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro weather bitcoin volume compton touchpad
+modules-left = distro weather bitcoin volume compton touchpad touchkeyboard
 modules-center = backlight battery-yoga wireless-network-yoga
 modules-right = fsroot cpu temp date uptime
 
@@ -332,6 +332,12 @@ bottom = true
 ; Modules --------------------------------------------------------
 ; ----------------------------------------------------------------
 
+[module/touchkeyboard]
+type=custom/text
+content="   "
+content-foreground=${colors.foreground}
+click-left=onboard
+
 [module/battery-yoga]
 type = internal/battery
 full-at = 99
@@ -498,6 +504,14 @@ interval = 2
 click-left = playerctl previous
 click-right = playerctl next
 click-middle = playerctl play-pause
+
+[module/mpc]
+type = custom/script
+exec = ~/.statusscripts/polybar/mpc.sh
+interval = 2
+click-left = mpc prev
+click-right = mpc next
+click-middle = toggle-mpc
 
 [module/bspwm]
 type = internal/bspwm

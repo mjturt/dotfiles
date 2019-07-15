@@ -47,6 +47,8 @@ alias vv="nvim -u ~/.config/nvim/init-unixkerho.vim"
 ## Translate
 alias enfi="trans en:fi"
 alias fien="trans fi:en"
+alias fipo="trans fi:po"
+alias pofi="trans po:fi"
 
 ## Tmux
 alias tn="tmux new -s"
@@ -113,3 +115,4 @@ alias hc="herbstclient"
 alias git-chmod-plus='git status --short | cut -d " " -f 3 | xargs chmod +x'
 alias git-chmod-minus='git status --short | cut -d " " -f 3 | xargs chmod -x'
 alias nvm-init="source /usr/share/nvm/init-nvm.sh"
+alias env-init="source ~/dev/pythonenv/bin/activate"

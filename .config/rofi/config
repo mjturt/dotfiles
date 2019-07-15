@@ -47,7 +47,8 @@ rofi.location:                       0
 ! rofi.fullscreen:                     false
 
 !# Theme
-rofi.theme: ~/.config/rofi/themes/flat-orange.rasi
+! rofi.theme: ~/.config/rofi/themes/flat-orange.rasi
+rofi.theme: /usr/share/rofi/themes/Monokai.rasi
 
 !-------------!
 ! Keybindings !

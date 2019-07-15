@@ -103,7 +103,7 @@ setopt multios
 setopt globdots
 unsetopt correct_all
 unsetopt beep
-bindkey -e
+bindkey -v
 autoload -Uz add-zsh-hook
 autoload run-help
 

@@ -61,6 +61,7 @@ Plug 'epilande/vim-react-snippets'
 Plug 'alvan/vim-closetag'
 Plug 'Valloric/MatchTagAlways'
 Plug 'udalov/kotlin-vim'
+Plug 'posva/vim-vue'
 
 " -- Code formatting --
 Plug 'sbdchd/neoformat'
@@ -81,6 +82,7 @@ Plug 'mbbill/undotree'
 Plug 'dbakker/vim-projectroot'
 Plug 'dbeniamine/vim-mail'
 Plug 'wsdjeg/FlyGrep.vim'
+Plug 'Shougo/context_filetype.vim'
 
 " -- UI --
 Plug 'farmergreg/vim-lastplace'
@@ -135,11 +137,17 @@ call plug#end()
 " ---------------
 
 " -- ALE --
-let b:ale_linters = {'css': ['prettier']}
+let b:ale_linters = {
+            \'css': ['prettier'],
+            \}
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'css': ['prettier'],
-\}
+            \'javascript': ['prettier'],
+            \'css': ['prettier'],
+            \'python': ['autopep8'],
+            \}
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " -- Deoplete --
 let g:deoplete#enable_at_startup = 1
@@ -157,9 +165,39 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " -- Language server --
-let g:LanguageClient_serverCommands = { 'java': ['/usr/bin/jdtls', '-data', getcwd()], }
-let g:LanguageClient_serverCommands = { 'sh': ['bash-language-server', 'start'] }
-let g:LanguageClient_serverCommands = { 'python': ['pyls'] }
+let g:LanguageClient_serverCommands = { 'java': ['/usr/bin/jdtls', '-data', getcwd()],
+            \ 'sh': ['bash-language-server', 'start'],
+            \ 'python': ['pyls'],
+            \ 'html': ['html-languageserver', '--stdio'],
+            \ }
+let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_settingsPath = "~/.vim/settings.json"
+let g:LanguageClient_diagnosticsDisplay = {
+            \ 1: {
+            \     "name": "Error",
+            \     "texthl": "ALEError",
+            \     "signText": "",
+            \     "signTexthl": "ALEErrorSign",
+            \ },
+            \ 2: {
+            \     "name": "Warning",
+            \     "texthl": "ALEWarning",
+            \     "signText": "",
+            \     "signTexthl": "ALEWarningSign",
+            \ },
+            \ 3: {
+            \     "name": "Information",
+            \     "texthl": "ALEInfo",
+            \     "signText": "",
+            \     "signTexthl": "ALEInfoSign",
+            \ },
+            \ 4: {
+            \     "name": "Hint",
+            \     "texthl": "ALEInfo",
+            \     "signText": "",
+            \     "signTexthl": "ALEInfoSign",
+            \ },
+            \}
 
 " -- Vim-markdown --
 let g:vim_markdown_conceal = 0
@@ -195,7 +233,7 @@ let g:neoformat_java_uncrustify = {
 let g:neoformat_enabled_java = ['uncrustify']
 let g:neoformat_php_phpcsfixer = {
             \ 'exe': 'php-cs-fixer',
-            \ 'args': ['fix', '--rules=@Symfony,-@PSR1,-blank_line_before_statement,indentation_type'],
+            \ 'args': ['fix', '--rules=@Symfony,@PhpCsFixer,-@PSR1,-blank_line_before_statement,indentation_type'],
             \ 'stdin': 0,
             \ 'replace': 1,
             \ }
@@ -203,6 +241,9 @@ let g:neoformat_enabled_php = ['phpcsfixer']
 
 " -- NerdCommenter --
 let g:NERDSpaceDelims = 1
+
+" -- NeoSnippet --
+let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Settings
 " --------
@@ -380,6 +421,7 @@ nmap <leader>LS :!shfmt -i 4 -ci -sr -w %<CR><CR>
 nmap <leader>LE :!eslint --fix %<CR><CR>
 nmap <leader>LL :Neoformat<CR>
 nmap <leader>PW :read !pwgen 10<CR>
+nnoremap <leader>LC :call LanguageClient_contextMenu()<CR>
 
 " -- Leader guide
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>

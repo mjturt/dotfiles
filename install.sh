@@ -1036,7 +1036,18 @@ df_ncmpcpp() {
     {
         mkdir -v ~/.ncmpcpp
         ln -s -v "${DOT}"/.ncmpcpp/config ~/.ncmpcpp/config
+        ln -s -v "${DOT}"/.ncmpcpp/bindings ~/.ncmpcpp/bindings
     } >>"$LOGS"
+}
+
+# Mopidy (private, commons)
+df_mopidy() {
+    if [ -e ~/.config/mopidy ]; then
+        mv -v ~/.config/mopidy "$BACKUP" >>"$LOGS"
+    elif [ -L ~/.config/mopidy ]; then
+        rm -v ~/.config/mopidy >>"$LOGS"
+    fi
+    ln -s -v "${DOT}"/.config/mopidy ~/.config/mopidy >>"$LOGS"
 }
 
 #┏━━━━━━━━━━━━━━━┓
@@ -1066,7 +1077,7 @@ helps() {
     echo -e "\\e[1;34mＡｖａｉｌａｂｌｅ  ｐａｒａｍｅｔｅｒｓ ━━━━━━━━━━━━━━━━\\e[0m"
     echo -e "\\e[1;35mPrivate(not found in git-repo), cant take host-parameter:\\e[0m df_irssi, df_buku,"
     echo -e "df_fonts, df_cursors, df_gtk_themes, df_fbcolors, df_calcurse, df_newsboat, df_vdirsyncer,"
-    echo -e "df_khard, df_linopen, df_tmuxp, df_transmission, df_tremc, df_ncmpcpp"
+    echo -e "df_khard, df_linopen, df_tmuxp, df_transmission, df_tremc, df_ncmpcpp, df_mopidy"
     echo
     echo -e "\\e[1;35mGroups:\\e[0m commons, commons_cli, commons_x11, host_r5, host_server, host_thinkpad"
     echo -e "assets(private)"

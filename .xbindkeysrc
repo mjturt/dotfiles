@@ -13,15 +13,18 @@ Mod4 + Return
 ### Media keys
 
 #"cmus-remote -r"
-"playerctl previous"
+# "playerctl previous"
+"mpc prev"
 XF86AudioPrev
 
 #"cmus-remote -n"
-"playerctl next"
+# "playerctl next"
+"mpc next"
 XF86AudioNext
 
 #"cmus-remote -u"
-"playerctl play-pause"
+# "playerctl play-pause"
+"toggle-mpc"
 XF86AudioPlay
 
 #"amixer set Master 2dB+ unmute"

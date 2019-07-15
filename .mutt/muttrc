@@ -39,6 +39,7 @@ set edit_headers
 set fast_reply
 set signature=~/.mutt/signatures/default
 source ~/.mutt/gpg.rc
+set sig_on_top = yes
 
 ### Attachments
 set mailcap_path=~/.mutt/mailcap

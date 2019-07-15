@@ -60,7 +60,7 @@ SPACESHIP_PROMPT_ORDER=(
   exec_time     # Execution time
   line_sep      # Line break
   #battery       # Battery level and status
-  #vi_mode       # Vi-mode indicator
+  vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
@@ -187,3 +187,12 @@ else
             SPACESHIP_CHAR_COLOR_SUCCESS=033
     esac
 fi
+
+# Vi-mode indicator
+function zle-keymap-select() {
+   zle reset-prompt zle -R
+}
+zle -N zle-keymap-select
+
+RPS2=$RPS1
+export KEYTIMEOUT=1
