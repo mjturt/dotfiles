@@ -511,7 +511,7 @@ exec = ~/.statusscripts/polybar/mpc.sh
 interval = 2
 click-left = mpc prev
 click-right = mpc next
-click-middle = toggle-mpc
+click-middle = mpc toggle
 
 [module/bspwm]
 type = internal/bspwm

@@ -25,6 +25,7 @@ rambox &
 #nitrogen --restore &
 #redshift -l 60.46:22.29 &
 greenclip daemon &
+mopidy-start &
 
 ## Window manager
 poly dwm &

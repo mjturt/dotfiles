@@ -61,7 +61,7 @@ Plug 'epilande/vim-react-snippets'
 Plug 'alvan/vim-closetag'
 Plug 'Valloric/MatchTagAlways'
 Plug 'udalov/kotlin-vim'
-Plug 'posva/vim-vue'
+" Plug 'posva/vim-vue'
 
 " -- Code formatting --
 Plug 'sbdchd/neoformat'
@@ -363,6 +363,9 @@ autocmd BufWriteCmd *.rtf set readonly
 
 " -- Latex --
 let g:tex_flavor = 'tex'
+
+" -- Vue --
+autocmd FileType vue syntax sync fromstart
 
 " Keyboard mappings
 " -----------------

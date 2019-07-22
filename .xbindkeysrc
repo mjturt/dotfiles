@@ -24,7 +24,7 @@ XF86AudioNext
 
 #"cmus-remote -u"
 # "playerctl play-pause"
-"toggle-mpc"
+"mpc toggle"
 XF86AudioPlay
 
 #"amixer set Master 2dB+ unmute"

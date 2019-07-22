@@ -135,7 +135,7 @@ fi
 
 ### Autostart tmux
 
-if [[ -n $DISPLAY ]] && [[ $(id -u) -ne 0 ]] && [[ "$(hostname)" != "server" ]]; then
+if [[ -n $DISPLAY ]] && [[ $(id -u) -ne 0 ]] && [[ "$(hostname)" != "server.turtia.org" ]]; then
    [[ $- != *i* ]] && return
    [[ -z "$TMUX" ]] && exec tmux
 fi
