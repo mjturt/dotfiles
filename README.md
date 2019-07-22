@@ -18,7 +18,7 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 + PDF viewer:           **zathura**
 + Compositor:           **compton**
 + Video player:         **mpv**
-+ Music player:         **cmus**
++ Music player:         **ncmpcpp** + **mopidy**
 + Torrent client:       **transmission**
 + Mail client:          **mutt**
 
