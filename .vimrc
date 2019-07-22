@@ -2,6 +2,9 @@
 "┣━━━━━━━━━
 "┃ mjturt
 
+" Old .vimrc for vim. Current neovim config in .config/nvim/init.vim
+" ------------------------------------------------------------------
+
 " First figure out OS
 " -------------------
 
