@@ -57,6 +57,7 @@ alias tls="tmux list-sessions"
 alias tlk="tmux list-keys"
 alias tlkc="tmux list-keys -T copy-mode-vi"
 alias tmux-d="tmux a -dt"
+alias irs="tmux a -dt irssi"
 
 ## Toilet
 alias rustofat="toilet -f rustofat --gay"

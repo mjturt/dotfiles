@@ -3,7 +3,7 @@
 #┃ mjturt
 
 [global]
-   font = bitocra13full
+   font = "BlexMono Nerd Font"
    monitor = 0
    follow = mouse
    geometry = "220x5-15+40"

@@ -47,15 +47,16 @@ Plug 'w0rp/ale'
 
 " -- Better/additional language support --
 Plug 'sheerun/vim-polyglot'
-Plug 'vitalk/vim-shebang'
-Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'ricpelo/vim-gdscript'
+" Plug 'vitalk/vim-shebang'
+" Plug 'PotatoesMaster/i3-vim-syntax'
+" Plug 'ricpelo/vim-gdscript'
 " Plug 'artur-shaik/vim-javacomplete2'
-Plug 'StanAngeloff/php.vim'
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+" Plug 'StanAngeloff/php.vim'
+" Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+" Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 "Plug 'dsawardekar/wordpress.vim'
-Plug 'shawncplus/phpcomplete.vim'
+" Plug 'shawncplus/phpcomplete.vim'
+" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'moll/vim-node'
 Plug 'epilande/vim-react-snippets'
 Plug 'alvan/vim-closetag'
@@ -82,7 +83,7 @@ Plug 'mbbill/undotree'
 Plug 'dbakker/vim-projectroot'
 Plug 'dbeniamine/vim-mail'
 Plug 'wsdjeg/FlyGrep.vim'
-Plug 'Shougo/context_filetype.vim'
+" Plug 'Shougo/context_filetype.vim'
 
 " -- UI --
 Plug 'farmergreg/vim-lastplace'
@@ -96,9 +97,10 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'mhinz/vim-startify'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'moll/vim-bbye'
+" Plug 'terryma/vim-smooth-scroll'
 
 " -- Tags --
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
 " -- Fuzzy finging --
@@ -109,8 +111,9 @@ Plug 'ctrlpvim/ctrlp.vim'
     "\ { 'dir': g:plug_home.'/vim-fzf-git-ls-files/plugin', 'rtp': '..' }
 
 " -- Files --
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'mjturt/ranger.vim'
+Plug 'dylanaraps/fff.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-eunuch'
 
@@ -365,7 +368,9 @@ autocmd BufWriteCmd *.rtf set readonly
 let g:tex_flavor = 'tex'
 
 " -- Vue --
-autocmd FileType vue syntax sync fromstart
+" autocmd FileType vue syntax sync fromstart
+autocmd BufEnter *.vue :setlocal filetype=vue
+autocmd BufEnter *.vue :setlocal syntax=javascript
 
 " Keyboard mappings
 " -----------------
@@ -388,10 +393,16 @@ imap <C-o> <Plug>(neosnippet_expand_or_jump)
 smap <C-o> <Plug>(neosnippet_expand_or_jump)
 xmap <C-o> <Plug>(neosnippet_expand_target)
 
+" -- Smooth scroll
+" noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+" noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+" noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+" noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
 " -- Leader key --
 let mapleader="\<Space>"
 nnoremap <leader>ev :tabnew ~/.config/nvim/init.vim<CR>
-noremap <leader>es :so ~/.config/nvim/init.vim<cr>
+noremap <leader>so :so ~/.config/nvim/init.vim<cr>
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 map <leader>X :!chmod +x %<CR><CR>
 noremap <silent> <leader>n :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
@@ -401,10 +412,10 @@ noremap <leader>f gqap
 noremap <leader>ss :%s//g<LEFT><LEFT>
 noremap <Leader>gg gg=G
 noremap <leader>sw :%s/\s\+$//<cr>
-noremap <leader>so :so %<cr>
 noremap <leader>S :set spell!<cr>
 noremap <leader>FH :set filetype=html<cr>
 noremap <leader>FP :set filetype=php<cr>
+noremap <leader>jj <c-]>
 
 noremap <leader>gr :FlyGrep<cr>
 noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>
@@ -414,6 +425,7 @@ nnoremap <leader>rr :NERDTreeToggle<cr>
 map <leader>re :Ranger<CR>
 map <leader>rv :RangerCurrentFileNewVSplit<CR>
 map <leader>rs :RangerCurrentFileNewSplit<CR><Paste>
+map <leader>rf :F<CR>
 nnoremap <leader>T :Tagbar<cr><cr>
 nmap <leader><Tab> :FZF<cr>
 nmap <leader>J <Plug>(JavaComplete-Imports-AddMissing)
@@ -425,6 +437,7 @@ nmap <leader>LE :!eslint --fix %<CR><CR>
 nmap <leader>LL :Neoformat<CR>
 nmap <leader>PW :read !pwgen 10<CR>
 nnoremap <leader>LC :call LanguageClient_contextMenu()<CR>
+noremap <leader>bb :CtrlPBuffer<cr>
 
 " -- Leader guide
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
@@ -436,8 +449,8 @@ nnoremap <silent> <Leader>k :exe "resize +5"<CR>
 nnoremap <silent> <Leader>l :exe "vertical resize +5"<CR>
 
 " -- Command prompt --
-cmap Q q
-cmap W w
+" cmap Q q
+" cmap W w
 
 " Custom functions
 " ----------------

@@ -61,3 +61,9 @@ man() {
       LESS_TERMCAP_us=$'\e[01;32m' \
       command man "$@"
 }
+
+# fff automatic cd
+f() {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}

@@ -74,10 +74,12 @@ Alt+g
 Alt+f
 
 ### Media keys
-"amixer set Master 5%+"
+# "amixer set Master 5%+"
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
 XF86AudioRaiseVolume
 
-"amixer set Master 5%-"
+# "amixer set Master 5%-"
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
 XF86AudioLowerVolume
 
 "pactl set-sink-mute 0 toggle"

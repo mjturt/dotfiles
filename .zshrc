@@ -128,9 +128,9 @@ source $HOME/.zsh/themes/spaceship-settings.zsh
 ### Dircolors
 
 if [[ "$(uname)" = "FreeBSD" ]]; then
-   eval `gdircolors ~/.zsh/dircolors/solarized.dircolors`
+   eval `gdircolors ~/.zsh/dircolors/gruvbox.dircolors`
 else
-   eval `dircolors ~/.zsh/dircolors/solarized.dircolors`
+   eval `dircolors ~/.zsh/dircolors/gruvbox.dircolors`
 fi
 
 ### Autostart tmux

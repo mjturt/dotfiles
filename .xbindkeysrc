@@ -13,19 +13,23 @@ Mod4 + Return
 ### Media keys
 
 #"cmus-remote -r"
-# "playerctl previous"
-"mpc prev"
+# "mpc prev"
+"playerctl previous"
 XF86AudioPrev
 
 #"cmus-remote -n"
-# "playerctl next"
-"mpc next"
+# "mpc next"
+"playerctl next"
 XF86AudioNext
 
 #"cmus-remote -u"
-# "playerctl play-pause"
-"mpc toggle"
+# "mpc toggle"
+"playerctl play-pause"
 XF86AudioPlay
+
+# "mpc toggle"
+"playerctl play-pause"
+XF86AudioPause
 
 #"amixer set Master 2dB+ unmute"
 "pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -99,6 +103,10 @@ Alt+c
 
 "compilest"
 Control+Alt+s
+
+# temp
+"xmodmap ~/cloud/dotfiles/thinkpad/.Xmodmap"
+Control+Alt+a
 
 ### Spotify
 

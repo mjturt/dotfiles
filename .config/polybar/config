@@ -54,7 +54,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro weather bitcoin mpc volume compton
+modules-left = distro weather bitcoin playerctl volume compton
 modules-center = fsroot fshome fscommon fsstorage
 modules-right = cpu load memory temp uptime date xkeyboard powermenu
 
