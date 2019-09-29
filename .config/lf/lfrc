@@ -1,0 +1,216 @@
+#┃ ~/.config/lf/lfrc
+#┣━━━━━━━━━━━━━━━━━━
+#┃ mjturt
+
+# interpreter for shell commands (needs to be POSIX compatible)
+set shell sh
+
+# set '-eu' options for shell commands
+# These options are used to have safer shell commands. Option '-e' is used to
+# exit on error and option '-u' is used to give error for unset variables.
+# Option '-f' disables pathname expansion which can be useful when $f, $fs, and
+# $fx variables contain names with '*' or '?' characters. However, this option
+# is used selectively within individual commands as it can be limiting at
+# times.
+set shellopts '-eu'
+
+# set internal field separator (IFS) to "\n" for shell commands
+# This is useful to automatically split file names in $fs and $fx properly
+# since default file separator used in these variables (i.e. 'filesep' option)
+# is newline. You need to consider the values of these options and create your
+# commands accordingly.
+set ifs "\n"
+
+# leave some space at the top and the bottom of the screen
+set scrolloff 10
+
+# Keybindings
+# ----------
+
+# Remove defaults
+map d
+map m
+map p
+map w
+map y
+map c
+map u
+map e
+
+# Basics
+map yy copy
+map dd cut
+map pp paste
+map dD delete
+map . set hidden!
+map uu unselect
+map uy clear
+map ev $$EDITOR $f
+map S shell
+map cS !du -sh $f
+map cw push :rename<space>
+cmap <esc> cmd-escape
+map pr paste-rsync
+# move to trash
+map DD $[ $(uname) = "FreeBSD" ] && gmv --backup=numbered $fx ~/.trash || mv --backup=numbered $fx ~/.trash
+# backup with 'buf' script
+map bu $file="$(basename -- $f)" && buf $file
+map bs $file="$(basename -- $f)" && buf -s $file
+# upload to pastebin
+map bp $linx $f | xsel -i -b
+# scp to server
+map bc $scp $fx turtia.org:/home/mjt
+# pack/extract
+map ep tar archive "$fx"
+map ex extract "$f"
+# execute current file (must be executable)
+map xx $$f
+# execute in new tmux pane
+map xX $tmux splitw "zsh -c \"$f ;zsh\""
+# chmod
+map xc $chmod +x %fs
+map chx $chmod +x $fs
+# dedicated keys for file opener actions
+map o &mimeopen $f
+map O $mimeopen --ask $f
+# new files
+map CM push %mkdir<space>
+map CF push %touch<space>
+map CS push %shebang posix<space>
+map CB push %shebang bash<space>
+map CP push %shebang python<space>
+map CD push %newdot<space>
+# set wallpaper
+map bW $setroot -s $f
+# copy file name
+map yn $basename $f | xsel -i -b
+# Shortcuts
+map gd cd ~/cloud/dev
+map gm cd /mnt
+map gs cd /mnt/storage
+map gC cd /mnt/common
+map gc cd ~/cloud
+map gx cd ~/.config
+map gr cd ~/.config/ranger
+map gt cd ~/cloud/TY
+map gT cd ~/.trash
+map gD cd ~/Downloads
+map gS cd ~/cloud/images/screenshots
+map gW cd ~/cloud/images/wallpapers
+
+# Commands
+# --------
+
+# define a custom 'open' command
+# This command is called when current file is not a directory. You may want to
+# use either file extensions and/or mime types here. Below uses an editor for
+# text files and a file opener for the rest.
+cmd open ${{
+    case $(file --mime-type $f -b) in
+        text/*) $EDITOR $fx;;
+        application/pdf) zathura $f;;
+        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+# rename current file without overwrite
+cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
+
+# make sure trash folder exists
+%mkdir -p ~/.trash
+
+# move current file or selected files to trash folder
+# (also see 'man mv' for backup/overwrite options)
+cmd trash %set -f; mv $fx ~/.trash
+
+# delete current file or selected files (prompting)
+cmd delete ${{
+    set -f
+    printf "$fx\n"
+    printf "delete?[y/n]"
+    read ans
+    [ $ans = "y" ] && rm -rf $fx
+}}
+
+# extract the current file with the right command
+# (xkcd link: https://xkcd.com/1168/)
+cmd extract ${{
+    set -f
+    case $f in
+      *.tar.bz2)  tar         xjf   $f;;
+      *.tar.gz)   tar         xzf   $f;;
+      *.bz2)      bunzip2           $f;;
+      *.rar)      rar         x     $f;;
+      *.gz)       gunzip            $f;;
+      *.tar)      tar         xf    $f;;
+      *.tbz2)     tar         xjf   $f;;
+      *.tgz)      tar         xzf   $f;;
+      *.zip)      unzip             $f;;
+      *.Z)        uncompress        $f;;
+      *.tar.xz)   tar         xJf   $f;;
+      *.xz)       xz          -d    $f;;
+      *.7z)       p7zip       e     $f;;
+    esac
+}}
+
+# compress current file or selected files with tar and gunzip
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+# compress current file or selected files with zip
+cmd zip ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}
+
+# Paste with backup on existing files
+cmd paste %{{
+    load=$(lf -remote 'load')
+    mode=$(echo "$load" | sed -n '1p')
+    list=$(echo "$load" | sed '1d')
+    os=$(uname)
+    if [ $os = 'FreeBSD' ]; then
+        cpcmd='gcp'
+        mvcmd='gmv'
+    else
+        cpcmd='cp'
+        mvcmd='mv'
+    fi
+    if [ $mode = 'copy' ]; then
+        "$cpcmd" -r --backup=numbered $list .
+    elif [ $mode = 'move' ]; then
+        "$mvcmd" --backup=numbered $list .
+    fi
+    lf -remote 'send load'
+    lf -remote 'send clear'
+}}
+
+# Paste with progress bar
+cmd paste-rsync &{{
+    load=$(lf -remote 'load')
+    mode=$(echo "$load" | sed -n '1p')
+    list=$(echo "$load" | sed '1d')
+    if [ $mode = 'copy' ]; then
+        rsync -av --ignore-existing --progress $list . \
+        | stdbuf -i0 -o0 -e0 tr '\r' '\n' \
+        | while read line; do
+            lf -remote "send $id echo $line"
+        done
+    elif [ $mode = 'move' ]; then
+        mv -n $list .
+    fi
+    lf -remote 'send load'
+    lf -remote 'send clear'
+}}
+
+# Preview script
+set previewer ~/.config/lf/scope.sh
+
