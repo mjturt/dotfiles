@@ -10,7 +10,7 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 + Terminal emulator:    **urxvt**
 + Shell:                **zsh**
 + Terminal multiplexer: **tmux**
-+ File manager:         **ranger**
++ File manager:         **lf**
 + Launcher:             **rofi**
 + Browser:              **chromium**
 + Notification system:  **dunst**
