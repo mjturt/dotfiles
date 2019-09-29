@@ -112,7 +112,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " -- Files --
 " Plug 'scrooloose/nerdtree'
-Plug 'mjturt/ranger.vim'
+" Plug 'mjturt/ranger.vim'
+Plug 'ptzz/lf.vim'
 Plug 'dylanaraps/fff.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-eunuch'
@@ -247,6 +248,9 @@ let g:NERDSpaceDelims = 1
 
 " -- NeoSnippet --
 let g:neosnippet#enable_snipmate_compatibility = 1
+
+" -- lf --
+let g:lf_map_keys = 0
 
 " Settings
 " --------
@@ -422,9 +426,10 @@ noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>
 noremap <leader>G :Goyo<CR><CR>
 nnoremap <leader>u :UndotreeToggle<cr>
 nnoremap <leader>rr :NERDTreeToggle<cr>
-map <leader>re :Ranger<CR>
-map <leader>rv :RangerCurrentFileNewVSplit<CR>
-map <leader>rs :RangerCurrentFileNewSplit<CR><Paste>
+map <leader>re :Lf<cr>
+" map <leader>re :Ranger<CR>
+" map <leader>rv :RangerCurrentFileNewVSplit<CR>
+" map <leader>rs :RangerCurrentFileNewSplit<CR><Paste>
 map <leader>rf :F<CR>
 nnoremap <leader>T :Tagbar<cr><cr>
 nmap <leader><Tab> :FZF<cr>

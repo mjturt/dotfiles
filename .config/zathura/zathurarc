@@ -21,8 +21,8 @@ map l scroll right
 
 map H navigate previous
 map L navigate next
-map K zoom out
-map J zoom in
+map K zoom in
+map J zoom out
 
 map D toggle_page_mode
 map e scroll half-up

@@ -46,20 +46,20 @@
    context = ctrl+shift+period
 
 [urgency_low]
-   background = "#87875f"
-   foreground = "#000000"
+   background = "#222222"
+   foreground = "#719611"
    frame_color = "#719611"
    timeout = 5
 
 [urgency_normal]
-   background = "#87875f"
-   foreground = "#000000"
-   frame_color = "#000000"
+   background = "#222222"
+   foreground = "#87875f"
+   frame_color = "#87875f"
    timeout = 7
 
 [urgency_critical]
-   background = "#87875f"
-   foreground = "#000000"
+   background = "#222222"
+   foreground = "#8f6f8f"
    frame_color = "#8f6f8f"
    timeout = 10
    icon = /usr/share/icons/Paper/16x16/status/dialog-warning.png

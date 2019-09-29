@@ -10,8 +10,8 @@ zoom_out minus j
 next_img l Right space
 
 scroll_left  H C-Left
-scroll_down  J C-Down
-scroll_up    K C-Up
+scroll_down  J C-Up
+scroll_up    K C-Down
 scroll_right L C-Right
 
 menu_parent h Left

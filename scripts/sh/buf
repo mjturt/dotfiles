@@ -12,14 +12,15 @@ case "$1" in
       storage=0
    ;;
 esac
+echo $1
 if [ "$oldname" != "" ]; then
    datepart=$(date +%Y-%m-%d);
-   firstpart=`echo $oldname | cut -d "." -f 1`;
-   newname=`echo $oldname | sed s/$firstpart/$firstpart.$datepart/`;
-   cp -R ${oldname} ${newname};
-   tar cvjf $newname.tar.bz2 $newname
-   rm -rf $newname
+   firstpart=$(echo "$oldname" | cut -d "." -f 1);
+   newname=$(echo "$oldname" | sed s/"$firstpart"/"$firstpart"."$datepart"/);
+   cp -R "${oldname}" "${newname}";
+   tar cvjf "$newname".tar.bz2 "$newname"
+   rm -rf "$newname"
    if [[ "$storage" -gt 0 ]]; then
-      mv $newname.tar.bz2 /mnt/storage/backup/buf
+      mv "$newname".tar.bz2 /mnt/storage/backup/buf
    fi
 fi

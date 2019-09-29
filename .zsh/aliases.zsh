@@ -102,6 +102,18 @@ alias gcal-thisweek="gcalcli calw --color-owner=red --military --monday"
 alias gcal-nextweek="gcalcli calw \"next week\" --color-owner=red --military --monday"
 alias gcal-add="gcalcli --calendar=\"maks.turtiainen@gmail.com\" add"
 
+# GIT
+alias git-chmod-plus='git status --short | cut -d " " -f 3 | xargs chmod +x'
+alias git-chmod-minus='git status --short | cut -d " " -f 3 | xargs chmod -x'
+
+# Environments
+alias nvm-init="source /usr/share/nvm/init-nvm.sh"
+alias env-init="source ~/dev/pythonenv/bin/activate"
+
+# File managers
+alias r="lf-cd"
+alias f="fff-cd"
+
 ## Other
 alias fbvar="export TERM=fbterm"
 alias c="syntax-highlighting"
@@ -111,9 +123,6 @@ alias gotop="gotop -c monokai"
 alias changefont="printf '\e]710;%s\007'"
 alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 alias colors='for code ({000..255}) print -P -- "$code: %F{$code}COLORS%f"'
-alias r="ranger-cd"
 alias hc="herbstclient"
-alias git-chmod-plus='git status --short | cut -d " " -f 3 | xargs chmod +x'
-alias git-chmod-minus='git status --short | cut -d " " -f 3 | xargs chmod -x'
-alias nvm-init="source /usr/share/nvm/init-nvm.sh"
-alias env-init="source ~/dev/pythonenv/bin/activate"
+alias n="nvims ~/cloud/Notes/stuff.md"
+

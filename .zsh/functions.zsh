@@ -2,21 +2,6 @@
 #┣━━━━━━━━━━━━━━━━━━━━━
 #┃ mjturt
 
-# Ranger startup script
-# Preventing nested sessions and changes shell directory to same as ranger
-ranger-cd() {
-   if [[ -z "$RANGER_LEVEL" ]]; then
-      tempfile="$(mktemp -t tmp.XXXXXX)"
-      ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-      test -f "$tempfile" && if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-         cd -- "$(cat "$tempfile")"
-      fi
-      rm -f -- "$tempfile"
-   else
-      exit
-   fi
-}
-
 # Extension lowering
 function lowerextensions() {
    autoload zmv
@@ -62,8 +47,52 @@ man() {
       command man "$@"
 }
 
+# Ranger startup script
+# Preventing nested sessions and changes shell directory to same as ranger
+ranger-cd() {
+   if [[ -z "$RANGER_LEVEL" ]]; then
+      tempfile="$(mktemp -t tmp.XXXXXX)"
+      ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+      test -f "$tempfile" && if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+         cd -- "$(cat "$tempfile")"
+      fi
+      rm -f -- "$tempfile"
+   else
+      exit
+   fi
+}
+
+
 # fff automatic cd
-f() {
+fff-cd() {
     fff "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
+
+# lf automatic cd
+lf-cd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir"
+            fi
+        fi
+    fi
+}
+
+# nnn automatic cd
+nnn-cd()
+{
+    export NNN_TMPFILE=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd
+
+    nnn "$@"
+
+    if [ -f $NNN_TMPFILE ]; then
+            . $NNN_TMPFILE
+            rm $NNN_TMPFILE
+    fi
 }

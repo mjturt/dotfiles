@@ -14,21 +14,21 @@ Mod4 + Return
 
 #"cmus-remote -r"
 # "mpc prev"
-"playerctl previous"
+"playerctl previous --player=spotify"
 XF86AudioPrev
 
 #"cmus-remote -n"
 # "mpc next"
-"playerctl next"
+"playerctl next --player=spotify"
 XF86AudioNext
 
 #"cmus-remote -u"
 # "mpc toggle"
-"playerctl play-pause"
+"playerctl play-pause --player=spotify"
 XF86AudioPlay
 
 # "mpc toggle"
-"playerctl play-pause"
+"playerctl play-pause --player=spotify"
 XF86AudioPause
 
 #"amixer set Master 2dB+ unmute"

@@ -91,6 +91,7 @@ commons_cli() {
     df_abook
     df_transmission
     df_tremc
+    df_lf
 }
 
 # Commons, but only graphical programs
@@ -1050,6 +1051,16 @@ df_mopidy() {
     ln -s -v "${DOT}"/.config/mopidy ~/.config/mopidy >>"$LOGS"
 }
 
+# lf (commons)
+df_lf() {
+    if [ -e ~/.config/lf ]; then
+        mv -v ~/.config/lf "$BACKUP" >>"$LOGS"
+    elif [ -L ~/.config/lf ]; then
+        rm -v ~/.config/lf >>"$LOGS"
+    fi
+    ln -s -v "${DOT}"/.config/lf ~/.config/lf >>"$LOGS"
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -1085,7 +1096,7 @@ helps() {
     echo -e "\\e[1;35mSingle programs that CANT take host-parameter:\\e[0m df_vim, df_tmux, df_screen, df_feh,"
     echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
     echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
-    echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim, df_neovim"
+    echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim, df_neovim, df_lf"
     echo
     echo -e "\\e[1;35mSingle programs that CAN take host-parameter:\\e[0m df_i3, df_ranger"
     echo
