@@ -419,7 +419,7 @@ noremap <leader>sw :%s/\s\+$//<cr>
 noremap <leader>S :set spell!<cr>
 noremap <leader>FH :set filetype=html<cr>
 noremap <leader>FP :set filetype=php<cr>
-noremap <leader>jj <c-]>
+noremap <leader>d <c-]>
 
 noremap <leader>gr :FlyGrep<cr>
 noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>

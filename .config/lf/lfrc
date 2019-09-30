@@ -68,7 +68,7 @@ map xx $$f
 # execute in new tmux pane
 map xX $tmux splitw "zsh -c \"$f ;zsh\""
 # chmod
-map xc $chmod +x %fs
+map xc $chmod +x $fs
 map chx $chmod +x $fs
 # dedicated keys for file opener actions
 map o &mimeopen $f
@@ -84,6 +84,8 @@ map CD push %newdot<space>
 map bW $setroot -s $f
 # copy file name
 map yn $basename $f | xsel -i -b
+# fzf
+map <tab> $lf -remote "send $id select '$(fzf)'"
 # Shortcuts
 map gd cd ~/cloud/dev
 map gm cd /mnt

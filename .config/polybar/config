@@ -501,9 +501,9 @@ label = %{O-10}%output%
 type = custom/script
 exec = ~/.statusscripts/polybar/playerctl.sh
 interval = 2
-click-left = playerctl previous
-click-right = playerctl next
-click-middle = playerctl play-pause
+click-left = playerctl previous --player=spotify
+click-right = playerctl next --player=spotify
+click-middle = playerctl play-pause --player=spotify
 
 [module/mpc]
 type = custom/script
