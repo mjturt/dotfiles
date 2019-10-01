@@ -68,8 +68,8 @@ map xx $$f
 # execute in new tmux pane
 map xX $tmux splitw "zsh -c \"$f ;zsh\""
 # chmod
-map xc $chmod +x $fs
-map chx $chmod +x $fs
+map xc $chmod +x $f
+map chx $chmod +x $f
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
@@ -110,7 +110,7 @@ map gW cd ~/cloud/images/wallpapers
 cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
-        application/pdf) zathura $f;;
+        application/pdf) zathura $f &;;
         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}

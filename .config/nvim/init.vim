@@ -443,6 +443,8 @@ nmap <leader>LL :Neoformat<CR>
 nmap <leader>PW :read !pwgen 10<CR>
 nnoremap <leader>LC :call LanguageClient_contextMenu()<CR>
 noremap <leader>bb :CtrlPBuffer<cr>
+map <leader>s1 ysw"
+map <leader>s2 ys2w"
 
 " -- Leader guide
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>

@@ -691,13 +691,13 @@ format-underline = ${colors.foreground}
 
 [module/date]
 type = custom/script
-exec = ~/.statusscripts/polybar/date-calendar.sh
+exec = ~/.statusscripts/polybar/popup-calendar.sh
 interval = 1
 format-prefix = " "
 format-prefix-foreground = ${colors.blue}
 format-underline = ${colors.magneta}
 label-foreground = #ff9800
-click-left = ~/.statusscripts/polybar/date-calendar.sh click
+click-left = ~/.statusscripts/polybar/popup-calendar.sh --popup
 
 [module/volume]
 type = internal/pulseaudio
