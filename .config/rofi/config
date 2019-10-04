@@ -6,19 +6,19 @@
 ! Basic settings !
 !----------------!
 
-rofi.modi:                           window,run,drun
-rofi.terminal:                       urxvt
+rofi.modi:                           run,drun
+rofi.terminal:                       termite
 rofi.ssh-client:                     ssh
 rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
 rofi.run-command:                    {cmd}
 rofi.run-shell-command:              {terminal} -e {cmd}
 rofi.parse-hosts:                    true
 rofi.parse-known-hosts:              true
-rofi.show-icons:                     true
+rofi.show-icons:                     false
 rofi.click-to-exit:                  true
 rofi.show-match:                     true
 rofi.max-history-size:               25
-! rofi.drun-icon-theme:                
+! rofi.drun-icon-theme:
 ! rofi.drun-match-fields:              name,generic,exec,categories
 ! rofi.disable-history:                false
 ! rofi.sort:                           false
@@ -47,8 +47,7 @@ rofi.location:                       0
 ! rofi.fullscreen:                     false
 
 !# Theme
-! rofi.theme: ~/.config/rofi/themes/flat-orange.rasi
-rofi.theme: /usr/share/rofi/themes/Monokai.rasi
+rofi.theme: /usr/share/rofi/themes/gruvbox-dark-soft.rasi
 
 !-------------!
 ! Keybindings !

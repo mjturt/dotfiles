@@ -67,12 +67,12 @@ fpath=(~/.zsh/site-functions $fpath)
 
 ### Prompt
 
-if [[ ! -L ~/.zsh/site-functions/prompt_pure_setup ]]; then
-   ln -v -s ~/.zsh/themes/pure/pure.zsh ~/.zsh/site-functions/prompt_pure_setup
-fi
-if [[ ! -L ~/.zsh/site-functions/async ]]; then
-   ln -v -s ~/.zsh/themes/pure/async.zsh ~/.zsh/site-functions/async
-fi
+# if [[ ! -L ~/.zsh/site-functions/prompt_pure_setup ]]; then
+   # ln -v -s ~/.zsh/themes/pure/pure.zsh ~/.zsh/site-functions/prompt_pure_setup
+# fi
+# if [[ ! -L ~/.zsh/site-functions/async ]]; then
+   # ln -v -s ~/.zsh/themes/pure/async.zsh ~/.zsh/site-functions/async
+# fi
 
 ## Prompt set by antibody
 #autoload -Uz promptinit && promptinit
@@ -103,7 +103,7 @@ setopt multios
 setopt globdots
 unsetopt correct_all
 unsetopt beep
-bindkey -v
+bindkey -e
 autoload -Uz add-zsh-hook
 autoload run-help
 
@@ -144,7 +144,7 @@ fi
 rm -rf ~/dbus-send.core
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mjt/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/home/mjt/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
