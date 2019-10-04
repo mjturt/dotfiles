@@ -76,10 +76,10 @@ map O $mimeopen --ask $f
 # new files
 map CM push %mkdir<space>
 map CF push %touch<space>
-map CS push %shebang posix<space>
-map CB push %shebang bash<space>
-map CP push %shebang python<space>
-map CD push %newdot<space>
+map CS push !shebang<space>posix<space>
+map CB push !shebang<space>bash<space>
+map CP push !shebang<space>python<space>
+map CD push !newdot<space>
 # set wallpaper
 map bW $setroot -s $f
 # copy file name

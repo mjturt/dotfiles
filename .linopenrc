@@ -39,7 +39,7 @@ text:vim
 
 # 4. Regexp
 # Match some protocols by default
-?'^magnet:':/home/mjt/sh/magnet
+?'^magnet:':/home/mjt/sh/magnet-tremc
 ?'^http:\/\/':$BROWSER
 ?'^https:\/\/':$BROWSER
 ?'^www.':$BROWSER

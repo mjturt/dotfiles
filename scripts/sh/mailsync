@@ -3,12 +3,12 @@
 # Original: https://github.com/LukeSmithxyz/mutt-wizard/blob/master/bin/mailsync
 
 # Run only if user logged in (prevent cron errors)
-pgrep -u "$USER" >/dev/null || exit
+# pgrep -u "$USER" >/dev/null || exit
 # Run only if not already running in other instance
-pgrep -x mbsync >/dev/null && exit
+# pgrep -x mbsync >/dev/null && exit
 
 # Checks for internet connection and set notification script.
-ping -q -c 1 1.1.1.1 > /dev/null || exit
+# ping -q -c 1 1.1.1.1 > /dev/null || exit
 command -v notify-send >/dev/null || echo "Note that \`libnotify\` or \`libnotify-send\` should be installed for pop-up mail notifications with this script."
 
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
