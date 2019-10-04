@@ -113,6 +113,7 @@ commons_x11() {
     df_sxhkd
     df_hlwm
     df_bspwm
+    df_termite
 }
 
 # Only host-specific files (R5)
@@ -1061,6 +1062,16 @@ df_lf() {
     ln -s -v "${DOT}"/.config/lf ~/.config/lf >>"$LOGS"
 }
 
+# termite (commons)
+df_termite() {
+    if [ -e ~/.config/termite ]; then
+        mv -v ~/.config/termite "$BACKUP" >>"$LOGS"
+    elif [ -L ~/.config/termite ]; then
+        rm -v ~/.config/termite >>"$LOGS"
+    fi
+    ln -s -v "${DOT}"/.config/termite ~/.config/termite >>"$LOGS"
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -1096,7 +1107,7 @@ helps() {
     echo -e "\\e[1;35mSingle programs that CANT take host-parameter:\\e[0m df_vim, df_tmux, df_screen, df_feh,"
     echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
     echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
-    echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim, df_neovim, df_lf"
+    echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim, df_neovim, df_lf, df_termite"
     echo
     echo -e "\\e[1;35mSingle programs that CAN take host-parameter:\\e[0m df_i3, df_ranger"
     echo
