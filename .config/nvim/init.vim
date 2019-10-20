@@ -205,6 +205,7 @@ let g:LanguageClient_diagnosticsDisplay = {
 
 " -- Vim-markdown --
 let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 " -- Colorizer --
 let g:colorizer_maxlines = 1000
@@ -339,7 +340,9 @@ endif
 set list                " Show problematic characters.
 " Also highlight all tabs and trailing whitespace characters.
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\+$\|\t/
+match ExtraWhitespace /\s\+$/
+highlight Tabs ctermfg=darkgreen
+match Tabs /\t/
 autocmd FileType mail  highlight ExtraWhitespace ctermbg=NONE guibg=NONE
 
 " -- Python path --

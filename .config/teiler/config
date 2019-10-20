@@ -9,12 +9,12 @@ _rofi () {
 
 # the path where images, videos and pastes should be saved
 img_path=$HOME/cloud/images/screenshots
-vid_path=$HOME/mnt/storage/videos/screencasts
+vid_path=$HOME/cloud/videos/screencasts
 paste_path=$HOME/cloud/images/paste
 
 # set viewer for images and videos plus editor for images
 viewer=feh
-editor="urxvt -e vim"
+editor="urxvt -e nvim"
 player=mpv
 
 # Hitting Enter will upload

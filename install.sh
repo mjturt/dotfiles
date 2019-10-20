@@ -114,6 +114,7 @@ commons_x11() {
     df_hlwm
     df_bspwm
     df_termite
+    df_twmn
 }
 
 # Only host-specific files (R5)
@@ -1072,6 +1073,16 @@ df_termite() {
     ln -s -v "${DOT}"/.config/termite ~/.config/termite >>"$LOGS"
 }
 
+# twmn (commons)
+df_twmn() {
+    if [ -e ~/.config/twmn ]; then
+        mv -v ~/.config/twmn "$BACKUP" >>"$LOGS"
+    elif [ -L ~/.config/twmn ]; then
+        rm -v ~/.config/twmn >>"$LOGS"
+    fi
+    ln -s -v "${DOT}"/.config/twmn ~/.config/twmn >>"$LOGS"
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -1108,6 +1119,7 @@ helps() {
     echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
     echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
     echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim, df_neovim, df_lf, df_termite"
+    echo -e "df_twmn"
     echo
     echo -e "\\e[1;35mSingle programs that CAN take host-parameter:\\e[0m df_i3, df_ranger"
     echo
