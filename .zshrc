@@ -148,3 +148,9 @@ rm -rf ~/dbus-send.core
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Termite cd
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi

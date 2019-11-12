@@ -81,12 +81,11 @@ Control+space
 "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 Alt+y
 
-# Adds primary selection to bookmarks
-"bukuadd"
-Control+Alt+b
+"rofi -show calc -modi calc -no-show-match -no-sort"
+Alt+q
 
-"buku_run"
-Alt+b
+"rofi -show emoji -modi emoji"
+Alt+e
 
 "rofi-pass"
 Alt+p
@@ -96,6 +95,13 @@ Alt+g
 
 "~/.config/rofi/scripts/rofi-fontawesome.sh"
 Alt+f
+
+"buku_run"
+Alt+b
+
+# Adds primary selection to bookmarks
+"bukuadd"
+Control+Alt+b
 
 ### Other
 

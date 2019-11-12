@@ -12,7 +12,8 @@ xsetroot -cursor_name left_ptr
 xmodmap ~/.Xmodmap
 
 locktimer thinkpad &
-dunst &
+# dunst &
+twmnd &
 compton -b &
 #nextcloud &
 rambox &

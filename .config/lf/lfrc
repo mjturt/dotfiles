@@ -24,6 +24,9 @@ set ifs "\n"
 # leave some space at the top and the bottom of the screen
 set scrolloff 10
 
+# icons
+set icons
+
 # Keybindings
 # ----------
 
@@ -36,7 +39,6 @@ map y
 map c
 map u
 map e
-map /
 
 # Basics
 map yy copy
@@ -91,7 +93,7 @@ map yn $basename -z $f | xsel -i -b
 map yp $readlink -fn $f | xsel -i -b
 # fzf
 map <tab> $lf -remote "send $id select '$(fzf)'"
-map / $lf -remote "send $id select \"$(FZF_DEFAULT_COMMAND='fd --max-depth=1' fzf)\""
+map - $lf -remote "send $id select \"$(FZF_DEFAULT_COMMAND='fd -H -d 1' fzf)\""
 # Shortcuts
 map gd cd ~/cloud/dev
 map gm cd /mnt

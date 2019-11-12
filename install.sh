@@ -75,7 +75,6 @@ commons_cli() {
     df_ranger
     df_screen
     df_less
-    df_git
     df_w3m
     df_gpg
     df_scripts

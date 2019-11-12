@@ -42,13 +42,14 @@ alias svim="sudo nvim"
 alias ev="nvim ~/.config/nvim/init.vim"
 alias vim-noswap='nvim -n -i NONE --cmd "setlocal noswapfile" --cmd "set nocompatible" --cmd "set tabstop=4" -u NONE'
 alias nvims="nvim -u ~/.config/nvim/init-simple.vim"
-alias vv="nvim -u ~/.config/nvim/init-unixkerho.vim"
+alias v="nvim"
+alias vv="nvim -u ~/.config/nvim/init-simple.vim"
 
 ## Translate
 alias enfi="trans en:fi"
 alias fien="trans fi:en"
-alias fipo="trans fi:po"
-alias pofi="trans po:fi"
+alias fipl="trans fi:pl"
+alias plfi="trans pl:fi"
 
 ## Tmux
 alias tn="tmux new -s"
@@ -125,4 +126,3 @@ alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 alias colors='for code ({000..255}) print -P -- "$code: %F{$code}COLORS%f"'
 alias hc="herbstclient"
 alias n="nvims ~/cloud/Notes/stuff.md"
-

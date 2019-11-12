@@ -2,7 +2,7 @@
 "┣━━━━━━━━━━━━━━━━━━━━━━━━
 "┃ mjturt
 
-" First figure out OS
+" First figure out OS and user
 " -------------------
 
 let os = ""
@@ -18,6 +18,8 @@ if has("unix")
 elseif has("win32")
    let os = "windows"
 endif
+
+let user = substitute(system("whoami"), '\n\+$', '', '')
 
 " Vim-Plug install
 " ----------------
@@ -69,7 +71,9 @@ Plug 'sbdchd/neoformat'
 Plug 'stephpy/vim-php-cs-fixer'
 
 " -- Language Client --
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next',  'do': 'bash install.sh', }
+if os != "freebsd"
+    Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next',  'do': 'bash install.sh', }
+endif
 
 " -- Additional features --
 Plug 'terryma/vim-multiple-cursors'
@@ -263,6 +267,11 @@ set encoding=utf-8
 set ttyfast
 set mouse=a
 set clipboard=unnamedplus
+if os == "freebsd" 
+    if user == "root"
+        set clipboard=
+    endif
+endif
 
 " -- Syntax/filetype --
 syntax on
@@ -423,6 +432,9 @@ noremap <leader>S :set spell!<cr>
 noremap <leader>FH :set filetype=html<cr>
 noremap <leader>FP :set filetype=php<cr>
 noremap <leader>d <c-]>
+noremap <leader>wq :wq!<cr>
+noremap <leader>w :w!<cr>
+noremap <leader>q :q!<cr>
 
 noremap <leader>gr :FlyGrep<cr>
 noremap <leader>P :RainbowParenthesesToggle<cr>:RainbowParenthesesLoadBraces<cr>

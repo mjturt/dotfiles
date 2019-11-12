@@ -54,17 +54,6 @@ Alt+x
 "rofi-surfraw"
 Control+space
 
-### Color picker
-"yad --color"
-Alt+c
-
-# Adds primary selection to bookmarks
-"bukuadd"
-Control+Alt+b
-
-"buku_run"
-Alt+b
-
 "rofi-pass"
 Alt+p
 
@@ -73,6 +62,26 @@ Alt+g
 
 "~/.config/rofi/scripts/rofi-fontawesome.sh"
 Alt+f
+
+"rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+Alt+y
+
+"rofi -show calc -modi calc -no-show-match -no-sort"
+Alt+q
+
+"rofi -show emoji -modi emoji"
+Alt+e
+
+"buku_run"
+Alt+b
+
+# Adds primary selection to bookmarks
+"bukuadd"
+Control+Alt+b
+
+### Color picker
+"yad --color"
+Alt+c
 
 ### Media keys
 # "amixer set Master 5%+"
