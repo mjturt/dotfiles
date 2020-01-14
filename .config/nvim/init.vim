@@ -147,15 +147,22 @@ call plug#end()
 " -- ALE --
 let b:ale_linters = {
             \'css': ['prettier'],
+            \'python': ['flake8', 'pylint', 'mypy'],
             \}
 let g:ale_fixers = {
             \'javascript': ['prettier'],
             \'css': ['prettier'],
-            \'python': ['autopep8'],
+            \'python': ['isort',  'autopep8'],
             \}
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_python_autopep8_options = '-aaaaaa'
+let g:ale_python_pylint_options = '--load-plugins pylint_django --max-line-length=120'
+let g:ale_python_mypy_options = '--ignore-missing-imports'
+let g:ale_python_flake8_options = '--ignore=F401'
+let g:ale_python_auto_pipenv = 1
+let g:ale_python_pylint_auto_pipenv = 1
 
 " -- Deoplete --
 let g:deoplete#enable_at_startup = 1
@@ -247,6 +254,12 @@ let g:neoformat_php_phpcsfixer = {
             \ 'replace': 1,
             \ }
 let g:neoformat_enabled_php = ['phpcsfixer']
+let g:neoformat_python_black = {
+            \ 'exe': 'black',
+            \ 'stdin': 1,
+            \ 'args': ['-l', '120', '-q', '-'],
+            \ }
+let g:neoformat_enabled_python = ['autopep8', 'isort']
 
 " -- NerdCommenter --
 let g:NERDSpaceDelims = 1
@@ -385,7 +398,7 @@ let g:tex_flavor = 'tex'
 
 " -- Vue --
 " autocmd FileType vue syntax sync fromstart
-autocmd BufEnter *.vue :setlocal filetype=vue
+autocmd BufEnter *.vue :setlocal filetype=javascript
 autocmd BufEnter *.vue :setlocal syntax=javascript
 
 " Keyboard mappings
@@ -394,7 +407,6 @@ autocmd BufEnter *.vue :setlocal syntax=javascript
 " -- Basics --
 map <S-h> :bprevious<CR>
 map <S-l> :bnext<CR>
-map <C-a> <Nop>
 nmap QQ :q<CR>
 nmap QW :wq<CR>
 vmap <C-c> y
@@ -455,11 +467,14 @@ map <leader>C :ColorToggle<CR>
 nmap <leader>LS :!shfmt -i 4 -ci -sr -w %<CR><CR>
 nmap <leader>LE :!eslint --fix %<CR><CR>
 nmap <leader>LL :Neoformat<CR>
+nmap <leader>LA <Plug>(ale_fix)
 nmap <leader>PW :read !pwgen 10<CR>
 nnoremap <leader>LC :call LanguageClient_contextMenu()<CR>
 noremap <leader>bb :CtrlPBuffer<cr>
 map <leader>s1 ysw"
 map <leader>s2 ys2w"
+map <leader>A <C-a>
+map <leader>Z <C-x>
 
 " -- Leader guide
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>

@@ -19,6 +19,7 @@ compton -b &
 rambox &
 nm-applet &
 setroot --span --blank-color "#2B303B"
+greenclip daemon &
 
 ## Window manager
 poly &

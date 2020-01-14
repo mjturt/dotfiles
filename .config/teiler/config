@@ -10,7 +10,7 @@ _rofi () {
 # the path where images, videos and pastes should be saved
 img_path=$HOME/cloud/images/screenshots
 vid_path=$HOME/cloud/videos/screencasts
-paste_path=$HOME/cloud/images/paste
+paste_path=$HOME/cloud/documents/paste
 
 # set viewer for images and videos plus editor for images
 viewer=feh
@@ -24,9 +24,9 @@ always_ul=0
 # Possible Choices for img_ul: fb, scp, s3, imgur
 # Possible Choices for vid_ul: fb, scp, s3
 # Possible Choices for paste_ul: fb, scp, ix
-img_ul=imgur
-vid_ul=fb
-paste_ul=ix
+img_ul=linx
+vid_ul=linx
+paste_ul=linx
 
 # Screencast options
 # Resolution to change to when recording in fullscreen

@@ -142,7 +142,7 @@ font-0 = Misc\ Ohsnap:size=8:antialias=false;0
 font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
-modules-left = distro weather volume compton
+modules-left = distro weather volume compton playerctlnoinfo
 modules-center = backlight battery-yoga wireless-network-yoga
 modules-right =  fsroot cpu memory temp uptime date
 tray-position = right
@@ -498,6 +498,14 @@ tail = true
 label = %{O-10}%output%
 
 [module/playerctl]
+type = custom/script
+exec = ~/.statusscripts/polybar/playerctl.sh --show-info
+interval = 2
+click-left = playerctl previous --player=spotify
+click-right = playerctl next --player=spotify
+click-middle = playerctl play-pause --player=spotify
+
+[module/playerctlnoinfo]
 type = custom/script
 exec = ~/.statusscripts/polybar/playerctl.sh
 interval = 2

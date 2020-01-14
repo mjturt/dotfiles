@@ -44,12 +44,19 @@ alias vim-noswap='nvim -n -i NONE --cmd "setlocal noswapfile" --cmd "set nocompa
 alias nvims="nvim -u ~/.config/nvim/init-simple.vim"
 alias v="nvim"
 alias vv="nvim -u ~/.config/nvim/init-simple.vim"
+alias vvv="nvim -u ~/.config/nvim/init-nothing.vim"
 
 ## Translate
 alias enfi="trans en:fi"
 alias fien="trans fi:en"
 alias fipl="trans fi:pl"
 alias plfi="trans pl:fi"
+alias enpl="trans en:pl"
+alias plen="trans pl:en"
+alias esen="trans es:en"
+alias enes="trans en:es"
+alias fies="trans fi:es"
+alias esfi="trans es:fi"
 
 ## Tmux
 alias tn="tmux new -s"
@@ -126,3 +133,4 @@ alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 alias colors='for code ({000..255}) print -P -- "$code: %F{$code}COLORS%f"'
 alias hc="herbstclient"
 alias n="nvims ~/cloud/Notes/stuff.md"
+alias gitlab="gitlab-runner exec docker"

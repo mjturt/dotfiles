@@ -63,6 +63,9 @@ Control+Alt+c
 "teiler"
 Print
 
+"teiler --quick image area"
+Control+alt+t
+
 "rofi -show drun"
 Alt+space
 

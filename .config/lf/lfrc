@@ -52,6 +52,10 @@ map ev $$EDITOR $f
 map S shell
 map cS !du -sh $f
 map cw push :rename<space>
+# Rename with the filename on the command line
+map A $lf -remote "send $id push :rename<space>$f"
+# Rename with the filename without the extension
+map a $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
 cmap <esc> cmd-escape
 map pr paste-rsync
 # move to trash

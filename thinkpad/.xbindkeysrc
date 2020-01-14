@@ -15,10 +15,10 @@ Mod4 + Return
 "i3lock -c '#2F1E2E'"
 XF86Display
 
-"sudo /home/mjt/sh/backlight up 50"
+"sudo /home/mjt/sh/backlight up 500"
 XF86MonBrightnessUp
 
-"sudo /home/mjt/sh/backlight down 50"
+"sudo /home/mjt/sh/backlight down 500"
 XF86MonBrightnessDown
 
 ### Toggles
@@ -38,6 +38,9 @@ Control+Alt+f
 ### Rofi-related
 "teiler"
 Print
+
+"teiler --quick image area"
+Control+Alt+t
 
 "rofi -show drun"
 Alt+space
@@ -116,6 +119,9 @@ XF86Tools
 
 #"cmus-remote -u"
 #XF86Tools
+
+"esform"
+Control+Alt+s
 
 ### For external keyboard
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
