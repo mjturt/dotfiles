@@ -144,13 +144,13 @@ XF86AudioPlay
 #-------------------------------------#
 
 # Thumb button
-"sleep 0.1 && xte 'XF86AudioMute'"                                
-m:0xc + c:23
+# "sleep 0.1 && xte 'XF86AudioMute'"                                
+# m:0xc + c:23
 
 # Thumb back key       
-"xte 'key XF86AudioLowerVolume'"                
-b:8                                   
+# "xte 'key XF86AudioLowerVolume'"                
+# b:8                                   
 
 # Thumb forward key
-"xte 'key XF86AudioRaiseVolume'"        
-b:9
+# "xte 'key XF86AudioRaiseVolume'"        
+# b:9

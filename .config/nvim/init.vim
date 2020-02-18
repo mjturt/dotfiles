@@ -401,6 +401,9 @@ let g:tex_flavor = 'tex'
 autocmd BufEnter *.vue :setlocal filetype=javascript
 autocmd BufEnter *.vue :setlocal syntax=javascript
 
+" -- Mail --
+au BufRead /tmp/neomutt-* set tw=0
+
 " Keyboard mappings
 " -----------------
 
