@@ -13,7 +13,7 @@ do
    if [ "$newcount" -gt "0" ]
    then
       #ssh mjt@r5.turtia.org "DISPLAY=:0 notify-send \"$newcount new mail(s) in $account\" && mpv --quiet /home/mjt/.notify.opus"
-      ssh mjt@r5.turtia.org "tmux splitw 'zsh -c '\'' notify-send \"mutt\" \"$newcount new mail(s) in $account\" '\''  &&  mpv --quiet /home/mjt/.notify.opus'"
+      ssh mjt@r5.turtia.org "tmux splitw 'zsh -c '\'' notify-send \"mutt\" \"$newcount new mail(s) in $account\" '\''  &&  mpv --quiet /home/mjt/.notify2.ogg'"
       notmuch new
    fi
 done

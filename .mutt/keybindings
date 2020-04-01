@@ -22,6 +22,7 @@ bind index U undelete-message
 bind index L limit
 bind index h noop
 bind index l display-message
+bind index ir recall-message
 bind browser h goto-parent
 bind browser l select-entry
 bind pager,browser gg top-page

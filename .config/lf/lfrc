@@ -56,8 +56,12 @@ map cw push :rename<space>
 map A $lf -remote "send $id push :rename<space>$f"
 # Rename with the filename without the extension
 map a $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
+# Bulk rename
+map cb bulk-rename
 cmap <esc> cmd-escape
 map pr paste-rsync
+# View image
+map , $~/.config/lf/draw_img.sh $f
 # move to trash
 map DD $[ $(uname) = "FreeBSD" ] && gmv --backup=numbered $fx ~/.trash || mv --backup=numbered $fx ~/.trash
 # backup with 'buf' script
@@ -224,6 +228,25 @@ cmd paste-rsync &{{
     fi
     lf -remote 'send load'
     lf -remote 'send clear'
+}}
+
+cmd bulk-rename ${{
+    old=$(mktemp)
+    new=$(mktemp)
+    [ -n $fs ] && fs=$(ls)
+    printf "$fs\n" > $old
+    printf "$fs\n" > $new
+    $EDITOR $new
+    [ $(cat $new | wc -l) -ne $(cat $old | wc -l) ] && exit
+    paste $old $new | while read names; do
+        src=$(printf $names | cut -f1)
+        dst=$(printf $names | cut -f2)
+        [ $src = $dst ] && continue
+        [ -e $dst ] && continue
+        mv $src $dst
+    done
+    rm $old $new
+    lf -remote "send $id unselect"
 }}
 
 # Preview script

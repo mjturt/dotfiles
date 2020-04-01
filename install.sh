@@ -449,7 +449,13 @@ df_git() {
     elif [[ -L ~/.gitconfig ]]; then
         rm -v ~/.gitconfig >>"$LOGS"
     fi
+    if [[ -e ~/.gitignore_global ]]; then
+        mv -v ~/.gitignore_global "$BACKUP" >>"$LOGS"
+    elif [[ -L ~/.gitignore_global ]]; then
+        rm -v ~/.gitignore_global >>"$LOGS"
+    fi
     ln -v -s "${DOT}"/.gitconfig ~/.gitconfig >>"$LOGS"
+    ln -v -s "${DOT}"/.gitignore_global ~/.gitignore_global >>"$LOGS"
 }
 
 # i3 (commons, r5, thinkpad)
