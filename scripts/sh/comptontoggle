@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if pgrep -x "compton" > /dev/null
+if pgrep -x "picom" > /dev/null
 then
-   pkill compton
+   pkill picom
 else
-   compton -b
+   picom -b --experimental-backends
 fi

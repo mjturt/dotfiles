@@ -7,7 +7,7 @@ if [ "$(hostname)" = "yoga" ]; then
     polybar dwmyoga &
     polybar dwmhdmi &
 elif [ "$(hostname)" = "r5" ]; then
-    polybar dwm &
+    polybar i3 &
 elif [ "$(hostname)" = "tp" ]; then
     polybar dwmtp &
 fi

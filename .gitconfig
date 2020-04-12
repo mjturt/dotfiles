@@ -1,19 +1,20 @@
 [user]
-   name = mjturt
-   email = maks.turtiainen@gmail.com
-   signingkey = 0E2C1C7E
+    name = mjturt
+    email = maks.turtiainen@gmail.com
+    signingkey = 0E2C1C7E
 [core]
-   editor = vim
+    editor = vim
+    excludesfile = /home/mjt/.gitignore_global
 [color]
-   ui = auto
+    ui = auto
 [merge]
-   tool = vimdiff
+    tool = vimdiff
 [diff]
-   tool = vimdiff
+    tool = vimdiff
 [difftool]
-   prompt = false
+    prompt = false
 [alias]
-   lg = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)[gpg:%GK%x20%G?]%C(reset)%n%x20%s%n"
-   ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-   st = status
-   ch = diff HEAD
+    lg = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)[gpg:%GK%x20%G?]%C(reset)%n%x20%s%n"
+    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    st = status
+    ch = diff HEAD

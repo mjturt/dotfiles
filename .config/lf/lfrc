@@ -116,6 +116,8 @@ map gD cd ~/Downloads
 map gS cd ~/cloud/images/screenshots
 map gW cd ~/cloud/images/wallpapers
 map ga cd ~/cloud/asteriski/yv
+map gn cd ~/cloud/Notes
+map gk cd ~/cloud/TY/kandi
 
 # Commands
 # --------

@@ -131,13 +131,13 @@ Plug 'lambdalisue/gina.vim'
 Plug 'airblade/vim-gitgutter'
 
 " -- Colorschemes --
-"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'jacoborus/tender.vim'
 "Plug 'xero/sourcerer.vim'
 "Plug 'arcticicestudio/nord-vim'
 "Plug 'mhartington/oceanic-next'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -178,6 +178,7 @@ let g:deoplete#file#enable_buffer_path = 1
 " -- Airline --
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme='dracula'
 
 " -- Language server --
 let g:LanguageClient_serverCommands = { 'java': ['/usr/bin/jdtls', '-data', getcwd()],
@@ -273,7 +274,9 @@ let g:lf_map_keys = 0
 " Settings
 " --------
 
-color gruvbox
+let g:dracula_colorterm = 0
+color dracula
+
 
 set nocompatible
 set encoding=utf-8
@@ -520,7 +523,7 @@ func! CompileAndRun()
       exec "!$BROWSER http://localhost:6419/ & grip %"
    elseif &filetype == 'tex'
       exec "!pdflatex -shell-escape % && biber %< && pdflatex -shell-escape %"
-      exec "!zathura %<.pdf &"
+      " exec "!zathura %<.pdf &"
    endif
 endfunc
 

@@ -6,16 +6,26 @@
 
 set $mod Mod4
 
-set $ws1 "Ⅰ"
-set $ws2 "Ⅱ"
-set $ws3 "Ⅲ"
-set $ws4 "Ⅳ"
-set $ws5 "Ⅴ"
-set $ws6 "Ⅵ"
-set $ws7 "Ⅶ"
-set $ws8 "Ⅷ"
-set $ws9 "Ⅸ"
-set $ws10 "Ⅹ"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+# set $ws1 "Ⅰ"
+# set $ws2 "Ⅱ"
+# set $ws3 "Ⅲ"
+# set $ws4 "Ⅳ"
+# set $ws5 "Ⅴ"
+# set $ws6 "Ⅵ"
+# set $ws7 "Ⅶ"
+# set $ws8 "Ⅷ"
+# set $ws9 "Ⅸ"
+# set $ws10 "Ⅹ"
 #set $ws1 "1 "
 #set $ws2 "2 "
 #set $ws3 "3 "
@@ -27,6 +37,11 @@ set $ws10 "Ⅹ"
 #set $ws9 "9"
 #set $ws10 "10"
 
+### Gaps
+gaps outer 0
+gaps inner 15
+gaps bottom 35
+
 ### Basic settings
 
 font pango:Hurmit NF 8
@@ -36,50 +51,33 @@ floating_modifier $mod
 # <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
 default_floating_border none
+for_window [class=".*"] border pixel 2
 #hide_edge_borders both
 
 ### Keymappings
-
-bindsym $mod+Return exec urxvt 
-
-bindsym $mod+d exec rofi -show drun
-#bindsym $mod+d exec dmenu_run -nb '#242C33' -nf '#bbbbbb' -sf '#8badf9' -sb '#242C33' -fn 'Hack-9' -p ''
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-bindsym $mod+Tab exec rofi -show window
 
 bindsym $mod+q kill
 
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+t restart
 
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
+bindsym $mod+Control+h resize shrink width 5 px or 5 ppt
+bindsym $mod+Control+j resize grow height 5 px or 5 ppt
+bindsym $mod+Control+k resize shrink height 5 px or 5 ppt
+bindsym $mod+Control+l resize grow width 5 px or 5 ppt
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-bindsym $mod+Control+j resize shrink width 5 px or 5 ppt
-bindsym $mod+Control+k resize grow height 5 px or 5 ppt
-bindsym $mod+Control+l resize shrink height 5 px or 5 ppt
-bindsym $mod+Control+odiaeresis resize grow width 5 px or 5 ppt
-
-bindsym $mod+h split h
-bindsym $mod+v split v
+bindsym $mod+v split h
+bindsym $mod+minus split v
 
 bindsym $mod+f fullscreen toggle
 
@@ -94,7 +92,7 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
 bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+Control+minus scratchpad show
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -121,84 +119,17 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-### i3bar
-
-bar {
-      status_command i3blocks
-      #font pango:ShureTechMono Nerd Font 10
-      #font pango:GohuFont Nerd Font 9
-      #font pango:FuraCode Nerd Font 9
-      font pango:bitocra13full,GohuFont Nerd Font 9 
-      tray_output HDMI-0
-      separator_symbol ""
-      
-colors {
-      separator  #44475a
-      background #20222B
-      statusline #f8f8f2
-
-      focused_workspace   #bd93f9 #bd93f9 #000000
-
-      active_workspace    #282a36 #282a36 #f8f8f2
-      inactive_workspace  #282a36 #282a36 #888888
-      urgent_workspace    #ff5555 #ff5555 #000000
-   }
-}
-
-### Quicklauncher
-
-set $mode_launcher Start: [Q] 爵 [C]  [E]  [V] 
-bindsym $mod+o mode "$mode_launcher"
-
-mode "$mode_launcher" {
-      bindsym q exec qutebrowser, mode "default"
-      bindsym c exec chromium, mode "default"
-      bindsym e exec encryptr, mode "default"
-      bindsym v exec gvim, mode "default"
-
-      bindsym Escape mode "default"
-      bindsym Return mode "default"
-}
-
-### Lock and exit
-
-set $mode_system Exit: [L]  [E] ﰸ
-bindsym $mod+Shift+x mode "$mode_system"
-mode "$mode_system" {
-      bindsym l exec --no-startup-id i3exit lock r5, mode "default"
-      bindsym e exec --no-startup-id i3exit exit r5, mode "default"
-
-      bindsym Return mode "default"
-      bindsym Escape mode "default"
-}
-
-### Autostart
-
-exec setxkbmap fi
-exec xbindkeys
-exec locktimer r5
-exec dunst
-exec compton -b
-exec nextcloud
-exec blueberry-tray
-exec rambox
-exec steam
-exec nitrogen --restore
-#exec spotify
-#exec wpa_gui
-
 ### Assigning clients to workspaces
 
 assign [class="Rambox"] $ws2
-assign [class="Spotify"] $ws8
-assign [class="Steam"] $ws7
+assign [class="Spotify"] $ws3
 
 ### Assigning workspaces to screens
 
-workspace $ws2 output DVI-I-1
-workspace $ws1 output HDMI-0
-workspace $ws3 output HDMI-0
-workspace $ws8 output DVI-I-1
+# workspace $ws2 output DVI-I-1
+# workspace $ws1 output HDMI-0
+# workspace $ws3 output HDMI-0
+# workspace $ws8 output DVI-I-1
 
 ### Floating windows
 
@@ -214,7 +145,7 @@ for_window [class="Gimp"] floating enable
 ### Colors (Dracula)
 
 # class                 border  backgr. text    indicator
-client.focused          #bd93f9 #bd93f9 #000000 #282a36
+client.focused          #d300c4 #d300c4 #000000 #282a36
 client.focused_inactive #535769 #535769 #AAAAAA #282a36
 client.unfocused        #323440 #323440 #999999 #282a36
 client.urgent           #ff5555 #ff5555 #000000 #ff5555

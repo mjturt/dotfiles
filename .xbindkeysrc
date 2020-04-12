@@ -57,6 +57,9 @@ Control+Alt+u
 "comptontoggle"
 Control+Alt+c
 
+"poly"
+Control+Alt+p
+
 ### Rofi-related
 
 #"scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'"
