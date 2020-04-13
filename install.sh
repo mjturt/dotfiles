@@ -120,8 +120,6 @@ commons_x11() {
 # Only host-specific files (R5)
 host_r5() {
     df_zprofile r5
-    df_i3 r5
-    df_i3blocks r5
     df_ranger r5
     df_xinit r5
     df_xbindkeys r5
@@ -144,8 +142,6 @@ host_server() {
 # Only host-specific files (Thinkpad)
 host_thinkpad() {
     df_zprofile thinkpad
-    df_i3 r5
-    df_i3blocks thinkpad
     df_ranger thinkpad
     df_xinit thinkpad
     df_xbindkeys thinkpad
@@ -474,14 +470,16 @@ df_i3() {
         elif [[ -L ~/.config/i3/config ]]; then
             rm -v ~/.config/i3/config >>"$LOGS"
         fi
-        ln -v -s "${DOT}"/.config/i3/config ~/.config/i3/config >>"$LOGS"
+        cat "${DOT}"/.config/i3/config.base "${DOT}"/.config/i3/config.r5 > ~/.config/i3/config
+        "${DOT}"/scripts/sh/i3c >> "$LOGS"
     elif [[ $1 == "thinkpad" ]]; then
         if [[ -e ~/.config/i3/config ]]; then
             mv -v ~/.config/i3/config "$BACKUP" >>"$LOGS"
         elif [[ -L ~/.config/i3/config ]]; then
             rm -v ~/.config/i3/config >>"$LOGS"
         fi
-        ln -v -s "${DOT}"/thinkpad/.config/i3/config ~/.config/i3/config >>"$LOGS"
+        cat "${DOT}"/.config/i3/config.base "${DOT}"/.config/i3/config.thinkpad > ~/.config/i3/config
+        "${DOT}"/scripts/sh/i3c >> "$LOGS"
     fi
 }
 

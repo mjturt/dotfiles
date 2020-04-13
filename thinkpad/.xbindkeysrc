@@ -12,9 +12,6 @@
 Mod4 + Return
 
 ### Screen
-"i3lock -c '#2F1E2E'"
-XF86Display
-
 "sudo /home/mjt/sh/backlight up 500"
 XF86MonBrightnessUp
 
@@ -98,7 +95,7 @@ XF86AudioRaiseVolume
 "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 XF86AudioLowerVolume
 
-"pactl set-sink-mute 0 toggle"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
 XF86AudioMute
 
 "amixer set Capture toggle"

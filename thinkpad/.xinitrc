@@ -18,11 +18,11 @@ rambox &
 spotify &
 nm-applet &
 # setroot --span --blank-color "#2B303B"
-setroot --bg-color \#2D3335 --on 0 -f ~/cloud/images/wallpapers/cyberpunk/wallhaven-p8pylp.jpg --bg-color \#2D3335 --on 1 -f ~/cloud/images/wallpapers/cyberpunk/wallhaven-p8pylp.jpg
+~/.fehbg &
 greenclip daemon &
 
 ## Window manager
-poly &
+i3c &
 i3
 
 export _JAVA_AWT_WM_NONREPARENTING=1

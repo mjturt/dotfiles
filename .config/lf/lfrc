@@ -94,7 +94,7 @@ map CB push !shebang<space>bash<space>
 map CP push !shebang<space>python<space>
 map CD push !newdot<space>
 # set wallpaper
-map bW $setroot -s $f
+map bW $feh --bg-scale $f
 # copy file name
 map yn $basename -z $f | xsel -i -b
 # copy full path of file
