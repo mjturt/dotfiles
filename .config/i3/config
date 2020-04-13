@@ -71,10 +71,10 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+Control+h resize shrink width 5 px or 5 ppt
-bindsym $mod+Control+j resize grow height 5 px or 5 ppt
-bindsym $mod+Control+k resize shrink height 5 px or 5 ppt
-bindsym $mod+Control+l resize grow width 5 px or 5 ppt
+bindsym $mod+Control+h resize shrink width 2 px or 2 ppt
+bindsym $mod+Control+j resize grow height 2 px or 2 ppt
+bindsym $mod+Control+k resize shrink height 2 px or 2 ppt
+bindsym $mod+Control+l resize grow width 2 px or 2 ppt
 
 bindsym $mod+v split h
 bindsym $mod+minus split v

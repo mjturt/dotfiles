@@ -99,7 +99,7 @@ commons_x11() {
     df_rofi
     df_feh
     df_zathura
-    df_compton
+    df_picom
     df_vimb
     df_i3
     df_mpv
@@ -144,7 +144,7 @@ host_server() {
 # Only host-specific files (Thinkpad)
 host_thinkpad() {
     df_zprofile thinkpad
-    df_i3 thinkpad
+    df_i3 r5
     df_i3blocks thinkpad
     df_ranger thinkpad
     df_xinit thinkpad
@@ -418,14 +418,14 @@ df_zathura() {
     ln -v -s "${DOT}"/.config/zathura ~/.config/zathura >>"$LOGS"
 }
 
-# Compton (commons)
-df_compton() {
-    if [[ -e ~/.config/compton.conf ]]; then
-        mv -v ~/.config/compton.conf "$BACKUP" >>"$LOGS"
-    elif [[ -L ~/.config/compton.conf ]]; then
-        rm -v ~/.config/compton.conf >>"$LOGS"
+# Picom (commons)
+df_picom() {
+    if [[ -e ~/.config/picom.conf ]]; then
+        mv -v ~/.config/picom.conf "$BACKUP" >>"$LOGS"
+    elif [[ -L ~/.config/picom.conf ]]; then
+        rm -v ~/.config/picom.conf >>"$LOGS"
     fi
-    ln -v -s "${DOT}"/.config/compton.conf ~/.config/compton.conf >>"$LOGS"
+    ln -v -s "${DOT}"/.config/picom.conf ~/.config/picom.conf >>"$LOGS"
 }
 
 # Vimb (commons)
@@ -986,6 +986,7 @@ df_neovim() {
         ln -s -v "${DOT}"/.config/nvim/init.vim ~/.config/nvim/init.vim
         ln -s -v "${DOT}"/.config/nvim/init-simple.vim ~/.config/nvim/init-simple.vim
         ln -s -v "${DOT}"/.config/nvim/projects.vim ~/.config/nvim/projects.vim
+        ln -s -v "${DOT}"/.config/nvim/colors ~/.config/nvim/colors
     } >>"$LOGS"
 }
 
@@ -1132,7 +1133,7 @@ helps() {
     echo -e "assets(private)"
     echo
     echo -e "\\e[1;35mSingle programs that CANT take host-parameter:\\e[0m df_vim, df_tmux, df_screen, df_feh,"
-    echo -e "df_less, df_zathura, df_vimb, df_compton, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
+    echo -e "df_less, df_zathura, df_vimb, df_picom, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
     echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
     echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim, df_neovim, df_lf, df_termite"
     echo -e "df_twmn, df_logiops"

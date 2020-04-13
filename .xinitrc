@@ -18,7 +18,7 @@ setroot --bg-color \#2D3335 --on 0 -f ~/cloud/images/wallpapers/cyberpunk/wallha
 #locktimer r5 &
 dunst &
 # twmnd &
-compton -b &
+picom -b --experimental-backends &
 #nextcloud &
 #blueberry-tray &
 rambox &
@@ -30,5 +30,5 @@ mopidy-start &
 spotify &
 
 ## Window manager
+poly &
 i3
-poly

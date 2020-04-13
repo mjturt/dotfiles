@@ -47,7 +47,8 @@ rofi.location:                       0
 ! rofi.fullscreen:                     false
 
 !# Theme
-rofi.theme: /usr/share/rofi/themes/gruvbox-dark-soft.rasi
+! rofi.theme: /usr/share/rofi/themes/gruvbox-dark-soft.rasi
+rofi.theme: ~/.config/rofi/themes/cyberpunk.rasi
 
 !-------------!
 ! Keybindings !

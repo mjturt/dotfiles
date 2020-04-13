@@ -124,7 +124,7 @@ Plug 'tpope/vim-eunuch'
 
 " -- Airline --
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'mjturt/vim-airline-themes'
 
 " -- Git --
 Plug 'lambdalisue/gina.vim'
@@ -178,7 +178,7 @@ let g:deoplete#file#enable_buffer_path = 1
 " -- Airline --
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dracula'
+let g:airline_theme='cyberpunk'
 
 " -- Language server --
 let g:LanguageClient_serverCommands = { 'java': ['/usr/bin/jdtls', '-data', getcwd()],
@@ -274,8 +274,8 @@ let g:lf_map_keys = 0
 " Settings
 " --------
 
-let g:dracula_colorterm = 0
-color dracula
+" let g:dracula_colorterm = 0
+color cyberpunkneon_mjturt
 
 
 set nocompatible

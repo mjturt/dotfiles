@@ -6,15 +6,16 @@
    font = "BlexMono Nerd Font 9"
    monitor = 0
    follow = mouse
-   geometry = "0x0-1"
+   # geometry = "0x0-1"
+   geometry = "300x50-15+15"
    indicate_hidden = yes
    shrink = no
-   transparency = 0
-   notification_height = 0
+   transparency = 40
+   notification_height = 20
    separator_height = 1
-   padding = 2
-   horizontal_padding = 2
-   frame_width = 1
+   padding = 10
+   horizontal_padding = 10
+   frame_width = 0
    separator_color = frame
    sort = yes
    idle_threshold = 120
@@ -45,19 +46,19 @@
    context = ctrl+shift+period
 
 [urgency_low]
-   background = "#222222"
-   foreground = "#719611"
-   frame_color = "#719611"
+   background = "#000b1e"
+   foreground = "#11DF00"
+   frame_color = "#11DF00"
    timeout = 5
 
 [urgency_normal]
-   background = "#222222"
-   foreground = "#87875f"
-   frame_color = "#87875f"
+   background = "#000b1e"
+   foreground = "#0abdc6"
+   frame_color = "#0abdc6"
    timeout = 7
 
 [urgency_critical]
-   background = "#222222"
-   foreground = "#8f6f8f"
-   frame_color = "#8f6f8f"
+   background = "#000b1e"
+   foreground = "#d300c4"
+   frame_color = "#d300c4"
    timeout = 10

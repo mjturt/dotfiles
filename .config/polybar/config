@@ -6,7 +6,7 @@
 ;background = #cc222222
 background = #000b1e01
 background-alt = #1187875f
-foreground = #fefefe
+foreground = #d300c4
 foreground-alt = #c2c2b0
 alert = #d300c4
 blue = #0abdc6
@@ -55,7 +55,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro weather bitcoin playerctl volume compton
+modules-left = distro weather bitcoin playerctl volume picom
 modules-center = fsroot fshome fscommon fsstorage
 modules-right = cpu load memory temp uptime date xkeyboard powermenu
 
@@ -104,7 +104,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro weather bitcoin volume compton touchpad touchkeyboard
+modules-left = distro weather bitcoin volume picom touchpad touchkeyboard
 modules-center = backlight battery-yoga wireless-network-yoga
 modules-right = fsroot cpu temp date uptime
 
@@ -143,7 +143,7 @@ font-0 = Misc\ Ohsnap:size=8:antialias=false;0
 font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
-modules-left = distro weather volume compton playerctlnoinfo
+modules-left = distro weather volume picom playerctlnoinfo
 modules-center = backlight battery-yoga wireless-network-yoga
 modules-right =  fsroot cpu memory temp uptime date
 tray-position = right
@@ -184,7 +184,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro weather bitcoin volume compton touchpad
+modules-left = distro weather bitcoin volume picom touchpad
 modules-center = backlight battery-tp wireless-network-tp
 modules-right = fsroot cpu temp date uptime
 
@@ -235,7 +235,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro bspwm weather bitcoin cmus volume compton
+modules-left = distro bspwm weather bitcoin cmus volume picom
 modules-center = xwindow
 modules-right = fsroot fshome fscommon fsstorage cpu load memory temp uptime date xkeyboard  powermenu
 
@@ -285,7 +285,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro bspwm weather bitcoin volume compton touchpad
+modules-left = distro bspwm weather bitcoin volume picom touchpad
 modules-center = xwindow
 modules-right = backlight battery-tp wireless-network-tp fsroot cpu temp date uptime
 
@@ -321,7 +321,7 @@ font-0 = Misc\ Ohsnap:size=8:antialias=false;0
 font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
-modules-left = distro bspwm weather volume compton
+modules-left = distro bspwm weather volume picom
 modules-center = xwindow
 modules-right = backlight battery-tp wireless-network-tp fsroot cpu temp uptime date
 tray-position = right
@@ -365,7 +365,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro i3 weather bitcoin playerctl volume compton
+modules-left = distro i3 weather bitcoin playerctl volume picom
 modules-center = fsroot fshome fscommon fsstorage
 modules-right = cpu load memory temp uptime date
 
@@ -385,15 +385,15 @@ override-redirect = true
 
 [bar/i3yoga]
 monitor = ${env:MONITOR:eDP-1}
-width = 100%
-height = 22
+width = 98.5%
+height = 35
 wm-name = i3
 wm-restack = i3
-;offset-x = 1%
-;offset-y = 1%
+offset-x = 0.7%
+offset-y = 5
 ;radius = 2.0
-fixed-center = false
-bottom = false
+fixed-center = true
+bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -416,7 +416,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro weather bitcoin volume compton touchpad touchkeyboard
+modules-left = distro i3 weather bitcoin volume picom touchpad touchkeyboard
 modules-center = backlight battery-yoga wireless-network-yoga
 modules-right = fsroot cpu temp date uptime
 
@@ -436,19 +436,26 @@ override-redirect = true
 
 [bar/i3hdmi]
 monitor = ${env:MONITOR:HDMI-2}
-width = 100%
-height = 22
+width = 98.5%
+height = 35
 wm-name = i3
 wm-restack = i3
-fixed-center = false
+offset-x = 0.7%
+offset-y = 5
+;radius = 2.0
+fixed-center = true
+bottom = true
+
+line-size = 2
+line-color =  #87875f
+
+border-size = 0
+border-top-size = 0
+border-color = #00000000
 background = ${colors.background}
 foreground = ${colors.foreground}
-line-size = 1
-line-color =  #87875f
-border-size = 0
 ; border-left-size = 15
 ; border-right-size = 15
-border-color = #00000000
 padding-left = 0
 padding-right = 2
 module-margin-left = 1
@@ -457,14 +464,13 @@ font-0 = Misc\ Ohsnap:size=8:antialias=false;0
 font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
-modules-left = distro weather volume compton playerctlnoinfo
+modules-left = distro i3 weather volume picom playerctlnoinfo
 modules-center = backlight battery-yoga wireless-network-yoga
 modules-right =  fsroot cpu memory temp uptime date
 tray-position = right
 tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
-bottom = false
 override-redirect = true
 
 
@@ -746,11 +752,11 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 label-layout-underline = ${colors.magneta}
 
-[module/compton]
+[module/picom]
 type = custom/script
-exec = ~/.statusscripts/polybar/isrunning-compton.sh
+exec = ~/.statusscripts/polybar/isrunning-picom.sh
 interval = 5
-click-left = ~/.statusscripts/polybar/isrunning-compton.sh --toggle
+click-left = ~/.statusscripts/polybar/isrunning-picom.sh --toggle
 format-prefix = "ﳻ "
 format-prefix-foreground = ${colors.blue}
 
@@ -853,7 +859,7 @@ interval = 1
 format-prefix = " "
 format-prefix-foreground = ${colors.blue}
 format-underline = ${colors.magneta}
-label-foreground = ${colors.orange}
+label-foreground = ${colors.green}
 click-left = ~/.statusscripts/polybar/popup-calendar.sh --popup
 
 [module/volume]
