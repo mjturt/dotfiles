@@ -5,9 +5,9 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 ### Software
 
 + Text editor:          **neovim**
-+ Window manager:       **dwm**
++ Window manager:       **i3**
 + Panel:                **polybar**
-+ Terminal emulator:    **urxvt**
++ Terminal emulator:    **termite**
 + Shell:                **zsh**
 + Terminal multiplexer: **tmux**
 + File manager:         **lf**
@@ -18,11 +18,9 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 + PDF viewer:           **zathura**
 + Compositor:           **compton**
 + Video player:         **mpv**
-+ Music player:         **ncmpcpp** + **mopidy**
++ Music player:         **spotify**
 + Torrent client:       **transmission**
 + Mail client:          **mutt**
-
-There also config files for GNU less, GNU screen, xbindkeys, xinit, GTK, w3m, GIT, GPG, fbterm, vimb, offlineimap, teiler, sxhkd, i3, i3blocks, herbstluftwm, elinks and for pass and buku rofi-frontends.
 
 Builds of suckless tools are in [this repo](https://github.com/mjturt/suckless).
 
