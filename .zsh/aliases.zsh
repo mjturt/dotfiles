@@ -134,3 +134,4 @@ alias colors='for code ({000..255}) print -P -- "$code: %F{$code}COLORS%f"'
 alias hc="herbstclient"
 alias n="nvims ~/cloud/Notes/stuff.md"
 alias gitlab="gitlab-runner exec docker"
+alias storage="sudo mount /mnt/storage"

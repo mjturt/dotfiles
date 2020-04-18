@@ -168,19 +168,19 @@ assets() {
 # ViM (commons)
 df_vim() {
     if [[ -e ~/.vim ]]; then
-        mv -v ~/.vim "$BACKUP" >>"$LOGS"
+        mv -v ~/.vim "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.vim ]]; then
-        rm -v ~/.vim >>"$LOGS"
+        rm -v ~/.vim >> "$LOGS"
     fi
     if [[ -e ~/.vimrc ]]; then
-        mv -v ~/.vimrc "$BACKUP" >>"$LOGS"
+        mv -v ~/.vimrc "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.vimrc ]]; then
-        rm -v ~/.vimrc >>"$LOGS"
+        rm -v ~/.vimrc >> "$LOGS"
     fi
     if [[ -e ~/.gvimrc ]]; then
-        mv -v ~/.gvimrc "$BACKUP" >>"$LOGS"
+        mv -v ~/.gvimrc "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.gvimrc ]]; then
-        rm -v ~/.gvimrc >>"$LOGS"
+        rm -v ~/.gvimrc >> "$LOGS"
     fi
     {
         mkdir -v ~/.vim
@@ -193,35 +193,35 @@ df_vim() {
         ln -v -s "${DOT}"/.vim/projects.vim ~/.vim/projects.vim
         ln -v -s "${DOT}"/.vim/filetype.vim ~/.vim/filetype.vim
         ln -v -s "${DOT}"/.gvimrc ~/.gvimrc
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # Tmux (commons)
 df_tmux() {
     if [[ -e ~/.tmux.conf ]]; then
-        mv -v ~/.tmux.conf "$BACKUP" >>"$LOGS"
+        mv -v ~/.tmux.conf "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.tmux.conf ]]; then
-        rm -v ~/.tmux.conf >>"$LOGS"
+        rm -v ~/.tmux.conf >> "$LOGS"
     fi
-    ln -v -s "${DOT}"/.tmux.conf ~/.tmux.conf >>"$LOGS"
+    ln -v -s "${DOT}"/.tmux.conf ~/.tmux.conf >> "$LOGS"
 }
 
 # ZSH (commons)
 df_zsh() {
     if [[ -e ~/.zsh ]]; then
-        mv -v ~/.zsh "$BACKUP" >>"$LOGS"
+        mv -v ~/.zsh "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.zsh ]]; then
-        rm -v ~/.zsh >>"$LOGS"
+        rm -v ~/.zsh >> "$LOGS"
     fi
     if [[ -e ~/.zshrc ]]; then
-        mv -v ~/.zshrc "$BACKUP" >>"$LOGS"
+        mv -v ~/.zshrc "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.zshrc ]]; then
-        rm -v ~/.zshrc >>"$LOGS"
+        rm -v ~/.zshrc >> "$LOGS"
     fi
     if [[ -e ~/.zshenv ]]; then
-        mv -v ~/.zshenv "$BACKUP" >>"$LOGS"
+        mv -v ~/.zshenv "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.zshenv ]]; then
-        rm -v ~/.zshenv >>"$LOGS"
+        rm -v ~/.zshenv >> "$LOGS"
     fi
     {
         mkdir -v ~/.zsh
@@ -236,24 +236,24 @@ df_zsh() {
         ln -v -s "${DOT}"/.zshrc ~/.zshrc
         ln -v -s "${DOT}"/.zsh/plugins ~/.zsh/plugins
         ln -v -s "${DOT}"/.zshenv ~/.zshenv
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # zprofile (r5, server, thinkpad)
 df_zprofile() {
     if [[ -e ~/.zprofile ]]; then
-        mv -v ~/.zprofile "$BACKUP" >>"$LOGS"
+        mv -v ~/.zprofile "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.zprofile ]]; then
-        rm -v ~/.zprofile >>"$LOGS"
+        rm -v ~/.zprofile >> "$LOGS"
     fi
     if [[ "$1" == "r5" ]] || [[ "$1" == "thinkpad" ]]; then
         if [[ $(id -u) -eq 0 ]]; then
-            ln -v -s "${DOT}"/.zprofile-root ~/.zprofile >>"$LOGS"
+            ln -v -s "${DOT}"/.zprofile-root ~/.zprofile >> "$LOGS"
         else
-            ln -v -s "${DOT}"/.zprofile ~/.zprofile >>"$LOGS"
+            ln -v -s "${DOT}"/.zprofile ~/.zprofile >> "$LOGS"
         fi
     elif [[ "$1" == "server" ]]; then
-        ln -v -s "${DOT}"/server/.zprofile ~/.zprofile >>"$LOGS"
+        ln -v -s "${DOT}"/server/.zprofile ~/.zprofile >> "$LOGS"
     fi
 }
 
@@ -261,9 +261,9 @@ df_zprofile() {
 df_ranger() {
     if [[ -z "$1" ]]; then
         if [[ -e ~/.config/ranger ]]; then
-            mv -v ~/.config/ranger "$BACKUP" >>"$LOGS"
+            mv -v ~/.config/ranger "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.config/ranger ]]; then
-            rm -v ~/.config/ranger >>"$LOGS"
+            rm -v ~/.config/ranger >> "$LOGS"
         fi
         {
             mkdir -p -v ~/.config/ranger
@@ -277,28 +277,28 @@ df_ranger() {
             ln -v -s "${DOT}"/.config/ranger/devicons.py ~/.config/ranger/devicons.py
             ln -v -s "${DOT}"/.config/ranger/colorschemes/*.py ~/.config/ranger/colorschemes
             ln -v -s "${DOT}"/.config/ranger/plugins/*.py ~/.config/ranger/plugins
-        } >>"$LOGS"
+        } >> "$LOGS"
     elif [[ $1 == "r5" ]]; then
         if [[ -e ~/.config/ranger/bookmarks ]]; then
-            mv -v ~/.config/ranger/bookmarks "$BACKUP" >>"$LOGS"
+            mv -v ~/.config/ranger/bookmarks "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.config/ranger/bookmarks ]]; then
-            rm -v ~/.config/ranger/bookmarks >>"$LOGS"
+            rm -v ~/.config/ranger/bookmarks >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/.config/ranger/bookmarks ~/.config/ranger/bookmarks >>"$LOGS"
+        ln -v -s "${DOT}"/.config/ranger/bookmarks ~/.config/ranger/bookmarks >> "$LOGS"
     elif [[ $1 == "server" ]]; then
         if [[ -e ~/.config/ranger/bookmarks ]]; then
-            mv -v ~/.config/ranger/bookmarks "$BACKUP" >>"$LOGS"
+            mv -v ~/.config/ranger/bookmarks "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.config/ranger/bookmarks ]]; then
-            rm -v ~/.config/ranger/bookmarks >>"$LOGS"
+            rm -v ~/.config/ranger/bookmarks >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/server/.config/ranger/bookmarks ~/.config/ranger/bookmarks >>"$LOGS"
+        ln -v -s "${DOT}"/server/.config/ranger/bookmarks ~/.config/ranger/bookmarks >> "$LOGS"
     elif [[ $1 == "thinkpad" ]]; then
         if [[ -e ~/.config/ranger/bookmarks ]]; then
-            mv -v ~/.config/ranger/bookmarks "$BACKUP" >>"$LOGS"
+            mv -v ~/.config/ranger/bookmarks "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.config/ranger/bookmarks ]]; then
-            rm -v ~/.config/ranger/bookmarks >>"$LOGS"
+            rm -v ~/.config/ranger/bookmarks >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/thinkpad/.config/ranger/bookmarks ~/.config/ranger/bookmarks >>"$LOGS"
+        ln -v -s "${DOT}"/thinkpad/.config/ranger/bookmarks ~/.config/ranger/bookmarks >> "$LOGS"
     fi
 
 }
@@ -306,84 +306,84 @@ df_ranger() {
 # GNU Screen (commons)
 df_screen() {
     if [[ -e ~/.screenrc ]]; then
-        mv -v ~/.screenrc "$BACKUP" >>"$LOGS"
+        mv -v ~/.screenrc "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.screenrc ]]; then
-        rm -v ~/.screenrc >>"$LOGS"
+        rm -v ~/.screenrc >> "$LOGS"
     fi
-    ln -v -s "${DOT}"/.screenrc ~/.screenrc >>"$LOGS"
+    ln -v -s "${DOT}"/.screenrc ~/.screenrc >> "$LOGS"
 }
 
 # GNU Less (commons)
 df_less() {
     if [[ -e ~/.lesskey ]]; then
-        mv -v ~/.lesskey "$BACKUP" >>"$LOGS"
+        mv -v ~/.lesskey "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.lesskey ]]; then
-        rm -v ~/.lesskey >>"$LOGS"
+        rm -v ~/.lesskey >> "$LOGS"
     fi
-    ln -v -s "${DOT}"/.lesskey ~/.lesskey >>"$LOGS"
+    ln -v -s "${DOT}"/.lesskey ~/.lesskey >> "$LOGS"
     lesskey ~/.lesskey
 }
 
 # Scripts (commons)
 df_scripts() {
     if [[ -e ~/sh ]]; then
-        mv -v ~/sh "$BACKUP" >>"$LOGS"
+        mv -v ~/sh "$BACKUP" >> "$LOGS"
     elif [[ -L ~/sh ]]; then
-        rm -v ~/sh >>"$LOGS"
+        rm -v ~/sh >> "$LOGS"
     fi
     if [[ -e ~/.statusscripts ]]; then
-        mv -v ~/.statusscripts "$BACKUP" >>"$LOGS"
+        mv -v ~/.statusscripts "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.statusscripts ]]; then
-        rm -v ~/.statusscripts >>"$LOGS"
+        rm -v ~/.statusscripts >> "$LOGS"
     fi
     {
         ln -v -s "${DOT}"/scripts/sh ~/sh
         ln -v -s "${DOT}"/scripts/statusscripts ~/.statusscripts
         chmod -v -R +x ~/sh/*
         chmod -v -R +x ~/.statusscripts/*
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # Binaries (commons)
 df_bin() {
     if [[ -e ~/bin ]]; then
-        mv -v ~/bin "$BACKUP" >>"$LOGS"
+        mv -v ~/bin "$BACKUP" >> "$LOGS"
     elif [[ -L ~/bin ]]; then
-        rm -v ~/bin >>"$LOGS"
+        rm -v ~/bin >> "$LOGS"
     fi
     {
         ln -v -s "${DOT}"/bin ~/bin
         chmod -v -R +x ~/bin/*
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # Xresources (commons)
 df_xresources() {
     if [[ -e ~/.Xresources.d ]]; then
-        mv -v ~/.Xresources.d "$BACKUP" >>"$LOGS"
+        mv -v ~/.Xresources.d "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.Xresources.d ]]; then
-        rm -v ~/.Xresources.d >>"$LOGS"
+        rm -v ~/.Xresources.d >> "$LOGS"
     fi
     if [[ -e ~/.Xresources ]]; then
-        mv -v ~/.Xresources "$BACKUP" >>"$LOGS"
+        mv -v ~/.Xresources "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.Xresources ]]; then
-        rm -v ~/.Xresources >>"$LOGS"
+        rm -v ~/.Xresources >> "$LOGS"
     fi
     {
         mkdir -v ~/.Xresources.d
         ln -v -s "${DOT}"/.Xresources ~/.Xresources
         ln -v -s "${DOT}"/.Xresources.d/colors ~/.Xresources.d/colors
         ln -v -s "${DOT}"/.Xresources.d/perl ~/.Xresources.d/perl
-    } >>"$LOGS"
+    } >> "$LOGS"
     xrdb ~/.Xresources
 }
 
 # Rofi (commons)
 df_rofi() {
     if [[ -e ~/.config/rofi ]]; then
-        mv -v ~/.config/rofi "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/rofi "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/rofi ]]; then
-        rm -v ~/.config/rofi >>"$LOGS"
+        rm -v ~/.config/rofi >> "$LOGS"
     fi
     {
         mkdir -v ~/.config/rofi
@@ -392,92 +392,92 @@ df_rofi() {
         ln -v -s "${DOT}"/.config/rofi/config ~/.config/rofi/config
         ln -v -s "${DOT}"/.config/rofi/scripts/rofi-notes.sh "${DOT}"/scripts/bin/rofi-notes
         ln -v -s "${DOT}"/.config/rofi/scripts/rofi-power.sh "${DOT}"/scripts/bin/rofi-power
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # Feh (commons)
 df_feh() {
     if [[ -e ~/.config/feh ]]; then
-        mv -v ~/.config/feh "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/feh "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/feh ]]; then
-        rm -v ~/.config/feh >>"$LOGS"
+        rm -v ~/.config/feh >> "$LOGS"
     fi
-    ln -v -s "${DOT}"/.config/feh ~/.config/feh >>"$LOGS"
+    ln -v -s "${DOT}"/.config/feh ~/.config/feh >> "$LOGS"
 }
 
 # Zathura (commons)
 df_zathura() {
     if [[ -e ~/.config/zathura ]]; then
-        mv -v ~/.config/zathura "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/zathura "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/zathura ]]; then
-        rm -v ~/.config/zathura >>"$LOGS"
+        rm -v ~/.config/zathura >> "$LOGS"
     fi
-    ln -v -s "${DOT}"/.config/zathura ~/.config/zathura >>"$LOGS"
+    ln -v -s "${DOT}"/.config/zathura ~/.config/zathura >> "$LOGS"
 }
 
 # Picom (commons)
 df_picom() {
     if [[ -e ~/.config/picom.conf ]]; then
-        mv -v ~/.config/picom.conf "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/picom.conf "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/picom.conf ]]; then
-        rm -v ~/.config/picom.conf >>"$LOGS"
+        rm -v ~/.config/picom.conf >> "$LOGS"
     fi
-    ln -v -s "${DOT}"/.config/picom.conf ~/.config/picom.conf >>"$LOGS"
+    ln -v -s "${DOT}"/.config/picom.conf ~/.config/picom.conf >> "$LOGS"
 }
 
 # Vimb (commons)
 df_vimb() {
     if [[ -e ~/.config/vimb ]]; then
-        mv -v ~/.config/vimb "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/vimb "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/vimb ]]; then
-        rm -v ~/.config/vimb >>"$LOGS"
+        rm -v ~/.config/vimb >> "$LOGS"
     fi
     {
         mkdir -v ~/.config/vimb
         ln -v -s "${DOT}"/.config/vimb/config ~/.config/vimb/config
         ln -v -s "${DOT}"/.config/vimb/style.css ~/.config/vimb/style.css
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # Git (commons)
 df_git() {
     if [[ -e ~/.gitconfig ]]; then
-        mv -v ~/.gitconfig "$BACKUP" >>"$LOGS"
+        mv -v ~/.gitconfig "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.gitconfig ]]; then
-        rm -v ~/.gitconfig >>"$LOGS"
+        rm -v ~/.gitconfig >> "$LOGS"
     fi
     if [[ -e ~/.gitignore_global ]]; then
-        mv -v ~/.gitignore_global "$BACKUP" >>"$LOGS"
+        mv -v ~/.gitignore_global "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.gitignore_global ]]; then
-        rm -v ~/.gitignore_global >>"$LOGS"
+        rm -v ~/.gitignore_global >> "$LOGS"
     fi
-    ln -v -s "${DOT}"/.gitconfig ~/.gitconfig >>"$LOGS"
-    ln -v -s "${DOT}"/.gitignore_global ~/.gitignore_global >>"$LOGS"
+    ln -v -s "${DOT}"/.gitconfig ~/.gitconfig >> "$LOGS"
+    ln -v -s "${DOT}"/.gitignore_global ~/.gitignore_global >> "$LOGS"
 }
 
 # i3 (commons, r5, thinkpad)
 df_i3() {
     if [[ -z "$1" ]]; then
         if [[ -e ~/.config/i3 ]]; then
-            mv -v ~/.config/i3 "$BACKUP" >>"$LOGS"
+            mv -v ~/.config/i3 "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.config/i3 ]]; then
-            rm -v ~/.config/i3 >>"$LOGS"
+            rm -v ~/.config/i3 >> "$LOGS"
         fi
-        mkdir -v ~/.config/i3 >>"$LOGS"
-        ln -v -s "${DOT}"/.config/i3/themes ~/.config/i3/themes >>"$LOGS"
+        mkdir -v ~/.config/i3 >> "$LOGS"
+        ln -v -s "${DOT}"/.config/i3/themes ~/.config/i3/themes >> "$LOGS"
     elif [[ $1 == "r5" ]]; then
         if [[ -e ~/.config/i3/config ]]; then
-            mv -v ~/.config/i3/config "$BACKUP" >>"$LOGS"
+            mv -v ~/.config/i3/config "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.config/i3/config ]]; then
-            rm -v ~/.config/i3/config >>"$LOGS"
+            rm -v ~/.config/i3/config >> "$LOGS"
         fi
         cat "${DOT}"/.config/i3/config.base "${DOT}"/.config/i3/config.r5 > ~/.config/i3/config
         "${DOT}"/scripts/sh/i3c >> "$LOGS"
     elif [[ $1 == "thinkpad" ]]; then
         if [[ -e ~/.config/i3/config ]]; then
-            mv -v ~/.config/i3/config "$BACKUP" >>"$LOGS"
+            mv -v ~/.config/i3/config "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.config/i3/config ]]; then
-            rm -v ~/.config/i3/config >>"$LOGS"
+            rm -v ~/.config/i3/config >> "$LOGS"
         fi
         cat "${DOT}"/.config/i3/config.base "${DOT}"/.config/i3/config.thinkpad > ~/.config/i3/config
         "${DOT}"/scripts/sh/i3c >> "$LOGS"
@@ -488,48 +488,48 @@ df_i3() {
 df_i3blocks() {
     if [[ $1 == "r5" ]]; then
         if [[ -e ~/.i3blocks.conf ]]; then
-            mv -v ~/.i3blocks.conf "$BACKUP" >>"$LOGS"
+            mv -v ~/.i3blocks.conf "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.i3blocks.conf ]]; then
-            rm -v ~/.i3blocks.conf >>"$LOGS"
+            rm -v ~/.i3blocks.conf >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/.i3blocks.conf ~/.i3blocks.conf >>"$LOGS"
+        ln -v -s "${DOT}"/.i3blocks.conf ~/.i3blocks.conf >> "$LOGS"
     elif [[ $1 == "thinkpad" ]]; then
         if [[ -e ~/.i3blocks.conf ]]; then
-            mv -v ~/.i3blocks.conf "$BACKUP" >>"$LOGS"
+            mv -v ~/.i3blocks.conf "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.i3blocks.conf ]]; then
-            rm -v ~/.i3blocks.conf >>"$LOGS"
+            rm -v ~/.i3blocks.conf >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/thinkpad/.i3blocks.conf ~/.i3blocks.conf >>"$LOGS"
+        ln -v -s "${DOT}"/thinkpad/.i3blocks.conf ~/.i3blocks.conf >> "$LOGS"
     fi
 }
 
 # Dunst (commons)
 df_dunst() {
     if [[ -e ~/.config/dunst ]]; then
-        mv -v ~/.config/dunst "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/dunst "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/dunst ]]; then
-        rm -v ~/.config/dunst >>"$LOGS"
+        rm -v ~/.config/dunst >> "$LOGS"
     fi
-    mkdir -v ~/.config/dunst >>"$LOGS"
-    ln -v -s "${DOT}"/.config/dunst/dunstrc ~/.config/dunst/dunstrc >>"$LOGS"
+    mkdir -v ~/.config/dunst >> "$LOGS"
+    ln -v -s "${DOT}"/.config/dunst/dunstrc ~/.config/dunst/dunstrc >> "$LOGS"
 }
 
 # Xinit (r5, thinkpad)
 df_xinit() {
     if [[ $1 == "r5" ]]; then
         if [[ -e ~/.xinitrc ]]; then
-            mv -v ~/.xinitrc "$BACKUP" >>"$LOGS"
+            mv -v ~/.xinitrc "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.xinitrc ]]; then
-            rm -v ~/.xinitrc >>"$LOGS"
+            rm -v ~/.xinitrc >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/.xinitrc ~/.xinitrc >>"$LOGS"
+        ln -v -s "${DOT}"/.xinitrc ~/.xinitrc >> "$LOGS"
     elif [[ $1 == "thinkpad" ]]; then
         if [[ -e ~/.xinitrc ]]; then
-            mv -v ~/.xinitrc "$BACKUP" >>"$LOGS"
+            mv -v ~/.xinitrc "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.xinitrc ]]; then
-            rm -v ~/.xinitrc >>"$LOGS"
+            rm -v ~/.xinitrc >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/thinkpad/.xinitrc ~/.xinitrc >>"$LOGS"
+        ln -v -s "${DOT}"/thinkpad/.xinitrc ~/.xinitrc >> "$LOGS"
     fi
 }
 
@@ -537,18 +537,18 @@ df_xinit() {
 df_xbindkeys() {
     if [[ $1 == "r5" ]]; then
         if [[ -e ~/.xbindkeysrc ]]; then
-            mv -v ~/.xbindkeysrc "$BACKUP" >>"$LOGS"
+            mv -v ~/.xbindkeysrc "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.xbindkeysrc ]]; then
-            rm -v ~/.xbindkeysrc >>"$LOGS"
+            rm -v ~/.xbindkeysrc >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/.xbindkeysrc ~/.xbindkeysrc >>"$LOGS"
+        ln -v -s "${DOT}"/.xbindkeysrc ~/.xbindkeysrc >> "$LOGS"
     elif [[ $1 == "thinkpad" ]]; then
         if [[ -e ~/.xbindkeysrc ]]; then
-            mv -v ~/.xbindkeysrc "$BACKUP" >>"$LOGS"
+            mv -v ~/.xbindkeysrc "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.xbindkeysrc ]]; then
-            rm -v ~/.xbindkeysrc >>"$LOGS"
+            rm -v ~/.xbindkeysrc >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/thinkpad/.xbindkeysrc ~/.xbindkeysrc >>"$LOGS"
+        ln -v -s "${DOT}"/thinkpad/.xbindkeysrc ~/.xbindkeysrc >> "$LOGS"
     fi
 }
 
@@ -556,20 +556,20 @@ df_xbindkeys() {
 df_gtk3() {
     if [[ $1 == "r5" ]]; then
         if [[ -e ~/.config/gtk-3.0 ]]; then
-            mv -v ~/.config/gtk-3.0 "$BACKUP" >>"$LOGS"
+            mv -v ~/.config/gtk-3.0 "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.config/gtk-3.0 ]]; then
-            rm -v ~/.config/gtk-3.0 >>"$LOGS"
+            rm -v ~/.config/gtk-3.0 >> "$LOGS"
         fi
-        mkdir -v ~/.config/gtk-3.0 >>"$LOGS"
-        ln -v -s "${DOT}"/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini >>"$LOGS"
+        mkdir -v ~/.config/gtk-3.0 >> "$LOGS"
+        ln -v -s "${DOT}"/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini >> "$LOGS"
     elif [[ $1 == "thinkpad" ]]; then
         if [[ -e ~/.config/gtk-3.0 ]]; then
-            mv -v ~/.config/gtk-3.0 "$BACKUP" >>"$LOGS"
+            mv -v ~/.config/gtk-3.0 "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.config/gtk-3.0 ]]; then
-            rm -v ~/.config/gtk-3.0 >>"$LOGS"
+            rm -v ~/.config/gtk-3.0 >> "$LOGS"
         fi
-        mkdir -v ~/.config/gtk-3.0 >>"$LOGS"
-        ln -v -s "${DOT}"/thinkpad/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini >>"$LOGS"
+        mkdir -v ~/.config/gtk-3.0 >> "$LOGS"
+        ln -v -s "${DOT}"/thinkpad/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini >> "$LOGS"
     fi
 }
 
@@ -577,18 +577,18 @@ df_gtk3() {
 df_gtk2() {
     if [[ $1 == "r5" ]]; then
         if [[ -e ~/.gtkrc-2.0 ]]; then
-            mv -v ~/.gtkrc-2.0 "$BACKUP" >>"$LOGS"
+            mv -v ~/.gtkrc-2.0 "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.gtkrc-2.0 ]]; then
-            rm -v ~/.gtkrc-2.0 >>"$LOGS"
+            rm -v ~/.gtkrc-2.0 >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/.gtkrc-2.0 ~/.gtkrc-2.0 >>"$LOGS"
+        ln -v -s "${DOT}"/.gtkrc-2.0 ~/.gtkrc-2.0 >> "$LOGS"
     elif [[ $1 == "thinkpad" ]]; then
         if [[ -e ~/.gtkrc-2.0 ]]; then
-            mv -v ~/.gtkrc-2.0 "$BACKUP" >>"$LOGS"
+            mv -v ~/.gtkrc-2.0 "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.gtkrc-2.0 ]]; then
-            rm -v ~/.gtkrc-2.0 >>"$LOGS"
+            rm -v ~/.gtkrc-2.0 >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/thinkpad/.gtkrc-2.0 ~/.gtkrc-2.0 >>"$LOGS"
+        ln -v -s "${DOT}"/thinkpad/.gtkrc-2.0 ~/.gtkrc-2.0 >> "$LOGS"
     fi
 }
 
@@ -596,69 +596,69 @@ df_gtk2() {
 df_xmodmap() {
     if [[ $1 == "thinkpad" ]]; then
         if [[ -e ~/.Xmodmap ]]; then
-            mv -v ~/.Xmodmap "$BACKUP" >>"$LOGS"
+            mv -v ~/.Xmodmap "$BACKUP" >> "$LOGS"
         elif [[ -L ~/.Xmodmap ]]; then
-            rm -v ~/.Xmodmap >>"$LOGS"
+            rm -v ~/.Xmodmap >> "$LOGS"
         fi
-        ln -v -s "${DOT}"/thinkpad/.Xmodmap ~/.Xmodmap >>"$LOGS"
+        ln -v -s "${DOT}"/thinkpad/.Xmodmap ~/.Xmodmap >> "$LOGS"
     fi
 }
 
 # Cmus (commons)
 df_cmus() {
     if [[ -e ~/.config/cmus ]]; then
-        mv -v ~/.config/cmus "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/cmus "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/cmus ]]; then
-        rm -v ~/.config/cmus >>"$LOGS"
+        rm -v ~/.config/cmus >> "$LOGS"
     fi
     {
         mkdir -v ~/.config/cmus
         ln -s -v "${DOT}"/.config/cmus/rc ~/.config/cmus/rc
         ln -s -v "${DOT}"/.config/cmus/scripts ~/.config/cmus/scripts
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # MPV (commons)
 df_mpv() {
     if [[ -e ~/.config/mpv ]]; then
-        mv -v ~/.config/mpv "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/mpv "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/mpv ]]; then
-        rm -v ~/.config/mpv >>"$LOGS"
+        rm -v ~/.config/mpv >> "$LOGS"
     fi
     {
         mkdir -v ~/.config/mpv
         ln -s -v "${DOT}"/.config/mpv/mpv.conf ~/.config/mpv/mpv.conf
         ln -s -v "${DOT}"/.config/mpv/input.conf ~/.config/mpv/input.conf
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # rtorrent (commons)
 df_rtorrent() {
     if [[ -e ~/.rtorrent.rc ]]; then
-        mv -v ~/.rtorrent.rc "$BACKUP" >>"$LOGS"
+        mv -v ~/.rtorrent.rc "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.rtorrent.rc ]]; then
-        rm -v ~/.rtorrent.rc >>"$LOGS"
+        rm -v ~/.rtorrent.rc >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.rtorrent.rc ~/.rtorrent.rc >>"$LOGS"
+    ln -s -v "${DOT}"/.rtorrent.rc ~/.rtorrent.rc >> "$LOGS"
 }
 
 # w3m (commons)
 df_w3m() {
     if [[ -e ~/.w3m ]]; then
-        mv -v ~/.w3m "$BACKUP" >>"$LOGS"
+        mv -v ~/.w3m "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.w3m ]]; then
-        rm -v ~/.w3m >>"$LOGS"
+        rm -v ~/.w3m >> "$LOGS"
     fi
-    mkdir -v ~/.w3m >>"$LOGS"
-    ln -s -v "${DOT}"/.w3m/keymap ~/.w3m/keymap >>"$LOGS"
+    mkdir -v ~/.w3m >> "$LOGS"
+    ln -s -v "${DOT}"/.w3m/keymap ~/.w3m/keymap >> "$LOGS"
 }
 
 # qutebrowser (commons)
 df_qutebrowser() {
     if [[ -e ~/.config/qutebrowser ]]; then
-        mv -v ~/.config/qutebrowser "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/qutebrowser "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/qutebrowser ]]; then
-        rm -v ~/.config/qutebrowser >>"$LOGS"
+        rm -v ~/.config/qutebrowser >> "$LOGS"
     fi
     {
         mkdir -v ~/.config/qutebrowser
@@ -668,97 +668,97 @@ df_qutebrowser() {
         ln -s -v "${DOT}"/.config/qutebrowser/themes ~/.config/qutebrowser/themes
         ln -s -v "${DOT}"/.config/qutebrowser/userscripts ~/.config/qutebrowser/userscripts
         ln -s -v "${DOT}"/.config/qutebrowser/stylesheets ~/.config/qutebrowser/stylesheets
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # GPG (commons)
 # This is little bit different because the nature of GPG
 df_gpg() {
     if [[ ! -d ~/.gnupg ]]; then
-        mkdir -v ~/.gnupg >>"$LOGS"
+        mkdir -v ~/.gnupg >> "$LOGS"
     fi
     if [[ -e ~/.gnupg/gpg.conf ]]; then
-        mv -v ~/.gnupg/gpg.conf "$BACKUP" >>"$LOGS"
+        mv -v ~/.gnupg/gpg.conf "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.gnupg/gpg.conf ]]; then
-        rm -v ~/.gnupg/gpg.conf >>"$LOGS"
+        rm -v ~/.gnupg/gpg.conf >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.gnupg/gpg.conf ~/.gnupg/gpg.conf >>"$LOGS"
+    ln -s -v "${DOT}"/.gnupg/gpg.conf ~/.gnupg/gpg.conf >> "$LOGS"
 }
 
 # Irssi (private, commons)
 df_irssi() {
     if [[ -e ~/.irssi ]]; then
-        mv -v ~/.irssi "$BACKUP" >>"$LOGS"
+        mv -v ~/.irssi "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.irssi ]]; then
-        rm -v ~/.irssi >>"$LOGS"
+        rm -v ~/.irssi >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.irssi ~/.irssi >>"$LOGS"
+    ln -s -v "${DOT}"/.irssi ~/.irssi >> "$LOGS"
 }
 
 # Buku (private, commons)
 df_buku() {
     if [[ -e ~/.local/share/buku/bookmarks.db ]]; then
-        mv -v ~/.local/share/buku/bookmarks.db "$BACKUP" >>"$LOGS"
+        mv -v ~/.local/share/buku/bookmarks.db "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.local/share/buku/bookmarks.db ]]; then
-        rm -v ~/.local/share/buku/bookmarks.db >>"$LOGS"
+        rm -v ~/.local/share/buku/bookmarks.db >> "$LOGS"
     fi
-    mkdir -v -p ~/.local/share/buku >>"$LOGS"
-    ln -s -v "${DOT}"/bookmarks.db ~/.local/share/buku/bookmarks.db >>"$LOGS"
+    mkdir -v -p ~/.local/share/buku >> "$LOGS"
+    ln -s -v "${DOT}"/bookmarks.db ~/.local/share/buku/bookmarks.db >> "$LOGS"
 }
 
 # Rofi-pass (commons)
 df_rofipass() {
     if [[ -e ~/.config/rofi-pass ]]; then
-        mv -v ~/.config/rofi-pass "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/rofi-pass "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/rofi-pass ]]; then
-        rm -v ~/.config/rofi-pass >>"$LOGS"
+        rm -v ~/.config/rofi-pass >> "$LOGS"
     fi
-    mkdir -v ~/.config/rofi-pass >>"$LOGS"
-    ln -s -v "${DOT}"/.config/rofi-pass/config ~/.config/rofi-pass/config >>"$LOGS"
+    mkdir -v ~/.config/rofi-pass >> "$LOGS"
+    ln -s -v "${DOT}"/.config/rofi-pass/config ~/.config/rofi-pass/config >> "$LOGS"
 }
 
 # buku_run (commons)
 df_buku_run() {
     if [[ -e ~/.config/buku_run ]]; then
-        mv -v ~/.config/buku_run "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/buku_run "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/buku_run ]]; then
-        rm -v ~/.config/buku_run >>"$LOGS"
+        rm -v ~/.config/buku_run >> "$LOGS"
     fi
-    mkdir -v ~/.config/buku_run >>"$LOGS"
-    ln -s -v "${DOT}"/.config/buku_run/config ~/.config/buku_run/config >>"$LOGS"
+    mkdir -v ~/.config/buku_run >> "$LOGS"
+    ln -s -v "${DOT}"/.config/buku_run/config ~/.config/buku_run/config >> "$LOGS"
 }
 
 # Mutt (commons)
 df_mutt() {
     if [[ -e ~/.mutt ]]; then
-        mv -v ~/.mutt "$BACKUP" >>"$LOGS"
+        mv -v ~/.mutt "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.mutt ]]; then
-        rm -v ~/.mutt >>"$LOGS"
+        rm -v ~/.mutt >> "$LOGS"
     fi
     if [[ -e ~/.offlineimaprc ]]; then
-        mv -v ~/.offlineimaprc "$BACKUP" >>"$LOGS"
+        mv -v ~/.offlineimaprc "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.offlineimaprc ]]; then
-        rm -v ~/.offlineimaprc >>"$LOGS"
+        rm -v ~/.offlineimaprc >> "$LOGS"
     fi
     if [[ -e ~/.offlineimap.py ]]; then
-        mv -v ~/.offlineimap.py "$BACKUP" >>"$LOGS"
+        mv -v ~/.offlineimap.py "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.offlineimap.py ]]; then
-        rm -v ~/.offlineimap.py >>"$LOGS"
+        rm -v ~/.offlineimap.py >> "$LOGS"
     fi
     if [[ -e ~/.notmuch-config ]]; then
-        mv -v ~/.notmuch-config "$BACKUP" >>"$LOGS"
+        mv -v ~/.notmuch-config "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.notmuch-config ]]; then
-        rm -v ~/.notmuch-config >>"$LOGS"
+        rm -v ~/.notmuch-config >> "$LOGS"
     fi
     if [[ -e ~/.mbsyncrc ]]; then
-        mv -v ~/.mbsyncrc "$BACKUP" >>"$LOGS"
+        mv -v ~/.mbsyncrc "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.mbsyncrc ]]; then
-        rm -v ~/.mbsyncrc >>"$LOGS"
+        rm -v ~/.mbsyncrc >> "$LOGS"
     fi
     if [[ -e ~/.config/msmtp ]]; then
-        mv -v ~/.config/msmtp "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/msmtp "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/msmtp ]]; then
-        rm -v ~/.config/msmtp >>"$LOGS"
+        rm -v ~/.config/msmtp >> "$LOGS"
     fi
     {
         mkdir -v ~/.mutt
@@ -769,12 +769,12 @@ df_mutt() {
         ln -s -v "${DOT}"/.mutt/aliases ~/.mutt/aliases
         ln -s -v "${DOT}"/.mutt/gpg.rc ~/.mutt/gpg.rc
         ln -s -v "${DOT}"/.mutt/notmuch-config ~/.notmuch-config
-    } >>"$LOGS"
+    } >> "$LOGS"
     if [[ $(id -u) -eq 0 ]]; then
-        ln -s -v "${DOT}"/.mutt/muttrc-local ~/.mutt/muttrc >>"$LOGS"
+        ln -s -v "${DOT}"/.mutt/muttrc-local ~/.mutt/muttrc >> "$LOGS"
     else
         if [[ ! -e ~/.local/share/mail ]]; then
-            mkdir -v -p ~/.local/share/mail/{utu,gmail,lvs} >>"$LOGS"
+            mkdir -v -p ~/.local/share/mail/{utu,gmail,lvs} >> "$LOGS"
         fi
         {
             mkdir -v -p ~/.mutt/cache/{utu,gmail,lvs}/{headers,messages}
@@ -788,196 +788,196 @@ df_mutt() {
             ln -s -v "${DOT}"/.mutt/offlineimap/offlineimap.py ~/.offlineimap.py
             ln -s -v "${DOT}"/.mbsyncrc ~/.mbsyncrc
             ln -s -v "${DOT}"/.config/msmtp ~/.config/msmtp
-        } >>"$LOGS"
+        } >> "$LOGS"
     fi
 }
 
 # Polybar (commons)
 df_polybar() {
     if [[ -e ~/.config/polybar ]]; then
-        mv -v ~/.config/polybar "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/polybar "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/polybar ]]; then
-        rm -v ~/.config/polybar >>"$LOGS"
+        rm -v ~/.config/polybar >> "$LOGS"
     fi
-    mkdir -v ~/.config/polybar >>"$LOGS"
-    ln -s -v "${DOT}"/.config/polybar/config* ~/.config/polybar >>"$LOGS"
+    mkdir -v ~/.config/polybar >> "$LOGS"
+    ln -s -v "${DOT}"/.config/polybar/config* ~/.config/polybar >> "$LOGS"
 }
 
 # Herbstluftwm (commons)
 df_hlwm() {
     if [[ -e ~/.config/herbstluftwm ]]; then
-        mv -v ~/.config/herbstluftwm "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/herbstluftwm "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/herbstluftwm ]]; then
-        rm -v ~/.config/herbstluftwm >>"$LOGS"
+        rm -v ~/.config/herbstluftwm >> "$LOGS"
     fi
     {
         mkdir -v ~/.config/herbstluftwm
         ln -s -v "${DOT}"/.config/herbstluftwm/autostart ~/.config/herbstluftwm/autostart
         ln -s -v "${DOT}"/.config/herbstluftwm/scripts ~/.config/herbstluftwm/scripts
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # Teiler (commons)
 df_teiler() {
     if [[ -e ~/.config/teiler ]]; then
-        mv -v ~/.config/teiler "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/teiler "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/teiler ]]; then
-        rm -v ~/.config/teiler >>"$LOGS"
+        rm -v ~/.config/teiler >> "$LOGS"
     fi
-    mkdir -v ~/.config/teiler >>"$LOGS"
-    ln -s -v "${DOT}"/.config/teiler/config ~/.config/teiler/config >>"$LOGS"
+    mkdir -v ~/.config/teiler >> "$LOGS"
+    ln -s -v "${DOT}"/.config/teiler/config ~/.config/teiler/config >> "$LOGS"
 }
 
 # BSPWM (commons)
 df_bspwm() {
     if [[ -e ~/.config/bspwm ]]; then
-        mv -v ~/.config/bspwm "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/bspwm "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/bspwm ]]; then
-        rm -v ~/.config/bspwm >>"$LOGS"
+        rm -v ~/.config/bspwm >> "$LOGS"
     fi
-    mkdir -v ~/.config/bspwm >>"$LOGS"
-    ln -s -v "${DOT}"/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc >>"$LOGS"
+    mkdir -v ~/.config/bspwm >> "$LOGS"
+    ln -s -v "${DOT}"/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc >> "$LOGS"
 }
 
 # sxhkd (commons)
 df_sxhkd() {
     if [[ -e ~/.config/sxhkd ]]; then
-        mv -v ~/.config/sxhkd "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/sxhkd "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/sxhkd ]]; then
-        rm -v ~/.config/sxhkd >>"$LOGS"
+        rm -v ~/.config/sxhkd >> "$LOGS"
     fi
-    mkdir -v ~/.config/sxhkd >>"$LOGS"
-    ln -s -v "${DOT}"/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc >>"$LOGS"
+    mkdir -v ~/.config/sxhkd >> "$LOGS"
+    ln -s -v "${DOT}"/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc >> "$LOGS"
 }
 
 # Fonts (private, commons)
 # Global install!
 df_fonts() {
     if [[ -e /usr/share/fonts/fontset ]]; then
-        sudo mv -v /usr/share/fonts/fontset "$BACKUP" >>"$LOGS"
+        sudo mv -v /usr/share/fonts/fontset "$BACKUP" >> "$LOGS"
     elif [[ -L /usr/share/fonts/fontset ]]; then
-        sudo rm -v /usr/share/fonts/fontset >>"$LOGS"
+        sudo rm -v /usr/share/fonts/fontset >> "$LOGS"
     fi
-    sudo ln -s -v "${DOT}"/assets/fontset /usr/share/fonts/fontset >>"$LOGS"
+    sudo ln -s -v "${DOT}"/assets/fontset /usr/share/fonts/fontset >> "$LOGS"
 }
 
 # Cursors (private, commons)
 # Global install! Copy!
 df_cursors() {
     if [[ -e /usr/share/cursors/xorg-x11 ]]; then
-        sudo mv -v /usr/share/cursors/xorg-x11 "$BACKUP" >>"$LOGS"
+        sudo mv -v /usr/share/cursors/xorg-x11 "$BACKUP" >> "$LOGS"
     elif [[ -L /usr/share/cursors/xorg-x11 ]]; then
-        sudo rm -v /usr/share/cursors/xorg-x11 >>"$LOGS"
+        sudo rm -v /usr/share/cursors/xorg-x11 >> "$LOGS"
     fi
-    sudo mkdir -v -p /usr/share/cursors/xorg-x11 >>"$LOGS"
-    sudo cp -R -v "${DOT}"/assets/cursors/* /usr/share/cursors/xorg-x11 >>"$LOGS"
+    sudo mkdir -v -p /usr/share/cursors/xorg-x11 >> "$LOGS"
+    sudo cp -R -v "${DOT}"/assets/cursors/* /usr/share/cursors/xorg-x11 >> "$LOGS"
 }
 
 # GTK themes (private, commons)
 # Copy!
 df_gtk_themes() {
     if [[ -e ~/.themes ]]; then
-        mv -v ~/.themes "$BACKUP" >>"$LOGS"
+        mv -v ~/.themes "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.themes ]]; then
-        rm -v ~/.themes >>"$LOGS"
+        rm -v ~/.themes >> "$LOGS"
     fi
-    mkdir -v -p ~/.themes >>"$LOGS"
-    cp -R -v "${DOT}"/assets/gtk-themes/* ~/.themes >>"$LOGS"
+    mkdir -v -p ~/.themes >> "$LOGS"
+    cp -R -v "${DOT}"/assets/gtk-themes/* ~/.themes >> "$LOGS"
 }
 
 # Console framebuffer colors (private, commons)
 df_fbcolors() {
     if [[ -e ~/.fbcolors ]]; then
-        mv -v ~/.fbcolors "$BACKUP" >>"$LOGS"
+        mv -v ~/.fbcolors "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.fbcolors ]]; then
-        rm -v ~/.fbcolors >>"$LOGS"
+        rm -v ~/.fbcolors >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/assets/fbcolors ~/.fbcolors >>"$LOGS"
+    ln -s -v "${DOT}"/assets/fbcolors ~/.fbcolors >> "$LOGS"
 }
 
 # Elinks (commons)
 df_elinks() {
     if [[ -e ~/.elinks ]]; then
-        mv -v ~/.elinks "$BACKUP" >>"$LOGS"
+        mv -v ~/.elinks "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.elinks ]]; then
-        rm -v ~/.elinks >>"$LOGS"
+        rm -v ~/.elinks >> "$LOGS"
     fi
-    mkdir -v ~/.elinks >>"$LOGS"
-    ln -s -v "${DOT}"/.elinks/elinks.conf ~/.elinks/elinks.conf >>"$LOGS"
+    mkdir -v ~/.elinks >> "$LOGS"
+    ln -s -v "${DOT}"/.elinks/elinks.conf ~/.elinks/elinks.conf >> "$LOGS"
 }
 
 # Calcurse (commons, private)
 df_calcurse() {
     if [[ -e ~/.calcurse ]]; then
-        mv -v ~/.calcurse "$BACKUP" >>"$LOGS"
+        mv -v ~/.calcurse "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.calcurse ]]; then
-        rm -v ~/.calcurse >>"$LOGS"
+        rm -v ~/.calcurse >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.calcurse ~/.calcurse >>"$LOGS"
+    ln -s -v "${DOT}"/.calcurse ~/.calcurse >> "$LOGS"
 }
 
 # Newsboat (commons, private)
 df_newsboat() {
     if [[ -e ~/.newsboat ]]; then
-        mv -v ~/.newsboat "$BACKUP" >>"$LOGS"
+        mv -v ~/.newsboat "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.newsboat ]]; then
-        rm -v ~/.newsboat >>"$LOGS"
+        rm -v ~/.newsboat >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.newsboat ~/.newsboat >>"$LOGS"
+    ln -s -v "${DOT}"/.newsboat ~/.newsboat >> "$LOGS"
 }
 
 # vdirsyncer (commons, private)
 df_vdirsyncer() {
     if [[ -e ~/.vdirsyncer ]]; then
-        mv -v ~/.vdirsyncer "$BACKUP" >>"$LOGS"
+        mv -v ~/.vdirsyncer "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.vdirsyncer ]]; then
-        rm -v ~/.vdirsyncer >>"$LOGS"
+        rm -v ~/.vdirsyncer >> "$LOGS"
     fi
-    mkdir -v ~/.vdirsyncer >>"$LOGS"
-    ln -s -v "${DOT}"/.vdirsyncer/config ~/.vdirsyncer/config >>"$LOGS"
+    mkdir -v ~/.vdirsyncer >> "$LOGS"
+    ln -s -v "${DOT}"/.vdirsyncer/config ~/.vdirsyncer/config >> "$LOGS"
 }
 
 # Khard (commons, private)
 df_khard() {
     if [[ -e ~/.config/khard ]]; then
-        mv -v ~/.config/khard "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/khard "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.config/khard ]]; then
-        rm -v ~/.config/khard >>"$LOGS"
+        rm -v ~/.config/khard >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.config/khard ~/.config/khard >>"$LOGS"
+    ln -s -v "${DOT}"/.config/khard ~/.config/khard >> "$LOGS"
 }
 
 # linopen (commons, private)
 df_linopen() {
     if [[ -e ~/.linopenrc ]]; then
-        mv -v ~/.linopenrc "$BACKUP" >>"$LOGS"
+        mv -v ~/.linopenrc "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.linopenrc ]]; then
-        rm -v ~/.linopenrc >>"$LOGS"
+        rm -v ~/.linopenrc >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.linopenrc ~/.linopenrc >>"$LOGS"
+    ln -s -v "${DOT}"/.linopenrc ~/.linopenrc >> "$LOGS"
 }
 
 # SpaceVim (commons)
 df_spacevim() {
     if [[ -e ~/.SpaceVim ]]; then
-        mv -v ~/.SpaceVim.d "$BACKUP" >>"$LOGS"
+        mv -v ~/.SpaceVim.d "$BACKUP" >> "$LOGS"
     elif [[ -L ~/.SpaceVim ]]; then
-        rm -v ~/.SpaceVim.d >>"$LOGS"
+        rm -v ~/.SpaceVim.d >> "$LOGS"
     fi
     {
         mkdir -v ~/.SpaceVim.d
         mkdir -v ~/.SpaceVim.d/autoload
         ln -s -v "${DOT}"/.SpaceVim.d/init.toml ~/.SpaceVim.d/init.toml
         ln -s -v "${DOT}"/.SpaceVim.d/autoload/config.vim ~/.SpaceVim.d/autoload/config.vim
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # Neovim (commons)
 df_neovim() {
     if [ -e ~/.config/nvim ]; then
-        mv -v ~/.config/nvim "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/nvim "$BACKUP" >> "$LOGS"
     elif [ -L ~/.config/nvim ]; then
-        rm -v ~/.config/nvim >>"$LOGS"
+        rm -v ~/.config/nvim >> "$LOGS"
     fi
     {
         mkdir -v ~/.config/nvim
@@ -986,27 +986,27 @@ df_neovim() {
         ln -s -v "${DOT}"/.config/nvim/init-simple.vim ~/.config/nvim/init-simple.vim
         ln -s -v "${DOT}"/.config/nvim/projects.vim ~/.config/nvim/projects.vim
         ln -s -v "${DOT}"/.config/nvim/colors ~/.config/nvim/colors
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # Tmuxp (private, commons)
 df_tmuxp() {
     if [ -e ~/.tmuxp ]; then
-        mv -v ~/.tmuxp "$BACKUP" >>"$LOGS"
+        mv -v ~/.tmuxp "$BACKUP" >> "$LOGS"
     elif [ -L ~/.tmuxp ]; then
-        rm -v ~/.tmuxp >>"$LOGS"
+        rm -v ~/.tmuxp >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.tmuxp ~/.tmuxp >>"$LOGS"
+    ln -s -v "${DOT}"/.tmuxp ~/.tmuxp >> "$LOGS"
 }
 
 # Abook (private, commons)
 df_abook() {
     if [ -e ~/.abook ]; then
-        mv -v ~/.abook "$BACKUP" >>"$LOGS"
+        mv -v ~/.abook "$BACKUP" >> "$LOGS"
     elif [ -L ~/.abook ]; then
-        rm -v ~/.abook >>"$LOGS"
+        rm -v ~/.abook >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.abook ~/.abook >>"$LOGS"
+    ln -s -v "${DOT}"/.abook ~/.abook >> "$LOGS"
 }
 
 # Transmission (private, commons)
@@ -1017,97 +1017,97 @@ df_transmission() {
         elif [ -L ~/.config/transmission-daemon/settings.cfg ]; then
             rm -b ~/.config/transmission-daemon/settings.cfg >> "$LOGS"
         fi
-        ln -s -v "${DOT}"/.config/transmission-daemon/settings.cfg ~/.config/transmission-daemon/settings.cfg >>"$LOGS"
+        ln -s -v "${DOT}"/.config/transmission-daemon/settings.cfg ~/.config/transmission-daemon/settings.cfg >> "$LOGS"
     else
-        rm -v ~/.config/transmission-daemon >>"$LOGS"
+        rm -v ~/.config/transmission-daemon >> "$LOGS"
         mkdir -v ~/.config/transmission-daemon >> "$LOGS"
-    ln -s -v "${DOT}"/.config/transmission-daemon/settings.cfg ~/.config/transmission-daemon/settings.cfg >>"$LOGS"
+        ln -s -v "${DOT}"/.config/transmission-daemon/settings.cfg ~/.config/transmission-daemon/settings.cfg >> "$LOGS"
     fi
 }
 
 # Tremc (private, commons)
 df_tremc() {
     if [ -e ~/.config/tremc ]; then
-        mv -v ~/.config/tremc "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/tremc "$BACKUP" >> "$LOGS"
     elif [ -L ~/.config/tremc ]; then
-        rm -v ~/.config/tremc >>"$LOGS"
+        rm -v ~/.config/tremc >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.config/tremc ~/.config/tremc >>"$LOGS"
+    ln -s -v "${DOT}"/.config/tremc ~/.config/tremc >> "$LOGS"
 }
 
 # Ncmpcpp (private, commons)
 df_ncmpcpp() {
     if [ -e ~/.ncmpcpp ]; then
-        mv -v ~/.ncmpcpp "$BACKUP" >>"$LOGS"
+        mv -v ~/.ncmpcpp "$BACKUP" >> "$LOGS"
     elif [ -L ~/.ncmpcpp ]; then
-        rm -v ~/.ncmpcpp >>"$LOGS"
+        rm -v ~/.ncmpcpp >> "$LOGS"
     fi
     {
         mkdir -v ~/.ncmpcpp
         ln -s -v "${DOT}"/.ncmpcpp/config ~/.ncmpcpp/config
         ln -s -v "${DOT}"/.ncmpcpp/bindings ~/.ncmpcpp/bindings
-    } >>"$LOGS"
+    } >> "$LOGS"
 }
 
 # Mopidy (private, commons)
 df_mopidy() {
     if [ -e ~/.config/mopidy ]; then
-        mv -v ~/.config/mopidy "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/mopidy "$BACKUP" >> "$LOGS"
     elif [ -L ~/.config/mopidy ]; then
-        rm -v ~/.config/mopidy >>"$LOGS"
+        rm -v ~/.config/mopidy >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.config/mopidy ~/.config/mopidy >>"$LOGS"
+    ln -s -v "${DOT}"/.config/mopidy ~/.config/mopidy >> "$LOGS"
 }
 
 # lf (commons)
 df_lf() {
     if [ -e ~/.config/lf ]; then
-        mv -v ~/.config/lf "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/lf "$BACKUP" >> "$LOGS"
     elif [ -L ~/.config/lf ]; then
-        rm -v ~/.config/lf >>"$LOGS"
+        rm -v ~/.config/lf >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.config/lf ~/.config/lf >>"$LOGS"
+    ln -s -v "${DOT}"/.config/lf ~/.config/lf >> "$LOGS"
 }
 
 # termite (commons)
 df_termite() {
     if [ -e ~/.config/termite ]; then
-        mv -v ~/.config/termite "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/termite "$BACKUP" >> "$LOGS"
     elif [ -L ~/.config/termite ]; then
-        rm -v ~/.config/termite >>"$LOGS"
+        rm -v ~/.config/termite >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.config/termite ~/.config/termite >>"$LOGS"
+    ln -s -v "${DOT}"/.config/termite ~/.config/termite >> "$LOGS"
 }
 
 # twmn (commons)
 df_twmn() {
     if [ -e ~/.config/twmn ]; then
-        mv -v ~/.config/twmn "$BACKUP" >>"$LOGS"
+        mv -v ~/.config/twmn "$BACKUP" >> "$LOGS"
     elif [ -L ~/.config/twmn ]; then
-        rm -v ~/.config/twmn >>"$LOGS"
+        rm -v ~/.config/twmn >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.config/twmn ~/.config/twmn >>"$LOGS"
+    ln -s -v "${DOT}"/.config/twmn ~/.config/twmn >> "$LOGS"
 }
 
 # logiops (commons)
 df_logiops() {
     if [ -e /etc/logid.cfg ]; then
-        sudo mv -v /etc/logid.cfg "$BACKUP" >>"$LOGS"
+        sudo mv -v /etc/logid.cfg "$BACKUP" >> "$LOGS"
     elif [ -L /etc/logid.cfg ]; then
-        sudo rm -v /etc/logid.cfg >>"$LOGS"
+        sudo rm -v /etc/logid.cfg >> "$LOGS"
     fi
-    sudo ln -s -v "${DOT}"/etc/logid.cfg /etc/logid.cfg >>"$LOGS"
+    sudo ln -s -v "${DOT}"/etc/logid.cfg /etc/logid.cfg >> "$LOGS"
 }
 
 # npm (commons)
 df_npm() {
     if [ -e ~/.npmrc ]; then
-        mv -v ~/.npmrc "$BACKUP" >>"$LOGS"
+        mv -v ~/.npmrc "$BACKUP" >> "$LOGS"
     elif [ -L ~/.npmrc ]; then
-        rm -v ~/.npmrc >>"$LOGS"
+        rm -v ~/.npmrc >> "$LOGS"
     fi
-    ln -s -v "${DOT}"/.npmrc ~/.npmrc >>"$LOGS"
-    mkdir ~/.npm-global >>"$LOGS"
+    ln -s -v "${DOT}"/.npmrc ~/.npmrc >> "$LOGS"
+    mkdir ~/.npm-global >> "$LOGS"
 }
 
 #┏━━━━━━━━━━━━━━━┓
@@ -1182,8 +1182,8 @@ else
     printf "Are you sure you want to install \\e[1;35m%s\\e[0m (y/n) " "$INSTALLED"
     read -r SURE
     case $SURE in
-    [yY]) echo ;;
-    *) exit 0 ;;
+        [yY]) echo ;;
+        *) exit 0 ;;
     esac
     for value in {1..3}; do
         animate '             \e[1;35m  ' 0.1
@@ -1212,8 +1212,8 @@ else
         printf "Want to see logs now? (y/n) "
         read -r LOGANS
         case $LOGANS in
-        [yY]) less "$LOGS" ;;
-        *) exit 0 ;;
+            [yY]) less "$LOGS" ;;
+            *) exit 0 ;;
         esac
     else
         errors
@@ -1223,8 +1223,8 @@ else
         printf "Want to see logs now? (y/n) "
         read -r LOGANS
         case $LOGANS in
-        [yY]) less "$LOGS" ;;
-        *) exit 1 ;;
+            [yY]) less "$LOGS" ;;
+            *) exit 1 ;;
         esac
     fi
 fi
