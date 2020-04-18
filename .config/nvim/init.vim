@@ -65,6 +65,8 @@ Plug 'alvan/vim-closetag'
 Plug 'Valloric/MatchTagAlways'
 Plug 'udalov/kotlin-vim'
 " Plug 'posva/vim-vue'
+Plug 'lervag/vimtex'
+Plug 'jmcantrell/vim-virtualenv'
 
 " -- Code formatting --
 Plug 'sbdchd/neoformat'
@@ -270,6 +272,9 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " -- lf --
 let g:lf_map_keys = 0
+
+" -- polyglot --
+let g:polyglot_disabled = ['latex']
 
 " Settings
 " --------

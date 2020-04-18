@@ -368,7 +368,7 @@ font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = distro i3 weather bitcoin playerctl volume picom
 modules-center = fsroot fshome fscommon fsstorage
-modules-right = cpu load memory temp uptime date
+modules-right = cpu load memory temp uptime agenda date
 
 ;dim-value = 0.3
 tray-position = right
@@ -419,7 +419,7 @@ font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = distro i3 weather bitcoin volume picom touchpad touchkeyboard
 modules-center = backlight battery-yoga wireless-network-yoga
-modules-right = fsroot cpu temp uptime date
+modules-right = fsroot cpu temp uptime agenda date
 
 ;dim-value = 0.3
 tray-position = right
@@ -467,7 +467,7 @@ font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 modules-left = distro i3 weather volume picom playerctlnoinfo
 modules-center = backlight battery-yoga wireless-network-yoga
-modules-right =  fsroot cpu memory temp uptime date
+modules-right =  fsroot cpu memory temp uptime agenda date
 tray-position = right
 tray-padding = 2
 cursor-click = pointer
@@ -948,6 +948,15 @@ label-visible-padding = 2
 label-urgent = %index%
 label-urgent-foreground = ${colors.green}
 label-urgent-padding = 2
+
+[module/agenda]
+type = custom/script
+exec = ~/cloud/dev/polybar-scripts/polybar-scripts/agenda/agenda.sh
+click-left = ~/cloud/dev/polybar-scripts/polybar-scripts/agenda/agenda.sh --click
+interval = 60
+format-prefix = " "
+format-prefix-foreground = ${colors.blue}
+format-underline = ${colors.magneta}
 
 [settings]
 screenchange-reload = true

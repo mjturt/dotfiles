@@ -91,6 +91,7 @@ commons_cli() {
     df_transmission
     df_tremc
     df_lf
+    df_npm
 }
 
 # Commons, but only graphical programs
@@ -1098,6 +1099,17 @@ df_logiops() {
     sudo ln -s -v "${DOT}"/etc/logid.cfg /etc/logid.cfg >>"$LOGS"
 }
 
+# npm (commons)
+df_npm() {
+    if [ -e ~/.npmrc ]; then
+        mv -v ~/.npmrc "$BACKUP" >>"$LOGS"
+    elif [ -L ~/.npmrc ]; then
+        rm -v ~/.npmrc >>"$LOGS"
+    fi
+    ln -s -v "${DOT}"/.npmrc ~/.npmrc >>"$LOGS"
+    mkdir ~/.npm-global >>"$LOGS"
+}
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -1134,7 +1146,7 @@ helps() {
     echo -e "df_less, df_zathura, df_vimb, df_picom, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
     echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
     echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim, df_neovim, df_lf, df_termite"
-    echo -e "df_twmn, df_logiops"
+    echo -e "df_twmn, df_logiops, df_npm"
     echo
     echo -e "\\e[1;35mSingle programs that CAN take host-parameter:\\e[0m df_i3, df_ranger"
     echo
