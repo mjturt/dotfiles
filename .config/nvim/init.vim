@@ -42,8 +42,17 @@ Plug 'honza/vim-snippets'
 
 " -- Lint / LanguageClient / Completion --
 if os=="linux"
-    Plug 'w0rp/ale', { 'do': 'npm install -g tern css-lint' }
+    Plug 'w0rp/ale', { 'do': '
+                \npm install -g stylelint fixjson jsonlint eslint prettier vim-language-server bash-language-server;
+                \npm install -g textlint write-good markdownlint;
+                \npm install -g git+https://github.com/projectatomic/dockerfile_lint;
+                \composer global require felixfbecker/language-server friendsofphp/php-cs-fixer phan/phan;
+                \sudo pacman -S mypy python-pylint flake8 python-isort;
+                \sudo pacman -S shellcheck shfmt tidy php-tidy texlab;
+                \sudo pacman -S proselint languagetool;
+                \' }
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 endif
 
 " -- Better/additional language support --
@@ -51,10 +60,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'moll/vim-node'
 Plug 'alvan/vim-closetag'
 Plug 'Valloric/MatchTagAlways'
-Plug 'lervag/vimtex'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dbeniamine/vim-mail'
-
+Plug 'lervag/vimtex'
 
 " -- Additional features --
 Plug 'terryma/vim-multiple-cursors'
@@ -73,7 +81,7 @@ Plug 'lilydjwg/colorizer'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/goyo.vim'
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'hecal3/vim-leader-guide'
 
 " -- Tags --
 Plug 'ludovicchabant/vim-gutentags'
@@ -92,6 +100,9 @@ Plug 'mjturt/vim-airline-themes'
 " -- Git --
 Plug 'airblade/vim-gitgutter'
 
+" -- Colors --
+Plug 'sainnhe/edge'
+
 call plug#end()
 
 " Plugin settings
@@ -101,6 +112,7 @@ call plug#end()
 let b:ale_linters = {
             \'css': ['prettier', 'stylelint'],
             \'python': ['flake8', 'pylint', 'mypy'],
+            \'json': ['jsonlint'],
             \}
 let g:ale_fixers = {
             \'*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -109,6 +121,7 @@ let g:ale_fixers = {
             \'python': ['isort',  'autopep8'],
             \'php': ['php_cs_fixer'],
             \'sh': ['shfmt'],
+            \'json': ['fixjson', 'prettier'],
             \}
 let g:ale_echo_msg_error_str = ''
 let g:ale_echo_msg_warning_str = ''
@@ -132,7 +145,7 @@ let g:deoplete#enable_at_startup = 1
 
 " -- Airline --
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme='cyberpunk'
 
@@ -159,11 +172,11 @@ let g:mta_filetypes = {
     \ 'javascript' : 1,
     \ 'jsx' : 1,
     \ 'vue' : 1,
-    \ 'php' : 1,
+    \ 'php' : 1
     \}
 
 " -- Closetag --
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.vue,*.php'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.vue,*.php,*.jinja'
 
 " -- NerdCommenter --
 let g:NERDSpaceDelims = 1
@@ -174,13 +187,26 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " -- lf --
 let g:lf_map_keys = 0
 
-" -- polyglot --
-let g:polyglot_disabled = ['latex']
+" -- Bclose --
+let g:bclose_no_plugin_maps = 1
+
+" -- Vimtex --
+let g:vimtex_compiler_progname = 'nvr'
+let g:tex_flavor  = 'latex'
+let g:tex_conceal = ''
+let g:vimtex_fold_manual = 1
+let g:vimtex_latexmk_continuous = 1
+
+" -- Edge --
+let g:edge_style = 'neon'
+let g:edge_transparent_background = 1
 
 " Settings
 " --------
 
-color cyberpunkneon_mjturt
+set termguicolors
+set background=dark
+colorscheme edge
 
 set nocompatible
 set encoding=utf-8
@@ -208,6 +234,7 @@ set titlestring=%(\ %M%)%(\ %F%)%a\ -\ 
 set title
 set list listchars=tab:∙\ ,extends:,precedes:
 set laststatus=2
+set shortmess+=c
 
 " -- Behavior --
 set matchpairs+=<:>
@@ -276,8 +303,8 @@ let g:tex_flavor = 'tex'
 
 " -- Vue --
 " autocmd FileType vue syntax sync fromstart
-autocmd BufEnter *.vue :setlocal filetype=javascript
-autocmd BufEnter *.vue :setlocal syntax=javascript
+" autocmd BufEnter *.vue :setlocal filetype=javascript
+" autocmd BufEnter *.vue :setlocal syntax=javascript
 
 " -- Mail --
 au BufRead /tmp/neomutt-* set tw=0
@@ -297,61 +324,80 @@ smap <C-o> <Plug>(neosnippet_expand_or_jump)
 xmap <C-o> <Plug>(neosnippet_expand_target)
 
 " -- Leader key --
-"
 let mapleader="\<Space>"
+let maplocalleader = "-"
+
+" -- Leader-guide
+let g:lmap =  {}
+call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
+nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
+
 " -- Config (e)
+let g:lmap.e = { 'name' : 'Vim config file' }
 nnoremap <leader>ev :tabnew ~/.config/nvim/init.vim<CR>
 noremap <leader>es :so ~/.config/nvim/init.vim<cr>
 " -- Buffers (r)
+let g:lmap.r = { 'name' : 'Buffers / Files' }
 map <leader>re :Lf<cr>
 map <leader>rf :F<CR>
 noremap <leader>rb :CtrlPBuffer<cr>
 " -- Toggle vim settings (t)
+let g:lmap.t = { 'name' : 'Toggle vim settings' }
 noremap <silent> <Leader>tw :call ToggleWrap()<CR>
 noremap <silent> <leader>tn :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>ts :set spell!<cr>
-" map <leader>tc :ColorToggle<CR>
 " -- Formatting / Fixing (f)
+let g:lmap.f = { 'name' : 'Formatting / Fixing' }
 noremap <leader>fq gqap
 noremap <Leader>fg gg=G
 noremap <leader>ft :%s/\s\+$//<cr>
 noremap <leader>fl :ALEFix<cr>
 " -- Shortcut commands (s)
+let g:lmap.s = { 'name' : 'Shortcuts' }
 noremap <leader>ss :%s//g<LEFT><LEFT>
 map <leader>sx :!chmod +x %<CR><CR>
 noremap <leader>sp "bp
 map <leader>q :nohl<CR>
 " -- Set filetype (F)
+let g:lmap.F = { 'name' : 'Set filetype' }
 noremap <leader>FH :set filetype=html<cr>
 noremap <leader>FP :set filetype=php<cr>
 " -- Plugin modes (m)
+let g:lmap.m = { 'name' : 'Plugin modes' }
 noremap <leader>mg :Goyo<CR><CR>
 nnoremap <leader>mu :UndotreeToggle<cr>
 nmap <leader><Tab> :FZF<cr>
 " -- Compile and run (R)
 map <leader>R :call CompileAndRun()<CR>
 " Go to definitions (g)
+let g:lmap.d = { 'name' : 'Go to definitions' }
 noremap <leader>dd <c-]>
 noremap <leader>da :ALEGoToDefinition<CR>
 noremap <leader>dr :ALEFindReferences<CR>
 noremap <leader>dh :ALEHover<CR>
 noremap <leader>de <Plug>(ale_next_wrap)
 " -- Generate strings (g)
+let g:lmap.g = { 'name' : 'Generate strings' }
 nmap <leader>gp :read !pwgen 10<CR>
 nmap <leader>gl :read !echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'<CR>
 nmap <leader>gd :Newdot<CR>
 nmap <leader>gs :Shebang<CR>
-" -- Panes (p) --
+" -- Panes (p)
+let g:lmap.p = { 'name' : 'Panes' }
 nnoremap <silent> <Leader>ph :exe "vertical resize -5"<CR>
 nnoremap <silent> <Leader>pj :exe "resize -5"<CR>
 nnoremap <silent> <Leader>pk :exe "resize +5"<CR>
 nnoremap <silent> <Leader>pl :exe "vertical resize +5"<CR>
 nnoremap <silent> <Leader>pp <c-w><c-w>
-" -- Leader guide
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+" -- Gitgutter (h)
+let g:lmap.h = { 'name' : 'Gitgutter' }
+" -- NerdCommenter (c)
+let g:lmap.c = { 'name' : 'NerdCommenter' }
 
 " -- Command prompt --
 cmap Q q
+cmap W w
 
 " Custom functions
 " ----------------

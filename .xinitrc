@@ -28,6 +28,7 @@ rambox &
 greenclip daemon &
 mopidy-start &
 spotify &
+ssh-irc-notifier &
 
 ## Window manager
 i3c &

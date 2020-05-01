@@ -77,8 +77,6 @@ commons_cli() {
     df_less
     df_w3m
     df_gpg
-    df_scripts
-    df_bin
     df_calcurse
     df_newsboat
     df_linopen
@@ -322,39 +320,6 @@ df_less() {
     fi
     ln -v -s "${DOT}"/.lesskey ~/.lesskey >> "$LOGS"
     lesskey ~/.lesskey
-}
-
-# Scripts (commons)
-df_scripts() {
-    if [[ -e ~/sh ]]; then
-        mv -v ~/sh "$BACKUP" >> "$LOGS"
-    elif [[ -L ~/sh ]]; then
-        rm -v ~/sh >> "$LOGS"
-    fi
-    if [[ -e ~/.statusscripts ]]; then
-        mv -v ~/.statusscripts "$BACKUP" >> "$LOGS"
-    elif [[ -L ~/.statusscripts ]]; then
-        rm -v ~/.statusscripts >> "$LOGS"
-    fi
-    {
-        ln -v -s "${DOT}"/scripts/sh ~/sh
-        ln -v -s "${DOT}"/scripts/statusscripts ~/.statusscripts
-        chmod -v -R +x ~/sh/*
-        chmod -v -R +x ~/.statusscripts/*
-    } >> "$LOGS"
-}
-
-# Binaries (commons)
-df_bin() {
-    if [[ -e ~/bin ]]; then
-        mv -v ~/bin "$BACKUP" >> "$LOGS"
-    elif [[ -L ~/bin ]]; then
-        rm -v ~/bin >> "$LOGS"
-    fi
-    {
-        ln -v -s "${DOT}"/bin ~/bin
-        chmod -v -R +x ~/bin/*
-    } >> "$LOGS"
 }
 
 # Xresources (commons)
@@ -1110,6 +1075,17 @@ df_npm() {
     mkdir ~/.npm-global >> "$LOGS"
 }
 
+# WeeChat (commons, private)
+df_weechat() {
+    if [ -e ~/.weechat ]; then
+        mv -v ~/.weechat "$BACKUP" >> "$LOGS"
+    elif [ -L ~/.weechat ]; then
+        rm -v ~/.weechat >> "$LOGS"
+    fi
+    ln -s -v "${DOT}"/.weechat ~/.weechat >> "$LOGS"
+}
+
+
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
 #┗━━━━━━━━━━━━━━━┛
@@ -1143,10 +1119,10 @@ helps() {
     echo -e "assets(private)"
     echo
     echo -e "\\e[1;35mSingle programs that CANT take host-parameter:\\e[0m df_vim, df_tmux, df_screen, df_feh,"
-    echo -e "df_less, df_zathura, df_vimb, df_picom, df_git, df_mpv, df_cmus, df_rtorrent, df_scripts,"
-    echo -e "df_w3m, df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
-    echo -e "df_dunst, df_zsh, df_elinks, df_bin, df_bspwm, df_xresources, df_spacevim, df_neovim, df_lf, df_termite"
-    echo -e "df_twmn, df_logiops, df_npm"
+    echo -e "df_less, df_zathura, df_vimb, df_picom, df_git, df_mpv, df_cmus, df_rtorrent, df_w3m,"
+    echo -e "df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
+    echo -e "df_dunst, df_zsh, df_elinks, df_bspwm, df_xresources, df_spacevim, df_neovim, df_lf, df_termite"
+    echo -e "df_twmn, df_logiops, df_npm, df_weechat"
     echo
     echo -e "\\e[1;35mSingle programs that CAN take host-parameter:\\e[0m df_i3, df_ranger"
     echo

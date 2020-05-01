@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-for file in *"$1"
-do 
-    vi +':w ++ff=unix' +':q' "$file"
-done

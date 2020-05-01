@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-cd ~/cloud/dev/suckless/dwm
-make && make binary

@@ -40,7 +40,7 @@ Proper kernel and driver support with properly generated initramfs needed to get
 
 ### Scripts
 
-Collection of scripts can be found in [scripts directory](scripts). If I did not write a script, it should be mentioned.
+Collection of scripts can be found in [scripts repository](https://github.com/mjturt/scripts).
 
 ### install.sh
 

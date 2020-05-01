@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# Fast command line googling
-# mjturt
-
-if [[ "$1" = "-d" ]]; then
-   elinks -dump -dump-color-mode 3 "https://duckduckgo.com/?q=$2" | tail -n +17 | head -50
-else
-   elinks "https://duckduckgo.com/?q=$1"
-fi

@@ -46,30 +46,55 @@ cursor_shape = underline
 # "off", "left" or "right"
 #scrollbar = off
 
-[colors]
+## Cyberpunk theme
+
+# [colors]
 # hard contrast: background = #1d2021
 # soft contrast: background = #32302f
 
-# #000b1e
+# # #000b1e
+# background=  rgba(0, 11, 30, 0.9)
+# foreground=  #0abdc6
+# foreground_bold = #0abdc6
+# color0=  #123e7c
+# color1=  #ff0000
+# color2=  #d300c4
+# color3=  #f57800
+# color4=  #123e7c
+# color5=  #711c91
+# color6=  #0abdc6
+# color7=  #d7d7d5
+# color8=  #1c61c2
+# color9=  #ff0000
+# color10=  #d300c4
+# color11=  #f57800
+# color12=  #00ff00
+# color13=  #711c91
+# color14=  #0abdc6
+# color15=  #d7d7d5
+
+## Edge neon theme
+
+[colors]
+foreground = #0abdc6
 background=  rgba(0, 11, 30, 0.9)
-foreground=  #0abdc6
-foreground_bold = #0abdc6
-color0=  #123e7c
-color1=  #ff0000
-color2=  #d300c4
-color3=  #f57800
-color4=  #123e7c
-color5=  #711c91
-color6=  #0abdc6
-color7=  #d7d7d5
-color8=  #1c61c2
-color9=  #ff0000
-color10=  #d300c4
-color11=  #f57800
-color12=  #00ff00
-color13=  #711c91
-color14=  #0abdc6
-color15=  #d7d7d5
+
+color0 = #363a4e
+color1 = #ec7279
+color2 = #a0c980
+color3 = #deb974
+color4 = #6cb6eb
+color5 = #d38aea
+color6 = #5dbbc1
+color7 = #c5cdd9
+color8 = #363a4e
+color9 = #ec7279
+color10 = #a0c980
+color11 = #deb974
+color12 = #6cb6eb
+color13 = #d38aea
+color14 = #5dbbc1
+color15 = #c5cdd9
 
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc

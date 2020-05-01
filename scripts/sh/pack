@@ -1,7 +1,0 @@
-#!/bin/sh
-# fast archiving
-
-name=$1;
-if [ "$name" != "" ]; then
-   tar cvjf $1.tar.bz2 $1
-fi

@@ -1,9 +1,0 @@
-#!/bin/sh
-# Bash script to use ptpb.pw pastebin service
-# mjturt
-
-echo "Usage:"
-echo "Command: 'command | pb'"
-echo "File: 'pb < file.png'"
-echo ""
-curl -F c=@- https://ptpb.pw/
