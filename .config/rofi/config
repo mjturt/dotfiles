@@ -6,7 +6,7 @@
 ! Basic settings !
 !----------------!
 
-rofi.modi:                           run,drun
+rofi.modi:                           run,drun,window
 rofi.terminal:                       termite
 rofi.ssh-client:                     ssh
 rofi.ssh-command:                    {terminal} -e {ssh-client} {host}

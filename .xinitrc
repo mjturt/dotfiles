@@ -32,4 +32,5 @@ ssh-irc-notifier &
 
 ## Window manager
 i3c &
+sleep 1
 i3

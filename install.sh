@@ -114,6 +114,7 @@ commons_x11() {
     df_termite
     df_twmn
     df_logiops
+    df_betterlockscreen
 }
 
 # Only host-specific files (R5)
@@ -591,9 +592,7 @@ df_mpv() {
         rm -v ~/.config/mpv >> "$LOGS"
     fi
     {
-        mkdir -v ~/.config/mpv
-        ln -s -v "${DOT}"/.config/mpv/mpv.conf ~/.config/mpv/mpv.conf
-        ln -s -v "${DOT}"/.config/mpv/input.conf ~/.config/mpv/input.conf
+        ln -s -v "${DOT}"/.config/mpv ~/.config/mpv
     } >> "$LOGS"
 }
 
@@ -1085,6 +1084,16 @@ df_weechat() {
     ln -s -v "${DOT}"/.weechat ~/.weechat >> "$LOGS"
 }
 
+# Betterlockscreen (commons, private)
+df_betterlockscreen() {
+    if [ -e ~/.config/betterlockscreenrc ]; then
+        mv -v ~/.config/betterlockscreenrc "$BACKUP" >> "$LOGS"
+    elif [ -L ~/.config/betterlockscreenrc ]; then
+        rm -v ~/.config/betterlockscreenrc >> "$LOGS"
+    fi
+    ln -s -v "${DOT}"/.config/betterlockscreenrc ~/.config/betterlockscreenrc >> "$LOGS"
+}
+
 
 #┏━━━━━━━━━━━━━━━┓
 #┃ Test function ┃
@@ -1122,7 +1131,7 @@ helps() {
     echo -e "df_less, df_zathura, df_vimb, df_picom, df_git, df_mpv, df_cmus, df_rtorrent, df_w3m,"
     echo -e "df_qutebrowser, df_gpg, df_rofipass, df_buku_run, df_mutt, df_hlwm, df_rofi, df_teiler,"
     echo -e "df_dunst, df_zsh, df_elinks, df_bspwm, df_xresources, df_spacevim, df_neovim, df_lf, df_termite"
-    echo -e "df_twmn, df_logiops, df_npm, df_weechat"
+    echo -e "df_twmn, df_logiops, df_npm, df_weechat, df_betterlockscreen"
     echo
     echo -e "\\e[1;35mSingle programs that CAN take host-parameter:\\e[0m df_i3, df_ranger"
     echo

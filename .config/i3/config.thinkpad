@@ -1,3 +1,4 @@
+
 # ~/.config/i3/config.thinkpad
 # ----------------------------
 # mjturt
@@ -11,11 +12,11 @@ workspace $ws4 output HDMI-2 eDP-1
 workspace $ws5 output HDMI-2 eDP-1
 workspace $ws6 output HDMI-2 eDP-1
 workspace $ws7 output HDMI-2 eDP-1
-workspace $ws8 output HDMI-2 eDP-1
-workspace $ws9 output HDMI-2 eDP-1
-workspace $ws10 output HDMI-2 eDP-1
+workspace $ws8 output DP-1 eDP-1
+workspace $ws9 output DP-1 eDP-1
+workspace $ws10 output DP-1 eDP-1
 
 ### Change focus betseen monitors
 
-bindsym $mod+m focus output eDP-1
-bindsym $mod+comma focus output HDMI-2
+bindsym $mod+m focus output left
+bindsym $mod+comma focus output right

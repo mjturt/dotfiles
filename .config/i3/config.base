@@ -31,8 +31,11 @@ floating_modifier $mod
 # <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
 default_floating_border none
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border normal
 #hide_edge_borders both
+
+title_align center
+default_orientation vertical
 
 ### Keymappings
 
@@ -56,8 +59,7 @@ bindsym $mod+Control+j resize grow height 2 px or 2 ppt
 bindsym $mod+Control+k resize shrink height 2 px or 2 ppt
 bindsym $mod+Control+l resize grow width 2 px or 2 ppt
 
-bindsym $mod+v split h
-bindsym $mod+minus split v
+bindsym $mod+minus split toggle
 
 bindsym $mod+f fullscreen toggle
 
@@ -99,29 +101,32 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+bindsym $mod+Control+u gaps inner all plus 5
+bindsym $mod+Control+m gaps inner all minus 5
+
+bindsym button3 kill
+
 ### Assigning clients to workspaces
 
 assign [class="Rambox"] $ws2
-assign [class="spotify"] $ws3
+for_window [class="Spotify"] move to workspace $ws3
 
 ### Floating windows
 
-for_window [class="Nitrogen"] floating enable
-for_window [class="Catfish"] floating enable
-for_window [class="Colorgrab"] floating enable
-for_window [class="Blueberry"] floating enable
 for_window [class="Yad"] floating enable
-for_window [class="Turku Infected"] floating enable
 for_window [class="Godot"] floating enable
 for_window [class="Gimp"] floating enable
 
 ### Colors (Dracula)
 
-# class                 border  backgr. text    indicator
-client.focused          #d300c4 #d300c4 #000000 #282a36
-client.focused_inactive #535769 #535769 #AAAAAA #282a36
-client.unfocused        #323440 #323440 #999999 #282a36
-client.urgent           #ff5555 #ff5555 #000000 #ff5555
+# class                 border  backgr. text    indicator child_border
+client.focused          #d300c4 #d300c4 #000b1e #000b1e   #d300c4
+client.focused_inactive #000b1e #000b1e #1afe49 #000b1e   #000b1e
+client.unfocused        #000b1e #000b1e #d300c4 #000b1e   #000b1e
+client.urgent           #860029 #860029 #000b1e #860029   #860029
+
+client.background       #000b1e
 
 ### Autostart
 exec poly
+exec_always --no-startup-id autotiling

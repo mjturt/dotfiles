@@ -2,11 +2,13 @@
 #┣━━━━━━━━━
 #┃ mjturt
 
+OS="$(uname)"
+
 ### Plugins
 
 if [[ ! -f /usr/local/bin/antibody ]]; then
-   curl -sL git.io/antibody | sudo sh -s
-   /usr/local/bin/antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
+    curl -sL git.io/antibody | sudo sh -s
+    /usr/local/bin/antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
 fi
 
 # https://github.com/denysdovhan/spaceship-prompt/issues/407
@@ -68,10 +70,10 @@ fpath=(~/.zsh/site-functions $fpath)
 ### Prompt
 
 # if [[ ! -L ~/.zsh/site-functions/prompt_pure_setup ]]; then
-   # ln -v -s ~/.zsh/themes/pure/pure.zsh ~/.zsh/site-functions/prompt_pure_setup
+# ln -v -s ~/.zsh/themes/pure/pure.zsh ~/.zsh/site-functions/prompt_pure_setup
 # fi
 # if [[ ! -L ~/.zsh/site-functions/async ]]; then
-   # ln -v -s ~/.zsh/themes/pure/async.zsh ~/.zsh/site-functions/async
+# ln -v -s ~/.zsh/themes/pure/async.zsh ~/.zsh/site-functions/async
 # fi
 
 ## Prompt set by antibody
@@ -99,7 +101,7 @@ setopt autocd
 setopt extendedglob
 setopt nomatch
 setopt notify
-setopt multios 
+setopt multios
 setopt globdots
 unsetopt correct_all
 unsetopt beep
@@ -112,9 +114,29 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 if [[ "$TERM" == (screen*|xterm*|rxvt*) ]]; then
-   add-zsh-hook -Uz precmd xterm_title_precmd
-   add-zsh-hook -Uz preexec xterm_title_preexec
+    add-zsh-hook -Uz precmd xterm_title_precmd
+    add-zsh-hook -Uz preexec xterm_title_preexec
 fi
+
+DIRSTACKFILE="${HOME}/.zsh/cache/dirs"
+if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
+    dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
+    [[ -d "${dirstack[1]}" ]] && cd -- "${dirstack[1]}"
+fi
+chpwd_dirstack() {
+    print -l -- "$PWD" "${(u)dirstack[@]}" > "$DIRSTACKFILE"
+}
+add-zsh-hook -Uz chpwd chpwd_dirstack
+
+DIRSTACKSIZE='20'
+
+setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
+
+## Remove duplicate entries
+setopt PUSHD_IGNORE_DUPS
+
+## This reverts the +/- operators.
+setopt PUSHD_MINUS
 
 ### Include other files
 
@@ -127,18 +149,23 @@ source $HOME/.zsh/themes/spaceship-settings.zsh
 
 ### Dircolors
 
-if [[ "$(uname)" = "FreeBSD" ]]; then
-   eval `gdircolors ~/.zsh/dircolors/gruvbox.dircolors`
+if [[ "$OS" = "FreeBSD" ]]; then
+    eval `gdircolors ~/.zsh/dircolors/dracula.dircolors`
 else
-   eval `dircolors ~/.zsh/dircolors/gruvbox.dircolors`
+    eval `dircolors ~/.zsh/dircolors/dracula.dircolors`
 fi
+
+if [[ "$OS" == "Linux" ]]; then
+    source /usr/share/doc/pkgfile/command-not-found.zsh
+fi
+    source /usr/share/doc/pkgfile/command-not-found.zsh
 
 ### Autostart tmux
 
-if [[ -n $DISPLAY ]] && [[ $(id -u) -ne 0 ]] && [[ "$(hostname)" != "server.turtia.org" ]]; then
-   [[ $- != *i* ]] && return
-   [[ -z "$TMUX" ]] && exec tmux
-fi
+# if [[ -n $DISPLAY ]] && [[ $(id -u) -ne 0 ]] && [[ "$(hostname)" != "server.turtia.org" ]]; then
+# [[ $- != *i* ]] && return
+# [[ -z "$TMUX" ]] && exec tmux
+# fi
 
 ### Remove some useless files
 rm -rf ~/dbus-send.core
@@ -150,7 +177,7 @@ rm -rf ~/dbus-send.core
 # if [ -f '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Termite cd
-if [[ $TERM == xterm-termite ]]; then
-  . /etc/profile.d/vte.sh
-  __vte_osc7
-fi
+# if [[ $TERM == xterm-termite ]]; then
+# . /etc/profile.d/vte.sh
+# __vte_osc7
+# fi

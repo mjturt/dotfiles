@@ -8,7 +8,7 @@
 ### Terminal
 
 # "urxvt"
-"termite"
+"termite -d $(xcwd)"
 Mod4 + Return
 
 ### Media keys
@@ -78,7 +78,7 @@ Alt+r
 "rofi-notes"
 Alt+n
 
-"rofi-power"
+"lock"
 Alt+x
 
 "rofi-surfraw"
@@ -102,12 +102,8 @@ Alt+g
 "~/.config/rofi/scripts/rofi-fontawesome.sh"
 Alt+f
 
-"buku_run"
-Alt+b
-
-# Adds primary selection to bookmarks
-"bukuadd"
-Control+Alt+b
+"rofi -show window"
+Mod4+Tab
 
 ### Other
 

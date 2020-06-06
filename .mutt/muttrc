@@ -49,7 +49,7 @@ set fcc_attach
 set mime_forward = yes
 
 ### UI and colors
-source ~/.mutt/colors/mjt.mutt
+source ~/.mutt/colors/luke.mutt
 ## Index
 set sort_aux=last-date-received
 set sort=reverse-threads

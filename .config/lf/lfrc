@@ -3,7 +3,7 @@
 #┃ mjturt
 
 # interpreter for shell commands (needs to be POSIX compatible)
-set shell sh
+set shell zsh
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -12,7 +12,8 @@ set shell sh
 # $fx variables contain names with '*' or '?' characters. However, this option
 # is used selectively within individual commands as it can be limiting at
 # times.
-set shellopts '-eu'
+# set shellopts '-eu'
+set shellopts '-e:--shwordsplit'
 
 # set internal field separator (IFS) to "\n" for shell commands
 # This is useful to automatically split file names in $fs and $fx properly
@@ -34,11 +35,11 @@ set icons
 map d
 map m
 map p
-map w
 map y
 map c
 map u
 map e
+map r
 
 # Basics
 map yy copy
@@ -48,14 +49,39 @@ map dD delete
 map . set hidden!
 map uu unselect
 map uy clear
+
 map ev $$EDITOR $f
+map eo $libreoffice $f
+map eg $gimp $f
+# open directory in feh
+# map ef &feh -d $f
+map ef &dir="$(pwd)" && feh -d $dir
+# pack/extract
+map ep tar archive "$fx"
+map ex extract "$f"
+
 map S shell
 map cS !du -sh $f
 map cw push :rename<space>
+
 # Rename with the filename on the command line
-map A $lf -remote "send $id push :rename<space>$f"
+# map A $lf -remote "send $id push :rename<space>$f"
+map A ${{
+    filename="${f##*/}"
+    filename="$(printf '%q' "$filename")"
+    filename="${filename// /<space>}"
+    lf -remote "send $id push :rename<space>$filename"
+}}
+
 # Rename with the filename without the extension
-map a $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
+# map a $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
+map a ${{
+    filename="${f##*/}"
+    filename="$(printf '%q' "$filename")"
+    filename="${filename// /<space>}"
+    lf -remote "send $id push :rename<space>$filename<a-b><c-b>"
+}}
+
 # Bulk rename
 map cb bulk-rename
 cmap <esc> cmd-escape
@@ -71,9 +97,6 @@ map bs $file="$(basename -- $f)" && buf -s $file
 map bp $linx $f | xsel -i -b
 # scp to server
 map bc $scp $fx turtia.org:/home/mjt
-# pack/extract
-map ep tar archive "$fx"
-map ex extract "$f"
 # execute current file (must be executable)
 map xx $$f
 # execute in new tmux pane
@@ -84,8 +107,6 @@ map chx $chmod +x $f
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
-# open directory in feh
-map ef &feh -d $f
 # new files
 map CM push %mkdir<space>
 map CF push %touch<space>
@@ -116,7 +137,7 @@ map gD cd ~/Downloads
 map gS cd ~/cloud/images/screenshots
 map gW cd ~/cloud/images/wallpapers
 map ga cd ~/cloud/asteriski/yv
-map gn cd ~/cloud/Notes
+map gn cd ~/cloud/notes
 map gk cd ~/cloud/TY/kandi
 
 # Commands
@@ -129,10 +150,11 @@ map gk cd ~/cloud/TY/kandi
 cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
-        application/pdf) zathura $f &;;
-        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
-    esac
-}}
+              application/pdf) zathura $f &;;
+              audio/*) mpv $f;;
+             *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+             esac
+             }}
 
 # rename current file without overwrite
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
@@ -146,109 +168,105 @@ cmd trash %set -f; mv $fx ~/.trash
 
 # delete current file or selected files (prompting)
 cmd delete ${{
-    set -f
-    printf "$fx\n"
-    printf "delete?[y/n]"
-    read ans
-    [ $ans = "y" ] && rm -rf $fx
+rm -rf $fx
 }}
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
 cmd extract ${{
-    set -f
-    case $f in
-      *.tar.bz2)  tar         xjf   $f;;
-      *.tar.gz)   tar         xzf   $f;;
-      *.bz2)      bunzip2           $f;;
-      *.rar)      rar         x     $f;;
-      *.gz)       gunzip            $f;;
-      *.tar)      tar         xf    $f;;
-      *.tbz2)     tar         xjf   $f;;
-      *.tgz)      tar         xzf   $f;;
-      *.zip)      unzip             $f;;
-      *.Z)        uncompress        $f;;
-      *.tar.xz)   tar         xJf   $f;;
-      *.xz)       xz          -d    $f;;
-      *.7z)       p7zip       e     $f;;
-    esac
-}}
+set -f
+case $f in
+             *.tar.bz2)  tar         xjf   $f;;
+             *.tar.gz)   tar         xzf   $f;;
+             *.bz2)      bunzip2           $f;;
+             *.rar)      rar         x     $f;;
+             *.gz)       gunzip            $f;;
+             *.tar)      tar         xf    $f;;
+             *.tbz2)     tar         xjf   $f;;
+             *.tgz)      tar         xzf   $f;;
+             *.zip)      unzip             $f;;
+             *.Z)        uncompress        $f;;
+             *.tar.xz)   tar         xJf   $f;;
+             *.xz)       xz          -d    $f;;
+             *.7z)       p7zip       e     $f;;
+             esac
+             }}
 
 # compress current file or selected files with tar and gunzip
 cmd tar ${{
-    set -f
-    mkdir $1
-    cp -r $fx $1
-    tar czf $1.tar.gz $1
-    rm -rf $1
+set -f
+mkdir $1
+cp -r $fx $1
+tar czf $1.tar.gz $1
+rm -rf $1
 }}
 
 # compress current file or selected files with zip
 cmd zip ${{
-    set -f
-    mkdir $1
-    cp -r $fx $1
-    zip -r $1.zip $1
-    rm -rf $1
+set -f
+mkdir $1
+cp -r $fx $1
+zip -r $1.zip $1
+rm -rf $1
 }}
 
 # Paste with backup on existing files
 cmd paste %{{
-    load=$(lf -remote 'load')
-    mode=$(echo "$load" | sed -n '1p')
-    list=$(echo "$load" | sed '1d')
-    os=$(uname)
-    if [ $os = 'FreeBSD' ]; then
-        cpcmd='gcp'
-        mvcmd='gmv'
-    else
-        cpcmd='cp'
-        mvcmd='mv'
+load=$(lf -remote 'load')
+mode=$(echo "$load" | sed -n '1p')
+list=$(echo "$load" | sed '1d')
+os=$(uname)
+if [ $os = 'FreeBSD' ]; then
+cpcmd='gcp'
+mvcmd='gmv'
+else
+cpcmd='cp'
+mvcmd='mv'
     fi
-    if [ $mode = 'copy' ]; then
-        "$cpcmd" -r --backup=numbered $list .
-    elif [ $mode = 'move' ]; then
-        "$mvcmd" --backup=numbered $list .
-    fi
-    lf -remote 'send load'
-    lf -remote 'send clear'
+        if [ $mode = 'copy' ]; then
+            "$cpcmd" -r --backup=numbered $list .
+                elif [ $mode = 'move' ]; then
+                "$mvcmd" --backup=numbered $list .
+                fi
+                lf -remote 'send load'
+                lf -remote 'send clear'
 }}
 
 # Paste with progress bar
 cmd paste-rsync &{{
     load=$(lf -remote 'load')
-    mode=$(echo "$load" | sed -n '1p')
-    list=$(echo "$load" | sed '1d')
-    if [ $mode = 'copy' ]; then
-        rsync -av --ignore-existing --progress $list . \
-        | stdbuf -i0 -o0 -e0 tr '\r' '\n' \
-        | while read line; do
-            lf -remote "send $id echo $line"
-        done
-    elif [ $mode = 'move' ]; then
-        mv -n $list .
-    fi
-    lf -remote 'send load'
-    lf -remote 'send clear'
+        mode=$(echo "$load" | sed -n '1p')
+        list=$(echo "$load" | sed '1d')
+        if [ $mode = 'copy' ]; then
+            rsync -av --ignore-existing --progress $list . \
+                | stdbuf -i0 -o0 -e0 tr '\r' '\n' \
+                | while read line; do
+                lf -remote "send $id echo $line"
+                done
+                elif [ $mode = 'move' ]; then
+                mv -n $list .
+                fi
+                lf -remote 'send load'
+                lf -remote 'send clear'
 }}
 
 cmd bulk-rename ${{
     old=$(mktemp)
-    new=$(mktemp)
-    [ -n $fs ] && fs=$(ls)
-    printf "$fs\n" > $old
-    printf "$fs\n" > $new
-    $EDITOR $new
-    [ $(cat $new | wc -l) -ne $(cat $old | wc -l) ] && exit
-    paste $old $new | while read names; do
-        src=$(printf $names | cut -f1)
-        dst=$(printf $names | cut -f2)
-        [ $src = $dst ] && continue
-        [ -e $dst ] && continue
-        mv $src $dst
-    done
-    rm $old $new
-    lf -remote "send $id unselect"
+        new=$(mktemp)
+        [ -n $fs ] && fs=$(ls)
+        printf "$fs\n" > $old
+            printf "$fs\n" > $new
+            $EDITOR $new
+            [ $(cat $new | wc -l) -ne $(cat $old | wc -l) ] && exit
+            paste $old $new | while read names; do
+                src=$(printf $names | cut -f1)
+                dst=$(printf $names | cut -f2)
+                [ $src = $dst ] && continue
+                [ -e $dst ] && continue
+                    mv $src $dst
+                        done
+                        rm $old $new
+                        lf -remote "send $id unselect"
 }}
 
 # Preview script

@@ -12,6 +12,6 @@ fi
 # Console colors
 
 if [ "$TERM" = "linux" ]; then
-   source ~/.fbcolors/monokai
+   source ~/.fbcolors/praiso
    #fb
 fi

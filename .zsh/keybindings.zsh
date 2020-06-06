@@ -4,8 +4,34 @@
 
 typeset -g -A key
 
-[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]"   up-line-or-beginning-search
-[[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
+cdUndoKey() {
+    popd
+    zle reset-prompt
+    echo
+    ls
+    zle reset-prompt
+}
+
+cdParentKey() {
+    pushd ..
+    zle reset-prompt
+    echo
+    ls
+    zle reset-prompt
+}
+
+exit_zsh() { exit }
+
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+    function zle-line-init () {
+        echoti smkx
+    }
+function zle-line-finish () {
+    echoti rmkx
+}
+zle -N zle-line-init
+zle -N zle-line-finish
+fi
 
 key[Home]="$terminfo[khome]"
 key[End]="$terminfo[kend]"
@@ -24,27 +50,25 @@ key[PageDown]="$terminfo[knp]"
 [[ -n "$key[Insert]"    ]] && bindkey -- "$key[Insert]"    overwrite-mode
 [[ -n "$key[Backspace]" ]] && bindkey -- "$key[Backspace]" backward-delete-char
 [[ -n "$key[Delete]"    ]] && bindkey -- "$key[Delete]"    delete-char
-[[ -n "$key[Up]"        ]] && bindkey -- "$key[Up]"        up-line-or-history
-[[ -n "$key[Down]"      ]] && bindkey -- "$key[Down]"      down-line-or-history
+[[ -n "$key[Up]"        ]] && bindkey -- "$key[Up]"        up-line-or-beginning-search
+[[ -n "$key[Down]"      ]] && bindkey -- "$key[Down]"      down-line-or-beginning-search
 [[ -n "$key[Left]"      ]] && bindkey -- "$key[Left]"      backward-char
 [[ -n "$key[Right]"     ]] && bindkey -- "$key[Right]"     forward-char
 
 bindkey "^b" backward-word
 bindkey "^w" forward-word
 
-if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-    function zle-line-init () {
-        echoti smkx
-    }
-    function zle-line-finish () {
-        echoti rmkx
-    }
-    zle -N zle-line-init
-    zle -N zle-line-finish
-fi
-
 zle -N backward-delete-to-slash
 bindkey "^Y" backward-delete-to-slash
 
-zle -N run-with-sudo
-bindkey '^Xs' run-with-sudo
+# zle -N run-with-sudo
+# bindkey '^Xs' run-with-sudo
+
+zle -N cdParentKey
+# zle -N cdUndoKey
+# bindkey "^k" cdParentKey
+bindkey "^h" cdParentKey
+
+zle -N exit_zsh
+bindkey '^D' exit_zsh
+bindkey '^l' autosuggest-accept

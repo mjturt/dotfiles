@@ -65,7 +65,7 @@ alias tls="tmux list-sessions"
 alias tlk="tmux list-keys"
 alias tlkc="tmux list-keys -T copy-mode-vi"
 alias tmux-d="tmux a -dt"
-alias irs="tmux a -dt irssi"
+alias irs="tmux a -dt irc"
 
 ## Toilet
 alias rustofat="toilet -f rustofat --gay"
@@ -135,3 +135,4 @@ alias hc="herbstclient"
 alias n="nvims ~/cloud/Notes/stuff.md"
 alias gitlab="gitlab-runner exec docker"
 alias storage="sudo mount /mnt/storage"
+alias checkports="sudo netstat -tulpn | grep LISTEN"

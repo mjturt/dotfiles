@@ -7,11 +7,11 @@
 
 # Specify your terminal emulator here
 # for terminal support.
-terminal=rxvt-unicode
+terminal=termite
 
 # Specify all programs you want to
 # open in terminal like this:
-interm=vim,ranger
+interm=vim,ranger,nvim,lf
 
 # There are 4 ways to match filetypes.
 # The following examples are in the order
@@ -22,7 +22,9 @@ interm=vim,ranger
 # .mp4:mplayer
 # .txt:vim
 .epub:zathura
-.gif:mpv
+.gif:/home/mjt/sh/mpvgif
+.svg:/home/mjt/sh/fehsvg
+.json:$EDITOR->interm
 
 # 2. Mime type
 # image/png:sxiv
@@ -31,28 +33,31 @@ interm=vim,ranger
 application/pdf:zathura
 x-scheme-handler/magnet:magnet
 
+
 # 3. Mime category
 image:feh
 video:mpv
-audio:mpv # you can also specify the interm rule explictly after '->'
-text:vim
+audio:mpv->interm
+text:$EDITOR->interm
 
 # 4. Regexp
 # Match some protocols by default
 ?'^magnet:':/home/mjt/sh/magnet-tremc
+?'^customdir:':/home/mjt/sh/open-dir-from-link
 ?'^http:\/\/':$BROWSER
 ?'^https:\/\/':$BROWSER
 ?'^www.':$BROWSER
 ?'^dvd:\/\/':mpv
 ?'^cdda:\/\/':mpv
+?'^zoommtg:\/\/':zoom
 
 # Directory rule for directories
 # ideally you want to use file manager
 # here if you are a GUI user.
-directory:echo
+directory:$FILE_BROWSER->interm
 
 # Default rule just echoes back whatever
 # was feed. If you are using DE you could
 # just map a file manager here and it would
 # integrate with your system.
-default:echo
+default:$EDITOR->interm

@@ -11,7 +11,7 @@ xbindkeys
 xsetroot -cursor_name left_ptr
 xmodmap ~/.Xmodmap
 
-locktimer thinkpad &
+locktimer &
 dunst &
 picomtoggle &
 rambox &
@@ -20,6 +20,7 @@ nm-applet &
 # setroot --span --blank-color "#2B303B"
 ~/.fehbg &
 greenclip daemon &
+ssh-irc-notifier &
 
 ## Window manager
 i3c &

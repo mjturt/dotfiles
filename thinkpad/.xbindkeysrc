@@ -8,7 +8,7 @@
 
 ### Terminal
 # "urxvt"
-"termite"
+"termite -d $(xcwd)"
 Mod4 + Return
 
 ### Screen
@@ -51,7 +51,7 @@ Alt+r
 "rofi-notes"
 Alt+n
 
-"rofi-power tp"
+"lock"
 Alt+x
 
 "rofi-surfraw"
@@ -120,10 +120,10 @@ XF86Tools
 #"cmus-remote -u"
 #XF86Tools
 
-"~/dev/saverium/saverium-front/scripts/auto-fill-forms.sh saverium_es"
+"~/dev/saverium/scripts/auto-fill-forms.sh saverium_es"
 Control+Alt+z
 
-"~/dev/saverium/saverium-front/scripts/auto-fill-forms.sh lainaayritykselle_fi"
+"~/dev/saverium/scripts/auto-fill-forms.sh saverium_fi_company_loans"
 Control+Alt+x
 
 ### For external keyboard

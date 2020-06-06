@@ -366,7 +366,7 @@ font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
 font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = distro i3 weather bitcoin playerctl volume picom xwindow
+modules-left = distro i3 weather bitcoin playerctl volume picom
 modules-center = fsroot fshome fscommon fsstorage
 modules-right = cpu load memory temp uptime agenda date
 
@@ -437,6 +437,45 @@ override-redirect = true
 
 [bar/i3hdmi]
 monitor = ${env:MONITOR:HDMI-2}
+width = 98.5%
+height = 35
+wm-name = i3
+wm-restack = i3
+offset-x = 0.7%
+offset-y = 5
+;radius = 2.0
+fixed-center = true
+bottom = true
+
+line-size = 2
+line-color =  #87875f
+
+border-size = 0
+border-top-size = 0
+border-color = #00000000
+background = ${colors.background}
+foreground = ${colors.foreground}
+; border-left-size = 15
+; border-right-size = 15
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+font-0 = Misc\ Ohsnap:size=8:antialias=false;0
+font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
+font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
+font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+modules-left = distro i3 weather volume picom playerctlnoinfo
+modules-center = backlight battery-yoga wireless-network-yoga
+modules-right =  fsroot cpu memory temp uptime agenda date
+tray-position = right
+tray-padding = 2
+cursor-click = pointer
+cursor-scroll = ns-resize
+override-redirect = true
+
+[bar/i3dp]
+monitor = ${env:MONITOR:DP-1}
 width = 98.5%
 height = 35
 wm-name = i3
@@ -951,7 +990,7 @@ label-urgent-padding = 2
 
 [module/agenda]
 type = custom/script
-exec = ~/cloud/dev/polybar-scripts/polybar-scripts/agenda/agenda.sh
+exec = ~/cloud/dev/polybar-scripts/polybar-scripts/agenda/agenda.sh | cut -c 1-40
 click-left = ~/cloud/dev/polybar-scripts/polybar-scripts/agenda/agenda.sh --click
 interval = 60
 format-prefix = " "

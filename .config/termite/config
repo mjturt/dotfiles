@@ -10,9 +10,9 @@
 #cell_width_scale = 1.0
 #clickable_url = true
 #dynamic_title = true
-font = Twitter Color Emoji 9
-font = Unifont 9
-font = BlexMono NF 9
+font = Twitter Color Emoji 7
+font = Unifont 7
+font = BlexMono NF 7
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -20,7 +20,7 @@ font = BlexMono NF 9
 #scroll_on_keystroke = true
 # Length of the scrollback buffer, 0 disabled the scrollback buffer
 # and setting it to a negative value means "infinite scrollback"
-scrollback_lines = 1000
+scrollback_lines = 3000
 #search_wrap = true
 #urgent_on_bell = true
 #hyperlinks = false
@@ -32,7 +32,7 @@ scrollback_lines = 1000
 #cursor_blink = system
 
 # "block", "underline" or "ibeam"
-cursor_shape = underline
+cursor_shape = block
 
 # Hide links that are no longer valid in url select overlay mode
 #filter_unmatched_urls = true
@@ -77,7 +77,7 @@ cursor_shape = underline
 
 [colors]
 foreground = #0abdc6
-background=  rgba(0, 11, 30, 0.9)
+background=  rgba(0, 11, 30, 0.7)
 
 color0 = #363a4e
 color1 = #ec7279

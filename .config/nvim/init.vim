@@ -44,7 +44,7 @@ Plug 'honza/vim-snippets'
 if os=="linux"
     Plug 'w0rp/ale', { 'do': '
                 \npm install -g stylelint fixjson jsonlint eslint prettier vim-language-server bash-language-server;
-                \npm install -g textlint write-good markdownlint;
+                \npm install -g textlint write-good markdownlint tidy;
                 \npm install -g git+https://github.com/projectatomic/dockerfile_lint;
                 \composer global require felixfbecker/language-server friendsofphp/php-cs-fixer phan/phan;
                 \sudo pacman -S mypy python-pylint flake8 python-isort;
@@ -63,6 +63,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dbeniamine/vim-mail'
 Plug 'lervag/vimtex'
+Plug 'fatih/vim-go'
 
 " -- Additional features --
 Plug 'terryma/vim-multiple-cursors'
@@ -111,17 +112,20 @@ call plug#end()
 " -- ALE --
 let b:ale_linters = {
             \'css': ['prettier', 'stylelint'],
+            \'scss': ['prettier', 'stylelint'],
             \'python': ['flake8', 'pylint', 'mypy'],
             \'json': ['jsonlint'],
             \}
 let g:ale_fixers = {
             \'*': ['remove_trailing_lines', 'trim_whitespace'],
             \'javascript': ['prettier', 'eslint'],
-            \'css': ['prettier'],
+            \'css': ['prettier', 'stylelint'],
+            \'scss': ['prettier', 'stylelint'],
             \'python': ['isort',  'autopep8'],
             \'php': ['php_cs_fixer'],
             \'sh': ['shfmt'],
             \'json': ['fixjson', 'prettier'],
+            \'html': ['tidy', 'prettier'],
             \}
 let g:ale_echo_msg_error_str = ''
 let g:ale_echo_msg_warning_str = ''
@@ -172,11 +176,12 @@ let g:mta_filetypes = {
     \ 'javascript' : 1,
     \ 'jsx' : 1,
     \ 'vue' : 1,
-    \ 'php' : 1
+    \ 'php' : 1,
+    \ 'js' : 1
     \}
 
 " -- Closetag --
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.vue,*.php,*.jinja'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.vue,*.php,*.jinja,*.js'
 
 " -- NerdCommenter --
 let g:NERDSpaceDelims = 1
@@ -267,9 +272,9 @@ set sidescroll=40
 set scrolloff=3
 
 " -- Temporary files (and persistent undo) --
-set backupdir=~/.vim/temp/backup
-set directory=~/.vim/temp/swap
-set undodir=~/.vim/temp/undo
+set backupdir=~/.config/nvim/temp/backup
+set directory=~/.config/nvim/temp/swap
+set undodir=~/.config/nvim/temp/undo
 set backup
 set noswapfile
 set undofile
@@ -302,9 +307,9 @@ autocmd VimLeave * call system("xsel -ib", getreg('+'))
 let g:tex_flavor = 'tex'
 
 " -- Vue --
-" autocmd FileType vue syntax sync fromstart
-" autocmd BufEnter *.vue :setlocal filetype=javascript
-" autocmd BufEnter *.vue :setlocal syntax=javascript
+autocmd FileType vue syntax sync fromstart
+autocmd BufEnter *.vue :setlocal filetype=javascript
+autocmd BufEnter *.vue :setlocal syntax=javascript
 
 " -- Mail --
 au BufRead /tmp/neomutt-* set tw=0
@@ -347,6 +352,7 @@ let g:lmap.t = { 'name' : 'Toggle vim settings' }
 noremap <silent> <Leader>tw :call ToggleWrap()<CR>
 noremap <silent> <leader>tn :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>ts :set spell!<cr>
+noremap <leader>ta :ALEToggle<CR>
 " -- Formatting / Fixing (f)
 let g:lmap.f = { 'name' : 'Formatting / Fixing' }
 noremap <leader>fq gqap
@@ -359,10 +365,13 @@ noremap <leader>ss :%s//g<LEFT><LEFT>
 map <leader>sx :!chmod +x %<CR><CR>
 noremap <leader>sp "bp
 map <leader>q :nohl<CR>
+map <leader>w :w<CR>
 " -- Set filetype (F)
 let g:lmap.F = { 'name' : 'Set filetype' }
 noremap <leader>FH :set filetype=html<cr>
 noremap <leader>FP :set filetype=php<cr>
+noremap <leader>FJ :set filetype=javascript<cr>
+noremap <leader>FV :set filetype=vue<cr>
 " -- Plugin modes (m)
 let g:lmap.m = { 'name' : 'Plugin modes' }
 noremap <leader>mg :Goyo<CR><CR>
@@ -378,7 +387,12 @@ noremap <leader>dr :ALEFindReferences<CR>
 noremap <leader>dh :ALEHover<CR>
 noremap <leader>de <Plug>(ale_next_wrap)
 " -- Generate strings (g)
-let g:lmap.g = { 'name' : 'Generate strings' }
+let g:lmap.g = { 'name' : 'Generate strings',
+            \ 'p' : ['read !pwgen 10', 'Password'],
+            \ 'l' : ['read !echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', 'Lorem ipsum'],
+            \ 'd' : ['Newdot', 'Dotfile header'],
+            \ 's' : ['Shebang', 'Shebang line'],
+            \}
 nmap <leader>gp :read !pwgen 10<CR>
 nmap <leader>gl :read !echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'<CR>
 nmap <leader>gd :Newdot<CR>
@@ -396,8 +410,8 @@ let g:lmap.h = { 'name' : 'Gitgutter' }
 let g:lmap.c = { 'name' : 'NerdCommenter' }
 
 " -- Command prompt --
-cmap Q q
-cmap W w
+" cmap Q q
+" cmap W w
 
 " Custom functions
 " ----------------
