@@ -8,13 +8,13 @@ OS="$(uname)"
 
 if [[ ! -f $HOME/bin/antibody ]]; then
     curl -sL git.io/antibody | sudo sh -s
-    antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
+    antibody bundle < ~/.zsh/plugins > ~/.cache/zsh/plugins.sh
 fi
 
 # https://github.com/denysdovhan/spaceship-prompt/issues/407
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 
-source ~/.zsh/plugins.sh
+source ~/.cache/zsh/plugins.sh
 
 ### Completion
 
@@ -55,7 +55,7 @@ zstyle ':completion:*:aliases' list-colors '=*=2;38;5;128'
 zstyle ':completion:*:*:kill:*' list-colors '=(#b) #([0-9]#)*( *[a-z])*=34=31=33'
 zstyle ':completion:*:options' list-colors '=^(-- *)=33'
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' cache-path ~/.cache/zsh
 
 setopt auto_remove_slash
 setopt COMPLETE_ALIASES
@@ -84,7 +84,7 @@ fpath=(~/.zsh/site-functions $fpath)
 
 ### History
 
-HISTFILE=~/.zsh/history
+HISTFILE=~/.cache/zsh/history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt hist_ignore_space
@@ -118,7 +118,7 @@ if [[ "$TERM" == (screen*|xterm*|rxvt*) ]]; then
     add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
-DIRSTACKFILE="${HOME}/.zsh/cache/dirs"
+DIRSTACKFILE="${HOME}/.cache/zsh/dirs"
 if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
     dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
     [[ -d "${dirstack[1]}" ]] && cd -- "${dirstack[1]}"

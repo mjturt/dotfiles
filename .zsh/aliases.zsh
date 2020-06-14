@@ -72,7 +72,7 @@ alias rustofat="toilet -f rustofat --gay"
 alias wideterm="toilet -f wideterm --gay"
 
 ## ZSH
-alias plugins="/usr/local/bin/antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh"
+alias plugins="/home/mjt/bin/antibody bundle < ~/.zsh/plugins > ~/.cache/zsh/plugins.sh"
 alias cls=' echo -ne "\033c" && rm ~/.zsh/history'
 
 ## Gentoo

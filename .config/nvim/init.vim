@@ -33,7 +33,7 @@ let user = substitute(system("whoami"), '\n\+$', '', '')
 " Plugins
 " -------
 
-call plug#begin('~/.config/nvim/plugins')
+call plug#begin('~/.cache/nvim/plugins')
 
 " -- Snippets --
 Plug 'Shougo/neosnippet.vim'
@@ -272,9 +272,9 @@ set sidescroll=40
 set scrolloff=3
 
 " -- Temporary files (and persistent undo) --
-set backupdir=~/.config/nvim/temp/backup
-set directory=~/.config/nvim/temp/swap
-set undodir=~/.config/nvim/temp/undo
+set backupdir=~/.cache/nvim/temp/backup
+set directory=~/.cache/nvim/temp/swap
+set undodir=~/.cache/nvim/temp/undo
 set backup
 set noswapfile
 set undofile
@@ -481,11 +481,6 @@ endfunction
 " -- New files --
 command! Shebang 0put =\"#!/usr/bin/env bash\<nl>\"|$
 command! Newdot 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|normal gg$
-
-" Personal project settings
-" -------------------------
-
-source $HOME/.config/nvim/projects.vim
 
 " Tips
 " ----

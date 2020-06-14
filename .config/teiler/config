@@ -14,7 +14,7 @@ paste_path=$HOME/cloud/documents/paste
 
 # set viewer for images and videos plus editor for images
 viewer=feh
-editor="urxvt -e nvim"
+editor="termite -e nvim"
 player=mpv
 
 # Hitting Enter will upload
