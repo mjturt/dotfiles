@@ -111,6 +111,7 @@ commons_x11() {
     df_logiops
     df_betterlockscreen
     df_polybar
+    df_fbcolors
 }
 
 # Only host-specific files (R5)
@@ -134,14 +135,6 @@ host_thinkpad() {
     df_xbindkeys thinkpad
     df_xmodmap thinkpad
     df_i3 thinkpad
-}
-
-# Private assets
-assets() {
-    df_fonts
-    df_cursors
-    df_gtk_themes
-    df_fbcolors
 }
 
 #┏━━━━━━━━━━┓
