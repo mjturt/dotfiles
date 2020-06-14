@@ -50,6 +50,7 @@ text:$EDITOR->interm
 ?'^dvd:\/\/':mpv
 ?'^cdda:\/\/':mpv
 ?'^zoommtg:\/\/':zoom
+?'^slack:\/\/':slack
 
 # Directory rule for directories
 # ideally you want to use file manager

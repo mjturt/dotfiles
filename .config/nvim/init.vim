@@ -24,11 +24,11 @@ let user = substitute(system("whoami"), '\n\+$', '', '')
 " Vim-Plug install
 " ----------------
 
-if empty(glob('~/.config/nvim/plugins/plug.vim'))
-   silent !curl -fLo ~/.config/nvim/plugins/plug.vim --create-dirs
-            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+"if empty(glob('~/.config/nvim/plugins/plug.vim'))
+"   silent !curl -fLo ~/.config/nvim/plugins/plug.vim --create-dirs
+"            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+"endif
 
 " Plugins
 " -------
@@ -47,9 +47,9 @@ if os=="linux"
                 \npm install -g textlint write-good markdownlint tidy;
                 \npm install -g git+https://github.com/projectatomic/dockerfile_lint;
                 \composer global require felixfbecker/language-server friendsofphp/php-cs-fixer phan/phan;
-                \sudo pacman -S mypy python-pylint flake8 python-isort;
-                \sudo pacman -S shellcheck shfmt tidy php-tidy texlab;
-                \sudo pacman -S proselint languagetool;
+                \sudo pacman -S --noconfirm mypy python-pylint flake8 python-isort;
+                \sudo pacman -S --noconfirm shellcheck shfmt tidy php-tidy texlab;
+                \sudo pacman -S --noconfirm proselint languagetool;
                 \' }
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }

@@ -6,9 +6,9 @@ OS="$(uname)"
 
 ### Plugins
 
-if [[ ! -f /usr/local/bin/antibody ]]; then
+if [[ ! -f $HOME/bin/antibody ]]; then
     curl -sL git.io/antibody | sudo sh -s
-    /usr/local/bin/antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
+    antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
 fi
 
 # https://github.com/denysdovhan/spaceship-prompt/issues/407
@@ -150,15 +150,14 @@ source $HOME/.zsh/themes/spaceship-settings.zsh
 ### Dircolors
 
 if [[ "$OS" = "FreeBSD" ]]; then
-    eval `gdircolors ~/.zsh/dircolors/dracula.dircolors`
+    eval `gdircolors ~/.zsh/dircolors/gruvbox.dircolors`
 else
-    eval `dircolors ~/.zsh/dircolors/dracula.dircolors`
+    eval `dircolors ~/.zsh/dircolors/gruvbox.dircolors`
 fi
 
 if [[ "$OS" == "Linux" ]]; then
     source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
-    source /usr/share/doc/pkgfile/command-not-found.zsh
 
 ### Autostart tmux
 

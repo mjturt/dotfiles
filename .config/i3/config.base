@@ -106,6 +106,9 @@ bindsym $mod+Control+m gaps inner all minus 5
 
 bindsym button3 kill
 
+bindsym $mod+m focus output left
+bindsym $mod+comma focus output right
+
 ### Assigning clients to workspaces
 
 assign [class="Rambox"] $ws2
@@ -130,3 +133,4 @@ client.background       #000b1e
 ### Autostart
 exec poly
 exec_always --no-startup-id autotiling
+
