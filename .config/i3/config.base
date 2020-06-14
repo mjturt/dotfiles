@@ -133,4 +133,5 @@ client.background       #000b1e
 ### Autostart
 exec poly
 exec_always --no-startup-id autotiling
+exec --no-startup-id "i3.layout"
 

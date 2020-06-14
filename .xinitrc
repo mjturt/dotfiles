@@ -11,6 +11,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 setxkbmap fi
 xbindkeys
 xsetroot -cursor_name left_ptr
+xrandr --output HDMI-0 --primary --auto --output DVI-D-0 --auto --right-of HDMI-0
 ~/.fehbg &
 
 #locktimer r5 &
@@ -20,7 +21,14 @@ greenclip daemon &
 spotify &
 ssh-irc-notifier &
 
+whatsapp-nativefier-dark &
+discord-canary &
+slack &
+telegram-desktop &
+termite.mutt &
+termite.weechat &
+
 ## Window manager
-i3c &
-sleep 1
+i3.config &
+i3.layout &
 i3
