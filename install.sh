@@ -224,6 +224,7 @@ df_git() {
 df_i3() {
     backup_file ~/.config/i3
     mkdir ~/.config/i3
+    ln -v -s "${DOT}"/.config/i3/layouts ~/.config/i3/layouts >> "$LOGS"
     if [[ $1 == "r5" ]]; then
         cat "${DOT}"/.config/i3/config.base "${DOT}"/.config/i3/config.r5 > ~/.config/i3/config
     elif [[ $1 == "thinkpad" ]]; then
@@ -249,7 +250,7 @@ df_xinit() {
 
 # Xbindkeys
 df_xbindkeys() {
-    backup_file ~/.xinitrc
+    backup_file ~/.xbindkeys
     if [[ $1 == "r5" ]]; then
         ln -v -s "${DOT}"/.xbindkeysrc ~/.xbindkeysrc >> "$LOGS"
     elif [[ $1 == "thinkpad" ]]; then

@@ -113,7 +113,7 @@ call plug#end()
 let b:ale_linters = {
             \'css': ['prettier', 'stylelint'],
             \'scss': ['prettier', 'stylelint'],
-            \'python': ['flake8', 'pylint', 'mypy'],
+            \'python': ['flake8', 'pylint', 'mypy', 'pyls'],
             \'json': ['jsonlint'],
             \}
 let g:ale_fixers = {
@@ -139,6 +139,11 @@ let g:ale_python_mypy_options = '--ignore-missing-imports'
 let g:ale_python_flake8_options = '--ignore=F401'
 let g:ale_python_auto_pipenv = 1
 let g:ale_python_pylint_auto_pipenv = 1
+let g:ale_python_pyls_config = {
+            \   'pyls': {
+            \   "configurationSources": ["flake8"]
+            \   },
+            \ }
 " -- PHP
 let g:ale_php_cs_fixer_options  = '--rules=@Symfony,@PhpCsFixer,-@PSR1,-blank_line_before_statement,indentation_type'
 " -- SH

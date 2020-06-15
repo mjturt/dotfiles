@@ -14,7 +14,6 @@ xmodmap ~/.Xmodmap
 locktimer &
 dunst &
 picomtoggle &
-rambox &
 spotify &
 nm-applet &
 # setroot --span --blank-color "#2B303B"
@@ -22,8 +21,14 @@ nm-applet &
 greenclip daemon &
 ssh-irc-notifier &
 
-## Window manager
-i3c &
-i3
+whatsapp-nativefier-dark &
+discord-canary &
+slack &
+telegram-desktop &
+termite.mutt &
+termite.weechat &
 
-export _JAVA_AWT_WM_NONREPARENTING=1
+## Window manager
+i3.config &
+i3.layour &
+i3
