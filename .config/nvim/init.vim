@@ -102,7 +102,7 @@ Plug 'mjturt/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 
 " -- Colors --
-Plug 'sainnhe/edge'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -156,7 +156,7 @@ let g:deoplete#enable_at_startup = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#ale#enabled = 1
-let g:airline_theme='cyberpunk'
+let g:airline_theme='dracula'
 
 " -- Vim-markdown --
 let g:vim_markdown_conceal = 0
@@ -211,12 +211,13 @@ let g:vimtex_latexmk_continuous = 1
 let g:edge_style = 'neon'
 let g:edge_transparent_background = 1
 
+" -- Dracula --
+let g:dracula_colorterm = 0
+
 " Settings
 " --------
 
-set termguicolors
-set background=dark
-colorscheme edge
+colorscheme dracula
 
 set nocompatible
 set encoding=utf-8

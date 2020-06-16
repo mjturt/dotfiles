@@ -24,14 +24,14 @@ gaps bottom 35
 
 ### Basic settings
 
-font pango:Hurmit NF 8
+font pango:BlexMono NF 8
 
 floating_modifier $mod
 
 # <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
 default_floating_border none
-for_window [class=".*"] border normal
+for_window [class=".*"] border pixel 2
 #hide_edge_borders both
 
 title_align center
@@ -123,10 +123,10 @@ for_window [class="Gimp"] floating enable
 ### Colors (Dracula)
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #d300c4 #d300c4 #000b1e #000b1e   #d300c4
-client.focused_inactive #000b1e #000b1e #1afe49 #000b1e   #000b1e
-client.unfocused        #000b1e #000b1e #d300c4 #000b1e   #000b1e
-client.urgent           #860029 #860029 #000b1e #860029   #860029
+client.focused          #4366a1 #4366a1 #000b1e #69a0ff #4366a1
+client.focused_inactive #000b1e #000b1e #1afe49 #000b1e #000b1e
+client.unfocused        #000b1e #000b1e #d300c4 #000b1e #000b1e
+client.urgent           #d300c4 #d300c4 #000b1e #d300c4 #d300c4
 
 client.background       #000b1e
 

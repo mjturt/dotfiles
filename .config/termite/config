@@ -3,76 +3,16 @@
 #┃ mjturt
 
 [options]
-#allow_bold = true
-#audible_bell = false
-#bold_is_bright = true
-#cell_height_scale = 1.0
-#cell_width_scale = 1.0
-#clickable_url = true
-#dynamic_title = true
 font = Twitter Color Emoji 7
 font = Unifont 7
 font = BlexMono NF 7
-#fullscreen = true
-#icon_name = terminal
-#mouse_autohide = false
-#scroll_on_output = false
-#scroll_on_keystroke = true
-# Length of the scrollback buffer, 0 disabled the scrollback buffer
-# and setting it to a negative value means "infinite scrollback"
 scrollback_lines = 50000
-#search_wrap = true
-#urgent_on_bell = true
-#hyperlinks = false
-
-# $BROWSER is used by default if set, with xdg-open as a fallback
-#browser = xdg-open
 
 # "system", "on" or "off"
 #cursor_blink = system
 
 # "block", "underline" or "ibeam"
 cursor_shape = block
-
-# Hide links that are no longer valid in url select overlay mode
-#filter_unmatched_urls = true
-
-# Emit escape sequences for extra modified keys
-#modify_other_keys = false
-
-# set size hints for the window
-#size_hints = false
-
-# "off", "left" or "right"
-#scrollbar = off
-
-## Cyberpunk theme
-
-# [colors]
-# hard contrast: background = #1d2021
-# soft contrast: background = #32302f
-
-# # #000b1e
-# background=  rgba(0, 11, 30, 0.9)
-# foreground=  #0abdc6
-# foreground_bold = #0abdc6
-# color0=  #123e7c
-# color1=  #ff0000
-# color2=  #d300c4
-# color3=  #f57800
-# color4=  #123e7c
-# color5=  #711c91
-# color6=  #0abdc6
-# color7=  #d7d7d5
-# color8=  #1c61c2
-# color9=  #ff0000
-# color10=  #d300c4
-# color11=  #f57800
-# color12=  #00ff00
-# color13=  #711c91
-# color14=  #0abdc6
-# color15=  #d7d7d5
-
 ## Edge neon theme
 
 [colors]
@@ -99,18 +39,5 @@ color15 = #c5cdd9
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
 
-# If unset, will reverse foreground and background
-; highlight = #2f2f2f
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
 
 # vim: ft=dosini cms=#%s

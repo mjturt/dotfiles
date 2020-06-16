@@ -30,5 +30,4 @@ termite.weechat &
 
 ## Window manager
 i3.config &
-i3.layout &
 i3
