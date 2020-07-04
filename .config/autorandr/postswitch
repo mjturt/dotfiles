@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+poly &
+"$HOME"/.fehbg &
+notify-send "Autorandr" "Screen layout changed"
