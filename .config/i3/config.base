@@ -24,7 +24,7 @@ gaps bottom 35
 
 ### Basic settings
 
-font pango:BlexMono NF 8
+font pango:BlexMono Nerd Font 8
 
 floating_modifier $mod
 
@@ -134,4 +134,6 @@ client.background       #000b1e
 exec poly
 exec_always --no-startup-id autotiling
 exec --no-startup-id "i3.layout"
+exec --no-startup-id "termite.mutt"
+exec --no-startup-id "termite.weechat"
 

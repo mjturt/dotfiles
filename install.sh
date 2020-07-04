@@ -307,7 +307,7 @@ df_mutt() {
 
 # Polybar
 df_polybar() {
-    backup_file ~/.config_polybar
+    backup_file ~/.config/polybar
     ln -s -v "${DOT}"/.config/polybar ~/.config/polybar >> "$LOGS"
 }
 
@@ -408,6 +408,12 @@ df_betterlockscreen() {
     ln -s -v "${DOT}"/.config/betterlockscreenrc ~/.config/betterlockscreenrc >> "$LOGS"
 }
 
+# autorandr
+df_autorandr() {
+    backup_file ~/.config/autorandr
+    ln -s -v "${DOT}"/.config/autorandr ~/.config/autorandr >> "$LOGS"
+}
+
 df_test() {
     echo "Just test"
 }
@@ -437,7 +443,7 @@ helps() {
     echo -e "\\e[1;35mSingle programs that can't take host-parameter:\\e[0m"
     echo -e "df_less, df_zathura, df_picom, df_git, df_mpv, df_tmux, df_feh, df_betterlockscreen, df_polybar"
     echo -e "df_gpg, df_rofipass, df_mutt, df_rofi, df_teiler, df_npm, df_weechat, df_logiops"
-    echo -e "df_dunst, df_zsh, df_elinks, df_xresources, df_neovim, df_lf, df_termite"
+    echo -e "df_dunst, df_zsh, df_elinks, df_xresources, df_neovim, df_lf, df_termite, df_autorandr"
     echo
     echo -e "\\e[1;35mSingle programs that must take host-parameter:\\e[0m"
     echo -e "df_xinit df_xbindkeys, df_xmodmap, df_zprofile, df_i3"

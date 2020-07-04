@@ -4,13 +4,13 @@
 
 ### Assigning workspaces to screens
 
-workspace $ws1 output HDMI-0
-workspace $ws2 output HDMI-0
-workspace $ws3 output HDMI-0
-workspace $ws4 output HDMI-0
-workspace $ws5 output HDMI-0
-workspace $ws6 output HDMI-0
-workspace $ws7 output DVI-D-0 HDMI-0
-workspace $ws8 output DVI-D-0 HDMI-0
-workspace $ws9 output DVI-D-0 HDMI-0
-workspace $ws10 output DVI-D-0 HDMI-0
+workspace $ws1 output HDMI-0 DVI-I-1
+workspace $ws2 output HDMI-0 DVI-I-1
+workspace $ws3 output HDMI-0 DVI-I-1
+workspace $ws4 output HDMI-0 DVI-I-1
+workspace $ws5 output HDMI-0 DVI-I-1
+workspace $ws6 output HDMI-0 DVI-I-1
+workspace $ws7 output DVI-I-1 HDMI-0
+workspace $ws8 output DVI-I-1 HDMI-0
+workspace $ws9 output DVI-I-1 HDMI-0
+workspace $ws10 output DVI-I-1 HDMI-0

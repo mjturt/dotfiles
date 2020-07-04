@@ -176,7 +176,9 @@ rm -rf ~/dbus-send.core
 # if [ -f '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Termite cd
-# if [[ $TERM == xterm-termite ]]; then
-# . /etc/profile.d/vte.sh
-# __vte_osc7
-# fi
+if [[ "$(hostname)" != "server" ]]; then
+    if [[ $TERM == xterm-256color ]]; then
+        . /etc/profile.d/vte.sh
+        __vte_osc7
+    fi
+fi

@@ -37,7 +37,7 @@ rofi.max-history-size:               25
 !-------------------------------------------!
 
 rofi.width:                          30
-rofi.font:                          Hurmit NF 8
+rofi.font:                           Hack Nerd Font 8
 rofi.location:                       0
 ! rofi.padding:                        5
 ! rofi.yoffset:                        0

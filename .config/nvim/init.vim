@@ -100,6 +100,7 @@ Plug 'mjturt/vim-airline-themes'
 
 " -- Git --
 Plug 'airblade/vim-gitgutter'
+Plug 'zivyangll/git-blame.vim'
 
 " -- Colors --
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -157,6 +158,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme='dracula'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.maxlinenr = ''
+
 
 " -- Vim-markdown --
 let g:vim_markdown_conceal = 0
@@ -359,6 +365,7 @@ noremap <silent> <Leader>tw :call ToggleWrap()<CR>
 noremap <silent> <leader>tn :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>ts :set spell!<cr>
 noremap <leader>ta :ALEToggle<CR>
+noremap <leader>tg :<C-u>call gitblame#echo()<CR>
 " -- Formatting / Fixing (f)
 let g:lmap.f = { 'name' : 'Formatting / Fixing' }
 noremap <leader>fq gqap

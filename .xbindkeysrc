@@ -60,6 +60,12 @@ Control+Alt+c
 "poly"
 Control+Alt+p
 
+"autorandr -c"
+Control+Alt+a
+
+"lock"
+Alt+x
+
 ### Rofi-related
 
 #"scrot 'screenshot_%d-%m-%Y_%H%M%S_$wx$h.png' -e 'mv $f ~/cloud/images/screenshots/'"
@@ -75,12 +81,6 @@ Alt+space
 "rofi -show run"
 Alt+r
 
-"rofi-notes"
-Alt+n
-
-"lock"
-Alt+x
-
 "rofi-surfraw"
 Control+space
 
@@ -90,7 +90,7 @@ Alt+y
 "rofi -show calc -modi calc -no-show-match -no-sort"
 Alt+q
 
-"rofi -show emoji -modi emoji"
+"rofimoji"
 Alt+e
 
 "rofi-pass"

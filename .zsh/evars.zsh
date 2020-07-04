@@ -4,7 +4,9 @@
 
 ## Common enviroment variables (host-specific enviroment variables are set in ~/.zprofile)
 
-export TERM="xterm-256color"
+if [[ $TERM == "xterm-termite" ]]; then
+    export TERM="xterm-256color"
+fi
 export EDITOR="nvim"
 export RANGER_LOAD_DEFAULT_RC=TRUE
 export PAGER="less"

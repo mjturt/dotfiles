@@ -122,6 +122,10 @@ alias env-init="source ~/dev/pythonenv/bin/activate"
 alias r="lf-cd"
 alias f="fff-cd"
 
+# VM
+alias vm-edit="virsh -c qemu:///system edit win10"
+alias vm-start="virsh -c qemu:///system start win10"
+
 ## Other
 alias fbvar="export TERM=fbterm"
 alias c="syntax-highlighting"
@@ -136,3 +140,4 @@ alias n="nvims ~/cloud/Notes/stuff.md"
 alias gitlab="gitlab-runner exec docker"
 alias storage="sudo mount /mnt/storage"
 alias checkports="sudo netstat -tulpn | grep LISTEN"
+alias pfzf="pass-fzf"

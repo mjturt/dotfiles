@@ -25,10 +25,7 @@ whatsapp-nativefier-dark &
 discord-canary &
 slack &
 telegram-desktop &
-termite.mutt &
-termite.weechat &
 
 ## Window manager
 i3.config &
-i3.layour &
 i3

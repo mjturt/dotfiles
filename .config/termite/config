@@ -3,9 +3,9 @@
 #┃ mjturt
 
 [options]
-font = Twitter Color Emoji 7
-font = Unifont 7
-font = BlexMono NF 7
+font = Twemoji 8
+font = Unifont 8
+font = Hack Nerd Font Mono 8
 scrollback_lines = 50000
 
 # "system", "on" or "off"
