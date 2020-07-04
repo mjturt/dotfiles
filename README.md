@@ -22,29 +22,26 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 + Torrent client:       **transmission**
 + Mail client:          **mutt**
 
-Builds of suckless tools are in [this repo](https://github.com/mjturt/suckless).
 
 ![Screenshot](screenshots/screenshot.png?raw=true)
 
-Colors: [Sourcerer](https://github.com/xero/sourcerer).
-
-Fonts: Plex, Gohu, OhSnap. Patched versions with icons from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
+Fonts: Hack, OhSnap. Patched versions with icons from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
 
 ZSH prompt: [distroprompt-zsh](https://github.com/mjturt/distroprompt-zsh).
 
 ### Linux console
 
-Proper kernel and driver support with properly generated initramfs needed to get 1920x1080 resolution support in console(without X11/Wayland). Fbterm (framebuffer terminal emulator) is used to get background image and true type font support. [Startup scrip](scripts/sh/fb).
+Proper kernel and driver support with properly generated initramfs needed to get 1920x1080 resolution support in console(without X11/Wayland). Fbterm is used to get background image and true type font support. [Screenshot](screenshots/console.png?raw=true).
 
-[Console screenshot](screenshots/console.png?raw=true)
-
-### Scripts
+### Other
 
 Collection of scripts can be found in [scripts repository](https://github.com/mjturt/scripts).
 
+Builds of suckless tools are in [this repo](https://github.com/mjturt/suckless).
+
 ### install.sh
 
-install.sh script is designed for personal use and even though it makes always backups it is not recommended to use. Help:
+`install.sh` script is designed for personal use and even though it always makes backups it is not recommended to use. Help:
 ```
 ./install.sh --help
 ```
