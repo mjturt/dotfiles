@@ -7,8 +7,7 @@
 #---------------------#
 
 ### Terminal
-# "urxvt"
-"termite"
+"termite -d $(xcwd)"
 Mod4 + Return
 
 ### Screen

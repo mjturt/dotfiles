@@ -6,7 +6,7 @@
 font = Twemoji 8
 font = Unifont 8
 font = Hack Nerd Font Mono 8
-scrollback_lines = 50000
+scrollback_lines = 150000
 
 # "system", "on" or "off"
 #cursor_blink = system

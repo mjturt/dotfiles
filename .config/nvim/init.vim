@@ -42,38 +42,41 @@ Plug 'honza/vim-snippets'
 
 " -- Lint / LanguageClient / Completion --
 if os=="linux"
-    Plug 'w0rp/ale', { 'do': '
-                \npm install -g stylelint fixjson jsonlint eslint prettier vim-language-server bash-language-server;
-                \npm install -g textlint write-good markdownlint tidy;
-                \npm install -g git+https://github.com/projectatomic/dockerfile_lint;
-                \composer global require felixfbecker/language-server friendsofphp/php-cs-fixer phan/phan;
-                \sudo pacman -S --noconfirm mypy python-pylint flake8 python-isort;
-                \sudo pacman -S --noconfirm shellcheck shfmt tidy php-tidy texlab;
-                \sudo pacman -S --noconfirm proselint languagetool;
-                \' }
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-sh', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-stylelint', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-texlab', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
 endif
 
 " -- Better/additional language support --
 Plug 'sheerun/vim-polyglot'
 Plug 'moll/vim-node'
 Plug 'alvan/vim-closetag'
-Plug 'Valloric/MatchTagAlways'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dbeniamine/vim-mail'
 Plug 'lervag/vimtex'
 Plug 'fatih/vim-go'
 
 " -- Additional features --
-Plug 'terryma/vim-multiple-cursors'
-Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'tpope/vim-surround'
 Plug 'xolox/vim-misc'
 Plug 'mbbill/undotree'
 Plug 'dbakker/vim-projectroot'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " -- UI --
 Plug 'farmergreg/vim-lastplace'
@@ -110,53 +113,12 @@ call plug#end()
 " Plugin settings
 " ---------------
 
-" -- ALE --
-let b:ale_linters = {
-            \'css': ['prettier', 'stylelint'],
-            \'scss': ['prettier', 'stylelint'],
-            \'python': ['flake8', 'pylint', 'mypy', 'pyls'],
-            \'json': ['jsonlint'],
-            \}
-let g:ale_fixers = {
-            \'*': ['remove_trailing_lines', 'trim_whitespace'],
-            \'javascript': ['prettier', 'eslint'],
-            \'css': ['prettier', 'stylelint'],
-            \'scss': ['prettier', 'stylelint'],
-            \'python': ['isort',  'autopep8'],
-            \'php': ['php_cs_fixer'],
-            \'sh': ['shfmt'],
-            \'json': ['fixjson', 'prettier'],
-            \'html': ['tidy', 'prettier'],
-            \}
-let g:ale_echo_msg_error_str = ''
-let g:ale_echo_msg_warning_str = ''
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-" -- Python
-let g:ale_python_autopep8_options = '-aaaaaa'
-let g:ale_python_pylint_options = '--load-plugins pylint_django --max-line-length=120'
-let g:ale_python_mypy_options = '--ignore-missing-imports'
-let g:ale_python_flake8_options = '--ignore=F401'
-let g:ale_python_auto_pipenv = 1
-let g:ale_python_pylint_auto_pipenv = 1
-let g:ale_python_pyls_config = {
-            \   'pyls': {
-            \   "configurationSources": ["flake8"]
-            \   },
-            \ }
-" -- PHP
-let g:ale_php_cs_fixer_options  = '--rules=@Symfony,@PhpCsFixer,-@PSR1,-blank_line_before_statement,indentation_type'
-" -- SH
-let g:ale_sh_shfmt_options = '-i 4 -ci -sr'
-
-" -- Deoplete --
-let g:deoplete#enable_at_startup = 1
+" -- COC --
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " -- Airline --
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
-let g:airline#extensions#ale#enabled = 1
 let g:airline_theme='dracula'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -175,7 +137,15 @@ let g:colorizer_maxlines = 1000
 set wildignore+=vendor/*,docs/*,node_modules/*,components/*,build/*,dist/*,tags
 let g:ctrlp_map = '<leader><Tab>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|.venv\'
+
+" -- Gutentags --
+let g:gutentags_file_list_command = {
+      \ 'markers': {
+      \ '.git': 'git ls-files',
+      \ },
+      \ }
+let g:gutentags_generate_on_new = 1
 
 " -- MatchTagAlways --
 let g:mta_filetypes = {
@@ -207,11 +177,20 @@ let g:lf_map_keys = 0
 let g:bclose_no_plugin_maps = 1
 
 " -- Vimtex --
-let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor  = 'latex'
 let g:tex_conceal = ''
 let g:vimtex_fold_manual = 1
 let g:vimtex_latexmk_continuous = 1
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 
 " -- Edge --
 let g:edge_style = 'neon'
@@ -252,12 +231,15 @@ set title
 set list listchars=tab:∙\ ,extends:,precedes:
 set laststatus=2
 set shortmess+=c
+set updatetime=300
+set cmdheight=2
 
 " -- Behavior --
 set matchpairs+=<:>
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set autochdir
+set complete=k**/*
 
 " -- Search --
 set showmatch
@@ -287,7 +269,8 @@ set scrolloff=3
 set backupdir=~/.cache/nvim/temp/backup
 set directory=~/.cache/nvim/temp/swap
 set undodir=~/.cache/nvim/temp/undo
-set backup
+set nobackup
+set nowritebackup
 set noswapfile
 set undofile
 
@@ -332,13 +315,29 @@ au BufRead /tmp/neomutt-* set tw=0
 " -- Basics --
 map <S-h> :bprevious<CR>
 map <S-l> :bnext<CR>
-nnoremap <cr> o<esc>
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+nnoremap <c-cr> o<esc>
 
-" -- Neosnippet
-imap <C-o> <Plug>(neosnippet_expand_or_jump)
-smap <C-o> <Plug>(neosnippet_expand_or_jump)
-xmap <C-o> <Plug>(neosnippet_expand_target)
+" -- COC --
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+imap <C-o> <Plug>(coc-snippets-expand)
+nmap <silent> <c-l> <Plug>(coc-diagnostic-next)
+nnoremap <silent> <c-K> :call <SID>show_documentation()<CR>
 
 " -- Leader key --
 let mapleader="\<Space>"
@@ -364,14 +363,16 @@ let g:lmap.t = { 'name' : 'Toggle vim settings' }
 noremap <silent> <Leader>tw :call ToggleWrap()<CR>
 noremap <silent> <leader>tn :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<CR>
 noremap <leader>ts :set spell!<cr>
-noremap <leader>ta :ALEToggle<CR>
 noremap <leader>tg :<C-u>call gitblame#echo()<CR>
 " -- Formatting / Fixing (f)
 let g:lmap.f = { 'name' : 'Formatting / Fixing' }
 noremap <leader>fq gqap
 noremap <Leader>fg gg=G
 noremap <leader>ft :%s/\s\+$//<cr>
-noremap <leader>fl :ALEFix<cr>
+noremap <leader>fl :call CocAction('format')<cr>
+noremap <leader>fp :CocCommand prettier.formatFile<cr>
+nmap <leader>ff <Plug>(coc-fix-current)
+nmap <leader>fo :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
 " -- Shortcut commands (s)
 let g:lmap.s = { 'name' : 'Shortcuts' }
 noremap <leader>ss :%s//g<LEFT><LEFT>
@@ -395,10 +396,8 @@ map <leader>R :call CompileAndRun()<CR>
 " Go to definitions (g)
 let g:lmap.d = { 'name' : 'Go to definitions' }
 noremap <leader>dd <c-]>
-noremap <leader>da :ALEGoToDefinition<CR>
-noremap <leader>dr :ALEFindReferences<CR>
-noremap <leader>dh :ALEHover<CR>
-noremap <leader>de <Plug>(ale_next_wrap)
+noremap <leader>da <Plug>(coc-definition)
+noremap <leader>dt :CtrlPTag<cr>
 " -- Generate strings (g)
 let g:lmap.g = { 'name' : 'Generate strings',
             \ 'p' : ['read !pwgen 10', 'Password'],
@@ -428,6 +427,14 @@ let g:lmap.c = { 'name' : 'NerdCommenter' }
 
 " Custom functions
 " ----------------
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " -- Compile and run --
 func! CompileAndRun()

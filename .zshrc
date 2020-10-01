@@ -119,10 +119,10 @@ if [[ "$TERM" == (screen*|xterm*|rxvt*) ]]; then
 fi
 
 DIRSTACKFILE="${HOME}/.cache/zsh/dirs"
-if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
-    dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
-    [[ -d "${dirstack[1]}" ]] && cd -- "${dirstack[1]}"
-fi
+# if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
+    # dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
+    # [[ -d "${dirstack[1]}" ]] && cd -- "${dirstack[1]}"
+# fi
 chpwd_dirstack() {
     print -l -- "$PWD" "${(u)dirstack[@]}" > "$DIRSTACKFILE"
 }
@@ -176,9 +176,9 @@ rm -rf ~/dbus-send.core
 # if [ -f '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Termite cd
-if [[ "$(hostname)" != "server" ]]; then
-    if [[ $TERM == xterm-256color ]]; then
-        . /etc/profile.d/vte.sh
-        __vte_osc7
-    fi
-fi
+# if [[ "$(hostname)" != "server" ]]; then
+    # if [[ $TERM == xterm-256color ]]; then
+        # . /etc/profile.d/vte.sh
+        # __vte_osc7
+    # fi
+# fi

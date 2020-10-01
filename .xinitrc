@@ -18,14 +18,11 @@ xrandr --output HDMI-0 --primary --auto --output DVI-I-1 --auto --right-of HDMI-
 dunst &
 picom -b --experimental-backends &
 greenclip daemon &
-spotify &
 ssh-irc-notifier &
 
-whatsapp-nativefier-dark &
-discord-canary &
-slack &
-telegram-desktop &
-
+# Fonts
+xset +fp /usr/share/fonts/local
+xset fp rehash
 sudo fc-cache -fs
 
 ## Window manager

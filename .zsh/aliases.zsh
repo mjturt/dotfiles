@@ -8,11 +8,13 @@ if [[ "$(uname)" == "FreeBSD" ]]; then
 else
    LSCMD="ls"
 fi
-alias ls="${LSCMD} --color -F"
-alias sl="${LSCMD} --color -F"
-alias ll="${LSCMD} --color -lh"
-alias la="${LSCMD} --color -ah"
-alias lla="${LSCMD} --color -lah"
+alias ls="lsd"
+alias sl="ls"
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
+alias l="ls -la"
+alias lt="ls --tree"
 
 alias cd..="cd .."
 alias ..="cd .."
@@ -125,6 +127,9 @@ alias f="fff-cd"
 # VM
 alias vm-edit="virsh -c qemu:///system edit win10"
 alias vm-start="virsh -c qemu:///system start win10"
+alias vm-stop="virsh -c qemu:///system shutdown win10"
+alias vm-reset="virsh -c qemu:///system reset win10"
+alias vm-forceoff="virsh -c qemu:///system destroy win10"
 
 ## Other
 alias fbvar="export TERM=fbterm"

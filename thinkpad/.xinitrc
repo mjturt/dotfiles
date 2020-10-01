@@ -14,17 +14,16 @@ xmodmap ~/.Xmodmap
 locktimer &
 dunst &
 picomtoggle &
-spotify &
 nm-applet &
 # setroot --span --blank-color "#2B303B"
 ~/.fehbg &
 greenclip daemon &
 ssh-irc-notifier &
 
-whatsapp-nativefier-dark &
-discord-canary &
-slack &
-telegram-desktop &
+# Fonts
+xset +fp /usr/share/fonts
+xset fp rehash
+sudo fc-cache -fs
 
 ## Window manager
 i3.config &

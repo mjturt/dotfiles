@@ -20,10 +20,14 @@ cyan = #0abdc6
 red = #ff0000
 overlay = #50505354
 
+[section/base]
+font-0 = Hack\ Nerd\ Font:size=8:antialias=true;0
+
 ; Bars ----------------------------------------------------------------
 ; ---------------------------------------------------------------------
 
 [bar/i3_r5_m1]
+inherit = section/base
 monitor = ${env:MONITOR:HDMI-0}
 width = 98.5%
 height = 35
@@ -51,10 +55,6 @@ padding-right = 3
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Misc\ Ohsnap:size=8:antialias=false;0
-font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
-font-2 = GohuFont\ Nerd\ Font\ Mono:size=14:antialias=true;0
-font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = distro i3 weather bitcoin playerctl volume picom vm
 modules-center = fsroot fsstorage
@@ -75,6 +75,7 @@ cursor-scroll = ns-resize
 override-redirect = true
 
 [bar/i3_r5_m2]
+inherit = section/base
 monitor = ${env:MONITOR:DVI-I-1}
 width = 98.5%
 height = 35
@@ -102,11 +103,6 @@ padding-right = 3
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Misc\ Ohsnap:size=8:antialias=false;0
-font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
-font-2 = GohuFont\ Nerd\ Font\ Mono:size=14:antialias=true;0
-font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
-
 modules-left = distro i3 weather bitcoin playerctl volume picom vm
 modules-center = fsroot fsstorage
 modules-right = cpu load memory temp_ryzen freq uptime agenda date
@@ -126,6 +122,7 @@ cursor-scroll = ns-resize
 override-redirect = true
 
 [bar/i3_yoga_m1]
+inherit = section/base
 monitor = ${env:MONITOR:eDP-1}
 width = 98.5%
 height = 35
@@ -153,11 +150,6 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Misc\ Ohsnap:size=8:antialias=false;0
-font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
-font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
-font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
-
 modules-left = distro i3 weather bitcoin volume picom touchpad touchkeyboard
 modules-center = backlight battery-yoga wireless-network-yoga
 modules-right = fsroot cpu temp uptime agenda date
@@ -177,6 +169,7 @@ cursor-scroll = ns-resize
 override-redirect = true
 
 [bar/i3_yoga_m2]
+inherit = section/base
 monitor = ${env:MONITOR:DP-1}
 width = 98.5%
 height = 35
@@ -202,10 +195,7 @@ padding-left = 0
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
-font-0 = Misc\ Ohsnap:size=8:antialias=false;0
-font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
-font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
-font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+
 modules-left = distro i3 weather volume picom playerctlnoinfo
 modules-center = backlight battery-yoga wireless-network-yoga
 modules-right =  fsroot cpu memory temp uptime agenda date
@@ -216,6 +206,7 @@ cursor-scroll = ns-resize
 override-redirect = true
 
 [bar/i3_yoga_m3]
+inherit = section/base
 monitor = ${env:MONITOR:HDMI-2}
 width = 98.5%
 height = 35
@@ -241,10 +232,7 @@ padding-left = 0
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
-font-0 = Misc\ Ohsnap:size=8:antialias=false;0
-font-1 = Misc\ Ohsnap:weight=bold:size=8:antialias=false;0
-font-2 = GohuFont\ Nerd\ Font:size=10:antialias=true;0
-font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+
 modules-left = distro i3 weather volume picom playerctlnoinfo
 modules-center = backlight battery-yoga wireless-network-yoga
 modules-right =  fsroot cpu memory temp uptime agenda date
@@ -518,7 +506,6 @@ format-prefix-foreground = ${colors.orange}
 type = custom/script
 exec = ~/.statusscripts/weather.sh "turku"
 label = %output%
-label-font = 2
 label-foreground = ${colors.foreground-alt}
 interval = 600
 
@@ -663,11 +650,8 @@ bar-volume-foreground-5 = ${colors.green}
 bar-volume-foreground-6 = ${colors.alert}
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
 bar-volume-fill = ─
-bar-volume-fill-font = 2
 bar-volume-empty = ─
-bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.blue}
 
 [module/powermenu]

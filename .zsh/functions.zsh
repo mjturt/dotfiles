@@ -96,3 +96,8 @@ nnn-cd()
             rm $NNN_TMPFILE
     fi
 }
+
+# activate python virtualenv
+function ve() {
+    source "$HOME"/.virtualenvs/"$1"/bin/activate
+}

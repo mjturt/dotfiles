@@ -10,7 +10,7 @@ set selection-clipboard clipboard
 set incremental-search true
 #set recolor "true"
 set recolor-keephue "false"
-set font "Hurmit NF 10"
+set font "Hack Nerd Font Mono 8"
 
 # Keybindings
 
