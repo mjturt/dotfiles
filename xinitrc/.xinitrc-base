@@ -1,6 +1,8 @@
-#┃ ~/.xinitrc (Thinkpad)
-#┣━━━━━━━━━━━━━━━━━━━━━━
+#┃ ~/.xinitrc
+#┣━━━━━━━━━━━
 #┃ mjturt
+
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 ## Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
@@ -9,19 +11,16 @@
 setxkbmap fi
 xbindkeys
 xsetroot -cursor_name left_ptr
-xmodmap ~/.Xmodmap
+~/.fehbg &
 
-locktimer &
 dunst &
 picomtoggle &
-nm-applet &
-# setroot --span --blank-color "#2B303B"
-~/.fehbg &
 greenclip daemon &
-ssh-irc-notifier &
+
+# HOST_SPECIFIC
 
 # Fonts
-xset +fp /usr/share/fonts
+xset +fp /usr/share/fonts/local
 xset fp rehash
 sudo fc-cache -fs
 

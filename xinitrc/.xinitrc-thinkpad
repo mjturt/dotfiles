@@ -1,0 +1,3 @@
+xmodmap ~/.Xmodmap
+locktimer &
+nm-applet &

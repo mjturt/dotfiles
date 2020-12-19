@@ -241,10 +241,8 @@ df_dunst() {
 # Xinit
 df_xinit() {
     backup_file ~/.xinitrc
-    if [[ $1 == "r5" ]]; then
-        ln -v -s "${DOT}"/.xinitrc ~/.xinitrc >> "$LOGS"
-    elif [[ $1 == "thinkpad" ]]; then
-        ln -v -s "${DOT}"/thinkpad/.xinitrc ~/.xinitrc >> "$LOGS"
+    if [[ "$1" == "r5" || "$1" == "thinkpad" ]]; then
+        sed -e "/# HOST_SPECIFIC/{r ${DOT}/xinitrc/.xinitrc-${1}" -e "d}" "${DOT}"/xinitrc/.xinitrc-base > ~/.xinitrc
     fi
 }
 

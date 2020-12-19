@@ -1,0 +1,1 @@
+xrandr --output HDMI-0 --primary --auto --output DVI-I-1 --auto --right-of HDMI-0
