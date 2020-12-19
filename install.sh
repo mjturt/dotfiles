@@ -242,26 +242,23 @@ df_dunst() {
 df_xinit() {
     backup_file ~/.xinitrc
     if [[ "$1" == "r5" || "$1" == "thinkpad" ]]; then
-        sed -e "/# HOST_SPECIFIC/{r ${DOT}/xinitrc/.xinitrc-${1}" -e "d}" "${DOT}"/xinitrc/.xinitrc-base > ~/.xinitrc
+        sed -e "/# HOST_SPECIFIC/{r ${DOT}/xinitrc/.xinitrc.${1}" -e "d}" "${DOT}"/xinitrc/.xinitrc.base > ~/.xinitrc
+        chmod +x ~/.xinitrc >> "$LOGS"
     fi
 }
 
 # Xbindkeys
 df_xbindkeys() {
-    backup_file ~/.xbindkeys
-    if [[ $1 == "r5" ]]; then
-        ln -v -s "${DOT}"/.xbindkeysrc ~/.xbindkeysrc >> "$LOGS"
-    elif [[ $1 == "thinkpad" ]]; then
-        ln -v -s "${DOT}"/thinkpad/.xbindkeysrc ~/.xbindkeysrc >> "$LOGS"
+    backup_file ~/.xbindkeysrc
+    if [[ "$1" == "r5" || "$1" == "thinkpad" ]]; then
+        cat "${DOT}"/xbindkeysrc/.xbindkeysrc.base "${DOT}"/xbindkeysrc/.xbindkeysrc."${1}" > ~/.xbindkeysrc
     fi
 }
 
 # Xmodmap
 df_xmodmap() {
     backup_file ~/.Xmodmap
-    if [[ $1 == "thinkpad" ]]; then
-        ln -v -s "${DOT}"/thinkpad/.Xmodmap ~/.Xmodmap >> "$LOGS"
-    fi
+    ln -v -s "${DOT}"/.Xmodmap ~/.Xmodmap >> "$LOGS"
 }
 
 # mpv

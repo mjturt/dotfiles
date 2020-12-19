@@ -1,13 +1,12 @@
-# ~/.xbindkeysrc (R5)
-# -------------------
-# mjturt
+#┃ ~/.xbindkeysrc
+#┣━━━━━━━━━━━━━
+#┃ mjturt
 
 # Keyboard
 # --------
 
 ### Terminal
 
-# "urxvt"
 "termite -d $(xcwd)"
 Mod4 + Return
 
@@ -40,7 +39,8 @@ XF86AudioRaiseVolume
 "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 XF86AudioLowerVolume
 
-"amixer set Master toggle"
+#"amixer set Master toggle"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
 XF86AudioMute
 
 ### Config reloads
@@ -109,3 +109,4 @@ Mod4+Tab
 
 "yad --color"
 Alt+c
+

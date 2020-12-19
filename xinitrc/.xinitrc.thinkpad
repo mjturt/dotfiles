@@ -1,3 +1,4 @@
+## Host specific
 xmodmap ~/.Xmodmap
 locktimer &
 nm-applet &

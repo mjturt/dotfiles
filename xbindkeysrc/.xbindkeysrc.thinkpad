@@ -1,0 +1,28 @@
+### Host specific
+
+"sudo /home/mjt/sh/backlight up 500"
+XF86MonBrightnessUp
+
+"sudo /home/mjt/sh/backlight down 500"
+XF86MonBrightnessDown
+
+"touchpadtoggle"
+Control+Alt+t
+
+"amixer set Capture toggle"
+XF86AudioMicMute
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+XF86LaunchA
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+XF86Explorer
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+XF86Tools
+
+"~/dev/saverium/scripts/auto-fill-forms.sh saverium_es"
+Control+Alt+z
+
+"~/dev/saverium/scripts/auto-fill-forms.sh saverium_fi_company_loans"
+Control+Alt+x
