@@ -159,26 +159,5 @@ if [[ "$OS" == "Linux" ]]; then
     source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
-### Autostart tmux
-
-# if [[ -n $DISPLAY ]] && [[ $(id -u) -ne 0 ]] && [[ "$(hostname)" != "server.turtia.org" ]]; then
-# [[ $- != *i* ]] && return
-# [[ -z "$TMUX" ]] && exec tmux
-# fi
-
 ### Remove some useless files
 rm -rf ~/dbus-send.core
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/home/mjt/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mjt/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Termite cd
-# if [[ "$(hostname)" != "server" ]]; then
-    # if [[ $TERM == xterm-256color ]]; then
-        # . /etc/profile.d/vte.sh
-        # __vte_osc7
-    # fi
-# fi

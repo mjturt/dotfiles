@@ -141,6 +141,9 @@ Control+Alt+Right
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 XF86AudioPlay
 
+"mulku"
+Control+Alt+m
+
 #-------------------------------------#
 # External mouse (Logitech MX Master) #
 #-------------------------------------#

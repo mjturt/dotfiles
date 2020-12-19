@@ -279,8 +279,13 @@ df_gpg() {
     fi
     backup_file ~/.gnupg/gpg.conf
     backup_file ~/.gnupg/gpg-agent.conf
-    ln -s -v "${DOT}"/.gnupg/gpg.conf ~/.gnupg/gpg.conf >> "$LOGS"
-    ln -s -v "${DOT}"/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf >> "$LOGS"
+    if [[ "$1" == "server" ]]; then
+        ln -s -v "${DOT}"/server/.gnupg/gpg.conf ~/.gnupg/gpg.conf >> "$LOGS"
+        ln -s -v "${DOT}"/server/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf >> "$LOGS"
+    else
+        ln -s -v "${DOT}"/.gnupg/gpg.conf ~/.gnupg/gpg.conf >> "$LOGS"
+        ln -s -v "${DOT}"/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf >> "$LOGS"
+    fi
 }
 
 # Rofi-pass

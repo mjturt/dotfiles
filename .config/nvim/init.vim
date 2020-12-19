@@ -58,6 +58,8 @@ if os=="linux"
     Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-sh', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
 endif
 
 " -- Better/additional language support --

@@ -67,7 +67,7 @@ alias tls="tmux list-sessions"
 alias tlk="tmux list-keys"
 alias tlkc="tmux list-keys -T copy-mode-vi"
 alias tmux-d="tmux a -dt"
-alias irs="tmux a -dt irc"
+alias irs="tmux -L weechat attach -d"
 
 ## Toilet
 alias rustofat="toilet -f rustofat --gay"
@@ -104,7 +104,7 @@ alias worlds="ranger ~/cloud/txt/worlds"
 
 ## Mutt
 alias muttlocal="mutt -F ~/.mutt/muttrc-local"
-alias mutt="cd ~/cloud/attachments && neomutt"
+alias mutt="cd ~/Downloads && neomutt"
 
 # gcalcli
 alias gcal-agenda="gcalcli agenda --color-owner=red --military"
