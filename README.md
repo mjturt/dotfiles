@@ -7,7 +7,7 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 + Text editor:          **neovim**
 + Window manager:       **i3**
 + Panel:                **polybar**
-+ Terminal emulator:    **termite**
++ Terminal emulator:    **alacritty**
 + Shell:                **zsh**
 + Terminal multiplexer: **tmux**
 + File manager:         **lf**
@@ -25,7 +25,7 @@ This repository is attempt to bring my dotfiles under version controlling. Opera
 
 ![Screenshot](screenshots/screenshot.png?raw=true)
 
-Fonts: Hack, OhSnap. Patched versions with icons from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
+Font: Hack. Patched version with icons from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
 
 ZSH prompt: [distroprompt-zsh](https://github.com/mjturt/distroprompt-zsh).
 
@@ -41,7 +41,7 @@ Builds of suckless tools are in [this repo](https://github.com/mjturt/suckless).
 
 ### install.sh
 
-`install.sh` script is designed for personal use and even though it always makes backups it is not recommended to use. Help:
+`install.sh` script is designed for personal use and even though it always makes backups it's not recommended to use. Help:
 ```
 ./install.sh --help
 ```
