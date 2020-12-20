@@ -1,6 +1,6 @@
-# ~/.config/i3/config.base
-# ------------------------
-# mjturt
+#┃ ~/.config/i3/config
+#┣━━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
 
 ### Variables
 
@@ -20,11 +20,11 @@ set $ws10 "10"
 ### Gaps
 gaps outer 0
 gaps inner 15
-gaps bottom 35
+gaps bottom 25
 
 ### Basic settings
 
-font pango:BlexMono Nerd Font 8
+font pango:Hack Nerd Font Mono 8
 
 floating_modifier $mod
 
@@ -123,19 +123,19 @@ for_window [class="Gimp"] floating enable
 ### Colors (Dracula)
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4366a1 #4366a1 #000b1e #69a0ff #4366a1
-client.focused_inactive #000b1e #000b1e #1afe49 #000b1e #000b1e
-client.unfocused        #000b1e #000b1e #d300c4 #000b1e #000b1e
-client.urgent           #d300c4 #d300c4 #000b1e #d300c4 #d300c4
+client.focused          #bf616a #bf616a #2e3440 #88c0d0 #bf616a
+client.focused_inactive #2e3440 #2e3440 #a3be8c #2e3440 #2e3440
+client.unfocused        #2e3440 #2e3440 #d8dee9 #2e3440 #2e3440
+client.urgent           #d8dee9 #d8dee9 #2e3440 #d8dee9 #d8dee9
 
-client.background       #000b1e
+client.background       #2e3440
 
 ### Autostart
 exec poly
 exec_always --no-startup-id autotiling
 exec --no-startup-id "i3.layout"
-exec --no-startup-id "termite.mutt"
-exec --no-startup-id "termite.weechat"
+exec --no-startup-id "alacritty.mutt"
+exec --no-startup-id "alacritty.weechat"
 exec --no-startup-id "spotify"
 
 exec --no-startup-id "whatsapp-nativefier-dark"

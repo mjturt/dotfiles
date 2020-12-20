@@ -7,7 +7,7 @@
 
 ### Terminal
 
-"termite -d $(xcwd)"
+"alacritty"
 Mod4 + Return
 
 ### Media keys

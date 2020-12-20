@@ -1,5 +1,5 @@
-#┃ ~/.zprofile (R5 & tp)
-#┣━━━━━━━━━━━━━━━━━━━━━━
+#┃ ~/.zprofile
+#┣━━━━━━━━━━━━
 #┃ mjturt
 
 export LC_TIME="fi_FI.utf8"

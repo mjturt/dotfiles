@@ -150,9 +150,9 @@ source $HOME/.zsh/themes/spaceship-settings.zsh
 ### Dircolors
 
 if [[ "$OS" = "FreeBSD" ]]; then
-    eval `gdircolors ~/.zsh/dircolors/gruvbox.dircolors`
+    eval `gdircolors ~/.zsh/dircolors/nord.dircolors`
 else
-    eval `dircolors ~/.zsh/dircolors/gruvbox.dircolors`
+    eval `dircolors ~/.zsh/dircolors/nord.dircolors`
 fi
 
 if [[ "$OS" == "Linux" ]]; then

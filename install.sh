@@ -107,7 +107,7 @@ commons_x11() {
     df_rofipass
     df_dunst
     df_teiler
-    df_termite
+    df_alacritty
     df_logiops
     df_betterlockscreen
     df_polybar
@@ -377,6 +377,12 @@ df_lf() {
 df_termite() {
     backup_file ~/.config/termite
     ln -s -v "${DOT}"/.config/termite ~/.config/termite >> "$LOGS"
+}
+
+# alacritty
+df_alacritty() {
+    backup_file ~/.config/alacritty
+    ln -s -v "${DOT}"/.config/alacritty ~/.config/alacritty >> "$LOGS"
 }
 
 # logiops

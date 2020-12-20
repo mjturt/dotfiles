@@ -108,7 +108,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'zivyangll/git-blame.vim'
 
 " -- Colors --
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -121,7 +121,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " -- Airline --
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
-let g:airline_theme='dracula'
+let g:airline_theme='nord'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -204,7 +204,7 @@ let g:dracula_colorterm = 0
 " Settings
 " --------
 
-colorscheme dracula
+colorscheme nord
 
 set nocompatible
 set encoding=utf-8
