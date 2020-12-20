@@ -19,7 +19,7 @@ set $ws10 "10"
 
 ### Gaps
 gaps outer 0
-gaps inner 15
+gaps inner 10
 gaps bottom 25
 
 ### Basic settings
@@ -123,7 +123,7 @@ for_window [class="Gimp"] floating enable
 ### Colors (Dracula)
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #bf616a #bf616a #2e3440 #88c0d0 #bf616a
+client.focused          #bf616a #2e3440 #d8dee9 #88c0d0 #bf616a
 client.focused_inactive #2e3440 #2e3440 #a3be8c #2e3440 #2e3440
 client.unfocused        #2e3440 #2e3440 #d8dee9 #2e3440 #2e3440
 client.urgent           #d8dee9 #d8dee9 #2e3440 #d8dee9 #d8dee9

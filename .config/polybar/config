@@ -19,4 +19,8 @@ compositing-overline = over
 compositing-underline = over
 compositing-border = over
 
+; custom variables
+
+scripts-path = ~/.statusscripts/polybar/
+
 ; vim:ft=dosini

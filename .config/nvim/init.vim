@@ -33,6 +33,26 @@ let user = substitute(system("whoami"), '\n\+$', '', '')
 " Plugins
 " -------
 
+let g:coc_global_extensions = [
+  \ 'coc-python',
+  \ 'coc-css',
+  \ 'coc-eslint',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-markdownlint',
+  \ 'coc-phpls',
+  \ 'coc-sh',
+  \ 'coc-stylelint',
+  \ 'coc-tsserver',
+  \ 'coc-vimtex',
+  \ 'coc-texlab',
+  \ 'coc-snippets',
+  \ 'coc-prettier',
+  \ 'coc-tabnine',
+  \ 'coc-sh',
+  \ 'coc-diagnostic'
+  \ ]
+
 call plug#begin('~/.cache/nvim/plugins')
 
 " -- Snippets --
@@ -41,26 +61,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 
 " -- Lint / LanguageClient / Completion --
-if os=="linux"
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-sh', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-stylelint', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-texlab', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-sh', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
-endif
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " -- Better/additional language support --
 Plug 'sheerun/vim-polyglot'
@@ -257,8 +258,8 @@ set foldmethod=indent
 
 " -- Indent / tab-key behavior --
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set smarttab
 set autoindent
 set smartindent
