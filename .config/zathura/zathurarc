@@ -8,9 +8,9 @@ set zoom-step 20
 set scroll-step 80
 set selection-clipboard clipboard
 set incremental-search true
-#set recolor "true"
 set recolor-keephue "false"
 set font "Hack Nerd Font Mono 8"
+set sandbox none
 
 # Keybindings
 
@@ -34,32 +34,32 @@ map , mark_evaluate
 
 # Colors
 
-set default-bg                  "#332733" #00
-set default-fg                  "#719611" #01
+set default-bg                  "#2e3440" #00
+set default-fg                  "#d8dee9" #01
 
-set statusbar-fg                "#87875f" #04
-set statusbar-bg                "#222222" #01
+set statusbar-fg                "#d8dee9" #04
+set statusbar-bg                "#4C566A" #01
 
-set inputbar-bg                 "#c2c2b0" #00
-set inputbar-fg                 "#528b8b" #02
+set inputbar-bg                 "#2e3440" #00
+set inputbar-fg                 "#d8dee9" #02
 
-set notification-error-bg       "#ff6a6a" #08
-set notification-error-fg       "#222222" #00
+set notification-error-bg       "#bf616a" #08
+set notification-error-fg       "#2e3440" #00
 
-set notification-warning-bg     "#0188aa" #08
-set notification-warning-fg     "#272822" #00
+set notification-warning-bg     "#88c0d0" #08
+set notification-warning-fg     "#2e3440" #00
 
-set highlight-color             "#0e868b" #0A
-set highlight-active-color      "#272822" #0D
+set highlight-color             "#81a1c1" #0A
+set highlight-active-color      "#2e3440" #0D
 
-set completion-highlight-fg     "#272822"  #02
-set completion-highlight-bg     "#8181a6" #0C
+set completion-highlight-fg     "#2e3440"  #02
+set completion-highlight-bg     "#88c0d0" #0C
 
-set completion-bg               "#d3d3d3" #02
-set completion-fg               "#272822" #0C
+set completion-bg               "#434C5E" #02
+set completion-fg               "#d8dee9" #0C
 
-set notification-bg             "#cc8800" #0B
-set notification-fg             "#272822" #00
+set notification-bg             "#ebcb8b" #0B
+set notification-fg             "#2e3440" #00
 
-set recolor-lightcolor          "#b3bf96" #00
-set recolor-darkcolor           "#0e1713" #06
+set recolor-lightcolor          "#d8dee9" #00
+set recolor-darkcolor           "#2e3440" #06
