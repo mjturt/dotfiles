@@ -1,6 +1,6 @@
-# ~/.config/feh/keys
-# ------------------
-# mjturt
+#┃ ~/.config/feh/keys
+#┣━━━━━━━━━━━━━━━━━━━
+#┃ mjturt
 
 toggle_keep_vp
 
@@ -21,3 +21,5 @@ menu_up     k Up
 menu_select space Return
 toggle_menu Tab
 toggle_fullscreen f F5
+reload_image R
+orient_1 r greater
