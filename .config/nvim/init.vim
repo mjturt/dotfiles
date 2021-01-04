@@ -286,7 +286,7 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 highlight Tabs ctermfg=darkgreen
 match Tabs /\t/
-autocmd FileType mail  highlight ExtraWhitespace ctermbg=NONE guibg=NONE
+autocmd FileType mail highlight ExtraWhitespace ctermbg=NONE guibg=NONE
 
 " -- Python path --
 if os=="freebsd"
