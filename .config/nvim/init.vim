@@ -53,6 +53,8 @@ let g:coc_global_extensions = [
   \ 'coc-diagnostic'
   \ ]
 
+let g:polyglot_disabled = ['csv']
+
 call plug#begin('~/.cache/nvim/plugins')
 
 " -- Snippets --
@@ -127,7 +129,6 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.maxlinenr = ''
-
 
 " -- Vim-markdown --
 let g:vim_markdown_conceal = 0

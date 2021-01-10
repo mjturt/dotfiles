@@ -120,13 +120,13 @@ for_window [class="Yad"] floating enable
 for_window [class="Godot"] floating enable
 for_window [class="Gimp"] floating enable
 
-### Colors (Dracula)
+### Colors (Nord)
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #bf616a #2e3440 #d8dee9 #88c0d0 #bf616a
 client.focused_inactive #2e3440 #2e3440 #a3be8c #2e3440 #2e3440
 client.unfocused        #2e3440 #2e3440 #d8dee9 #2e3440 #2e3440
-client.urgent           #d8dee9 #d8dee9 #2e3440 #d8dee9 #d8dee9
+client.urgent           #88c0d0 #88c0d0 #2e3440 #88c0d0 #88c0d0
 
 client.background       #2e3440
 

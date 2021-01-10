@@ -1,1 +1,4 @@
 ### Host specific
+
+"xset dpms force off"
+Control+Alt+z

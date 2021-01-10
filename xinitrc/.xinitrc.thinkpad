@@ -2,3 +2,4 @@
 xmodmap ~/.Xmodmap
 locktimer &
 nm-applet &
+blueman-manager &
