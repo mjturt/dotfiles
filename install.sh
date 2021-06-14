@@ -420,6 +420,12 @@ df_autorandr() {
     ln -s -v "${DOT}"/.config/autorandr ~/.config/autorandr >> "$LOGS"
 }
 
+# redshift
+df_redshift() {
+    backup_file ~/.config/redshift
+    ln -s -v "${DOT}"/.config/redshift ~/.config/redshift >> "$LOGS"
+}
+
 df_test() {
     echo "Just test"
 }

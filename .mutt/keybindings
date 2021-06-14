@@ -60,3 +60,10 @@ macro index,pager a "|abook --add-email\n" 'add sender to abook'
 macro index,pager iu '<sync-mailbox><enter-command>source /home/mjt/.mutt/accounts/utu/account<enter><change-folder>!<enter>;<check-stats>' "switch to mjturt@utu.fi"
 macro index,pager ii '<sync-mailbox><enter-command>source /home/mjt/.mutt/accounts/gmail/account<enter><change-folder>!<enter>;<check-stats>' "switch to maks.turtiainen@gmail.com"
 macro index,pager io '<sync-mailbox><enter-command>source /home/mjt/.mutt/accounts/lvs/account<enter><change-folder>!<enter>;<check-stats>' "switch to maks.turtiainen@lvsbrokers.com"
+
+macro index A \
+    "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+    "mark all new as read"
+
+#macro index <f42> "T ~O | ~N\n;N"
+

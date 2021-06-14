@@ -50,7 +50,8 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-tabnine',
   \ 'coc-sh',
-  \ 'coc-diagnostic'
+  \ 'coc-diagnostic',
+  \ 'coc-yaml'
   \ ]
 
 let g:polyglot_disabled = ['csv']
@@ -73,6 +74,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'dbeniamine/vim-mail'
 Plug 'lervag/vimtex'
 Plug 'fatih/vim-go'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " -- Additional features --
 Plug 'scrooloose/nerdcommenter'
@@ -100,6 +102,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " -- Files --
 Plug 'ptzz/lf.vim'
+Plug 'voldikss/vim-floaterm'
 Plug 'rbgrouleff/bclose.vim'
 
 " -- Airline --
@@ -203,6 +206,13 @@ let g:edge_transparent_background = 1
 " -- Dracula --
 let g:dracula_colorterm = 0
 
+" -- nginx-language-server --
+augroup custom_nginx
+  autocmd!
+  autocmd FileType nginx set iskeyword+=$
+  autocmd FileType nginx let b:coc_additional_keywords = ['$']
+augroup end
+
 " Settings
 " --------
 
@@ -218,6 +228,7 @@ if os == "freebsd"
         set clipboard=
     endif
 endif
+set iskeyword-=_
 
 " -- Syntax/filetype --
 syntax on
@@ -232,7 +243,7 @@ set showcmd
 set report=0
 set titlestring=%(\ %M%)%(\ %F%)%a\ -\ 
 set title
-set list listchars=tab:∙\ ,extends:,precedes:
+set list listchars=tab:⇥\ ,extends:,precedes:
 set laststatus=2
 set shortmess+=c
 set updatetime=300
@@ -306,9 +317,9 @@ autocmd VimLeave * call system("xsel -ib", getreg('+'))
 let g:tex_flavor = 'tex'
 
 " -- Vue --
-autocmd FileType vue syntax sync fromstart
-autocmd BufEnter *.vue :setlocal filetype=javascript
-autocmd BufEnter *.vue :setlocal syntax=javascript
+" autocmd FileType vue syntax sync fromstart
+" autocmd BufEnter *.vue :setlocal filetype=javascript
+" autocmd BufEnter *.vue :setlocal syntax=javascript
 
 " -- Mail --
 au BufRead /tmp/neomutt-* set tw=0
@@ -319,7 +330,7 @@ au BufRead /tmp/neomutt-* set tw=0
 " -- Basics --
 map <S-h> :bprevious<CR>
 map <S-l> :bnext<CR>
-nnoremap <c-cr> o<esc>
+nmap <c-cr> o<esc>
 
 " -- COC --
 inoremap <silent><expr> <TAB>
@@ -400,7 +411,7 @@ map <leader>R :call CompileAndRun()<CR>
 " Go to definitions (g)
 let g:lmap.d = { 'name' : 'Go to definitions' }
 noremap <leader>dd <c-]>
-noremap <leader>da <Plug>(coc-definition)
+nmap <leader>da <Plug>(coc-definition)
 noremap <leader>dt :CtrlPTag<cr>
 " -- Generate strings (g)
 let g:lmap.g = { 'name' : 'Generate strings',
@@ -408,17 +419,19 @@ let g:lmap.g = { 'name' : 'Generate strings',
             \ 'l' : ['read !echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', 'Lorem ipsum'],
             \ 'd' : ['Newdot', 'Dotfile header'],
             \ 's' : ['Shebang', 'Shebang line'],
+            \ 'h' : ['NewHTML', 'HTML template'],
             \}
 nmap <leader>gp :read !pwgen 10<CR>
 nmap <leader>gl :read !echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'<CR>
-nmap <leader>gd :Newdot<CR>
+" nmap <leader>gd :Newdot<CR>
 nmap <leader>gs :Shebang<CR>
+nmap <leader>gh :NewHTML<CR>
 " -- Panes (p)
 let g:lmap.p = { 'name' : 'Panes' }
-nnoremap <silent> <Leader>ph :exe "vertical resize -5"<CR>
-nnoremap <silent> <Leader>pj :exe "resize -5"<CR>
-nnoremap <silent> <Leader>pk :exe "resize +5"<CR>
-nnoremap <silent> <Leader>pl :exe "vertical resize +5"<CR>
+nnoremap <silent> <Leader>H :exe "vertical resize -5"<CR>
+nnoremap <silent> <Leader>J :exe "resize -5"<CR>
+nnoremap <silent> <Leader>K :exe "resize +5"<CR>
+nnoremap <silent> <Leader>L :exe "vertical resize +5"<CR>
 nnoremap <silent> <Leader>pp <c-w><c-w>
 " -- Gitgutter (h)
 let g:lmap.h = { 'name' : 'Gitgutter' }
@@ -462,9 +475,10 @@ func! CompileAndRun()
       exec "!go build %<"
       exec "!time go run %"
    elseif &filetype == 'markdown'
-      exec "!$BROWSER http://localhost:6419/ & grip %"
+      exec "MarkdownPreviewToggle"
    elseif &filetype == 'tex'
-      exec "!pdflatex -shell-escape % && biber %< && pdflatex -shell-escape %"
+     exec "VimtexCompile"
+      " exec "!pdflatex -shell-escape % && biber %< && pdflatex -shell-escape %"
       " exec "!zathura %<.pdf &"
    endif
 endfunc
@@ -505,6 +519,7 @@ endfunction
 " -- New files --
 command! Shebang 0put =\"#!/usr/bin/env bash\<nl>\"|$
 command! Newdot 0put =\"#┃ ~/\<nl>#┣━━━━━━━━━\<nl>#┃ mjturt\"|normal gg$
+command! NewHTML put =\"<!DOCTYPE html>\<nl>\<nl><html>\<nl>  <head>\<nl>    <title></title>\<nl>    <meta charset=utf-8>\<nl>  </head>\<nl>\<nl>  <body>\<nl>  </body>\<nl></html>\"|normal gg$|0d =|4j11l
 
 " Tips
 " ----

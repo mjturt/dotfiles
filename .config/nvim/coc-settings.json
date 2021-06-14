@@ -16,7 +16,9 @@
     "coc-prettier",
     "coc-tabnine",
     "coc-sh",
-    "coc-diagnostic"
+    "coc-diagnostic",
+    "coc-yaml",
+    "coc-vetur"
   ],
   "python.jediEnabled": false,
   "python.linting.pylintEnabled": true,
@@ -41,5 +43,12 @@
   "markdownlint.config": {
     "default": true,
     "line_length": false
+  },
+  "languageserver": {
+    "nginx-language-server": {
+      "command": "nginx-language-server",
+      "filetypes": ["nginx"],
+      "rootPatterns": ["nginx.conf", ".git"]
+    }
   }
 }

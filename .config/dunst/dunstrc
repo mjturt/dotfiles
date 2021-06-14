@@ -312,6 +312,7 @@ separator_color = frame
     background = "#2e3440"
     frame_color = "#a3be8c"
     foreground = "#d8dee9"
+    timeout = 5
     #icon = /path/to/icon
 
 [base16_normal]
@@ -319,6 +320,7 @@ separator_color = frame
     background = "#2e3440"
     frame_color = "#88c0d0"
     foreground = "#d8dee9"
+    timeout = 5
     #icon = /path/to/icon
 
 [base16_critical]
@@ -326,6 +328,7 @@ separator_color = frame
     background = "#2e3440"
     frame_color = "#bf616a"
     foreground = "#d8dee9"
+    timeout = 5
     #icon = /path/to/icon
 
 # Every section that isn't one of the above is interpreted as a rules to

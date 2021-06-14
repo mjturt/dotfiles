@@ -8,9 +8,10 @@ workspace $ws1 output eDP-1
 workspace $ws2 output eDP-1
 workspace $ws3 output eDP-1
 workspace $ws4 output DP-1 eDP-1
-workspace $ws5 output DP-1 eDP-1
-workspace $ws6 output DP-1 eDP-1
-workspace $ws7 output DP-1 eDP-1
+
+workspace $ws5 output HDMI-2 eDP-1
+workspace $ws6 output HDMI-2 eDP-1
+workspace $ws7 output HDMI-2 eDP-1
 workspace $ws8 output HDMI-2 eDP-1
 workspace $ws9 output HDMI-2 eDP-1
 workspace $ws10 output HDMI-2 eDP-1

@@ -28,6 +28,8 @@ set scrolloff 10
 # icons
 set icons
 
+mouse on
+
 # Keybindings
 # ----------
 
@@ -51,8 +53,8 @@ map uu unselect
 map uy clear
 
 map ev $$EDITOR $f
-map eo $libreoffice $f
-map eg $gimp $f
+map eo &libreoffice $f
+map eg &gimp $f
 # open directory in feh
 # map ef &feh -d $f
 map ef &dir="$(pwd)" && feh -d $dir
@@ -111,8 +113,8 @@ map xX $tmux splitw "zsh -c \"$f ;zsh\""
 map xc $chmod +x $f
 map chx $chmod +x $f
 # dedicated keys for file opener actions
-map o &mimeopen $f
-map O $mimeopen --ask $f
+map o &xdg-open $f
+map O $open-ask $f
 # new files
 map CM push %mkdir<space>
 map CF push %touch<space>
@@ -158,6 +160,7 @@ cmd open ${{
     text/*) $EDITOR $fx;;
     application/pdf) zathura $f &;;
     audio/*) mpv $f;;
+    inode/x-empty) $EDITOR $fx;;
     *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
   esac
 }}
@@ -194,7 +197,7 @@ cmd extract ${{
     *.Z)        uncompress        $f;;
     *.tar.xz)   tar         xJf   $f;;
     *.xz)       xz          -d    $f;;
-    *.7z)       p7zip       e     $f;;
+    *.7z)       7z          e     $f;;
   esac
 }}
 

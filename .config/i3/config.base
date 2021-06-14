@@ -31,7 +31,8 @@ floating_modifier $mod
 # <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
 default_floating_border none
-for_window [class=".*"] border pixel 2
+#for_window [class=".*"] border pixel 2
+for_window [class=".*"] border normal
 #hide_edge_borders both
 
 title_align center
@@ -54,10 +55,10 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+Control+h resize shrink width 2 px or 2 ppt
-bindsym $mod+Control+j resize grow height 2 px or 2 ppt
-bindsym $mod+Control+k resize shrink height 2 px or 2 ppt
-bindsym $mod+Control+l resize grow width 2 px or 2 ppt
+bindsym $mod+Control+h resize shrink width 3 px or 3 ppt
+bindsym $mod+Control+j resize grow height 3 px or 3 ppt
+bindsym $mod+Control+k resize shrink height 3 px or 3 ppt
+bindsym $mod+Control+l resize grow width 3 px or 3 ppt
 
 bindsym $mod+minus split toggle
 
@@ -104,10 +105,13 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Control+u gaps inner all plus 5
 bindsym $mod+Control+m gaps inner all minus 5
 
-bindsym button3 kill
+bindsym --release button2 kill
 
 bindsym $mod+m focus output left
 bindsym $mod+comma focus output right
+
+bindsym $mod+Shift+b border normal
+bindsym $mod+Shift+Ctrl+b border pixel 2
 
 ### Assigning clients to workspaces
 
@@ -123,10 +127,10 @@ for_window [class="Gimp"] floating enable
 ### Colors (Nord)
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #bf616a #2e3440 #d8dee9 #88c0d0 #bf616a
-client.focused_inactive #2e3440 #2e3440 #a3be8c #2e3440 #2e3440
+client.focused          #5E81AC #5E81AC #d8dee9 #BF616A #5E81AC
+client.focused_inactive #2e3440 #2e3440 #88C0D0 #2e3440 #2e3440
 client.unfocused        #2e3440 #2e3440 #d8dee9 #2e3440 #2e3440
-client.urgent           #88c0d0 #88c0d0 #2e3440 #88c0d0 #88c0d0
+client.urgent           #81A1C1 #81A1C1 #2e3440 #81A1C1 #81A1C1
 
 client.background       #2e3440
 
@@ -143,4 +147,5 @@ exec --no-startup-id "discord-canary"
 exec --no-startup-id "slack"
 exec --no-startup-id "telegram-desktop"
 exec --no-startup-id "caprine"
+exec --no-startup-id "signal-desktop"
 
